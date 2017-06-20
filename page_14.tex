@@ -1,0 +1,183 @@
+\textbf{Conjunto \(\Sigma \)-recursivo}
+
+Un conjunto \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) es llamado \( \Sigma \)-recursivo si la funcion caracteristica de \(S\),
+
+\(\displaystyle \chi _{S}:\omega ^{n}\times \Sigma ^{\ast m}\rightarrow \{0,1\} \)
+
+es \(\Sigma \)-recursiva. Como puede notarse el concepto de conjunto \(\Sigma \) -recursivo es la modelizacion matematica del concepto de conjunto \(\Sigma \) -efectivamente computable, dentro del paradigma funcional o Godeliano. Es decir
+
+
+
+\textbf{Teorema 76} Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\). Entonces \(S\) es \(\Sigma \)-efectivamente computable sii \(S\) es \(\Sigma \)-recursivo
+Prueba: (\(\Rightarrow \)) Use la Tesis de Church.
+
+(\(\Leftarrow \)) Use el Teorema 42. \(\Box\)
+
+
+
+
+\textbf{Teorema 77} Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}.\) Son equivalentes
+(a) \(S\) es \(\Sigma \)-recursivo
+(b) \(S\) y \((\omega ^{n}\times \Sigma ^{\ast m})-S\) son \(\Sigma \) -recursivamente enumerables
+Prueba: (a)\(\Rightarrow \)(b)\(.\) Note que \(S=D_{Pred\circ \chi _{S}}.\)
+
+(b)\(\Rightarrow \)(a). Note que \(\chi _{S}=C_{1}^{n,m}\mathrm{\mid }_{S}\cup C_{0}^{n,m}\mathrm{\mid }_{\omega ^{n}\times \Sigma ^{\ast m}-S}\). \(\Box\)
+
+Recordemos que para el caso en que \(\Sigma \supseteq \Sigma _{p}\), definimos
+
+\(\displaystyle Halt^{\Sigma }=\lambda \mathcal{P}\left[ (\exists t\in \omega )\;i^{0,1}(t, \mathcal{P},\mathcal{P})=n(\mathcal{P})+1\right] \)
+
+
+
+
+
+\textbf{Lema 78} Supongamos que \(\Sigma \supseteq \Sigma _{p}.\) Entonces
+\(\displaystyle A=\left\{ \mathcal{P}\in \mathrm{Pro}^{\Sigma }:Halt^{\Sigma }(\mathcal{P} )\right\} \)
+
+es \(\Sigma \)-r.e. y no es \(\Sigma \)-recursivo. Mas aun el conjunto
+\(\displaystyle N=\left\{ \mathcal{P}\in \mathrm{Pro}^{\Sigma }:\lnot Halt^{\Sigma }( \mathcal{P})\right\} \)
+no es \(\Sigma \)-r.e.
+Prueba: Sea \(P=\lambda t\mathcal{P}\left[ i^{0,1}(t,\mathcal{P},\mathcal{P})=n( \mathcal{P})+1\right] \). Note que \(P\) es \(\Sigma \)-p.r. por lo que \(M(P)\) es \(\Sigma \)-r.. Ademas note que \(D_{M(P)}=A\), lo cual implica que \(A\) es \( \Sigma \)-r.e.. Ya que \(Halt^{\Sigma }\) es no \(\Sigma \)-recursivo (Lema 69) y
+
+\(\displaystyle Halt^{\Sigma }=C_{1}^{0,1}\mid _{A}\cup C_{0}^{0,1}\mid _{N} \)
+
+el Lema 68 nos dice que \(N\) no es \(\Sigma \)-r.e.. Finalmente supongamos \(A\) es \(\Sigma \)-recursivo. Entonces el conjunto
+\(\displaystyle N=\left( \Sigma ^{\ast }-A\right) \cap \mathrm{Pro}^{\Sigma } \)
+
+deberia serlo, lo cual es absurdo. \(\Box\)
+
+\section{Maquinas de Turing}
+
+
+En esta seccion desarrollaremos el paradigma de Turing de computabilidad efectiva. Primero veremos que el funcionamiento de las maquinas de Turing, tal como el de los programas de \(\mathcal{S}^{\Sigma }\), puede ser completamente descripto via funciones primitivas recursivas respecto de un alfabeto suficientemente grande. Como corolario de esto obtendremos que las funciones \(\Sigma \)-mixtas que son computables via maquinas de Turing son \( \Sigma \)-recursivas. Luego veremos que todo programa puede ser simulado en forma natural por una maquina de Turing lo cual nos dara como corolario que toda funcion \(\Sigma \)-computable es computable por una maquina de Turing.
+
+Una maquina de Turing es una 7-upla \(M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F\right) \) donde
+
+- \(Q\) es un conjunto finito cuyos elementos son llamados estados
+- \(\Gamma \) es un alfabeto que contiene a \(\Sigma \)
+- \(\Sigma \) es un alfabeto llamado el alfabeto de entrada
+- \(B\in \Gamma -\Sigma \) es un simbolo de \(\Gamma \) llamado el blank symbol
+- \(\delta :Q\times \Gamma \rightarrow \mathcal{P}(Q\times \Gamma \times \{L,R,K\})\)
+- \(q_{0}\) es un estado llamado el estado inicial de \(M\)
+- \(F\subseteq Q\) es un conjunto de estados llamados finales
+Asumiremos siempre que \(Q\) es un alfabeto disjunto con \(\Gamma \). Esto nos permitira dar definiciones matematicas precisas que formalizaran el funcionamiento de las maquinas de Turing en el contexto de las funciones mixtas.
+
+Una descripcion instantanea sera una palabra de la forma \(\alpha q\beta \), donde \(\alpha ,\beta \in \Gamma ^{\ast }\), \(\left[ \beta \right] _{\left\vert \beta \right\vert }\neq B\) y \(q\in Q\). La descripcion instantanea \(\alpha _{1}...\alpha _{n}q\beta _{1}...\beta _{m}\), con \(\alpha _{1},...,\alpha _{n}\), \(\beta _{1},...,\beta _{m}\in \Gamma \), \(n,m\geq 0\) representara la siguiente situacion
+
+\(\displaystyle \begin{array}{cccccccccccc} \alpha _{1} & \alpha _{2} & ... & \alpha _{n} & \beta _{1} & \beta _{2} & ... & \beta _{m} & B & B & B & ... \\ & & & & \uparrow & & & & & & & \\ & & & & q & & & & & & & \end{array} \)
+
+Usaremos \(Des\) para denotar el conjunto de las descripciones instantaneas. Definamos la funcion \(St:Des\rightarrow Q\), de la siguiente manera
+\(\displaystyle St(d)=\text{unico simbolo de }Q\text{ que ocurre en }d \)
+
+Dado \(\alpha \in (Q\cup \Gamma )^{\ast }\), definamos \(\left\lfloor \alpha \right\rfloor \) de la siguiente manera
+\(\displaystyle \begin{array}{rcl} \left\lfloor \varepsilon \right\rfloor & =& \varepsilon \\ \left\lfloor \alpha \sigma \right\rfloor & =& \alpha \sigma \text{, si }\sigma \neq B \\ \left\lfloor \alpha B\right\rfloor & =& \left\lfloor \alpha \right\rfloor \end{array} \)
+
+Es decir \(\left\lfloor \alpha \right\rfloor \) es el resultado de remover de \( \alpha \) el tramo final mas grande de la forma \(B^{n}\).
+Recordemos que dada cualquier palabra \(\alpha \) definimos
+
+\(\displaystyle ^{\curvearrowright }\alpha =\left\{ \begin{array}{lll} \left[ \alpha \right] _{2}...\left[ \alpha \right] _{\left\vert \alpha \right\vert } & \text{si} & \left\vert \alpha \right\vert \geq 2 \\ \varepsilon & \text{si} & \left\vert \alpha \right\vert \leq 1 \end{array} \right. \)
+
+En forma similar definamos
+\(\displaystyle \alpha ^{\curvearrowleft }=\left\{ \begin{array}{lll} \left[ \alpha \right] _{1}...\left[ \alpha \right] _{\left\vert \alpha \right\vert -1} & \text{si} & \left\vert \alpha \right\vert \geq 2 \\ \varepsilon & \text{si} & \left\vert \alpha \right\vert \leq 1 \end{array} \right. \)
+
+Dadas \(d_{1},d_{2}\in Des\), escribiremos \(d_{1}\vdash d_{2}\) cuando existan \( \sigma \in \Gamma \), \(\alpha ,\beta \in \Gamma ^{\ast }\) y \(p,q\in Q\) tales que se cumple alguno de los siguientes casos
+Caso 1.
+
+\(\displaystyle \begin{array}{rcl} d_{1} & =& \alpha p\beta \\ (q,\sigma ,R) & \in & \delta \left( p,\left[ \beta B\right] _{1}\right) \\ d_{2} & =& \alpha \sigma q^{\curvearrowright }\beta \end{array} \)
+
+Caso 2.
+
+\(\displaystyle \begin{array}{rcl} d_{1} & =& \alpha p\beta \\ (q,\sigma ,L) & \in & \delta \left( p,\left[ \beta B\right] _{1}\right) \text{ y }\alpha \neq \varepsilon \\ d_{2} & =& \left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right] _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor \end{array} \)
+
+Caso 3.
+
+\(\displaystyle \begin{array}{rcl} d_{1} & =& \alpha p\beta \\ (q,\sigma ,K) & \in & \delta (p,\left[ \beta B\right] _{1}) \\ d_{2} & =& \left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor \end{array} \)
+
+Escribiremos \(d\nvdash d^{\prime }\) para expresar que no se da \(d\vdash d^{\prime }\). Para \(d,d^{\prime }\in Des\) y \(n\geq 0\), escribiremos \(d \overset{n}{\vdash }d^{\prime }\) si existen \(d_{1},...,d_{n+1}\in Des\) tales que
+\(\displaystyle \begin{array}{rcl} d & =& d_{1} \\ d^{\prime } & =& d_{n+1} \\ d_{i} & \vdash & d_{i+1}\text{, para }i=1,...,n. \end{array} \)
+
+Notese que \(d\overset{0}{\vdash }d^{\prime }\) sii \(d=d^{\prime }\). Finalmente definamos
+\(\displaystyle d\overset{\ast }{\vdash }d^{\prime }\text{ sii }(\exists n\in \omega )\;d \overset{n}{\vdash }d^{\prime }\text{.} \)
+
+Diremos que una palabra \(w\in \Sigma ^{\ast }\) es aceptada por \(M\) cuando
+\(\displaystyle \left\lfloor q_{0}Bw\right\rfloor \overset{\ast }{\vdash }d\text{, con }d \text{ tal que }St(d)\in F. \)
+
+El lenguage aceptado por \(M\) se define de la siguiente manera
+\(\displaystyle L(M)=\{w\in \Sigma ^{\ast }:w\text{ es aceptada por }M\}\text{.} \)
+
+Dada \(d\in Des\), diremos que \(M\) se detiene partiendo de \(d\) si existe \(d^{\prime }\in Des\) tal que
+- \(d\overset{\ast }{\vdash }d^{\prime }\)
+- \(d^{\prime }\nvdash d^{\prime \prime }\), para cada \(d^{\prime \prime }\in Des\)
+Deberia quedar claro que es posible que \(\alpha p\beta \nvdash d\), para cada descripcion instantanea \(d\), y que \(\delta (p,[\beta B]_{1})\) sea no vacio. Definamos
+
+\(\displaystyle H(M)=\{w\in \Sigma ^{\ast }:M\text{ se detiene partiendo de }\left\lfloor q_{0}Bw\right\rfloor \} \)
+
+
+
+
+\textbf{Lema 79} Sea \(L\subseteq \Sigma ^{\ast }.\) entonces \(L=L(M)\) para alguna maquina de Turing \(M\) sii \(L=H(M)\) para alguna maquina de Turing \(M=(Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F)\).
+Prueba: (\(\Rightarrow \)) Dada una maquina \(M=(Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F)\), costruiremos una maquina \(M_{1}=(Q_{1},\Sigma ,\Gamma _{1},\delta _{1}, \tilde{q}_{0},B,\varnothing )\) tal que \(L(M)=H(M_{1}).\) Tomaremos \(\Gamma _{1}=\Gamma \cup \{X\}\), con \(X\) un simbolo nuevo no perteneciente a \(\Gamma \). Para cada \(a\in \Sigma \), sea \(q_{a}\) un estado nuevo, no perteneciente a \(Q.\) Sean \(\tilde{q}_{0},q_{r},q_{d},q_{B}\) estados nuevos no pertenecientes a \(Q.\) Tomemos entonces
+
+\(\displaystyle Q_{1}=Q\cup \{\tilde{q}_{0},q_{r},q_{d},q_{B}\}\cup \{q_{a}:a\in \Sigma \} \)
+
+Finalmente definamos \(\delta _{1}\) de la siguiente manera:
+\(\displaystyle \begin{array}{rcl} \delta _{1}(\tilde{q}_{0},B) & =& \{(q_{B},X,R)\} \\ \delta _{1}(q_{B},a) & =& \{(q_{a},B,R)\}\text{, para }a\in \Sigma \\ \delta _{1}(q_{B},B) & =& \{(q_{0},B,K)\} \\ \delta _{1}(q_{a},b) & =& \{(q_{b},a,R)\}\text{, para }a,b\in \Sigma \\ \delta _{1}(q_{a},B) & =& \{(q_{r},a,L)\}\text{, para }a\in \Sigma \\ \delta _{1}(q_{r},a) & =& \{(q_{r},a,L)\}\text{, para }a\in \Sigma \\ \delta _{1}(q_{r},B) & =& \{(q_{0},B,K)\} \\ \delta _{1}(q,X) & =& \{(q,X,K)\}\text{, para }q\in Q \\ \delta _{1}(q,\sigma ) & =& \delta (q,\sigma )\cup \{(q_{d},\sigma ,K)\}\text{ , para }q\in F\text{ y }\sigma \in \Gamma \\ \delta _{1}(q,\sigma ) & =& \delta (q,\sigma )\text{, para }q\in Q-F\text{ y } \sigma \in \Gamma \\ \delta _{1}(q_{d},\sigma ) & =& \varnothing \text{, para }\sigma \in \Gamma \end{array} \)
+
+(\(\delta _{1}\) se define igual a vacio para los casos no contemplados arriba).
+(\(\Leftarrow \)) Dada \(M=(Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F)\), dejamos al lector la construccion de una maquina \(M_{1}=(Q_{1},\Sigma ,\Gamma _{1},\delta _{1},\tilde{q}_{0},B,\varnothing )\) tal que \(H(M)=L(M_{1})\). \(\Box\)
+
+
+
+
+
+\textbf{Lema 80} El predicado \(\lambda ndd^{\prime }\left[ d\vdash d^{\prime }\right] \) es \( (\Gamma \cup Q)\)-p.r..
+Prueba: Note que \(D_{\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] }=Des\times Des\). Tambien notese que los predicados
+
+\(\displaystyle \begin{array}{rcl} & & \lambda p\sigma q\gamma \left[ (p,\sigma ,L)\in \delta (q,\gamma )\right] \\ & & \lambda p\sigma q\gamma \left[ (p,\sigma ,R)\in \delta (q,\gamma )\right] \\ & & \lambda p\sigma q\gamma \left[ (p,\sigma ,K)\in \delta (q,\gamma )\right] \end{array} \)
+
+son \((\Gamma \cup Q)\)-p.r. ya que los tres tienen dominio igual a \(Q\times \Gamma \times Q\times \Gamma \) el cual es finito (Corolario 36 ). Sea \(P_{R}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega \) definido por \(P_{R}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1\) sii
+\(\displaystyle d=\alpha p\beta \wedge (q,\sigma ,R)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge d^{\prime }=\alpha \sigma q^{\curvearrowright }\beta \)
+
+Sea \(P_{L}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega \) definido por \(P_{L}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1\) sii
+\(\displaystyle d=\alpha p\beta \wedge (q,\sigma ,L)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge \alpha \neq \varepsilon \wedge d^{\prime }=\left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right] _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor \)
+
+Sea \(P_{K}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega \) definido por \(P_{K}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1\) sii
+\(\displaystyle d=\alpha p\beta \wedge (q,\sigma ,K)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge d^{\prime }=\left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor \)
+
+Se deja al lector la verificacion de que estos predicados son \((\Gamma \cup Q)\)-p.r.. Notese que \(\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] \) es igual al predicado
+\(\displaystyle \lambda dd^{\prime }\left[ (\exists \sigma \in \Gamma )(\exists \alpha ,\beta \in \Gamma ^{\ast })(\exists p,q\in Q)(P_{R}\vee P_{L}\vee P_{K})(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)\right] \)
+
+lo cual por el Lema 39 nos dice que \(\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right] \) es \((\Gamma \cup Q)\)-p.r. \(\Box\)
+
+
+
+
+
+\textbf{Proposición 81} \(\lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] \) es \( (\Gamma \cup Q)\)-p.r..
+Prueba: Sea \(Q=\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] \cup C_{0}^{0,2}\mid _{(\Gamma \cup Q)^{\ast 2}-Des^{2}}\) es decir \(Q\) es el resultado de extender con el valor \(0\) al predicado \(\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right] \) de manera que este definido en todo \( (\Gamma \cup Q)^{\ast 2}\). Sea \(< \) un orden total estricto sobre \(\Gamma \cup Q\) y sea \(Q_{1}:\mathbf{N}\times Des\times Des\rightarrow \omega \) definido por \(Q_{1}(x,d,d^{\prime })=1\) sii
+
+\(\left( (\forall i\in \mathbf{N})_{i\leq Lt(x)}\ast ^{< }((x)_{i})\in Des\right) \wedge \ast ^{< }((x)_{1})=d\wedge \)
+
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ast ^{< }((x)_{Lt(x)})=d^{\prime }\wedge \left( (\forall i\in \mathbf{N})_{i\leq Lt(x)\dot{-}1}\;Q(\ast ^{< }((x)_{i}),\ast ^{< }((x)_{i+1}))\right) \)
+
+Notese que dicho rapidamente \(Q_{1}(x,d,d^{\prime })=1\) sii \(x\) codifica una computacion que parte de \(d\) y llega a \(d^{\prime }\). Se deja al lector la verificacion de que este predicado es \((\Gamma \cup Q)\)-p.r.. Notese que
+
+\(\displaystyle \lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] =\lambda ndd^{\prime }\left[ \left( \exists x\in \mathbf{N}\right) \;Lt(x)=n+1\wedge Q_{1}(x,d,d^{\prime })\right] \)
+
+Es decir que solo nos falta acotar el cuantificador existencial, para poder aplicar el lema de cuantificacion acotada. Ya que cuando \( d_{1},...,d_{n+1}\in Des\) son tales que \(d_{1}\vdash d_{2}\vdash ...\vdash d_{n+1}\) tenemos que
+\(\displaystyle \left\vert d_{i}\right\vert \leq \left\vert d_{1}\right\vert +n\text{, para } i=1,...,n \)
+
+una posible cota para dicho cuantificador es
+\(\displaystyle \prod_{i=1}^{n+1}pr(i)^{\left\vert \Gamma \cup Q\right\vert ^{\left\vert d\right\vert +n}}\text{.} \)
+
+O sea que, por el lema de cuantificacion acotada, tenemos que el predicado \( \lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] \) es \( (\Gamma \cup Q)\)-p.r. \(\Box\)
+
+
+
+
+\textbf{Teorema 82} Sea \(M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F\right) \) una maquina de Turing. Entonces \(L(M)\) es \(\Sigma \)-recursivamente enumerable.
+Prueba: Sea \(P\) el siguiente predicado \((\Gamma \cup Q)\)-mixto
+
+\(\displaystyle \lambda n\alpha \left[ (\exists d\in Des)\;\left\lfloor q_{0}B\alpha \right\rfloor \overset{n}{\vdash }d\wedge St(d)\in F\right] \)
+
+Notese que \(D_{P}=\omega \times \Gamma ^{\ast }\). Dejamos al lector probar que \(P\) es \((\Gamma \cup Q)\)-p.r.. Sea \(P^{\prime }=P\mid _{\omega \times \Sigma ^{\ast }}\). Notese que \(P^{\prime }(n,\alpha )=1\) sii \(\alpha \in L(M) \) atestiguado por una computacion de longitud \(n\). Ya que \(P^{\prime }\) es \((\Gamma \cup Q)\)-p.r. (por que?) y ademas es \(\Sigma \)-mixto, el Teorema 51 nos dice que \(P^{\prime }\) es \(\Sigma \)-p.r.. Ya que \( L(M)=D_{M(P^{\prime })}\), el Teorema 71 nos dice que \( L(M)\) es \(\Sigma \)-r.e.. \(\Box\)

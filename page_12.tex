@@ -1,0 +1,96 @@
+\textbf{Lema 60} \(Bas\) y \(Lab\) son funciones \((\Sigma \cup \Sigma _{p})\)-p.r.
+Prueba: Sea \(< \) un orden total estricto sobre \(\Sigma \cup \Sigma _{p}\). Sea \(L=\{ \mathrm{L}\bar{k}:k\in \mathbf{N}\}\cup \{\varepsilon \}\). Dejamos al lector probar que \(L\) es un conjunto \((\Sigma \cup \Sigma _{p})\)-p.r.. Sea
+
+\(\displaystyle P=\lambda I\alpha \left[ \alpha \in \mathrm{Ins}^{\Sigma }\wedge I\in \mathrm{Ins}^{\Sigma }\wedge \lbrack \alpha ]_{1}\neq \mathrm{L}\wedge (\exists \beta \in L)\ I=\beta \alpha \right] \)
+
+Note que \(D_{P}=(\Sigma \cup \Sigma _{p})^{\ast 2}\). Dejamos al lector probar que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Notese ademas que cuando \(I\in \mathrm{Ins}^{\Sigma }\) tenemos que \(P(I,\alpha )=1\) sii \(\alpha =Bas(I)\). Dejamos al lector probar que \(Bas=M^{< }\left( P\right) \) por lo que para ver que \(Bas\) es \((\Sigma \cup \Sigma _{p})\)-p.r., solo nos falta ver que la funcion \(Bas\) es acotada por alguna funcion \((\Sigma \cup \Sigma _{p})\)-p.r. y \((\Sigma \cup \Sigma _{p})\)-total. Pero esto es trivial ya que \(\left\vert Bas(I)\right\vert \leq \left\vert I\right\vert =p_{1}^{0,1}(I)\) para cada \(I\in \mathrm{Ins}^{\Sigma }\).
+Finalmente note que
+
+\(\displaystyle Lab=M^{< }\left( \lambda I\alpha \left[ \alpha Bas(I)=I\right] \right) \)
+
+lo cual nos dice que \(Lab\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. \(\Box\)
+Recordemos que dado un programa \(\mathcal{P}\) habiamos definido \(I_{i}^{ \mathcal{P}}=\varepsilon \), para \(i=0\) o \(i >n(\mathcal{P}).\) O sea que la funcion \((\Sigma \cup \Sigma _{p})\)-mixta \(\lambda i\mathcal{P}\left[ I_{i}^{ \mathcal{P}}\right] \) tiene dominio igual a \(\omega \times \mathrm{Pro} ^{\Sigma }\).
+
+
+
+
+\textbf{Lema 61}
+(a) \(\mathrm{Pro}^{\Sigma }\) es un conjunto \((\Sigma \cup \Sigma _{p}) \)-p.r.
+(b) \(\lambda \mathcal{P}\left[ n(\mathcal{P})\right] \) y \(\lambda i \mathcal{P}\left[ I_{i}^{\mathcal{P}}\right] \) son funciones \((\Sigma \cup \Sigma _{p})\)-p.r..
+Prueba: Ya que \(\mathrm{Pro}^{\Sigma }=D_{\lambda \mathcal{P}\left[ n(\mathcal{P}) \right] }\) tenemos que (b) implica (a). Para probar (b) sea \(< \) un orden total estricto sobre \(\Sigma \cup \Sigma _{p}\). Sea \(P\) el siguiente predicado
+
+\(\lambda x\left[ Lt(x) >0\wedge (\forall t\in \mathbf{N})_{t\leq Lt(x)}\;\ast ^{< }((x)_{t})\in \mathrm{Ins}^{\Sigma }\wedge \right. \)
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\forall t\in \mathbf{N})_{t\leq Lt(x)}(\forall m\in \mathbf{N})\;\lnot (\mathrm{L} \bar{m}\ \)t-final \(\ast ^{< }((x)_{t}))\vee \)
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left. (\exists j\in \mathbf{ N})_{j\leq Lt(x)}(\exists \alpha \in (\Sigma \cup \Sigma _{p})-Num)\;\mathrm{ L}\bar{m}\alpha \ \text{t-inicial}\ast ^{< }((x)_{j})\right] \)
+Notese que \(D_{P}=\mathbf{N}\) y que \(P(x)=1\) sii \(Lt(x) >0\), \(\ast ^{< }((x)_{t})\in \mathrm{Ins}^{\Sigma }\), para cada \(t=1,...,Lt(x)\) y ademas \(\subset _{t=1}^{t=Lt(x)}\ast ^{< }((x)_{t})\in \mathrm{Pro}^{\Sigma }\). Para ver que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r. solo nos falta acotar el cuantificador \((\forall m\in \mathbf{N})\) de la expresion lambda que define a \(P\). Ya que nos interesan los valores de \(m\) para los cuales \(\bar{m}\) es posiblemente una subpalabra de alguna de las palabras \(\ast ^{< }((x)_{j})\), el Lema 58 nos dice que una cota posible es \( 10^{\max \{\left\vert \ast ^{< }((x)_{j})\right\vert :1\leq j\leq Lt(x)\}}-1\) . Dejamos al lector los detalles de la prueba de que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Sea
+
+\(\displaystyle Q=\lambda x\alpha \left[ P(x)\wedge \alpha =\subset _{t=1}^{t=Lt(x)}\ast ^{< }((x)_{t})\right] \text{.} \)
+
+Note que \(D_{Q}=\mathbf{N}\times (\Sigma \cup \Sigma _{p})^{\ast }\). Claramente \(Q\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Ademas note que \( D_{M(Q)}=\mathrm{Pro}^{\Sigma }\). Notese que para \(\mathcal{P}\in \mathrm{Pro }^{\Sigma }\), tenemos que \(M(Q)(\mathcal{P})\) es aquel numero tal que pensado como infinitupla (via mirar su secuencia de exponentes) codifica la secuencia de instrucciones que forman a \(\mathcal{P}\). Es decir
+\(\displaystyle M(Q)(\mathcal{P})=\left\langle \#^{< }(I_{1}^{\mathcal{P}}),\#^{< }(I_{2}^{ \mathcal{P}}),...,\#^{< }(I_{n(\mathcal{P})}^{\mathcal{P}}),0,0,...\right \rangle \)
+
+Por (b) del Lema 43, \(M(Q)\) es \((\Sigma \cup \Sigma _{p})\) -p.r. ya que para cada \(\mathcal{P}\in \mathrm{Pro}^{\Sigma }\) tenemos que
+\(\displaystyle \begin{array}{rcl} M(Q)(\mathcal{P}) & =& \left\langle \#^{< }(I_{1}^{\mathcal{P}}),\#^{< }(I_{2}^{ \mathcal{P}}),...,\#^{< }(I_{n(\mathcal{P})}^{\mathcal{P}}),0,0,...\right \rangle \\ & =& \underset{i=1}{\overset{n(\mathcal{P})}{\Pi }}pr(i)^{\#^{< }(I_{1}^{ \mathcal{P}})} \\ & \leq & \underset{i=1}{\overset{\left\vert \mathcal{P}\right\vert }{\Pi }} pr(i)^{\#^{< }(\mathcal{P})} \end{array} \)
+
+Ademas tenemos que
+\(\displaystyle \begin{array}{rcl} \lambda \mathcal{P}\left[ n(\mathcal{P})\right] & =& \lambda x\left[ Lt(x) \right] \circ M(Q) \\ \lambda i\mathcal{P}\left[ I_{i}^{\mathcal{P}}\right] & =& \ast ^{< }\circ g\circ \left( p_{1}^{1,1},M(Q)\circ p_{2}^{1,1}\right) \end{array} \)
+
+donde \(g=C_{0}^{1,1}\mid _{\{0\}\times \omega }\cup \lambda ix\left[ (x)_{i} \right] \), lo cual dice que \(\lambda \mathcal{P}\left[ n(\mathcal{P})\right] \) y \(\lambda i\mathcal{P}\left[ I_{i}^{\mathcal{P}}\right] \) son funciones \( (\Sigma \cup \Sigma _{p})\)-p.r.. \(\Box\)
+
+
+\subsubsection{Las funciones \(i^{n,m}\), \(E_{\#}^{n,m}\) y \(E_{\ast }^{n,m}\)}
+
+
+Sean \(n,m\geq 0\) fijos. Definamos entonces las funciones
+
+\(\displaystyle \begin{array}{rcl} i^{n,m} & :& \omega \times \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro }^{\Sigma }\rightarrow \omega \\ E_{\#}^{n,m} & :& \omega \times \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro}^{\Sigma }\rightarrow \omega ^{\lbrack \mathbf{N}]} \\ E_{\ast }^{n,m} & :& \omega \times \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro}^{\Sigma }\rightarrow \Sigma ^{\ast \lbrack \mathbf{N}]} \end{array} \)
+
+de la siguiente manera
+\((i^{n,m}(0,\vec{x},\vec{\alpha},\mathcal{P}),E_{\#}^{n,m}(0,\vec{x},\vec{ \alpha},\mathcal{P}),E_{\ast }^{n,m}(0,\vec{x},\vec{\alpha},\mathcal{P}))=\)
+
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =(1,(x_{1},...,x_{n},0,0,...),(\alpha _{1},...,\alpha _{m},\varepsilon ,\varepsilon ,...))\)
+
+\((i^{n,m}(t+1,\vec{x},\vec{\alpha},\mathcal{P}),E_{\#}^{n,m}(t+1,\vec{x}, \vec{\alpha},\mathcal{P}),E_{\ast }^{n,m}(t+1,\vec{x},\vec{\alpha},\mathcal{P }))=\)
+
+\(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =DIS_{\mathcal{P}}(i^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P} ),E_{\#}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}),E_{\ast }^{n,m}(t,\vec{x}, \vec{\alpha},\mathcal{P}))\)
+
+Notese que
+
+\(\displaystyle (i^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}),E_{\#}^{n,m}(t,\vec{x},\vec{ \alpha},\mathcal{P}),E_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P})) \)
+
+es la descripcion instantanea que se obtiene luego de correr \(\mathcal{P}\) una cantidad \(t\) de pasos a partir de la descripcion instantanea \( (1,(x_{1},...,x_{n},0,0,...),(\alpha _{1},...,\alpha _{m},0,0,...))\). Es importante notar que si bien \(i^{n,m}\) es una funcion \((\Sigma \cup \Sigma _{p})\)-mixta, ni \(E_{\#}^{n,m}\) ni \(E_{\ast }^{n,m}\) lo son.
+Definamos para cada \(j\in \mathbf{N}\), funciones
+
+\(\displaystyle \begin{array}{rcl} E_{\#j}^{n,m} & :& \omega \times \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro}^{\Sigma }\rightarrow \omega \\ E_{\ast j}^{n,m} & :& \omega \times \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro}^{\Sigma }\rightarrow \Sigma ^{\ast } \end{array} \)
+
+de la siguiente manera
+\(\displaystyle \begin{array}{rcl} E_{\#j}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}) & =& j\text{-esima coordenada de }E_{\#}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}) \\ E_{\ast j}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}) & =& j\text{-esima coordenada de }E_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}) \end{array} \)
+
+Notese que
+\(\displaystyle \begin{array}{rcl} E_{\#}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}) & =& (E_{\#1}^{n,m}(t,\vec{x}, \vec{\alpha},\mathcal{P}),E_{\#2}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P} ),...) \\ E_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}) & =& (E_{\ast 1}^{n,m}(t, \vec{x},\vec{\alpha},\mathcal{P}),E_{\ast 2}^{n,m}(t,\vec{x},\vec{\alpha}, \mathcal{P}),...) \end{array} \)
+
+Nuestro proximo objetivo es mostrar que las funciones \(i^{n,m}\), \( E_{\#j}^{n,m}\), \(E_{\ast j}^{n,m}\) son \((\Sigma \cup \Sigma _{p})\)-p.r.
+Para esto primero debemos probar un lema el cual muestre que una ves codificadas las descripciones instantaneas en forma numerica, las funciones que dan la descripcion instantanea sucesora son \((\Sigma \cup \Sigma _{p})\) -p.r.. Dado un orden total estricto \(< \) sobre \(\Sigma \cup \Sigma _{p}\), codificaremos las descripciones instantaneas haciendo uso de las biyecciones
+
+\(\displaystyle \begin{array}{rcl} \omega ^{\left[ \mathbf{N}\right] } & \rightarrow & \mathbf{N} \\ (s_{1},s_{2},...) & \rightarrow & \left\langle s_{1},s_{2},...\right\rangle \end{array} \;\;\;\;\;\;\;\;\;\;\;\; \begin{array}{rcl} \Sigma ^{\ast \left[ \mathbf{N}\right] } & \rightarrow & \mathbf{N} \\ (\sigma _{1},\sigma _{2},...) & \rightarrow & \left\langle \#^{< }(\sigma _{1}),\#^{< }(\sigma _{2}),...\right\rangle \end{array} \)
+
+Es decir que a la descripcion instantanea
+\(\displaystyle (i,(s_{1},s_{2},...),(\sigma _{1},\sigma _{2},...)) \)
+
+la codificaremos con la terna
+\(\displaystyle (i,\left\langle s_{1},s_{2},...\right\rangle ,\left\langle \#^{< }(\sigma _{1}),\#^{< }(\sigma _{2}),...\right\rangle )\in \omega \times \mathbf{N} \times \mathbf{N} \)
+
+Es decir que una terna \((i,x,y)\in \omega \times \mathbf{N}\times \mathbf{N}\) codificara a la descripcion instantanea
+\(\displaystyle (i,((x)_{1},(x)_{2},...),(\ast ^{< }((y)_{1}),\ast ^{< }((y)_{2}),...)) \)
+
+Definamos
+\(\displaystyle \begin{array}{rcl} s & :& \omega \times \mathbf{N}\times \mathbf{N}\times \mathrm{Pro}^{\Sigma }\rightarrow \omega \\ S_{\#} & :& \omega \times \mathbf{N}\times \mathbf{N}\times \mathrm{Pro} ^{\Sigma }\rightarrow \omega \\ S_{\ast } & :& \omega \times \mathbf{N}\times \mathbf{N}\times \mathrm{Pro} ^{\Sigma }\rightarrow \omega \end{array} \)
+
+de la siguiente manera
+\(\displaystyle \begin{array}{ll} s(i,x,y,\mathcal{P})= & \text{primera coordenada de la codificacion de la descripcion instantanea} \\ & \text{sucesora de }(i,((x)_{1},(x)_{2},...),(\ast ^{< }((y)_{1}),\ast ^{< }((y)_{2}),...))\text{ en }\mathcal{P} \end{array} \)
+
+\(\displaystyle \begin{array}{ll} S_{\#}(i,x,y,\mathcal{P})= & \text{segunda coordenada de la codificacion de la descripcion instantanea} \\ & \text{sucesora de }(i,((x)_{1},(x)_{2},...),(\ast ^{< }((y)_{1}),\ast ^{< }((y)_{2}),...))\text{ en }\mathcal{P} \end{array} \)
+
+\(\displaystyle \begin{array}{ll} S_{\ast }(i,x,y,\mathcal{P})= & \text{tercera coordenada de la codificacion de la descripcion instantanea} \\ & \text{sucesora de }(i,((x)_{1},(x)_{2},...),(\ast ^{< }((y)_{1}),\ast ^{< }((y)_{2}),...))\text{ en }\mathcal{P} \end{array} \)
+
+Notese que la definicion de estas funciones depende del orden total estricto \(< \) sobre \(\Sigma \cup \Sigma _{p}\).

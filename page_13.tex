@@ -1,0 +1,270 @@
+\textbf{Lema 62} Dado un orden total estricto \( < \) sobre \(\Sigma \cup \Sigma _{p}\), las funciones \(s\), \(S_{\#}\) y \(S_{\ast } \) son \((\Sigma \cup \Sigma _{p})\)-p.r..
+Prueba: Necesitaremos algunas funciones \((\Sigma \cup \Sigma _{p})\)-p.r.. Dada una instruccion \(I\) en la cual al menos ocurre una variable, usaremos \(\#Var1(I)\) para denotar el numero de la primer variable que ocurre en \(I\). Por ejemplo
+
+\(\displaystyle \#Var1\left( \mathrm{L}\bar{n}\;\mathrm{IF\;N}\bar{k}\neq 0\;\mathrm{GOTO\;L} \bar{m}\right) =k \)
+
+Notese que \(\lambda I[\#Var1(I)]\) tiene dominio igual a \(\mathrm{Ins} ^{\Sigma }-L\), donde \(L\) es la union de los siguientes conjuntos \begin{gather*} \{\mathrm{GOTO L}\bar{m}:m\in \mathbf{N\}\cup }\{\mathrm{L}\bar{k} \mathrm{ GOTO L}\bar{m}:k,m\in \mathbf{N\}}
+\left\{ \mathrm{SKIP}\right\} \mathbf{\cup }\{\mathrm{L}\bar{k} \mathrm{SKIP }:k\in \mathbf{N\}} \end{gather*} Dada una instruccion \(I\) en la cual ocurren dos variables, usaremos \( \#Var2(I)\) para denotar el numero de la segunda variable que ocurre en \(I\). Por ejemplo
+\(\displaystyle \#Var2\left( \mathrm{N}\bar{k}\leftarrow \mathrm{N}\bar{m}\right) =m \)
+
+Notese que el dominio de \(\lambda I[\#Var2(I)]\) es igual a la union de los siguientes conjuntos
+\(\displaystyle \begin{array}{rcl} \{\mathrm{N}\bar{k} & \leftarrow & \mathrm{N}\bar{m}:k,m\in \mathbf{N\}\cup }\{ \mathrm{L}\bar{j}\ \mathrm{N}\bar{k}\leftarrow \mathrm{N}\bar{m}:j,k,m\in \mathbf{N\}} \\ \{\mathrm{P}\bar{k} & \leftarrow & \mathrm{P}\bar{m}:k,m\in \mathbf{N\}\cup }\{ \mathrm{L}\bar{j}\ \mathrm{P}\bar{k}\leftarrow \mathrm{P}\bar{m}:j,k,m\in \mathbf{N\}} \end{array} \)
+
+Ademas notese que para una instruccion \(I\) tenemos que
+\(\displaystyle \begin{array}{rcl} \#Var1(I) & =& \min_{k}(\mathrm{N}\bar{k}\mathrm{\leftarrow }\text{ }\mathrm{ ocu}\text{ }I\vee \mathrm{N}\bar{k}\mathrm{\neq }\text{ }\mathrm{ocu}\text{ } I\vee \mathrm{P}\bar{k}\mathrm{\leftarrow }\text{ }\mathrm{ocu}\text{ }I\vee \mathrm{P}\bar{k}\mathrm{B}\;\mathrm{ocu}\text{ }I) \\ \#Var2(I) & =& \min_{k}(\mathrm{N}\bar{k}\ \text{t-final }I\vee \mathrm{N}\bar{ k}\mathrm{+}\text{ }\mathrm{ocu}\text{ }I\vee \mathrm{N}\bar{k}\mathrm{\dot{- }}\text{ }\mathrm{ocu}\text{ }I\vee \mathrm{P}\bar{k}\ \text{t-final }I\vee \mathrm{P}\bar{k}.\text{ }\mathrm{ocu}\text{ }I) \end{array} \)
+
+Esto nos dice que si llamamos \(P\) al predicado
+\(\displaystyle \lambda k\alpha \left[ \alpha \in \mathrm{Ins}^{\Sigma }\wedge (\mathrm{N} \bar{k}\mathrm{\leftarrow }\text{ }\mathrm{ocu}\text{ }\alpha \vee \mathrm{N} \bar{k}\mathrm{\neq }\text{ }\mathrm{ocu}\text{ }\alpha \vee \mathrm{P}\bar{k }\mathrm{\leftarrow }\text{ }\mathrm{ocu}\text{ }\alpha \vee \mathrm{P}\bar{k }\mathrm{B}\;\mathrm{ocu}\text{ }\alpha )\right] \)
+
+entonces \(\lambda I[\#Var1(I)]=M(P)\) por lo cual \(\lambda I[\#Var1(I)]\) es \( (\Sigma \cup \Sigma _{p})\)-p.r. Similarmente se puede ver que \(\lambda I[\#Var2(I)]\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Sea
+\(\displaystyle \begin{array}{rll} F_{\dot{-}}:\mathbf{N}\times \mathbf{N} & \rightarrow & \omega \\ (x,j) & \rightarrow & \left\langle (x)_{1},....,(x)_{j-1},(x)_{j}\dot{-} 1,(x)_{j+1},...\right\rangle \end{array} \)
+
+Ya que
+\(\displaystyle F_{\dot{-}}(x,j)=\left\{ \begin{array}{lll} Q(x,pr(j)) & & \text{si }pr(j)\text{ divide }x \\ x & & \text{caso contrario} \end{array} \right. \)
+
+tenemos que \(F_{\dot{-}}\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Sea
+\(\displaystyle \begin{array}{rll} F_{+}:\mathbf{N}\times \mathbf{N} & \rightarrow & \omega \\ (x,j) & \rightarrow & \left\langle (x)_{1},....,(x)_{j-1},(x)_{j}+1,(x)_{j+1},...\right\rangle \end{array} \)
+
+Ya que \(F_{+}(x,j)=x.pr(j)\) tenemos que \(F_{+}\) es \((\Sigma \cup \Sigma _{p}) \)-p.r.. Sea
+\(\displaystyle \begin{array}{rll} F_{\leftarrow }:\mathbf{N}\times \mathbf{N}\times \mathbf{N} & \rightarrow & \omega \\ (x,j,k) & \rightarrow & \left\langle (x)_{1},....,(x)_{j-1},(x)_{k},(x)_{j+1},...\right\rangle \end{array} \)
+
+Ya que \(F_{\leftarrow }(x,j,k)=Q(x,pr(j)^{(x)_{j}}).pr(j)^{(x)_{k}}\) tenemos que \(F_{\leftarrow }\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Sea
+\(\displaystyle \begin{array}{rll} F_{0}:\mathbf{N}\times \mathbf{N} & \rightarrow & \omega \\ (x,j) & \rightarrow & \left\langle (x)_{1},....,(x)_{j-1},0,(x)_{j+1},...\right\rangle \end{array} \)
+
+Es facil ver que \(F_{0}\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. Para cada \( a\in \Sigma \), sea
+\(\displaystyle \begin{array}{rll} F_{a}:\mathbf{N}\times \mathbf{N} & \rightarrow & \omega \\ (x,j) & \rightarrow & \left\langle (x)_{1},....,(x)_{j-1},\#^{< }(\ast ^{< }((x)_{j})a),(x)_{j+1},...\right\rangle \end{array} \)
+
+Es facil ver que \(F_{a}\) es \((\Sigma \cup \Sigma _{p})\)-p.r.. En forma similar puede ser probado que
+\(\displaystyle \begin{array}{rll} F_{\curvearrowright }:\mathbf{N}\times \mathbf{N} & \rightarrow & \omega \\ (x,j) & \rightarrow & \left\langle (x)_{1},....,(x)_{j-1},\#^{< }(^{\curvearrowright }(\ast ^{< }((x)_{j}))),(x)_{j+1},...\right\rangle \end{array} \)
+
+es \((\Sigma \cup \Sigma _{p})\)-p.r.
+Dado \((i,x,y,\mathcal{P})\in \omega \times \mathbf{N}\times \mathbf{N}\times \mathrm{Pro}^{\Sigma }\), tenemos varios casos en los cuales los valores \( s(i,x,y,\mathcal{P}),S_{\#}(i,x,y,\mathcal{P})\) y \(S_{\ast }(i,x,y,\mathcal{P })\) pueden ser obtenidos usando las funciones antes definidas:
+
+(1) CASO \(i=0\vee i >n(\mathcal{P})\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(2) CASO \((\exists j\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{N} \bar{j}\leftarrow \mathrm{N}\bar{j}+1\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& F_{+}(x,\#Var1(I_{i}^{\mathcal{P}})) \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(3) CASO \((\exists j\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{N} \bar{j}\leftarrow \mathrm{N}\bar{j}\dot{-}1\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& F_{\dot{-}}(x,\#Var1(I_{i}^{\mathcal{P}})) \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(4) CASO \((\exists j,k\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{N }\bar{j}\leftarrow \mathrm{N}\bar{k}\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& F_{\leftarrow }(x,\#Var1(I_{i}^{\mathcal{P} }),\#Var2(I_{i}^{\mathcal{P}})) \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(5) CASO \((\exists j,k\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{N }\bar{j}\leftarrow 0\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& F_{0}(x,\#Var1(I_{i}^{\mathcal{P}})) \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(6) CASO \((\exists j,m\in \omega )\;\left( Bas(I_{i}^{\mathcal{P}})= \mathrm{IF}\;\mathrm{N}\bar{j}\neq 0\;\mathrm{GOTO}\;\mathrm{L}\bar{m}\wedge (x)_{j}=0\right) \). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(7) CASO \((\exists j,m\in \omega )\;\left( Bas(I_{i}^{\mathcal{P}})= \mathrm{IF}\;\mathrm{N}\bar{j}\neq 0\;\mathrm{GOTO}\;\mathrm{L}\bar{m}\wedge (x)_{j}\neq 0\right) \). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& \min_{l}\left( Lab(I_{l}^{\mathcal{P}})\neq \varepsilon \wedge Lab(I_{l}^{\mathcal{P}})\text{ }\mathrm{t}\text{ { -final} }I_{i}^{\mathcal{P}}\right) \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(8) CASO \((\exists j\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{P} \bar{j}\leftarrow \mathrm{P}\bar{j}.a\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& F_{a}(y,\#Var1(I_{i}^{\mathcal{P}})) \end{array} \)
+
+(9) CASO \((\exists j\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{P} \bar{j}\leftarrow \) \(^{\curvearrowright }\mathrm{P}\bar{j}\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& F_{\curvearrowright }(y,\#Var1(I_{i}^{ \mathcal{P}})) \end{array} \)
+
+(10) CASO \((\exists j,k\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{ P}\bar{j}\leftarrow \mathrm{P}\bar{k}\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& F_{\leftarrow }(y,\#Var1(I_{i}^{\mathcal{P} }),\#Var2(I_{i}^{\mathcal{P}})) \end{array} \)
+
+(11) CASO \((\exists j\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{P} \bar{j}\leftarrow \varepsilon \). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& F_{0}(y,\#Var1(I_{i}^{\mathcal{P}})) \end{array} \)
+
+(12) CASO \((\exists j,m\in \omega )(\exists a\in \Sigma )\;\left( Bas(I_{i}^{\mathcal{P}})=\mathrm{IF}\;\mathrm{P}\bar{j}\;\mathrm{BEGINS}\;a\; \mathrm{GOTO}\;\mathrm{L}\bar{m}\wedge \lbrack \ast ^{< }((y)_{j})]_{1}\neq a\right) \). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& i+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(13) CASO \((\exists j,m\in \omega )(\exists a\in \Sigma )\;\left( Bas(I_{i}^{\mathcal{P}})=\mathrm{IF\;P}\bar{j}\;\mathrm{BEGINS\;}a\;\mathrm{ GOTO\;L}\bar{m}\wedge \lbrack \ast ^{< }((y)_{j})]_{1}=a\right) \). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& \min_{l}\left( Lab(I_{l}^{\mathcal{P}})\neq \varepsilon \wedge Lab(I_{l}^{\mathcal{P}})\text{ }\mathrm{t}\text{ { -final} }I_{i}^{\mathcal{P}}\right) \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(14) CASO \((\exists j\in \omega )\;Bas(I_{i}^{\mathcal{P}})=\mathrm{ GOTO}\) \(\mathrm{L}\bar{j}\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& \min_{l}\left( Lab(I_{l}^{\mathcal{P}})\neq \varepsilon \wedge Lab(I_{l}^{\mathcal{P}})\text{ }\mathrm{t}\text{ { -final} }I_{i}^{\mathcal{P}}\right) \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+(15) CASO \(Bas(I_{i}^{\mathcal{P}})=\mathrm{SKIP}\). Entonces
+\(\displaystyle \begin{array}{rcl} s(i,x,y,\mathcal{P}) & =& k+1 \\ S_{\#}(i,x,y,\mathcal{P}) & =& x \\ S_{\ast }(i,x,y,\mathcal{P}) & =& y \end{array} \)
+
+O sea que los casos anteriores nos permiten definir conjuntos \( S_{1},...,S_{15}\), los cuales son disjuntos de a pares y cuya union da el conjunto \(\omega \times \mathbf{N}\times \mathbf{N}\times \mathrm{Pro} ^{\Sigma }\), de manera que cada una de las funciones \(s,S_{\#}\) y \(S_{\ast }\) pueden escribirse como union disjunta de funciones \((\Sigma \cup \Sigma _{p}) \)-p.r. restrinjidas respectivamente a los conjuntos \(S_{1},...,S_{15}\) . Ya que los conjuntos \(S_{1},...,S_{15}\) son \((\Sigma \cup \Sigma _{p})\) -p.r. el Lema 35 nos dice que \(s,S_{\#}\) y \(S_{\ast }\) lo son. \(\Box\)
+
+Aparte del lema anterior, para probar que las funciones \(i^{n,m}\), \( E_{\#}^{n,m}\) y \(E_{\ast }^{n,m}\) son \((\Sigma \cup \Sigma _{p})\)-p.r., nos sera necesario el siguiente resultado. Recordemos que para \( x_{1},...,x_{n}\in \omega \), usabamos \(\left\langle x_{1},...,x_{n}\right\rangle \) para denotar \(\left\langle x_{1},...,x_{n},0,...\right\rangle \). Ademas recordemos que en el Lema 62. Definamos
+
+\(\displaystyle \begin{array}{rcl} C_{\#}^{n,m} & =& \lambda t\vec{x}\vec{\alpha}\mathcal{P}\left[ \left\langle E_{\#1}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}),E_{\#2}^{n,m}(t,\vec{x}, \vec{\alpha},\mathcal{P}),...\right\rangle \right] \\ C_{\ast }^{n,m} & =& \lambda t\vec{x}\vec{\alpha}\mathcal{P}\left[ \left\langle \#^{< }(E_{\ast 1}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P} )),\#^{< }(E_{\ast 2}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P} )),...\right\rangle \right] \end{array} \)
+
+Notese que
+\(\displaystyle \begin{array}{rcl} i^{n,m}(0,\vec{x},\vec{\alpha},\mathcal{P}) & =& 1 \\ C_{\#}^{n,m}(0,\vec{x},\vec{\alpha},\mathcal{P}) & =& \left\langle x_{1},...,x_{n}\right\rangle \\ C_{\ast }^{n,m}(0,\vec{x},\vec{\alpha},\mathcal{P}) & =& \left\langle \#^{< }(\alpha _{1}),...,\#^{< }(\alpha _{m})\right\rangle \\ i^{n,m}(t+1,\vec{x},\vec{\alpha},\mathcal{P}) & =& s(i^{n,m}(t,\vec{x},\vec{ \alpha},\mathcal{P}),C_{\#}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P} ),C_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P})) \\ C_{\#}^{n,m}(t+1,\vec{x},\vec{\alpha},\mathcal{P}) & =& S_{\#}(i^{n,m}(t,\vec{x },\vec{\alpha},\mathcal{P}),C_{\#}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P} ),C_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P})) \\ C_{\ast }^{n,m}(t+1,\vec{x},\vec{\alpha},\mathcal{P}) & =& S_{\ast }(i^{n,m}(t, \vec{x},\vec{\alpha},\mathcal{P}),C_{\#}^{n,m}(t,\vec{x},\vec{\alpha}, \mathcal{P}),C_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P})) \end{array} \)
+
+Por el Lema 63 tenemos que \(i^{n,m}\), \( C_{\#}^{n,m}\) y \(C_{\ast }^{n,m}\) son \((\Sigma \cup \Sigma _{p})\)-p.r.. Ademas notese que
+\(\displaystyle \begin{array}{rcl} E_{\#j}^{n,m} & =& \lambda t\vec{x}\vec{\alpha}\mathcal{P}\left[ (C_{\#}^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}))_{j}\right] \\ E_{\ast j}^{n,m} & =& \lambda t\vec{x}\vec{\alpha}\mathcal{P}\left[ \ast ^{< }((C_{\ast }^{n,m}(t,\vec{x},\vec{\alpha},\mathcal{P}))_{j})\right] \end{array} \)
+
+por lo cual las funciones \(E_{\#j}^{n,m}\), \(E_{\ast j}^{n,m}\), \(j=1,2,...\), son \((\Sigma \cup \Sigma _{p})\)-p.r. \(\Box\)
+Para \(n,m\in \omega \) definamos la funcion \(\Phi _{\#}^{n,m}\) de la siguiente manera:
+
+\(\displaystyle \begin{array}{rcl} D_{\Phi _{\#}^{n,m}} & =& \left\{ (\vec{x},\vec{\alpha},\mathcal{P})\in \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro}^{\Sigma }:(\vec{x},\vec{\alpha })\in D_{\Psi _{\mathcal{P}}^{n,m,\omega }}\right\} \\ \Phi _{\#}^{n,m}(\vec{x},\vec{\alpha},\mathcal{P}) & =& \Psi _{\mathcal{P} }^{n,m,\omega }(\vec{x},\vec{\alpha})\text{, para cada }(\vec{x},\vec{\alpha} ,\mathcal{P})\in D_{\Phi _{\#}^{n,m}} \end{array} \)
+
+Similarmente, definamos la funcion \(\Phi _{\ast }^{n,m}\) de la siguiente manera:
+\(\displaystyle \begin{array}{rcl} D_{\Phi _{\ast }^{n,m}} & =& \left\{ (\vec{x},\vec{\alpha},\mathcal{P})\in \omega ^{n}\times \Sigma ^{\ast m}\times \mathrm{Pro}^{\Sigma }:(\vec{x}, \vec{\alpha})\in D_{\Psi _{\mathcal{P}}^{n,m,\Sigma ^{\ast }}}\right\} \\ \Phi _{\ast }^{n,m}(\vec{x},\vec{\alpha},\mathcal{P}) & =& \Psi _{\mathcal{P} }^{n,m,\Sigma ^{\ast }}(\vec{x},\vec{\alpha})\text{, para cada }(\vec{x}, \vec{\alpha},\mathcal{P})\in D_{\Phi _{\ast }^{n,m}} \end{array} \)
+
+Notese que
+\(\displaystyle \begin{array}{rcl} \Phi _{\#}^{n,m} & =& \lambda \vec{x}\vec{\alpha}\mathcal{P}\left[ \Psi _{ \mathcal{P}}^{n,m,\omega }(\vec{x},\vec{\alpha})\right] \\ \Phi _{\ast }^{n,m} & =& \lambda \vec{x}\vec{\alpha}\mathcal{P}\left[ \Psi _{ \mathcal{P}}^{n,m,\Sigma ^{\ast }}(\vec{x},\vec{\alpha})\right] \end{array} \)
+
+
+
+
+
+\textbf{Teorema 65} Las funciones \(\Phi _{\#}^{n,m}\) y \(\Phi _{\ast }^{n,m}\) son \((\Sigma \cup \Sigma _{p})\)-recursivas.
+Prueba: Veremos que \(\Phi _{\#}^{n,m}\) es \((\Sigma \cup \Sigma _{p})\)-recursiva. Sea \(H\) el predicado \((\Sigma \cup \Sigma _{p})\)-mixto
+
+\(\displaystyle \lambda t\vec{x}\vec{\alpha}\mathcal{P}\left[ i^{n,m}(t,x_{1},...,x_{n}, \alpha _{1},...,\alpha _{m},\mathcal{P})=n(\mathcal{P})+1\right] \text{.} \)
+
+Note que \(D_{H}=\omega ^{n+1}\times \Sigma ^{\ast m}\times \mathrm{Pro} ^{\Sigma }\). Ya que the functiones \(i^{n,m}\) y \(\lambda \mathcal{P}\left[ n( \mathcal{P})\right] \) son \((\Sigma \cup \Sigma _{p})\)-p.r., \(H\) lo es. Notar que \(D_{M(H)}=D_{\Phi _{\#}^{n,m}}\). Ademas para \((\vec{x},\vec{\alpha}, \mathcal{P})\in D_{M(H)}\), tenemos que \(M(H)(\vec{x},\vec{\alpha},\mathcal{P} )\) es la menor cantidad de pasos necesarios para que \(\mathcal{P}\) termine partiendo del estado \(((x_{1},...,x_{n},0,0,...),(\alpha _{1},...,\alpha _{m},\varepsilon ,\varepsilon ,...))\). Ya que \(H\) es \((\Sigma \cup \Sigma _{p})\)-p.r., tenemos que \(M(H)\) es \((\Sigma \cup \Sigma _{p})\)-r.. Notese que para \((\vec{x},\vec{\alpha},\mathcal{P})\in D_{M(H)}=D_{\Phi _{\#}^{n,m}} \) tenemos que
+\(\displaystyle \Phi _{\#}^{n,m}(\vec{x},\vec{\alpha},\mathcal{P})=E_{\#1}^{n,m}\left( M(H)( \vec{x},\vec{\alpha},\mathcal{P}),\vec{x},\vec{\alpha},\mathcal{P}\right) \)
+
+lo cual con un poco mas de trabajo nos permite probar que
+\(\displaystyle \Phi _{\#}^{n,m}=E_{\#1}^{n,m}\circ \left( M(H),p_{1}^{n,m+1},...,p_{n+m+1}^{n,m+1}\right) \)
+
+Ya que la funcion \(E_{\#1}^{n,m}\) es \((\Sigma \cup \Sigma _{p})\)-r., lo es \( \Phi _{\#}^{n,m}\). \(\Box\)
+
+
+
+\textbf{Corolario 66} Si \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \( \Sigma \)-computable, entonces \(f\) es \(\Sigma \)-recursiva.
+Prueba: Haremos el caso \(O=\Sigma ^{\ast }\). Sea \(\mathcal{P}_{0}\) un programa que compute a \(f\). Primero veremos que \(f\) es \((\Sigma \cup \Sigma _{p})\) -recursiva. Note que
+
+\(\displaystyle f=\Phi _{\ast }^{n,m}\circ \left( p_{1}^{n,m},...,p_{n+m}^{n,m},C_{\mathcal{P }_{0}}^{n,m}\right) \)
+
+donde cabe destacar que \(p_{1}^{n,m},...,p_{n+m}^{n,m}\) son las proyecciones respecto del alfabeto \(\Sigma \cup \Sigma _{p}\), es decir que tienen dominio \(\omega ^{n}\times (\Sigma \cup \Sigma _{p})^{\ast m}\). Ya que \(\Phi _{\ast }^{n,m}\) es \((\Sigma \cup \Sigma _{p})\)-recursiva tenemos que \(f\) lo es. O sea que el Teorema 51 nos dice que \(f\) es \(\Sigma \) -recursiva. \(\Box\)
+El teorema anterior junto con el Teorema 56 nos garantizan que los conceptos de funcion \(\Sigma \)-recursiva y de funcion \(\Sigma \) -computable coinciden, es decir que los dos modelos matematicos de computabilidad efectiva que hemos estudiado, el funcional y el imperativo, coinciden. Como veremos en el proximo capitulo, el modelo introducido por Turing tambien resulta equivalente en el sentido de que una funcion \(\Sigma \) -mixta es computable por una maquina de Turing si y solo si es \(\Sigma \) -recursiva. Otro modelo matematico de computabilidad efectiva es el llamado lamda calculus, introducido por Church, el cual tambien resulta equivalente a los estudiados por nosotros. El hecho de que tan distintos paradigmas computacionales hayan resultado equivalentes hace pensar que en realidad los mismos han tenido exito en capturar la totalidad de las funciones \(\Sigma \) -efectivamente computables. Esta aseveracion es conocida como la
+
+
+
+\textbf{Tesis de Church}: Toda funcion \(\Sigma \)-efectivamente computable es \(\Sigma \)-recursiva.
+
+Si bien no se ha podido dar una prueba estrictamente matematica de la Tesis de Church, es un sentimiento comun de los investigadores del area que la misma es verdadera.
+
+Un corolario interesante que se puede obtener del teorema anterior es que toda funcion \(\Sigma \)-recursiva puede obtenerse combinando las reglas basicas en una forma muy particular.
+
+
+
+
+\textbf{Corolario 67} Si \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \( \Sigma \)-recursiva, entonces existe un predicado \(\Sigma \)-p.r. \(P:\mathbf{N} \times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) y una funcion \( \Sigma \)-p.r. \(g:\mathbf{N}\rightarrow O\) tales que \(f=g\circ M(P).\)
+Prueba: Supongamos que \(O=\Sigma ^{\ast }\). Sea \(\mathcal{P}_{0}\) un programa el cual compute a \(f\). Sea \(< \) un orden total estricto sobre \(\Sigma \). Note que podemos tomar
+
+\(\displaystyle \begin{array}{rcl} P & =& \lambda t\vec{x}\vec{\alpha}[i^{n,m}\left( (t)_{1},\vec{x},\vec{\alpha}, \mathcal{P}_{0}\right) =n(\mathcal{P}_{0})+1\wedge (t)_{2}=\#^{< }(E_{\ast 1}^{n,m}((t)_{1},\vec{x},\vec{\alpha},\mathcal{P}_{0}))] \\ g & =& \lambda t\left[ \ast ^{< }((t)_{2})\right] \text{.} \end{array} \)
+
+(Justifique por que \(P\) es \(\Sigma \)-p.r..) \(\Box\)
+\subsubsection{Extension del lema de division por casos}
+
+Usando las funciones \(i^{n,m}\), \(E_{\#}^{n,m}\) y \(E_{\ast }^{n,m}\) podemos extender el lema de division por casos para funciones \(\Sigma \) -recursivas en general.
+
+
+
+
+\textbf{Lema 68} Supongamos \(f_{i}:D_{f_{i}}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\), \(i=1,...,k\), son funciones \(\Sigma \)-recursivas tales que \(D_{f_{i}}\cap D_{f_{j}}=\varnothing \) para \(i\neq j\). Entonces la funcion \(f_{1}\cup ...\cup f_{k}\) es \(\Sigma \)-recursiva.
+Prueba: Probaremos el caso \(k=2\) y \(O=\Sigma ^{\ast }\). Sean \(\mathcal{P}_{1}\) y \( \mathcal{P}_{2}\) programas que computen las funciones \(f_{1}\) y \(f_{2}\), respectivamente. Sean
+
+\(\displaystyle \begin{array}{rcl} P_{1} & =& \lambda t\vec{x}\vec{\alpha}\left[ i^{n,m}(t,\vec{x},\vec{\alpha}, \mathcal{P}_{1})=n(\mathcal{P}_{1})+1\right] \\ P_{2} & =& \lambda t\vec{x}\vec{\alpha}\left[ i^{n,m}(t,\vec{x},\vec{\alpha}, \mathcal{P}_{2})=n(\mathcal{P}_{2})+1\right] \end{array} \)
+
+Notese que \(D_{P_{1}}=D_{P_{2}}=\omega \times \omega ^{n}\times \Sigma ^{\ast m}\) y que \(P_{1}\) y \(P_{2}\) son \((\Sigma \cup \Sigma _{p})\)-p.r.. Ya que son \(\Sigma \)-mixtos, el Teorema 51 nos dice que son \( \Sigma \)-p.r.. Tambien notese que \(D_{M((P_{1}\vee P_{2}))}=D_{f_{1}}\cup D_{f_{2}}\). Definamos
+\(\displaystyle \begin{array}{rcl} g_{1} & =& \lambda \vec{x}\vec{\alpha}\left[ E_{\ast 1}^{n,m}(M\left( (P_{1}\vee P_{2})\right) (\vec{x},\vec{\alpha}),\vec{x},\vec{\alpha}, \mathcal{P}_{1})^{P_{i}(M\left( (P_{1}\vee P_{2})\right) (\vec{x},\vec{\alpha }),\vec{x},\vec{\alpha})}\right] \\ g_{2} & =& \lambda \vec{x}\vec{\alpha}\left[ E_{\ast 1}^{n,m}(M\left( (P_{1}\vee P_{2})\right) (\vec{x},\vec{\alpha}),\vec{x},\vec{\alpha}, \mathcal{P}_{2})^{P_{i}(M\left( (P_{1}\vee P_{2})\right) (\vec{x},\vec{\alpha }),\vec{x},\vec{\alpha})}\right] \end{array} \)
+
+Notese que \(g_{1}\) y \(g_{2}\) son \(\Sigma \)-recursivas y que \( D_{g_{1}}=D_{g_{2}}=D_{f_{1}}\cup D_{f_{2}}\), Ademas notese que
+\(\displaystyle g_{1}(\vec{x},\vec{\alpha})=\left\{ \begin{array}{lll} f_{1}(\vec{x},\vec{\alpha}) & & \text{si }(\vec{x},\vec{\alpha})\in D_{f_{1}} \\ \varepsilon & & \text{caso contrario} \end{array} \right. \)
+
+\(\displaystyle g_{2}(\vec{x},\vec{\alpha})=\left\{ \begin{array}{lll} f_{2}(\vec{x},\vec{\alpha}) & & \text{si }(\vec{x},\vec{\alpha})\in D_{f_{2}} \\ \varepsilon & & \text{caso contrario} \end{array} \right. \)
+
+O sea que \(f_{1}\cup f_{2}=\lambda \alpha \beta \left[ \alpha \beta \right] \circ (g_{1},g_{2})\) es \(\Sigma \)-recursiva. \(\Box\)
+
+\subsubsection{El halting problem}
+
+Cuando \(\Sigma \supseteq \Sigma _{p}\), podemos definir
+
+\(\displaystyle Halt^{\Sigma }=\lambda \mathcal{P}\left[ (\exists t\in \omega )\;i^{0,1}(t, \mathcal{P},\mathcal{P})=n(\mathcal{P})+1\right] \text{.} \)
+
+Notar que el dominio de \(Halt^{\Sigma }\) es \(\mathrm{Pro}^{\Sigma }\) y que para cada \(\mathcal{P}\in \mathrm{Pro}^{\Sigma }\) tenemos que
+(*) \(Halt(\mathcal{P})=1\) sii \(\mathcal{P}\) se detiene partiendo del estado \(\left( (0,0,...),(\mathcal{P},\varepsilon ,\varepsilon ,...)\right) \) .
+
+
+
+
+\textbf{Lema 69} Supongamos \(\Sigma \supseteq \Sigma _{p}\). Entonces \( Halt^{\Sigma }\) es no \(\Sigma \)-recursivo.
+Prueba: Supongamos \(Halt^{\Sigma }\) es \(\Sigma \)-recursivo y por lo tanto \(\Sigma \) -computable. Por la proposicion de existencia de macros tenemos que hay un macro
+
+\(\displaystyle \left[ \mathrm{IF}\;Halt^{\Sigma }(\mathrm{W}1)\;\mathrm{GOTO}\;\mathrm{A}1 \right] \)
+
+Sea \(\mathcal{P}_{0}\) el siguiente programa de \(\mathcal{S}^{\Sigma }\)
+\(\displaystyle \mathrm{L}1\;\left[ \mathrm{IF}\;Halt^{\Sigma }(\mathrm{P}1)\;\mathrm{GOTO}\; \mathrm{L}1\right] \)
+
+Note que
+- \(\mathcal{P}_{0}\) termina partiendo desde \(\left( (0,0,...),( \mathcal{P}_{0},\varepsilon ,\varepsilon ,...)\right) \) sii \(Halt^{\Sigma }( \mathcal{P}_{0})=0\),
+lo cual produce una contradiccion si tomamos en (*) \(\mathcal{P}= \mathcal{P}_{0}\). \(\Box\)
+
+\subsubsection{Conjuntos \(\Sigma \)-recursivamente enumerables}
+
+Dada una funcion \(F:D_{F}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega ^{k}\times \Sigma ^{\ast l}\) e \(i\in \{1,...,k+l\}\), usaremos \(F_{i}\) para denotar la funcion \(p_{i}^{k,l}\circ F\). Notese que el dominio de cada \(F_{i}\) es igual a \(D_{F}\). Un conjunto \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) es llamado \(\Sigma \)-recursivamente enumerable (\(\Sigma \)-r.e.) si \(S=\varnothing \) o \(S=I_{F}\), para alguna \(F:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \)-recursiva. Como puede notarse el concepto de conjunto \(\Sigma \)-recursivamente enumerable es la modelizacion matematica del concepto de conjunto \(\Sigma \)-efectivamente enumerable, dentro del paradigma funcional o Godeliano. Es decir
+
+
+
+
+\textbf{Teorema 70} Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\). Entonces \(S\) es \(\Sigma \)-efectivamente enumerable sii \(S\) es \(\Sigma \)-recursivamente enumerable
+Prueba: (\(\Rightarrow \)) Use la Tesis de Church.
+
+(\(\Leftarrow \)) Use el Teorema 42. \(\Box\)
+
+El siguiente teorema es el analogo recursivo del Teorema 17.
+
+
+
+
+\textbf{Teorema 71} Dado \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m} \), son equivalentes
+(1) \(S\) es \(\Sigma \)-recursivamente enumerable
+(2) \(S=I_{F}\), para alguna \(F:D_{F}\subseteq \omega ^{k}\times \Sigma ^{\ast l}\rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \)-recursiva.
+(3) \(S=D_{f}\), para alguna funcion \(\Sigma \)-recursiva \(f\)
+(4) \(S=\varnothing \) o \(S=I_{F}\), para alguna \(F:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \)-p.r.
+Prueba: (2)\(\Rightarrow \)(3). Para \(i=1,...,n+m\), sea \(\mathcal{P}_{i}\) un programa el cual computa a \(F_{i}\) y sea \(< \) un orden total estricto sobre \(\Sigma \). Sea \(P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) dado por \(P(t,\vec{x},\vec{\alpha})=1\) sii se cumplen las siguientes condiciones
+
+\(\displaystyle \begin{array}{rcl} i^{k,l}(\left( (t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{1}\right) & =& n(\mathcal{P}_{1})+1 \\ & & \vdots \\ i\left( (t)_{k+l+1},(t)_{1}...(t)_{k},\ast ^{< }((t)_{k+1})...\ast ^{< }((t)_{k+l})),\mathcal{P}_{n+m}\right) & =& n(\mathcal{P}_{n+m})+1 \\ E_{\#1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{1}) & =& x_{1} \\ & & \vdots \\ E_{\#1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{n}) & =& x_{n} \\ E_{\ast 1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{n+1}) & =& \alpha _{1} \\ & & \vdots \\ E_{\ast 1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{n+m}) & =& \alpha _{m} \end{array} \)
+
+Note que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r. y por lo tanto \(P\) es \( \Sigma \)-p.r.. Pero entonces \(M(P)\) es \(\Sigma \)-r. lo cual nos dice que se cumple (3) ya que \(D_{M(P)}=I_{F}=S\).
+(3)\(\Rightarrow \)(4). Supongamos \(S\neq \varnothing \). Sea \( (z_{1},...,z_{n},\gamma _{1},...,\gamma _{m})\in S\) fijo. Sea \(\mathcal{P}\) un programa el cual compute a \(f\) y sea \(< \) un orden total estricto sobre \( \Sigma \). Sea \(P:\mathbf{N}\rightarrow \omega \) dado por \(P(x)=1\) sii
+
+\(\displaystyle i^{n,m}\left( (x)_{n+m+1},(x)_{1},...,(x)_{n},\ast ^{< }((x)_{n+1}),...,\ast ^{< }((x)_{n+m})),\mathcal{P}\right) =n(\mathcal{P})+1 \)
+
+Es facil ver que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r. por lo cual es \( \Sigma \)-p.r.. Sea \(\bar{P}=P\cup C_{0}^{1,0}\mid _{\{0\}}\). Para \(i=1,...,n\) , definamos \(F_{i}:\omega \rightarrow \omega \) de la siguiente manera
+\(\displaystyle F_{i}(x)=\left\{ \begin{array}{ccc} (x)_{i} & \text{si} & \bar{P}(x)=1 \\ z_{i} & \text{si} & \bar{P}(x)\neq 1 \end{array} \right. \)
+
+Para \(i=n+1,...,n+m\), definamos \(F_{i}:\omega \rightarrow \Sigma ^{\ast }\) de la siguiente manera
+\(\displaystyle F_{i}(x)=\left\{ \begin{array}{lll} \ast ^{< }((x)_{i}) & \text{si} & \bar{P}(x)=1 \\ \gamma _{i-n} & \text{si} & \bar{P}(x)\neq 1 \end{array} \right. \)
+
+Por el lema de division por casos, cada \(F_{i}\) es \(\Sigma \)-p.r.. Es facil ver que \(F=(F_{1},...,F_{n+m})\) cumple (4). \(\Box\)
+
+
+
+
+
+\textbf{Corolario 72} Supongamos \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \(\Sigma \)-recursiva y \(S\subseteq D_{f}\) es \( \Sigma \)-r.e., entonces \(f\mid _{S}\) es \(\Sigma \)-recursiva.
+Prueba: Supongamos \(O=\Sigma ^{\ast }.\) Por el teorema anterior \(S=D_{g}\), para alguna funcion \(\Sigma \)-recursiva \(g.\) Notese que componiendo adecuadamente podemos suponer que \(I_{g}=\{\varepsilon \}.\) O sea que tenemos \(f\mid _{S}=\lambda \alpha \beta \left[ \alpha \beta \right] \circ (f,g)\). \(\Box\)
+
+
+
+
+
+\textbf{Corolario 73} Supongamos \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \(\Sigma \)-recursiva y \(S\subseteq I_{f}\) es \(\Sigma \)-r.e., entonces \( f^{-1}(S)=\{(\vec{x},\vec{\alpha}):f(\vec{x},\vec{\alpha})\in S\}\) es \( \Sigma \)-r.e..
+Prueba: Por el teorema anterior \(S=D_{g}\), para alguna funcion \(\Sigma \)-recursiva \( g \). O sea que \(f^{-1}(S)=D_{g\circ f}\) es \(\Sigma \)-r.e.. \(\Box\)
+
+
+
+
+
+\textbf{Corolario 74} Supongamos \(S_{1},S_{2}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) son conjuntos \(\Sigma \)-r.e.. Entonces \(S_{1}\cap S_{2}\) es \(\Sigma \)-r.e..
+Prueba: Por el teorema anterior \(S_{i}=D_{g_{i}}\), con \(g_{1},g_{2}\) funciones \( \Sigma \)-recursivas\(.\) Notese que podemos suponer que \(I_{g_{1}},I_{g_{2}} \subseteq \omega \) por lo que \(S_{1}\cap S_{2}=D_{\lambda xy\left[ xy\right] \circ (g_{1},g_{2})}\) es \(\Sigma \)-r.e.\(.\) \(\Box\)
+
+
+
+
+
+\textbf{Corolario 75} Supongamos \(S_{1},S_{2}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) son conjuntos \(\Sigma \)-r.e.. Entonces \(S_{1}\cup S_{2}\) es \(\Sigma \)-r.e.
+Prueba: Supongamos \(S_{1}\neq \varnothing \neq S_{2}.\) Sean \(F,G:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tales que \(I_{F}=S_{1}\), \(I_{G}=S_{2}\) y las funciones \(F_{i} {\acute{}} s\) y \(G_{i} {\acute{}} s\) son \(\Sigma \)-recursivas. Sean \(f=\lambda x\left[ Q(x,2)\right] \) y \( g=\lambda x\left[ Q(x\dot{-}1,2)\right] .\) Sea \(H:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) dada por
+
+\(\displaystyle H_{i}=(F_{i}\circ f)\mathrm{\mid }_{\{x:x\mathrm{\ es\ par}\}}\cup (G_{i}\circ g)\mathrm{\mid }_{\{x:x\mathrm{\ es\ impar}\}} \)
+
+Por el Corolario 72 y el Lema 68, cada \(H_{i}\) es \( \Sigma \)-recursiva. Ya que \(I_{H}=S_{1}\cup S_{2}\).tenemos que \(S_{1}\cup S_{2}\) es \(\Sigma \)-r.e. \(\Box\)

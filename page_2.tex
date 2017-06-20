@@ -1,0 +1,118 @@
+\subsection{Ordenes naturales sobre \(\Sigma ^{\ast }\)}
+
+Sea \(A\) un conjunto no vacio cualquiera. Una relacion binaria \(< \) sobre \(A\) sera llamada un orden total estricto sobre \(A\) si se cumplen las siguientes condiciones:
+
+(1) Para todo \(a\in A\), no se da que \(a< a\)
+(2) Para todo \(a,b\in A\), si \(a\neq b\), entonces \(a< b\) o \(b< a\)
+(3) Para todo \(a,b,c\in A\), si \(a< b\) y \(b< c\), entonces \(a< c\).
+Sea \(\Sigma \) un alfabeto no vacio y supongamos \(< \) es un orden total estricto sobre \(\Sigma \). Supongamos que \(\Sigma =\{a_{1},...,a_{n}\}\), con \( a_{1}< a_{2}< ...< a_{n}\). Podemos extender \(< \) a un orden total estricto sobre \(\Sigma ^{\ast }\), de la siguiente manera
+
+- \(\alpha < \beta \), siempre que \(\left\vert \alpha \right\vert < \left\vert \beta \right\vert \)
+- \(\alpha a_{i}\beta < \alpha a_{j}\gamma \), siempre que \(\left\vert \beta \right\vert =\left\vert \gamma \right\vert \) y \(i< j\)
+Lema 2 La relacion \(< \) es un orden total estricto sobre \(\Sigma ^{\ast }\).
+Prueba: Facil. \(\Box\)
+
+Lema 3 La funcion \(s^{< }:\Sigma ^{\ast }\rightarrow \Sigma ^{\ast }\), definida recursivamente de la siguiente manera:
+\(\displaystyle \begin{array}{rcl} s^{< }(\varepsilon ) & =& a_{1} \\ s^{< }(\alpha a_{i}) & =& \alpha a_{i+1}\text{, }i< n \\ s^{< }(\alpha a_{n}) & =& s^{< }(\alpha )a_{1} \end{array} \)
+
+tiene la siguiente propiedad
+\(\displaystyle s^{< }(\alpha )=\min \{\beta \in \Sigma ^{\ast }:\alpha < \beta \}\text{.} \)
+Prueba: Supongamos que \(\alpha < \beta \). Probaremos entonces que \(s^{< }(\alpha )\leq \beta \).
+
+Caso \(\left\vert \alpha \right\vert < \left\vert \beta \right\vert \).
+
+Se puede ver facilmente que \(\left\vert \alpha \right\vert =\left\vert s^{< }(\alpha )\right\vert \) salvo en el caso en que \(\alpha \in \{a_{n}\}^{\ast }\), por lo cual solo resta ver el caso \(\alpha \in \{a_{n}\}^{\ast }.\) Supongamos \(\alpha =a_{n}^{\left\vert \alpha \right\vert }.\) Entonces \(s^{< }(\alpha )=a_{1}^{\left\vert \alpha \right\vert +1}.\) Si \( \left\vert \beta \right\vert =\left\vert \alpha \right\vert +1\) entonces es facil ver usando 2. de la definicion del orden de \(\Sigma ^{\ast }\) que \( s^{< }(\alpha )=a_{1}^{\left\vert \alpha \right\vert +1}\leq \beta .\) Si \( \left\vert \beta \right\vert >\left\vert \alpha \right\vert +1\), entonces por 1. de tal definicion tenemos que \(s^{< }(\alpha )=a_{1}^{\left\vert \alpha \right\vert +1}< \beta \)
+
+Caso \(\left\vert \alpha \right\vert =\left\vert \beta \right\vert \).
+
+Tenemos entonces que
+
+\(\displaystyle \begin{array}{rcl} \alpha & =& \alpha _{1}a_{i}\gamma _{1} \\ \beta & =& \alpha _{1}a_{j}\gamma _{2} \end{array} \)
+
+con \(i< j\) y \(\left\vert \gamma _{1}\right\vert =\left\vert \gamma _{2}\right\vert \). Si \(\gamma _{1}=\gamma _{2}=\varepsilon \) entonces es claro que \(s^{< }(\alpha )\leq \beta .\) El caso en el que \(\gamma _{1}\) termina con \(a_{l}\) para algun \(l< n\) es facil. Veamos el caso en que \(\gamma _{1}=a_{n}^{k}\) con \(k\geq 1.\) Tenemos que
+\(\displaystyle \begin{array}{rcl} s^{< }(\alpha ) & = & s^{< }(\alpha _{1}a_{i}a_{n}^{k}) \\ & = & s^{< }(\alpha _{1}a_{i}a_{n}^{k-1})a_{1} \\ & \vdots & \;\;\;\;\;\;\vdots \\ & = & s^{< }(\alpha _{1}a_{i})a_{1}^{k} \\ & = & \alpha _{1}a_{i+1}a_{1}^{k} \\ & \leq & \alpha _{1}a_{j}\gamma _{2}=\beta \end{array} \)
+
+Supongamos finalmente que \(\gamma _{1}=\rho _{1}a_{l}a_{n}^{k}\) con \(k\geq 1\) y \(l< n\). Tenemos que
+\(\displaystyle \begin{array}{rcl} s^{< }(\alpha ) & = & s^{< }(\alpha _{1}a_{i}\rho _{1}a_{l}a_{n}^{k}) \\ & = & s^{< }(\alpha _{1}a_{i}\rho _{1}a_{l}a_{n}^{k-1})a_{1} \\ & \vdots & \;\;\;\;\;\;\vdots \\ & = & s^{< }(\alpha _{1}a_{i}\rho _{1}a_{l})a_{1}^{k} \\ & = & \alpha _{1}a_{i}\rho _{1}a_{l+1}a_{1}^{k} \\ & \leq & \beta . \end{array} \)
+
+Para completar nuestra demostracion debemos probar que \(\alpha < s^{< }(\alpha )\), para cada \(\alpha \in \Sigma ^{\ast }\). Dejamos al lector como ejercicio esta prueba la cual puede ser hecha por inducion en \(\left\vert \alpha \right\vert \) usando argumentos parecidos a los usados recien. \(\Box\)
+En virtud del lema anterior llamaremos a \(s^{< }\) la funcion sucesor respecto del orden \(< \) de \(\Sigma ^{\ast }\).
+
+Corolario 4 \(s^{< }\) es inyectiva.
+Prueba: Supongamos \(\alpha \neq \beta .\) Ya que el orden de \(\Sigma ^{\ast }\) es total podemos suponer sin perdida de generalidad que \(\alpha < \beta .\) Por el lema anterior tenemos que \(s^{< }(\alpha )\leq \beta < s^{< }(\beta )\) y ya que \(< \) es transitiva obtenemos que \(s^{< }(\alpha )< s^{< }(\beta )\), lo cual nos dice \(s^{< }(\alpha )\neq s^{< }(\beta )\). \(\Box\)
+
+Lema 5 Se tiene que
+(1) \(\varepsilon \neq s^{< }(\alpha )\), para cada \(\alpha \in \Sigma ^{\ast }\)
+(2) Si \(\alpha \neq \varepsilon \), entonces \(\alpha =s^{< }(\beta )\) para algun \(\beta \)
+(3) Si \(S\subseteq \Sigma ^{\ast }\) es no vacio, entonces existe \( \alpha \in S\) tal que \(\alpha < \beta \), para cada \(\beta \in S-\{\alpha \}\).
+Prueba: (1) y (2) son dejadas al lector. Probaremos (3). Sea \(k=\min \{\left\vert \alpha \right\vert :\alpha \in S\}\). Notese que hay una cantidad finita de palabras de \(S\) con longitud igual a \(k\) y que la menor de ellas es justamente la menor palabra de \(S\). \(\Box\)
+
+Definamos recursivamente la funcion \(\ast ^{< }:\omega \rightarrow \Sigma ^{\ast }\) de la siguiente manera
+
+\(\displaystyle \begin{array}{rcl} \ast ^{< }(0) & =& \varepsilon \\ \ast ^{< }(x+1) & =& s^{< }(\ast ^{< }(x)) \end{array} \)
+
+Lema 6 Tenemos que
+\(\displaystyle \Sigma ^{\ast }=\{\ast ^{< }(0),\ast ^{< }(1),...\} \)
+Mas aun la funcion \(\ast ^{< }\) es biyectiva.
+Prueba: Supongamos \(\ast ^{< }(x)=\ast ^{< }(y)\) con \(x >y\). Note que \(y\neq 0\) ya que \( \varepsilon \) no es el sucesor de ninguna palabra. O sea que \(s^{< }(\ast ^{< }(x-1))=s^{< }(\ast ^{< }(y-1))\) lo cual ya que \(\ast ^{< }\) es inyectiva nos dice que \(\ast ^{< }(x-1)=\ast ^{< }(y-1)\). Iterando este razonamiento llegamos a que \(\ast ^{< }(z)=\ast ^{< }(0)=\varepsilon \) para algun \(z >0\), lo cual es absurdo.
+
+Veamos que \(\ast ^{< }\) es sobre. Supongamos no lo es, es decir supongamos que \(\Sigma ^{\ast }-I_{\ast ^{< }}\neq \varnothing \). Por (3) del lema anterior \(\Sigma ^{\ast }-I_{\ast ^{< }}\) tiene un menor elemento \(\alpha \). Ya que \(\alpha \neq \varepsilon \), tenemos que \(\alpha =s^{< }(\beta )\), para algun \(\beta \). Ya que \(\beta < \alpha \) tenemos que \(\beta \notin \Sigma ^{\ast }-I_{\ast ^{< }}\), es decir que \(\beta =\ast ^{< }(x)\), para algun \( x\in \omega \). Esto nos dice que \(\alpha =s^{< }(\ast ^{< }(x))\), lo cual por la definicion de \(\ast ^{< }\) nos dice que \(\alpha =\ast ^{< }(x+1)\). Pero esto es absurdo ya que \(\alpha \notin I_{\ast ^{< }}\). \(\Box\)
+
+Lema 7 Sea \(n\geq 1\) fijo. Entonces cada \(x\geq 1\) se escribe en forma unica de la siguiente manera:
+\(\displaystyle x=i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0}, \)
+con \(k\geq 0\) y \(1\leq i_{k},i_{k-1},...,i_{0}\leq n\).
+Prueba: Primero la unicidad. Supongamos que
+
+\(\displaystyle i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0}=j_{m}n^{m}+j_{m-1}n^{m-1}+...+j_{0}n^{0} \)
+
+con \(k,m\geq 0\) y \(1\leq i_{k},i_{k-1},...,i_{0},j_{m},...,j_{0}\leq n\). Supongamos \(k< m\). Llegaremos a un absurdo. Notese que
+\(\displaystyle \begin{array}{ccl} i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0} & \leq & n.n^{k}+n.n^{k-1}+...+n.n^{0} \\ & \leq & n^{k+1}+n^{k}+...+n^{1} \\ & < & n^{k+1}+n^{k}+...+n^{1}+n^{0} \\ & \leq & n^{m}+n^{m-1}+...+n^{0} \\ & \leq & j_{m}n^{m}+j_{m-1}n^{m-1}+...+j_{0}n^{0} \end{array} \)
+
+lo cual contradice la primera igualdad.
+Probaremos por induccion en \(x\) que
+
+(1) Existen \(k\geq 0\) y \(i_{k},i_{k-1},...,i_{0}\in \{1,...,n\}\) tales que
+\(\displaystyle x=i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0} \)
+
+El caso \(x=1\) es trivial. Supongamos (1) vale para \(x\), probaremos que vale para \(x+1\). Hay varios casos:
+
+Caso \(i_{0}< n\). Entonces
+
+\(\displaystyle \begin{array}{ll} x+1 & =\left( i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0}\right) +1 \\ & =i_{k}n^{k}+i_{k-1}n^{k-1}+...+(i_{0}+1)n^{0} \end{array} \)
+
+Caso \(i_{k}=i_{k-1}=...=i_{0}=n\). Tenemos que
+
+\(\displaystyle \begin{array}{ll} x+1 & =\left( i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0}\right) +1 \\ & =\left( nn^{k}+nn^{k-1}+...+nn^{0}\right) +1 \\ & =1n^{k+1}+1n^{k}+...+1n^{1}+1n^{0} \end{array} \)
+
+Caso \(i_{0}=i_{1}=...=i_{h}=n\), \(\;i_{h+1}\not=n\), para algun \( 0\leq h< k\). Tenemos
+
+\(\displaystyle \begin{array}{ll} x+1 & =\left( i_{k}n^{k}+...+i_{h+2}n^{h+2}+i_{h+1}n^{h+1}+nn^{h}+...+nn^{0}\right) +1 \\ & =\left( i_{k}n^{k}+...+i_{h+2}n^{h+2}+i_{h+1}n^{h+1}+n^{h+1}+n^{h}+...+n^{1}\right) +1 \\ & =i_{k}n^{k}+...+i_{h+2}n^{h+2}+(i_{h+1}+1)n^{h+1}+1n^{h}+...+1n^{1}+1n^{0}. \end{array} \)
+
+\(\Box\)
+Notese que cada \(\alpha \in \Sigma ^{\ast }-\{\varepsilon \}\) se escribe de la forma
+
+\(\displaystyle \alpha =a_{i_{k}}...a_{i_{0}} \)
+
+donde \(k\geq 0\) y \(1\leq i_{k},i_{k-1},...,i_{0}\leq n\). Definamos la funcion \(\#^{< }\) de la siguiente manera
+\(\displaystyle \begin{array}{rll} \#^{< }:\Sigma ^{\ast } & \rightarrow & \omega \\ \varepsilon & \rightarrow & 0 \\ a_{i_{k}}...a_{i_{0}} & \rightarrow & i_{k}n^{k}+...+i_{0}n^{0} \end{array} \)
+
+Notese que el lema anterior nos dice que fijado \(n\geq 1\), los numeros naturales estan identificados o en correspondencia biunivoca con las sucesiones finitas de elementos del conjunto \(\{1,...,n\}\). Ya que podemos identificar cada \(a_{i}\) con \(i\) el lema anterior nos garantiza que los numero naturales estan en correspondencia biunivoca con las palabras no nulas del alfabeto \(\Sigma \). Es decir que hemos probado que
+Lema 8 La funcion \(\#^{< }\) es biyectiva
+Concluimos la seccion con la siguiente observacion
+
+Lema 9 Las funciones \(\#^{< }\) y \(\ast ^{< }\) son una inversa de la otra.
+Prueba: Probaremos por induccion en \(x\) que para cada \(x\in \omega \), se tiene que \( \#^{< }(\ast ^{< }(x))=x\). El caso \(x=0\) es trivial. Supongamos que \( \#^{< }(\ast ^{< }(x))=x\), veremos entonces que \(\#^{< }(\ast ^{< }(x+1))=x+1\). Sean \(k\geq 0\) y \(i_{k},...,i_{0}\) tales que \(\ast ^{< }(x)=a_{i_{0}}...a_{i_{0}}\). Ya que \(\#^{< }(\ast ^{< }(x))=x\) tenemos que \( x=i_{k}n^{k}+...+i_{0}n^{0}\). Hay varios casos
+
+Caso \(i_{0}< n\). Entonces \(\ast ^{< }(x+1)=s^{< }(\ast ^{< }(x))=a_{i_{k}}...a_{i_{0}+1}\) por lo cual
+
+\(\displaystyle \begin{array}{ll} \#^{< }(\ast ^{< }(x+1)) & =i_{k}n^{k}+i_{k-1}n^{k-1}+...+(i_{0}+1)n^{0} \\ & =\left( i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0}\right) +1 \\ & =x+1 \end{array} \)
+
+Caso \(i_{k}=i_{k-1}=...=i_{0}=n\). Entonces \(\ast ^{< }(x+1)=s^{< }(\ast ^{< }(x))=a_{1}^{k+2}\) por lo cual
+
+\(\displaystyle \begin{array}{ll} \#^{< }(\ast ^{< }(x+1)) & =1n^{k+1}+1n^{k}+...+1n^{1}+1n^{0} \\ & =\left( nn^{k}+nn^{k-1}+...+nn^{0}\right) +1 \\ & =x+1 \end{array} \)
+
+Caso \(i_{0}=i_{1}=...=i_{h}=n\), \(\;i_{h+1}\not=n\), para algun \( 0\leq h< k\). Entonces \(\ast ^{< }(x+1)=s^{< }(\ast ^{< }(x))=a_{i_{k}}...a_{i_{h+2}}a_{i_{h+1}+1}a_{1}...a_{1}\) por lo cual
+
+\(\displaystyle \begin{array}{ll} \#^{< }(\ast ^{< }(x+1)) & =i_{k}n^{k}+...+i_{h+2}n^{h+2}+(i_{h+1}+1)n^{h+1}+1n^{h}+...+1n^{1}+1n^{0} \\ & =\left( i_{k}n^{k}+...+i_{h+2}n^{h+2}+i_{h+1}n^{h+1}+n^{h+1}+n^{h}+...+n^{1}\right) +1 \\ & =\left( i_{k}n^{k}+...+i_{h+2}n^{h+2}+i_{h+1}n^{h+1}+nn^{h}+...+nn^{0}\right) +1 \\ & =x+1 \end{array} \)
+
+\(\Box\)

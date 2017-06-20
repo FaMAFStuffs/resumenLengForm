@@ -1,0 +1,143 @@
+\subsection{Recursion primitiva sobre valores anteriores}
+
+
+Dada una funcion \(h:\omega \times U\rightarrow \omega \) con \(U\subseteq \omega ^{n}\times \Sigma ^{\ast m}\), definamos \(h^{\downarrow }:\omega \times U\rightarrow \omega \) de la siguiente manera
+
+\(\displaystyle \begin{array}{rcl} h^{\downarrow }(x,\vec{x},\vec{\alpha}) & =& \left\langle h(0,\vec{x},\vec{ \alpha}),h(1,\vec{x},\vec{\alpha}),...,h(x,\vec{x},\vec{\alpha})\right\rangle \\ & =& \Pi _{i=0}^{x}pr(i+1)^{h(i,\vec{x},\vec{\alpha})} \end{array} \)
+
+\textbf{Lema 48} Supongamos
+\(\displaystyle \begin{array}{rcl} f & :& U\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \\ g & :& \omega \times \omega \times U\rightarrow \omega \\ h & :& \omega \times U\rightarrow \omega \end{array} \)
+
+son funciones tales que
+\(\displaystyle \begin{array}{rcl} h(0,\vec{x},\vec{\alpha}) & =& f(\vec{x},\vec{\alpha})\text{, para cada }(\vec{ x},\vec{\alpha})\in U \\ h(x+1,\vec{x},\vec{\alpha}) & =& g(h^{\downarrow }(x,\vec{x},\vec{\alpha}),x, \vec{x},\vec{\alpha})\text{, para cada }x\in \omega \text{ y }(\vec{x},\vec{ \alpha})\in U\text{.} \end{array} \)
+Entonces \(h\) es \(\Sigma \)-p.r. si \(f\) y \(g\) lo son.
+Prueba: Supongamos \(f,g\) son \(\Sigma \)-p.r.. Primero veremos que \(h^{\downarrow }\) es \(\Sigma \)-p.r.. Notese que
+
+\(\displaystyle \begin{array}{rcl} h^{\downarrow }(0,\vec{x},\vec{\alpha}) & =& \left\langle h(0,\vec{x},\vec{ \alpha})\right\rangle \\ & =& \left\langle f(\vec{x},\vec{\alpha})\right\rangle \\ & =& 2^{f(\vec{x},\vec{\alpha})} \\ h^{\downarrow }(x+1,\vec{x},\vec{\alpha}) & =& h^{\downarrow }(x,\vec{x},\vec{ \alpha})pr(x+2)^{h(x+1,\vec{x},\vec{\alpha})} \\ & =& h^{\downarrow }(x,\vec{x},\vec{\alpha})pr(x+2)^{g(h^{\downarrow }(x,\vec{x },\vec{\alpha}),x,\vec{x},\vec{\alpha})} \end{array} \)
+
+lo cual nos dice que \(h^{\downarrow }=R(f_{1},g_{1})\) donde
+\(\displaystyle \begin{array}{rcl} f_{1} & =& \lambda \vec{x}\vec{\alpha}\left[ 2^{f(\vec{x},\vec{\alpha})}\right] \\ g_{1} & =& \lambda Ax\vec{x}\vec{\alpha}\left[ Apr(x+2)^{g(A,x,\vec{x},\vec{ \alpha})}\right] \end{array} \)
+
+O sea que \(h^{\downarrow }\) es \(\Sigma \)-p.r. ya que \(f_{1}\) y \(g_{1}\) lo son. Finalmente notese que
+\(\displaystyle h=\lambda ix[(x)_{i}]\circ (Suc\circ p_{1}^{1+n,m},h^{\downarrow }) \)
+
+lo cual nos dice que \(h\) es \(\Sigma \)-p.r.. \(\Box\)
+
+\subsection{Independencia del alfabeto}
+
+Probaremos que los conceptos de \(\Sigma \)-recursividad y \(\Sigma \) -recursividad primitiva son en realidad independientes del alfabeto \(\Sigma \) , es decir que si \(f\) es una funcion la cual es \(\Sigma \)-mixta y \(\Gamma \) -mixta, entonces \(f\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.) sii \(f\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.). Necesitaremos tres lemas.
+
+
+
+
+\textbf{Lema 49} Supongamos \(\varnothing \neq \Sigma \subseteq \Gamma \).
+(a) Si \(< \) es un orden total estricto sobre \(\Sigma \), entonces las funciones \(\ast ^{< }:\omega \rightarrow \Sigma ^{\ast }\) y \(\#^{< }:\Sigma ^{\ast }\rightarrow \omega \) son \(\Gamma \)-p.r..
+(b) Si \(\prec \) es un orden total estricto sobre \(\Gamma \), entonces las funciones \(\#^{\prec }\mid _{\Sigma ^{\ast }}:\Sigma ^{\ast }\rightarrow \omega \) y \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}:\#^{\prec }(\Sigma ^{\ast })\rightarrow \Sigma ^{\ast }\) son \(\Sigma \)-p.r..
+Prueba: (a) Supongamos \(\Sigma =\{a_{1},...,a_{k}\}\) y \(< \) es dado por \( a_{1}< ...< a_{k}\). Sea \(s_{e}^{< }:\Gamma ^{\ast }\rightarrow \Gamma ^{\ast }\) dada por
+
+\(\displaystyle \begin{array}{rcl} s_{e}^{< }(\varepsilon ) & =& a_{1} \\ s_{e}^{< }(\alpha a_{i}) & =& \alpha a_{i+1}\text{, si }i< k \\ s_{e}^{< }(\alpha a_{k}) & =& s_{e}^{< }(\alpha )a_{1} \\ s_{e}^{< }(\alpha a) & =& \varepsilon \text{, si }a\in \Gamma -\Sigma . \end{array} \)
+
+Note que \(s_{e}^{< }\) es \(\Gamma \)-p.r. y que \(s_{e}^{< }\mid _{\Sigma ^{\ast }}=s^{< }\). Ya que \(\Sigma ^{\ast }\) es un conjunto \(\Gamma \)-p.r. tenemos que \(s^{< }\) es \(\Gamma \)-p.r.. O sea que la recursion
+\(\displaystyle \begin{array}{rcl} \ast ^{< }(0) & =& \varepsilon \\ \ast ^{< }(x+1) & =& s^{< }(\ast ^{< }(x)) \end{array} \)
+
+implica que \(\ast ^{< }\) es \(\Gamma \)-p.r..
+Para ver que \(\#^{< }:\Sigma ^{\ast }\rightarrow \omega \) es \(\Gamma \)-p.r., sea \(\#_{e}^{< }:\Gamma ^{\ast }\rightarrow \omega \) dada por
+
+\(\displaystyle \begin{array}{rcl} \#_{e}^{< }(\varepsilon ) & =& 0 \\ \#_{e}^{< }(\alpha a_{i}) & =& \#_{e}^{< }(\alpha ).k+i \\ \#_{e}^{< }(\alpha a) & =& 0\text{, si }a\in \Gamma -\Sigma . \end{array} \)
+
+Ya que \(\#_{e}^{< }\) es \(\Gamma \)-p.r., eso es \(\#^{< }=\#_{e}^{< }\mid _{\Sigma ^{\ast }}\).
+(b) Sea \(n\) el cardinal de \(\Gamma .\) Ya que
+
+\(\displaystyle \begin{array}{rcl} \#^{\prec } & \mid & _{\Sigma ^{\ast }}(\varepsilon )=0 \\ \#^{\prec } & \mid & _{\Sigma ^{\ast }}(\alpha a)=\#^{\prec }\mid _{\Sigma ^{\ast }}(\alpha ).n+\#^{\prec }(a)\text{, para cada }a\in \Sigma \end{array} \)
+
+la funcion \(\#^{\prec }\mid _{\Sigma ^{\ast }}\) es \(\Sigma \)-p.r.. O sea que el predicado \(P=\lambda x\alpha \left[ \#^{\prec }\mid _{\Sigma ^{\ast }}(\alpha )=x\right] \) es \(\Sigma \)-p.r.. Sea \(< \) un orden total estricto sobre \(\Sigma \). Note que \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}=M^{< }(P)\), lo cual ya que
+\(\displaystyle \left\vert \ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}(x)\right\vert \leq x \)
+
+nos dice que \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\) es \(\Sigma \)-p.r. (Lema 47). \(\Box\)
+Supongamos \(\Sigma \neq \varnothing \) y sea \(< \) un orden total estricto sobre \( \Sigma \). Para \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \), definamos
+
+\(\displaystyle f^{\#^{< }}=f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{< }\circ p_{n+1}^{n+m,0},...,\ast ^{< }\circ p_{n+m}^{n+m,0}\right) . \)
+
+Similarmente, para \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \Sigma ^{\ast }\), definamos
+\(\displaystyle f^{\#^{< }}=\#^{< }\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{< }\circ p_{n+1}^{n+m,0},...,\ast ^{< }\circ p_{n+m}^{n+m,0}\right) \)
+
+
+
+
+\textbf{Lema 50} Supongamos \(\Gamma \neq \varnothing \) y sea \(< \) un orden total estricto sobre \( \Gamma \). Dada \(h\) una funcion \(\Gamma \)-mixta, son equivalentes
+(1) \(h\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.)
+(2) \(h^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.)
+Prueba: (2)\(\Rightarrow \)(1). Supongamos \(h:D_{h}\subseteq \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \Gamma ^{\ast }\). Ya que \(h^{\#^{< }}\) es \(\Gamma \) -recursiva (resp. \(\Gamma \)-p.r.) y
+
+\(\displaystyle h=\ast ^{< }\circ h^{\#^{< }}\circ \left( p_{1}^{n,m},...,p_{n}^{n,m},\#^{< }\circ p_{n+1}^{n,m},...,\#^{< }\circ p_{n+m}^{n,m}\right) \text{,} \)
+
+tenemos que \(h\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
+(1)\(\Rightarrow \)(2). Probaremos por induccion en \(k\) que
+
+(*) Si \(h\in \mathrm{R}_{k}^{\Gamma }\) (resp. \(h\in \mathrm{PR} _{k}^{\Gamma })\), entonces \(h^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \( \varnothing \)-p.r.).
+El caso \(k=0\) es facil y dejado al lector. Supongamos (*) vale para un \(k\) fijo. Veremos que vale para \(k+1\). Sea \(h\in \mathrm{R} _{k+1}^{\Gamma }\) (resp. \(h\in \mathrm{PR}_{k+1}^{\Gamma }\)). Hay varios casos
+
+Caso 1. Supongamos \(h=f\circ (f_{1},...,f_{n})\), con \(f,f_{1},...,f_{n}\in \mathrm{R}_{k}^{\Gamma }\) (resp. \(f,f_{1},...,f_{n}\in \mathrm{PR} _{k}^{\Gamma }\)). Por hipotesis inductiva tenemos que \(f^{\#^{< }},f_{1}^{ \#^{< }},...,f_{n}^{\#^{< }}\) son \(\varnothing \)-recursivas (resp. \(\varnothing \) -p.r.). Ya que \(h^{\#^{< }}=f^{\#^{< }}\circ \left( f_{1}^{\#^{< }},...,f_{n}^{\#^{< }}\right) \), tenemos que \(h^{\#^{< }}\) es \( \varnothing \)-recursiva (resp. \(\varnothing \)-p.r.).
+
+Caso 2. Supongamos \(h=M(P)\), con \(P:\omega \times \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \omega \), un predicado en \(\mathrm{R}_{k}^{\Gamma }\). Ya que \(h^{\#^{< }}=M(P^{\#^{< }})\), tenemos que \(h^{\#^{< }}\) es \(\varnothing \) -recursiva.
+
+Caso 3. Supongamos \(h=R(f,\mathcal{G})\), con
+
+\(\displaystyle \begin{array}{rcl} f & :& \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \Gamma ^{\ast } \\ \mathcal{G}_{a} & :& \omega ^{n}\times \Gamma ^{\ast m}\times \Gamma ^{\ast }\times \Gamma ^{\ast }\rightarrow \Gamma ^{\ast }\text{, }a\in \Gamma \end{array} \)
+
+funciones en \(\mathrm{R}_{k}^{\Gamma }\) (resp. \(\mathrm{PR}_{k}^{\Gamma }\)). Sea \(\Gamma =\{a_{1},...,a_{r}\}\), con \(a_{1}< a_{2}< ...< a_{r}\). Por hipotesis inductiva tenemos que \(f^{\#^{< }}\) y cada \(\mathcal{G} _{a}^{\#^{< }} \) son \(\varnothing \)-recursivas (resp. \(\varnothing \)-p.r.). Sea
+\(\displaystyle \begin{array}{lll} i_{0}:\omega & \rightarrow & \omega \\ \;\;\;\;\;x & \rightarrow & \left\{ \begin{array}{lll} r & & \text{si }r\text{ divide }x \\ R(x,r) & & \text{caso contrario} \end{array} \right. \end{array} \)
+
+y sea
+\(\displaystyle B=\lambda x\left[ Q(x\dot{-}i_{0}(x),r)\right] \)
+
+(\(R\) y \(Q\) son definidas en el Lema 44). Note que \(i_{0}\) y \(B\) son \(\varnothing \)-p.r. y que
+\(\displaystyle \ast ^{< }(x)=\ast ^{< }(B(x))a_{i_{0}(x)}\text{, para }x\geq 1 \)
+
+(ver Lema 6). Tambien tenemos
+\(\displaystyle \begin{array}{rcl} h^{\#^{< }}(\vec{x},\vec{y},t+1) & =& \#^{< }(h(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(t+1))) \\ & =& \#^{< }(h(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1))a_{i_{0}(t+1)})) \\ & =& \#^{< }\left( \mathcal{G}_{a_{i_{0}(t+1)}}(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1)),h(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1)))\right) \\ & =& \#^{< }\left( \mathcal{G}_{a_{i_{0}(t+1)}}(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1)),\ast ^{< }(h^{\#^{< }}(\vec{x},\vec{y},B(t+1))))\right) \\ & =& \mathcal{G}_{a_{i_{0}(t+1)}}^{\#^{< }}(\vec{x},\vec{y},B(t+1),h^{\#^{< }}( \vec{x},\vec{y},B(t+1))) \end{array} \)
+
+y ya que \(B(t+1)< t+1\), tenemos que
+(**) \(h^{\#^{< }}(\vec{x},\vec{y},t+1)=\mathcal{G}_{a_{i_{0}(t+1)}}^{ \#^{< }}(\vec{x},\vec{y},B(t+1),\left\langle h^{\#^{< }}(\vec{x},\vec{y} ,0),...,h^{\#^{< }}(\vec{x},\vec{y},t)\right\rangle )\)
+A continuacion definamos
+
+\(\displaystyle H=\lambda t\vec{x}\vec{y}\left[ \left\langle h^{\#^{< }}(\vec{x},\vec{y} ,0),...,h^{\#^{< }}(\vec{x},\vec{y},t)\right\rangle \right] \)
+
+Por (**) tenemos que
+\(\displaystyle \begin{array}{rcl} H(0,\vec{x},\vec{y}) & =& \left\langle h^{\#^{< }}(\vec{x},\vec{y} ,0)\right\rangle =\left\langle f^{\#^{< }}(\vec{x},\vec{y})\right\rangle =2^{f^{\#^{< }}(\vec{x},\vec{y})} \\ H(t+1,\vec{x},\vec{y}) & =& \left( (H(t,\vec{x},\vec{y})+1).pr(t+2)^{\mathcal{G }_{a_{i_{0}(t+1)}}^{\#^{< }}(\vec{x},\vec{y},B(t+1),(H(t,\vec{x},\vec{y} ))_{B(t+1)})}\right) \end{array} \)
+
+O sea que si definimos \(g:\omega \times \omega \times \omega ^{n}\times \omega ^{m}\rightarrow \omega \) por
+\(\displaystyle g(z,t,\vec{x},\vec{y})=\left\{ \begin{array}{clc} \left( (z+1).pr(t+2)^{\mathcal{G}_{a_{1}}^{\#^{< }}(\vec{x},\vec{y} ,B(t+1),(z)_{B(t+1)})}\right) & \text{si} & i_{0}(t+1)=1 \\ \vdots & & \vdots \\ \left( (z+1).pr(t+2)^{\mathcal{G}_{a_{r}}^{\#^{< }}(\vec{x},\vec{y} ,B(t+1),(z)_{B(t+1)})}\right) & \text{si} & i_{0}(t+1)=r \end{array} \right. \)
+
+tenemos que \(H=R(\lambda x\left[ 2^{x}\right] \circ f^{\#^{< }},g)\). Note que \(g\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.), ya que
+\(\displaystyle g=f_{1}(z,t,\vec{x},\vec{y})P_{1}(z,t,\vec{x},\vec{y})+...+f_{r}(z,t,\vec{x}, \vec{y})P_{r}(z,t,\vec{x},\vec{y})\text{,} \)
+
+con
+\(\displaystyle \begin{array}{rcl} f_{i} & =& \lambda zt\vec{x}\vec{y}\left[ \left( (z+1).pr(t+2)^{\mathcal{G} _{a_{i}}^{\#^{< }}(\vec{x},\vec{y},B(t+1),(z)_{B(t+1)})}\right) \right] \\ P_{i} & =& \lambda zt\vec{x}\vec{y}\left[ i_{0}(t+1)=i\right] \end{array} \)
+
+y estas funciones son totales y \(\varnothing \)-recursivas (resp. \(\varnothing \) -p.r.). O sea que \(H\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.) y por lo tanto lo es
+\(\displaystyle h^{\#^{< }}=\lambda \vec{x}\vec{y}t\left[ (H(t,\vec{x},\vec{y}))_{t+1}\right] \)
+
+Los otros casos en los cuales \(h\) es obtenida por recursion primitiva son similares. \(\Box\)
+Ahora podemos probar el anunciado resultado de independencia.
+
+
+
+
+
+\textbf{Teorema 51} Sean \(\Sigma \) y \(\Gamma \) alfabetos cualesquiera.
+(a) Supongamos una funcion \(f\) es \(\Sigma \)-mixta y \(\Gamma \)-mixta, entonces \(f\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.) sii \(f\) es \( \Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
+(b) Supongamos un conjunto \(S\) es \(\Sigma \)-mixto y \(\Gamma \)-mixto, entonces \(S\) es \(\Sigma \)-p.r. sii \(S\) es \(\Gamma \)-p.r..
+Prueba: (a) Ya que \(f\) es \((\Sigma \cap \Gamma )\)-mixta, podemos suponer sin perdida de generalidad que \(\Sigma \subseteq \Gamma \). Primero haremos el caso en que \(\Sigma =\varnothing \) y \(\Gamma \neq \varnothing \). Sea \(< \) un orden total estricto sobre \(\Gamma \). Ya que \(f\) es \(\varnothing \)-mixta, tenemos \( f=f^{\#^{< }}\) y por lo tanto podemos aplicar el lema anterior.
+
+Supongamos ahora que \(\Sigma \neq \varnothing \). O sea que \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\), con \(O\in \{\omega ,\Sigma ^{\ast }\}.\) Haremos el caso \(O=\Sigma ^{\ast }.\) Supongamos \(f\) es \(\Sigma \) -recursiva (resp. \(\Sigma \)-p.r.). Sea \(\prec \) un orden total estricto sobre \(\Gamma .\) Ya que las funciones \(\#^{\prec }\mid _{\Sigma ^{\ast }}\) y \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\) son \(\Sigma \)-p.r. (Lema 49) y
+
+\(\displaystyle \begin{array}{rcl} f^{\#^{\prec }} & =& \#^{\prec }\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{\prec }\circ p_{n+1}^{n+m,0},...,\ast ^{\prec }\circ p_{n+m}^{n+m,0}\right) \\ & =& \#^{\prec }\mid _{\Sigma ^{\ast }}\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\circ p_{n+1}^{n+m,0},...,\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\circ p_{n+m}^{n+m,0}\right) \end{array} \)
+
+tenemos que \(f^{\#^{\prec }}\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.). O sea que por el caso ya probado de (a), \(f^{\#^{\prec }}\) es \(\varnothing \) -recursiva (resp. \(\varnothing \)-p.r.) lo cual por el lema anterior nos dice que \(f\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
+Supongamos ahora que \(f\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.). Sea \( < \) un orden total estricto sobre \(\Sigma .\) Ya que \(\#^{< }\) y \(\ast ^{< }\) son \(\Gamma \)-p.r. (Lema 49), la funcion
+
+\(\displaystyle f^{\#^{< }}=\#^{< }\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{< }\circ p_{n+1}^{n+m,0},...,\ast ^{< }\circ p_{n+m}^{n+m,0}\right) \)
+
+es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.). Por el caso ya probado de (a), \(f^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.), lo cual por el lema anterior nos dice que \(f\) es \(\Sigma \)-recursiva (resp. \( \Sigma \)-p.r.).
+(b) es dejado al lector (use (a)). \(\Box\)

@@ -1,0 +1,209 @@
+\subsection{Conjuntos \(\Sigma \)-efectivamente computables}
+
+Un conjunto \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) sera llamado \(\Sigma \)-efectivamente computable cuando haya un procedimiento efectivo \(\mathbb{P}\) con las siguientes caracteristicas:
+
+- El conjunto de datos de entrada de \(\mathbb{P}\) es \(\omega ^{n}\times \Sigma ^{\ast m}\), siempre termina y da como dato de salida un elemento de \(\{0,1\}\).
+- Dado \((\vec{x},\vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}\) , \(\mathbb{P}\) da como salida al numero \(1\) si \((\vec{x},\vec{\alpha})\in S\) y al numero \(0\) si \((\vec{x},\vec{\alpha})\notin S.\)
+Cabe destacar que un conjunto \(S\) es \(\Sigma \)-efectivamente computable sii el predicado \(\chi _{S}=\lambda x_{1}...x_{n}\alpha _{1}...\alpha _{m}\left[ (\vec{x},\vec{\alpha})\in S\right] \) es \(\Sigma \)-efectivamente computable. Un hecho intuitivamente claro es el siguiente
+
+Lema 15 Si \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) es \(\Sigma \) -efectivamente computable entonces \(S\) es \(\Sigma \)-efectivamente enumerable.
+Prueba: Supongamos \(S\neq \varnothing \). Sea \((\vec{z},\gamma )\in S\), fijo. Sea \( \mathbb{P}\) un procedimiento efectivo que compute a \(\chi _{S}\). Ya vimos en el ejemplo anterior que \(\omega ^{2}\times \Sigma ^{\ast 3}\) es \(\Sigma \) -efectivamente enumerable. En forma similar se puede ver que \(\omega ^{n}\times \Sigma ^{\ast m}\) lo es. Sea \(\mathbb{P}_{1}\) un procedimiento efectivo que enumere a \(\omega ^{n}\times \Sigma ^{\ast m}\). Entonces el siguiente procedimiento enumera a \(S\):
+
+Etapa 1
+
+Realizar \(\mathbb{P}_{1}\) con \(x\) de entrada para obtener \((\vec{x} ,\vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}.\)
+
+Etapa 2
+
+Realizar \(\mathbb{P}\) con \((\vec{x},\vec{\alpha})\) de entrada para obtener el valor Booleano \(e\) de salida\(.\)
+
+Etapa 3
+
+Si \(e=1\) dar como dato de salida \((\vec{x},\vec{\alpha}).\) Si \(e=0\) dar como dato de salida \((\vec{z},\gamma )\). \(\Box\)
+
+La resiproca del lema anterior no es cierta. Sin envargo tenemos el siguiente interesante resultado:
+
+Teorema 16 Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\). Son equivalentes
+(a) \(S\) es \(\Sigma \)-efectivamente computable
+(b) \(S\) y \((\omega ^{n}\times \Sigma ^{\ast m})-S\) son \(\Sigma \) -efectivamente enumerables
+Prueba: (a)\(\Rightarrow \)(b). Por el lema anterior tenemos que \(S\) es \(\Sigma \) -efectivamente enumerable. Notese ademas que, dado que \(S\) es \(\Sigma \) -efectivamente computable, \((\omega ^{n}\times \Sigma ^{\ast m})-S\) tambien lo es (por que?). Es decir que aplicando nuevamente el lema anterior tenemos que \((\omega ^{n}\times \Sigma ^{\ast m})-S\) es \(\Sigma \)-efectivamente enumerable.
+
+(b)\(\Rightarrow \)(a). Sea \(\mathbb{P}_{1}\) un procedimiento efectivo que enumere a \(S\) y sea \(\mathbb{P}_{2}\) un procedimiento efectivo que enumere a \((\omega ^{n}\times \Sigma ^{\ast m})-S\). Es facil ver que el siguiente procedimiento computa el predicado \(\chi _{S}\):
+
+Etapa 1
+
+Darle a la variable \(T\) el valor \(0\).
+
+Etapa 2
+
+Realizar \(\mathbb{P}_{1}\) con el valor de \(T\) como entrada para obtener de salida la upla \((\vec{y},\vec{\beta})\).
+
+Etapa 3
+
+Realizar \(\mathbb{P}_{2}\) con el valor de \(T\) como entrada para obtener de salida la upla \((\vec{z},\vec{\gamma})\).
+
+Etapa 4
+
+Si \((\vec{y},\vec{\beta})=(\vec{x},\vec{\alpha})\), entonces detenerse y dar como dato de salida el valor \(1\). Si \((\vec{z},\vec{\gamma} )=(\vec{x},\vec{\alpha})\), entonces detenerse y dar como dato de salida el valor \(0.\) Si no suceden ninguna de las dos posibilidades antes mensionadas, aumentar en \(1\) el valor de la variable \(T\) y dirijirse a la Etapa 2. \(\Box\)
+
+Dada una funcion \(F:D_{F}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega ^{k}\times \Sigma ^{\ast l}\) e \(i\in \{1,...,k+l\}\), usaremos \(F_{i}\) para denotar la funcion \(p_{i}^{k,l}\circ F.\) Notese que el dominio de cada \(F_{i}\) es igual a \(D_{F}.\)
+
+Teorema 17 Dado \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\), son equivalentes
+(1) \(S\) es \(\Sigma \)-efectivamente enumerable
+(2) \(S=\varnothing \) o \(S=I_{F}\), para alguna \(F:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \) -efectivamente computable.
+(3) \(S=I_{F}\), para alguna \(F:D_{F}\subseteq \omega ^{k}\times \Sigma ^{\ast l}\rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \)-efectivamente computable.
+(4) \(S=D_{f}\), para alguna funcion \(f\) la cual es \(\Sigma \) -efectivamente computable.
+Prueba: (1)\(\Rightarrow \)(2) y (2)\(\Rightarrow \)(1) son muy naturales y son dejadas al lector. (2)\(\Rightarrow \)(3) es trivial.
+
+(3)\(\Rightarrow \)(4). Para \(i=1,...,n+m\), sea \(\mathbb{P}_{i}\) un procedimiento el cual computa a \(F_{i}\) y sea \(\mathbb{P}\) un procedimiento el cual enumere a \(\omega \times \omega ^{k}\times \Sigma ^{\ast l}.\) El siguiente procedimiento computa la funcion \(f:I_{F}\rightarrow \{1\}\):
+
+Etapa 1
+
+Darle a la variable \(T\) el valor 0.
+
+Etapa 2
+
+Hacer correr \(\mathbb{P}\) con dato de entrada \(T\) y obtener \( (t,z_{1},...,z_{k},\gamma _{1},...,\gamma _{l})\) como dato de salida.
+
+Etapa 3
+
+Para cada \(i=1,...,n+m\), hacer correr \(\mathbb{P}_{i}\) durante \(t\) pasos, con dato de entrada \((z_{1},...,z_{k},\gamma _{1},...,\gamma _{l}).\) Si cada procedimiento \(\mathbb{P}_{i}\) al cabo de los \(t\) pasos termino y dio como resultado el valor \(o_{i}\), entonces comparar \((\vec{x},\vec{\alpha} )\) con \((o_{1},...,o_{n+m})\) y en caso de que sean iguales detenerse y dar como dato de salida el valor \(1\). En el caso en que no son iguales, aumentar en \(1\) el valor de la variable \(T\) y dirijirse a la Etapa 2. Si algun procedimiento \(\mathbb{P}_{i}\) al cabo de los \(t\) pasos no termino, entonces aumentar en \(1\) el valor de la variable \(T\) y dirijirse a la Etapa 2.
+
+(4)\(\Rightarrow \)(1). Supongamos \(S\neq \varnothing .\) Sea \((\vec{z},\vec{ \gamma})\) un elemento fijo de \(S.\) Sea \(\mathbb{P}\) un procedimiento el cual compute a \(f\). Sea \(\mathbb{P}_{1}\) un procedimiento el cual enumere a \( \omega \times \omega ^{n}\times \Sigma ^{\ast m}.\) Dejamos al lector el dise \~{n}o de un procedimiento efectivo el cual enumere \(D_{f}\). \(\Box\)
+
+\section{Funciones \(\Sigma \)-recursivas}
+
+En esta seccion introducimos el concepto de funcion \(\Sigma \)-recursiva. De la definicion de funcion \(\Sigma \)-recursiva quedara claro que se trata de una familia de funciones que son \(\Sigma \)-efectivamente computables ya que las mismas se obtienen a partir de una familia de funciones muy simples y obviamente \(\Sigma \)-efectivamente computables, usando constructores que preservan la computabilidad efectiva. De hecho, la motivacion en la definicion de funcion \(\Sigma \)-recursiva es lograr una descripcion matematicamente precisa del concepto de funcion \(\Sigma \)-efectivamente computable.
+
+Comensaremos estudiando ciertas funciones \(\Sigma \)-recursivas las cuales tendran un roll fundamental en la teoria
+
+\subsection{Funciones \(\Sigma \)-recursivas primitivas}
+
+Para definir la clase de las funciones \(\Sigma \)-recursivas primitivas necesitaremos dos constructores de funciones a partir de funciones, a saber, la composicion y la recursion primitiva.
+
+\subsubsection{Composicion de funciones}
+
+Sean
+
+\(\displaystyle \begin{array}{rcl} f & :& D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\text{, con }O\in \{\omega ,\Sigma ^{\ast }\} \\ f_{i} & :& D_{f_{i}}\subseteq \omega ^{k}\times \Sigma ^{\ast l}\rightarrow \omega \text{, }i=1,...,n \\ f_{i} & :& D_{f_{i}}\subseteq \omega ^{k}\times \Sigma ^{\ast l}\rightarrow \Sigma ^{\ast }\text{, }i=n+1,...,n+m. \end{array} \)
+
+Definamos
+\(\displaystyle f\circ (f_{1},...,f_{n+m}):D_{f\circ (f_{1},...,f_{n+m})}\subseteq \omega ^{k}\times \Sigma ^{\ast l}\rightarrow O, \)
+
+de la siguiente manera
+\(\displaystyle \begin{array}{rcl} D_{f\circ (f_{1},...,f_{n+m})} & =& \left\{ (\vec{x},\vec{\alpha})\in \bigcap_{i=1}^{n+m}D_{f_{i}}:(f_{1}(\vec{x},\vec{\alpha}),...,f_{n+m}(\vec{x} ,\vec{\alpha}))\in D_{f}\right\} \\ f\circ (f_{1},...,f_{n+m})(\vec{x},\vec{\alpha}) & =& f(f_{1}(\vec{x},\vec{ \alpha}),...,f_{n+m}(\vec{x},\vec{\alpha})). \end{array} \)
+
+Diremos que la funcion \(f\circ (f_{1},...,f_{n+m})\) es obtenida por composicion de \(f,f_{1},...,f_{n+m}.\) Como es usual, cuando \(n+m=1\), escribiremos \(f\circ f_{1}\) en lugar de \(f\circ (f_{1})\).
+Lema 18 Si \(f,f_{1},...,f_{n+m}\) son \(\Sigma \)-efectivamente computables, entonces \( f\circ (f_{1},...,f_{n+m})\) lo es.
+Prueba: Sean \(\mathbb{P},\mathbb{P}_{1},...,\mathbb{P}_{n+m}\) procedimientos efectivos los cuales computen las funciones \(f,f_{1},...,f_{n+m}\), respectivamente. Usando estos procedimientos es facil definir un procedimiento efectivo el cual compute a \(f\circ (f_{1},...,f_{n+m})\). \(\Box\)
+
+\subsubsection{Recursion primitiva sobre variable numerica}
+
+Caso 1. Sean
+
+\(\displaystyle \begin{array}{rcl} f & :& S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \omega \\ g & :& \omega \times \omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \omega \end{array} \)
+
+con \(S_{1},...,S_{n}\subseteq \omega \) y \(L_{1},...,L_{m}\subseteq \Sigma ^{\ast }\) conjuntos no vacios. Definamos
+\(\displaystyle R(f,g):\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \omega \)
+
+de la siguiente manera
+(1) \(R(f,g)(0,\vec{x},\vec{\alpha})=f(\vec{x},\vec{\alpha})\)
+(2) \(R(f,g)(t+1,\vec{x},\vec{\alpha})=g(R(f,g)(t,\vec{x},\vec{\alpha} ),t,\vec{x},\vec{\alpha}).\)
+Diremos que \(R(f,g)\) es obtenida por recursion primitiva a partir de \(f\) y \(g.\) Notese que cuando \(m=n=0\), se tiene que \( D_{f}=\{\Diamond \}\) y (1) y (2) se transforman en
+
+(1) \(R(f,g)(0)=f(\Diamond )\),
+(2) \(R(f,g)(t+1)=g(R(f,g)(t),t)\).
+Caso 2. Sean
+
+\(\displaystyle \begin{array}{rcl} f & :& S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \Sigma ^{\ast } \\ g & :& \omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times \Sigma ^{\ast }\rightarrow \Sigma ^{\ast } \end{array} \)
+
+con \(S_{1},...,S_{n}\subseteq \omega \) y \(L_{1},...,L_{m}\subseteq \Sigma ^{\ast }\) conjuntos no vacios. Definamos
+\(\displaystyle R(f,g):\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \Sigma ^{\ast } \)
+
+de la siguiente manera
+(1) \(R(f,g)(0,\vec{x},\vec{\alpha})=f(\vec{x},\vec{\alpha})\)
+(2) \(R(f,g)(t+1,\vec{x},\vec{\alpha})=g(t,\vec{x},\vec{\alpha} ,R(f,g)(t,\vec{x},\vec{\alpha}))\)
+Diremos que \(R(f,g)\) es obtenida por recursion primitiva a partir de \(f\) y \(g.\)
+
+Lema 19 Si \(f\) y \(g\) son \(\Sigma \)-efectivamente computables, entonces \(R(f,g)\) lo es.
+Prueba: La prueba es dejada al lector. \(\Box\)
+
+\subsubsection{Recursion primitiva sobre variable alfabetica}
+
+Caso 1. Sea
+
+\(\displaystyle f:S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \omega \)
+
+con \(S_{1},...,S_{n}\subseteq \omega \) y \(L_{1},...,L_{m}\subseteq \Sigma ^{\ast }\) conjuntos no vacios y sea \(\mathcal{G}=\left\langle \mathcal{G} _{a}:a\in \Sigma \right\rangle \) una familia indexada de funciones tal que
+\(\displaystyle \mathcal{G}_{a}:\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times \Sigma ^{\ast }\rightarrow \omega \)
+
+para cada \(a\in \Sigma .\) Definamos
+\(\displaystyle R(f,\mathcal{G}):S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times \Sigma ^{\ast }\rightarrow \omega \)
+
+de la siguiente manera
+(1) \(R(f,\mathcal{G})(\vec{x},\vec{\alpha},\varepsilon )=f(\vec{x}, \vec{\alpha})\)
+(2) \(R(f,\mathcal{G})(\vec{x},\vec{\alpha},\alpha a)=\mathcal{G} _{a}(R(f,\mathcal{G})(\vec{x},\vec{\alpha},\alpha ),\vec{x},\vec{\alpha} ,\alpha )\)
+Diremos que \(R(f,\mathcal{G})\) es obtenida por recursion primitiva a partir de \(f\) y \(\mathcal{G}.\)
+
+Caso 2. Sea
+
+\(\displaystyle f:S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \Sigma ^{\ast } \)
+
+con \(S_{1},...,S_{n}\subseteq \omega \) y \(L_{1},...,L_{m}\subseteq \Sigma ^{\ast }\) conjuntos no vacios y sea \(\mathcal{G}=\left\langle \mathcal{G} _{a}:a\in \Sigma \right\rangle \) una familia indexada de funciones tal que
+\(\displaystyle \mathcal{G}_{a}:S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times \Sigma ^{\ast }\times \Sigma ^{\ast }\rightarrow \Sigma ^{\ast } \)
+
+para cada \(a\in \Sigma \). Definamos
+\(\displaystyle R(f,\mathcal{G}):S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times \Sigma ^{\ast }\rightarrow \Sigma ^{\ast } \)
+
+de la siguiente manera
+(1) \(R(f,\mathcal{G})(\vec{x},\vec{\alpha},\varepsilon )=f(\vec{x}, \vec{\alpha})\)
+(2) \(R(f,\mathcal{G})(\vec{x},\vec{\alpha},\alpha a)=\mathcal{G}_{a}( \vec{x},\vec{\alpha},\alpha ,R(f,\mathcal{G})(\vec{x},\vec{\alpha},\alpha )). \)
+Diremos que \(R(f,\mathcal{G})\) es obtenida por recursion primitiva a partir de \(f\) y \(\mathcal{G}.\)
+
+Lema 20 Si \(f\) y cada \(\mathcal{G}_{a}\) son \(\Sigma \)-efectivamente computables, entonces \(R(f,\mathcal{G})\) lo es.
+Prueba: Es dejada al lector con la recomendacion de que haga la prueba para el caso \( \Sigma =\{@,\& \}\) \(\Box\)
+
+Definamos los conjuntos \(\mathrm{PR}_{0}^{\Sigma }\subseteq \mathrm{PR} _{1}^{\Sigma }\subseteq \mathrm{PR}_{2}^{\Sigma }\subseteq ...\subseteq \mathrm{PR}^{\Sigma }\) de la siguiente manera
+
+\(\displaystyle \begin{array}{lll} \mathrm{PR}_{0}^{\Sigma } & = & \left\{ Suc,Pred,C_{0}^{0,0},C_{\varepsilon }^{0,0}\right\} \cup \left\{ d_{a}:a\in \Sigma \right\} \cup \left\{ p_{j}^{n,m}:1\leq j\leq n+m\right\} \\ \mathrm{PR}_{k+1}^{\Sigma } & = & \mathrm{PR}_{k}^{\Sigma }\cup \left\{ f\circ (f_{1},...,f_{n}):f,f_{1},...,f_{n}\in \mathrm{PR}_{k}^{\Sigma }\right\} \cup \\ & & \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\left\{ R(f,\mathcal{G}):f\text{ y cada }\mathcal{G}_{a}\text{ pertenecen a }\mathrm{PR}_{k}^{\Sigma }\right\} \cup \\ & & \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\left \{ R(f,g):f,g\in \mathrm{PR}_{k}^{\Sigma }\right\} \\ \mathrm{PR}^{\Sigma } & = & \bigcup_{k\geq 0}\mathrm{PR}_{k}^{\Sigma } \end{array} \)
+
+Una funcion es llamada \(\Sigma \)-recursiva primitiva (\(\Sigma \) -p.r.) si pertenece a \(\mathrm{PR}^{\Sigma }\).
+Para el caso \(\Sigma =\varnothing \), notese que
+
+\(\displaystyle \begin{array}{lll} \mathrm{PR}_{0}^{\Sigma } & = & \left\{ Suc,Pred,C_{0}^{0,0}\right\} \cup \left\{ p_{j}^{n,0}:1\leq j\leq n\right\} \\ \mathrm{PR}_{k+1}^{\Sigma } & = & \mathrm{PR}_{k}^{\Sigma }\cup \left\{ f\circ (f_{1},...,f_{n}):f,f_{1},...,f_{n}\in \mathrm{PR}_{k}^{\Sigma }\right\} \cup \\ & & \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\left \{ R(f,g):f,g\in \mathrm{PR}_{k}^{\Sigma }\right\} \\ \mathrm{PR}^{\Sigma } & = & \bigcup_{k\geq 0}\mathrm{PR}_{k}^{\Sigma } \end{array} \)
+
+Notese ademas que \(\mathrm{PR}^{\varnothing }\subseteq \mathrm{PR}^{\Sigma }\), cualquiera sea el alfabeto \(\Sigma \).
+Teorema 21 Si \(f\in \mathrm{PR}^{\Sigma }\), entonces \(f\) es \(\Sigma \)-efectivamente computable.
+Prueba: Dejamos al lector la prueba por induccion en \(k\) de que si \(f\in \mathrm{PR} _{k}^{\Sigma }\), entonces \(f\) es \(\Sigma \)-efectivamente computable, la cual sale en forma directa usando los lemas anteriores que garantizan que los constructores de composicion y recursion primitiva preservan la computabilidad efectiva \(\Box\)
+
+Lema 22
+(1) \(\varnothing \in \mathrm{PR}^{\varnothing }\).
+(2) \(\lambda xy\left[ x+y\right] \in \mathrm{PR}^{\varnothing }\).
+(3) \(\lambda xy\left[ x.y\right] \in \mathrm{PR}^{\varnothing }\).
+(4) \(\lambda x\left[ x!\right] \in \mathrm{PR}^{\varnothing }\).
+Prueba: (1) Notese que \(\varnothing =Pred\circ C_{0}^{0,0}\in \mathrm{PR} _{1}^{\varnothing }\)
+
+(2) Notar que
+
+\(\displaystyle \begin{array}{rcl} \lambda xy\left[ x+y\right] (0,x_{1}) & =& x_{1}=p_{1}^{1,0}(x_{1}) \\ \lambda xy\left[ x+y\right] (t+1,x_{1}) & =& \lambda xy\left[ x+y\right] (t,x_{1})+1 \\ & =& \left( Suc\circ p_{1}^{3,0}\right) \left( \lambda xy\left[ x+y\right] (t,x_{1}),t,x_{1}\right) \end{array} \)
+
+lo cual implica que \(\lambda xy\left[ x+y\right] =R\left( p_{1}^{1,0},Suc\circ p_{1}^{3,0}\right) \in \mathrm{PR}_{2}^{\varnothing }.\)
+(3) Primero note que
+
+\(\displaystyle \begin{array}{rcl} C_{0}^{1,0}(0) & =& C_{0}^{0,0}(\Diamond ) \\ C_{0}^{1,0}(t+1) & =& C_{0}^{1,0}(t) \end{array} \)
+
+lo cual implica que \(C_{0}^{1,0}=R\left( C_{0}^{0,0},p_{1}^{2,0}\right) \in \mathrm{PR}_{1}^{\varnothing }.\) Tambien note que
+\(\displaystyle \lambda tx\left[ t.x\right] =R\left( C_{0}^{1,0},\lambda xy\left[ x+y\right] \circ \left( p_{1}^{3,0},p_{3}^{3,0}\right) \right) , \)
+
+lo cual por (1) implica que \(\lambda tx\left[ t.x\right] \in \mathrm{PR} _{3}^{\varnothing }\).
+(4) Note que
+
+\(\displaystyle \begin{array}{rcl} \lambda x\left[ x!\right] (0) & =& 1=C_{1}^{0,0}(\Diamond ) \\ \lambda x\left[ x!\right] (t+1) & =& \lambda x\left[ x!\right] (t).(t+1), \end{array} \)
+
+lo cual implica que
+\(\displaystyle \lambda x\left[ x!\right] =R\left( C_{1}^{0,0},\lambda xy\left[ x.y\right] \circ \left( p_{1}^{2,0},Suc\circ p_{2}^{2,0}\right) \right) . \)
+
+Ya que \(C_{1}^{0,0}=\) \(Suc\circ C_{0}^{0,0}\), tenemos que \(C_{1}^{0,0}\in \mathrm{PR}_{1}^{\varnothing }\). Por (2), tenemos que
+\(\displaystyle \lambda xy\left[ x.y\right] \circ \left( p_{1}^{2,0},Suc\circ p_{2}^{2,0}\right) \in \mathrm{PR}_{4}^{\varnothing }, \)
+
+obteniendo que \(\lambda x\left[ x!\right] \in \mathrm{PR}_{5}^{\varnothing }\). \(\Box\)
