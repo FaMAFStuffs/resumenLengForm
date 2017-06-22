@@ -1,11 +1,309 @@
-\section{Conjuntos $\Sigma$-mixtos}
+\section{Notación y conceptos básicos}
 
-  \textbf{\underline{Lemma 1:}} Sea $S\subseteq \omega \times \Sigma ^{\ast }$, entonces $S$ es rectangular si y
+  \textbf{\underline{Lemma 1:}} Sea $S\subseteq \omega \times \Sigma^{\ast}$, entonces $S$ es rectangular si y
     solo si se cumple la siguiente propiedad:
 
     \[
       \textup{Si } (x, \alpha), (y, \beta) \in S \Rightarrow (x, \beta) \in S
     \]
+
+  \textbf{\underline{Proof:}} Ejercicio.
+
+  \QED
+
+
+  \textbf{\underline{Lemma 2:}} La relación $<$ es un orden total estricto sobre $\Sigma^{\ast}$.
+
+  \textbf{\underline{Proof:}} Ejercicio.
+
+  \QED
+
+
+  \textbf{\underline{Lemma 3:}} La función $s^{<}: \Sigma^{\ast} \rightarrow \Sigma^{\ast}$, definida recursivamente
+    de la siguiente manera:
+
+    \begin{eqnarray}
+  		\nonumber s^{<}(\varepsilon) &=& a_{1} \\
+  		\nonumber s^{<}(\alpha a_{i}) &=& \alpha a_{i + 1} \text{, } i < n \\
+  		\nonumber s^{<}(\alpha a_{n}) &=& s^{<}(\alpha) a_{1}
+    \end{eqnarray}
+
+    tiene la siguiente propiedad:
+
+    \[
+      s^{<}(\alpha) = \min \{\beta \in \Sigma^{\ast}: \alpha < \beta \}
+    \]
+
+  \textbf{\underline{Proof:}} Supongamos que $\alpha < \beta $. Probaremos entonces que $s^{<}(\alpha )\leq \beta $.
+
+    \vspace{3mm}
+    \begin{tabular}{|c|}
+      \hline Caso $\left\vert \alpha \right\vert < \left\vert \beta \right\vert$\\\hline
+    \end{tabular}
+
+    \par Se puede ver fácilmente que $\left\vert \alpha \right\vert = \left\vert s^{<}(\alpha) \right\vert$ salvo en el
+    caso en que $\alpha \in \{a_{n}\}^{\ast}$, por lo cual solo resta ver el caso $\alpha \in \{a_{n}\}^{\ast}$.
+    Supongamos $\alpha = a_{n}^{\left\vert \alpha \right\vert}$, entonces $s^{<}(\alpha) = a_{1}^{\left\vert \alpha
+    \right\vert + 1}$. Si $\left\vert \beta \right\vert = \left\vert \alpha \right\vert + 1$ entonces es fácil ver
+    usando el ítem 2 de la definición del orden de $\Sigma^{\ast}$ que $s^{<}(\alpha) = a_{1}^{\left\vert \alpha
+    \right\vert + 1} \leq \beta$. Si $\left\vert \beta \right\vert > \left\vert \alpha \right\vert + 1$, entonces por
+    el ítem 1, de tal definición tenemos que $s^{<}(\alpha) = a_{1}^{\left\vert \alpha \right\vert +1}< \beta$.
+
+    \vspace{3mm}
+    \begin{tabular}{|c|}
+      \hline Caso $\left\vert \alpha \right\vert =\left\vert \beta \right\vert$\\\hline
+    \end{tabular}
+
+    \par Tenemos entonces que:
+
+    \begin{eqnarray}
+      \nonumber \alpha &=& \alpha_{1} a_{i} \gamma_{1} \\
+      \nonumber \beta &=& \alpha_{1} a_{j} \gamma_{2}
+    \end{eqnarray}
+
+    con $i < j$ y $\left\vert \gamma_{1} \right\vert = \left\vert \gamma_{2}\right\vert$. Si $\gamma_{1} = \gamma_{2} =
+    \varepsilon$ entonces es claro que $s^{<}(\alpha) \leq \beta$. El caso en el que $\gamma_{1}$ termina con $a_{l}$
+    para algún $l < n$ es fácil. Veamos el caso en que $\gamma_{1} = a_{n}^{k}$ con $k \geq 1.$ Tenemos que:
+
+    \begin{eqnarray}
+      \nonumber s^{<}(\alpha ) & = & s^{<}(\alpha _{1}a_{i}a_{n}^{k}) \\
+      \nonumber &=& s^{<}(\alpha_{1} a_{i} a_{n}^{k - 1}) a_{1} \\
+      \nonumber &\vdots& \;\;\;\;\;\;\vdots \\
+      \nonumber &=& s^{<}(\alpha_{1} a_{i}) a_{1}^{k} \\
+      \nonumber &=& \alpha_{1} a_{i + 1} a_{1}^{k} \\
+      \nonumber &\leq& \alpha_{1} a_{j} \gamma_{2} = \beta
+    \end{eqnarray}
+
+    \par Supongamos finalmente que $\gamma_{1} = \rho_{1} a_{l} a_{n}^{k}$ con $k \geq 1$ y $l < n$. Tenemos que:
+
+    \begin{eqnarray}
+      \nonumber s^{<}(\alpha) &=& s^{<}(\alpha_{1} a_{i} \rho_{1} a_{l} a_{n}^{k}) \\
+      \nonumber &=& s^{<}(\alpha_{1} a_{i} \rho_{1} a_{l} a_{n}^{k - 1}) a_{1} \\
+      \nonumber &\vdots& \;\;\;\;\;\;\vdots \\
+      \nonumber &=& s^{<}(\alpha_{1} a_{i} \rho_{1} a_{l}) a_{1}^{k} \\
+      \nonumber &=& \alpha_{1} a_{i} \rho_{1} a_{l + 1} a_{1}^{k} \\
+      \nonumber &\leq& \beta
+    \end{eqnarray}
+
+    \par Para completar nuestra demostración debemos probar que $\alpha < s^{<}(\alpha)$, para cada $\alpha \in
+    \Sigma ^{\ast}$. Dejamos al lector como ejercicio esta prueba la cual puede ser hecha por inducción en $\left\vert
+    \alpha \right\vert$ usando argumentos parecidos a los usados anteriormente.
+
+  \QED
+
+
+  \textbf{\underline{Corollary 4:}} $s^{<}$ es inyectiva.
+
+  \textbf{\underline{Proof:}} Supongamos $\alpha \neq \beta$. Ya que el orden de $\Sigma^{\ast}$ es total podemos
+    suponer sin pérdida de generalidad que $\alpha < \beta$. Por el lema anterior tenemos que $s^{<}(\alpha) \leq \beta
+    < s^{<}(\beta)$ y ya que $<$ es transitiva obtenemos que $s^{<}(\alpha)< s^{<}(\beta)$, lo cual nos dice $s^{<}
+    (\alpha) \neq s^{<}(\beta)$.
+
+  \QED
+
+
+  \textbf{\underline{Lemma 5:}} Se tiene que:
+    \begin{enumerate}
+      \item $\varepsilon \neq s^{<}(\alpha)$, para cada $\alpha \in \Sigma^{\ast}$.
+      \item Si $\alpha \neq \varepsilon$, entonces $\alpha = s^{<}(\beta)$ para algún $\beta$.
+      \item Si $S\subseteq \Sigma^{\ast}$ es no vacío, entonces $\exists \alpha \in S$ tal que $\alpha < \beta$, para
+      cada $\beta \in S-\{\alpha\}$.
+    \end{enumerate}
+
+  \textbf{\underline{Proof:}}
+
+    \begin{enumerate}
+      \item Ejercicio
+      \item Ejercicio
+      \item Sea $k = \min \{\left\vert \alpha \right\vert: \alpha \in S\}$. Notese que hay una cantidad finita de
+      palabras de $S$ con longitud igual a $k$ y que la menor de ellas es justamente la menor palabra de $S$.
+    \end{enumerate}
+
+  \QED
+
+
+  \textbf{\underline{Lemma 6:}} Tenemos que:
+
+    \[
+      \Sigma^{\ast}=\{\ast^{<}(0),\ast^{<}(1), ...\}
+    \]
+
+    \par Mas aún la función $\ast^{<}$ es biyectiva.
+
+  \textbf{\underline{Proof:}} Supongamos $\ast^{<}(x) = \ast^{<}(y)$ con $x > y$. Note que $y \neq 0$ ya que
+    $\varepsilon$ no es el sucesor de ninguna palabra. Osea que $s^{<}(\ast^{<}(x-1)) = s^{<}(\ast^{<}(y-1))$ lo
+    cual ya que $\ast^{<}$ es inyectiva nos dice que $\ast^{<}(x-1) = \ast^{<}(y-1)$. Iterando este razonamiento
+    llegamos a que $\ast^{<}(z) = \ast^{<}(0) = \varepsilon$ para algún $z > 0$, lo cual es absurdo.
+
+    \par Veamos que $\ast^{<}$ es sobreyectiva. Supongamos no lo es, es decir supongamos que
+    $\Sigma^{\ast}-I_{\ast^{<}} \neq \varnothing$. Por (3) del lema anterior $\Sigma^{\ast}-I_{\ast^{<}}$ tiene un
+    menor elemento $\alpha$. Ya que $\alpha \neq \varepsilon$, tenemos que $\alpha = s^{<}(\beta)$, para algún $\beta$.
+    Ya que $\beta < \alpha$ tenemos que $\beta \notin \Sigma^{\ast}-I_{\ast^{<}}$, es decir que $\beta = \ast^{<}(x)$,
+    para algún $x \in \omega$. Esto nos dice que $\alpha = s^{<}(\ast^{<}(x))$, lo cual por la definición de
+    $\ast^{<}$ nos dice que $\alpha = \ast^{<}(x+1)$. Pero esto es absurdo ya que $\alpha \notin I_{\ast^{<}}$.
+
+  \QED
+
+
+  \textbf{\underline{Lemma 7:}} Sea $n \geq 1$ fijo, entonces cada $x \geq 1$ se escribe en forma única de la siguiente
+    manera:
+
+    \[
+      x = i_{k} n^{k} + i_{k-1} n^{k-1} + ... + i_{0} n^{0}
+    \]
+
+    \par con $k\geq 0$ y $1\leq i_{k}, i_{k-1},...,i_{0}\leq n$.
+
+  \textbf{\underline{Proof:}} Veamos primero la unicidad. Supongamos que:
+
+    \[
+      i_{k} n^{k} + i_{k-1} n^{k-1} + ... + i_{0} n^{0} = j_{m} n^{m} + j_{m-1} n^{m-1} + ... + j_{0} n^{0}
+    \]
+
+    \par con $k, m \geq 0$ y $1 \leq i_{k}, i_{k-1}, ..., i_{0}, j_{m}, ..., j_{0} \leq n$. Supongamos $k < m$.
+    Llegaremos a un absurdo. Notese que:
+
+    \begin{eqnarray}
+    	\nonumber i_{k} n^{k} + i_{k-1} n^{k-1} + ... + i_{0}n^{0} &\leq& n.n^{k} + n.n^{k-1} +... + n.n^{0} \\
+    	\nonumber &\leq& n^{k+1} + n^{k} + ... + n^{1} \\
+      \nonumber &<& n^{k+1} + n^{k}+ ... + n^{1} + n^{0} \\
+      \nonumber &\leq& n^{m} + n^{m-1} + ... + n^{0} \\
+      \nonumber &\leq& j_{m}n^{m}+j_{m-1}n^{m-1}+...+j_{0}n^{0}
+		\end{eqnarray}
+
+    \par lo cual contradice la primera igualdad.
+
+    \par Probaremos por inducción en $x$ que: (1) existen $k \geq 0$ y $i_{k}, i_{k-1}, ..., i_{0} \in \{1, ..., n\}$
+    tales que:
+
+    \[
+      x = i_{k} n^{k} + i_{k-1} n^{k-1} + ... + i_{0} n^{0}
+    \]
+
+    El caso $x = 1$ es trivial. Supongamos (1) vale para $x$, probaremos que vale para $x + 1$. Hay varios casos:
+
+
+    \begin{tabular}{|c|}
+      \hline Caso $i_{0} < n$\\\hline
+    \end{tabular}
+
+    \begin{eqnarray}
+      \nonumber x + 1 &=& \left(i_{k} n^{k} + i_{k-1} n^{k-1} + ... + i_{0} n^{0}\right) + 1 \\
+      \nonumber &=& i_{k} n^{k} + i_{k-1} n^{k-1} + ... + (i_{0} + 1) n^{0}
+    \end{eqnarray}
+
+    \begin{tabular}{|c|}
+      \hline Caso $i_{k}=i_{k-1}=...=i_{0}=n$\\\hline
+    \end{tabular}
+
+    \begin{eqnarray}
+      \nonumber x + 1 &=& \left(i_{k} n^{k} + i_{k-1} n^{k-1} + ... + i_{0}n^{0}\right) + 1 \\
+      \nonumber &=& \left(n n^{k} + n n^{k-1} + ... + n n^{0}\right) + 1 \\
+      \nonumber &=& 1 n^{k+1} + 1 n^{k} + ... + 1 n^{1} + 1 n^{0}
+    \end{eqnarray}
+
+    \begin{tabular}{|c|}
+      \hline Caso $i_{0} = i_{1} = ... = i_{h} = n$, $i_{h+1} \not= n$ \text{ para algún } $0 \leq h < k$\\\hline
+    \end{tabular}
+
+    \begin{eqnarray}
+      \nonumber x+1 &=& \left(i_{k} n^{k} + ... + i_{h+2}n^{h+2} + i_{h+1} n^{h+1} + n n^{h} + ... + n n^{0}\right) + 1 \\
+      \nonumber &=& \left(i_{k} n^{k} + ... + i_{h+2} n^{h+2} + i_{h+1} n^{h+1} + n^{h+1} + n^{h} + ... + n^{1}\right) + 1 \\
+      \nonumber &=& i_{k} n^{k} + ... + i_{h+2} n^{h+2} + (i_{h+1} + 1 ) n^{h+1} + 1 n^{h} + ... + 1 n^{1} + 1 n^{0}
+    \end{eqnarray}
+
+  \QED
+
+
+  \textbf{\underline{Lemma 8:}} La función $\#^{<}$ es biyectiva.
+
+  \textbf{\underline{Proof:}} Ejercicio.
+
+  \QED
+
+
+  \textbf{\underline{Lemma 9:}} Las funciones $\#^{<}$ y $\ast^{<}$ son una inversa de la otra.
+
+  \textbf{\underline{Proof:}} Probaremos por inducción en $x$ que para cada $x \in \omega$, se tiene que
+    $\#^{<}(\ast^{<}(x)) = x$. El caso $x = 0$ es trivial. Supongamos que $\#^{<}(\ast^{<}(x)) = x$, veremos entonces
+    que $\#^{<}(\ast^{<}(x + 1)) = x + 1$. Sean $k \geq 0$ y $i_{k}, ..., i_{0}$ tales que $\ast^{<}(x) = a_{i_{0}} ...
+    a_{i_{0}}$. Ya que $\#^{<}(\ast^{<}(x)) = x$ tenemos que $x = i_{k} n^{k} + ... + i_{0} n^{0}$. Hay varios casos:
+
+    \begin{tabular}{|c|}
+      \hline Caso $i_{0}< n$.\\\hline
+    \end{tabular}
+
+    Entonces $\ast^{<}(x + 1)=s^{<}(\ast^{<}(x)) = a_{i_{k}} ... a_{i_{0} + 1}$ por lo cual:
+
+    \begin{eqnarray}
+      \nonumber \#^{<}(\ast^{<}(x+1)) &=& i_{k}n^{k}+i_{k-1}n^{k-1}+...+(i_{0}+1)n^{0} \\
+      \nonumber &=& \left( i_{k}n^{k}+i_{k-1}n^{k-1}+...+i_{0}n^{0}\right) +1 \\
+      \nonumber &=& x + 1
+    \end{eqnarray}
+
+    \begin{tabular}{|c|}
+      \hline Caso $i_{k}=i_{k-1}=...=i_{0}=n$.\\\hline
+    \end{tabular}
+    Entonces $\ast^{<}(x + 1) = s^{<}(\ast^{<}(x)) = a_{1}^{k + 2}$ por lo cual:
+
+    \begin{eqnarray}
+      \nonumber \#^{<}(\ast^{<}(x+1)) &=& 1n^{k+1}+1n^{k}+...+1n^{1}+1n^{0} \\
+      \nonumber &=& \left( nn^{k}+nn^{k-1}+...+nn^{0}\right) +1 \\
+      \nonumber &=& x + 1
+    \end{eqnarray}
+
+    \begin{tabular}{|c|}
+      \hline Caso $i_{0}=i_{1}=...=i_{h}=n$, $\;i_{h+1}\not=n$, para algun $ 0\leq h< k$.\\\hline
+    \end{tabular}
+
+    Entonces $\ast^{<}(x+1)=s^{<}(\ast^{<}(x))=a_{i_{k}}...a_{i_{h+2}}a_{i_{h+1}+1}a_{1}...a_{1}$ por lo cual
+
+    \begin{eqnarray}
+      \nonumber \#^{<}(\ast^{<}(x+1)) &=& i_{k}n^{k}+...+i_{h+2}n^{h+2}+(i_{h+1}+1)n^{h+1}+1n^{h}+...+1n^{1}+1n^{0} \\
+      \nonumber &=& \left( i_{k}n^{k}+...+i_{h+2}n^{h+2}+i_{h+1}n^{h+1}+n^{h+1}+n^{h}+...+n^{1}\right) +1 \\
+      \nonumber &=& \left( i_{k}n^{k}+...+i_{h+2}n^{h+2}+i_{h+1}n^{h+1}+nn^{h}+...+nn^{0}\right) +1 \\
+      \nonumber &=& x + 1
+    \end{eqnarray}
+
+  \QED
+
+
+  \textbf{\underline{Lemma 10:}} Si $p, p_{1},...,p_{n}$ son numeros primos y $p$ divide a $p_{1}...p_{n}$, entonces $p=p_{i}$, para algun $i$.
+
+  \textbf{\underline{Proof:}} Ejercicio.
+
+  \QED
+
+
+  \textbf{\underline{Theorem 11:}} Para cada $x\in \mathbf{N}$, hay una unica sucesion $(s_{1},s_{2},...)\in \omega ^{\left[ \mathbf{N}\right] }$ tal que
+    $\displaystyle x=\underset{i=1}{\overset{\infty }{\Pi }}pr(i)^{s_{i}} $
+    (Notese que $\underset{i=1}{\overset{\infty }{\Pi }}pr(i)^{s_{i}}$ tiene sentido ya que es un producto que solo tiene una cantidad finita de factores no iguales a $1$. )
+
+  \textbf{\underline{Proof:}} Primero probaremos la existencia por induccion en $x$. Claramente $1= \underset{i=1}{\overset{\infty }{\Pi }}pr(i)^{0}$, con lo cual el caso $x=1$ esta probado. Supongamos la existencia vale para cada $y$ menor que $x$, veremos que entonces vale para $x$. Si $x$ es primo, entonces $x=pr(i_{0})$ para algun $i_{0}$ por lo cual tenemos que $x=\underset{i=1}{\overset{\infty }{\Pi }}pr(i)^{s_{i}}$, tomando $s_{i}=0$ si $i\neq i_{0}$ y $s_{i_{0}}=1$. Si $x$ no es primo,
+    entonces $x=y_{1}.y_{2}$ con $y_{1},y_{2}< x$. Por hipotesis inductiva tenemos que hay $(s_{1},s_{2},...),(t_{1},t_{2},...)\in \omega ^{\left[ \mathbf{N}\right] }$ tales que $y_{1}=\underset{i=1}{\overset {\infty }{\Pi }}pr(i)^{s_{i}}$ y $y_{2}=\underset{i=1}{\overset{\infty }{\Pi }}pr(i)^{t_{i}}$. Tenemos entonces que $x=\underset{i=1}{\overset{\infty }{ \Pi }}pr(i)^{s_{i}+t_{i}}$ lo cual concluye la prueba de la existencia.
+
+    Veamos ahora la unicidad. Suponganos que
+
+    $\displaystyle \underset{i=1}{\overset{\infty }{\Pi }}pr(i)^{s_{i}}=\underset{i=1}{\overset{ \infty }{\Pi }}pr(i)^{t_{i}} $
+
+    Si $s_{i} >t_{i}$ entonces dividiendo ambos miembros por $pr(i)^{t_{i}}$ obtenemos que $pr(i)$ divide a un producto de primos todos distintos de el, lo cual es absurdo por el lema anterior. Analogamente llegamos a un absurdo si suponemos que $t_{i} >s_{i}$, lo cual nos dice que $s_{i}=t_{i}$, para cada $i\in \mathbf{N}$ $\Box$
+
+  \QED
+
+
+  \textbf{\underline{Lemma 12:}} Las funciones
+    $\displaystyle \begin{array}{lll} \mathbf{N} & \rightarrow & \omega ^{\left[ \mathbf{N}\right] } \\ x & \rightarrow & ((x)_{1},(x)_{2},...) \end{array} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \begin{array}{rll} \omega ^{\left[ \mathbf{N}\right] } & \rightarrow & \mathbf{N} \\ (s_{1},s_{2},...) & \rightarrow & \left\langle s_{1},s_{2},...\right\rangle \end{array} $
+    son biyecciones una inversa de la otra.
+
+  \textbf{\underline{Proof:}} Notese que para cada $x\in \mathbf{N}$, tenemos que $\left\langle (x)_{1},(x)_{2},...\right\rangle =x$. Ademas para cada $(s_{1},s_{2},...)\in \omega ^{\left[ \mathbf{N}\right] }$, tenemos que $((\left\langle s_{1},s_{2},...\right\rangle )_{1},(\left\langle s_{1},s_{2},...\right\rangle )_{2},...)=(s_{1},s_{2},...)$. Es claro que lo anterior garantiza que los mapeos en cuestion son uno inversa del otro $\Box$
+
+  \QED
+
+
+  \textbf{\underline{Lemma 13}} Para cada $x\in \mathbf{N}$:
+    $Lt(x)=0$ sii $x=1$
+    $x=\prod\nolimits_{i=1}^{Lt(x)}pr(i)^{(x)_{i}}$
+    Cabe destacar entonces que la funcion $\lambda ix[(x)_{i}]$ tiene dominio igual a $\mathbf{N}^{2}$ y la funcion $\lambda ix[Lt(x)]$ tiene dominio igual a $\mathbf{N}$.
 
   \textbf{\underline{Proof:}} Ejercicio.
 
