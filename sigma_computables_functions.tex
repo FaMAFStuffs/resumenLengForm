@@ -1,0 +1,65 @@
+\section{Funciones $\Sigma$-computables}
+
+
+\textbf{\underline{Theorem 53:}} Si \(f\) es \(\Sigma \)-computable, entonces \(f\) es \(\Sigma \)-efectivamente computable.
+
+
+\textbf{\underline{Proof:}} Supongamos por ejemplo que \(f:S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) es computada por \(\mathcal{P}\in \mathrm{Pro}^{\Sigma }\). Es claro que el procedimiento que consiste en realizar las sucesivas instrucciones de \(\mathcal{P}\) (partiendo de \(((x_{1},...,x_{n},0,0,...),( \alpha _{1},...,\alpha _{m},\varepsilon ,\varepsilon ,...))\)) y eventualmente terminar en caso de que nos toque realizar la instruccion \(n( \mathcal{P})+1\), y dar como salida el contenido de la variable \(\mathrm{N}1\) , es un procedimiento efectivo que computa a \(f\). \(\Box\)
+
+
+\textbf{\underline{Proposition 54:}}
+
+(a) Sea \(f:S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) una funcion \(\Sigma \)-computable. Entonces hay un macro
+\(\displaystyle \left[ \mathrm{V}\overline{n+1}\leftarrow f(\mathrm{V}1,...,\mathrm{V}\bar{n} ,\mathrm{W}1,...,\mathrm{W}\bar{m})\right] \)
+(b) Sea \(f:S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \Sigma ^{\ast }\) una funcion \(\Sigma \)-computable. Entonces hay un macro
+\(\displaystyle \left[ \mathrm{W}\overline{m+1}\leftarrow f(\mathrm{V}1,...,\mathrm{V}\bar{n} ,\mathrm{W}1,...,\mathrm{W}\bar{m})\right] \)
+
+\textbf{\underline{Proof:}} (b) Sea \(\mathcal{P}\) un programa que compute a \(f\). Tomemos un \(k\) tal que \( k\geq n,m\) y tal que todas las variables y labels de \(\mathcal{P}\) estan en el conjunto
+
+\(\displaystyle \{\mathrm{N}1,...,\mathrm{N}\bar{k},\mathrm{P}1,...,\mathrm{P}\bar{k}, \mathrm{L}1,...,\mathrm{L}\bar{k}\}\text{.} \)
+
+Sea \(\mathcal{P}^{\prime }\) la palabra que resulta de reemplazar en \( \mathcal{P}\):
+- la variable \(\mathrm{N}\overline{j}\) por \(\mathrm{V}\overline{n+j}\) , para cada \(j=1,...,k\)
+- la variable \(\mathrm{P}\overline{j}\) por \(\mathrm{W}\overline{m+j}\) , para cada \(j=1,...,k\)
+- el label \(\mathrm{L}\overline{j}\) por \(\mathrm{A}\overline{j}\), para cada \(j=1,...,k\)
+Notese que
+
+\(\displaystyle \begin{array}{l} \mathrm{V}\overline{n+1}\leftarrow \mathrm{V}1 \\ \ \ \ \ \ \ \ \ \ \vdots \\ \mathrm{V}\overline{n+n}\leftarrow \mathrm{V}\overline{n} \\ \mathrm{V}\overline{n+n+1}\leftarrow 0 \\ \ \ \ \ \ \ \ \ \ \vdots \\ \mathrm{V}\overline{n+k}\leftarrow 0 \\ \mathrm{W}\overline{m+1}\leftarrow \mathrm{W}1 \\ \ \ \ \ \ \ \ \ \ \vdots \\ \mathrm{W}\overline{m+m}\leftarrow \mathrm{W}\overline{m} \\ \mathrm{W}\overline{m+m+1}\leftarrow \varepsilon \\ \ \ \ \ \ \ \ \ \ \vdots \\ \mathrm{W}\overline{m+k}\leftarrow \varepsilon \\ \mathcal{P}^{\prime } \end{array} \)
+
+es el macro buscado, el cual tendra sus variables auxiliares y labels en la lista
+\(\displaystyle \mathrm{V}\overline{n+1},...,\mathrm{V}\overline{n+k},\mathrm{W}\overline{m+2 },...,\mathrm{V}\overline{m+k},\mathrm{A}1,...,\mathrm{A}\overline{k}. \)
+
+\(\Box\)
+
+
+
+
+\textbf{\underline{Proposition 55:}} Sea \(P:S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) un predicado \(\Sigma \)-computable. Entonces hay un macro
+\(\displaystyle \left[ \mathrm{IF}\;P(\mathrm{V}1,...,\mathrm{V}\bar{n},\mathrm{W}1,..., \mathrm{W}\bar{m})\;\mathrm{GOTO}\;\mathrm{A}1\right] \)
+
+
+
+\textbf{\underline{Theorem 56:}} Si \(h\) es \(\Sigma \)-recursiva, entonces \(h\) es \(\Sigma \) -computable.
+
+\textbf{\underline{Proof:}} Probaremos por induccion en \(k\) que
+
+(*) Si \(h\in \mathrm{R}_{k}^{\Sigma }\), entonces \(h\) es \(\Sigma \) -computable.
+El caso \(k=0\) es dejado al lector. Supongamos (*) vale para \(k\), veremos que vale para \(k+1\). Sea \(h\in \mathrm{R}_{k+1}^{\Sigma }-\mathrm{R} _{k}^{\Sigma }.\) Hay varios casos
+
+Caso 1. Supongamos \(h=M(P)\), con \(P:\omega \times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \), un predicado perteneciente a \(\mathrm{R} _{k}^{\Sigma }\). Por hipotesis inductiva, \(P\) es \(\Sigma \)- computable y por lo tanto tenemos un macro
+
+\(\displaystyle \left[ \mathrm{IF}\;P(\mathrm{V}1,...,\mathrm{V}\overline{n+1},\mathrm{W} 1,...,\mathrm{W}\bar{m})\;\mathrm{GOTO}\;\mathrm{A}1\right] \)
+
+lo cual nos permite realizar el siguiente programa
+\(\displaystyle \begin{array}{ll} \mathrm{L}2 & \mathrm{IF}\;P(\mathrm{N}\overline{n+1},\mathrm{N}1,..., \mathrm{N}\bar{n},\mathrm{P}1,...,\mathrm{P}\bar{m})\text{\ }\mathrm{GOTO}\; \mathrm{L}1 \\ & \mathrm{N}\overline{n+1}\leftarrow \mathrm{N}\overline{n+1}+1 \\ & \mathrm{GOTO}\;\mathrm{L}2 \\ \mathrm{L}1 & \mathrm{N}1\leftarrow \mathrm{N}\overline{n+1} \end{array} \)
+
+Es facil chequear que este programa computa \(h.\)
+Caso 2. Supongamos \(h=R(f,\mathcal{G})\), con
+
+\(\displaystyle \begin{array}{rcl} f & :& S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \Sigma ^{\ast } \\ \mathcal{G}_{a} & :& S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times \Sigma ^{\ast }\times \Sigma ^{\ast }\rightarrow \Sigma ^{\ast } \text{, }a\in \Sigma \end{array} \)
+
+elementos de \(\mathrm{R}_{k}^{\Sigma }\). Sea \(\Sigma =\{a_{1},...,a_{r}\}.\) Por hipotesis inductiva, las funciones \(f\), \(\mathcal{G}_{a}\), \(a\in \Sigma \) , son \(\Sigma \)-computables y por lo tanto podemos hacer el siguiente programa via el uso de macros
+\(\displaystyle \begin{array}{rl} & \left[ \mathrm{P}\overline{m+3}\leftarrow f(\mathrm{N}1,...,\mathrm{N}\bar{ n},\mathrm{P}1,...,\mathrm{P}\bar{m})\right] \\ \mathrm{L}\overline{r+1} & \mathrm{IF}\;\mathrm{P}\overline{m+1}\ \text{ {B}}\mathrm{EGINS\ }a_{1}\text{ }\mathrm{GOTO}\;\mathrm{L}1 \\ & \ \ \ \ \ \ \ \ \ \ \ \ \vdots \\ & \mathrm{IF}\;\mathrm{P}\overline{m+1}\ \mathrm{BEGINS\ }a_{r}\text{ } \mathrm{GOTO}\;\mathrm{L}\bar{r} \\ & \mathrm{GOTO}\;\mathrm{L}\overline{r+2} \\ \mathrm{L}1 & \mathrm{P}\overline{m+1}\leftarrow \text{ }^{\curvearrowright } \mathrm{P}\overline{m+1} \\ & \left[ \mathrm{P}\overline{m+3}\leftarrow \mathcal{G}_{a_{1}}(\mathrm{N} 1,...,\mathrm{N}\bar{n},\mathrm{P}1,...,\mathrm{P}\bar{m},\mathrm{P} \overline{m+2},\mathrm{P}\overline{m+3})\right] \\ & \mathrm{P}\overline{m+2}\leftarrow \mathrm{P}\overline{m+2}a_{1} \\ & \mathrm{GOTO}\;\mathrm{L}\overline{r+1} \\ & \ \ \ \ \ \ \ \ \ \ \ \ \vdots \\ \mathrm{L}\bar{r} & \mathrm{P}\overline{m+1}\leftarrow \text{ } ^{\curvearrowright }\mathrm{P}\overline{m+1} \\ & \mathrm{P}\overline{m+3}\leftarrow \mathcal{G}_{a_{r}}(\mathrm{N}1,..., \mathrm{N}\bar{n},\mathrm{P}1,...,\mathrm{P}\bar{m},\mathrm{P}\overline{m+2}, \mathrm{P}\overline{m+3}) \\ & \mathrm{P}\overline{m+2}\leftarrow \mathrm{P}\overline{m+2}a_{r} \\ & \mathrm{GOTO}\;\mathrm{L}\overline{r+1} \\ \mathrm{L}\overline{r+2} & \mathrm{P}1\leftarrow \mathrm{P}\overline{m+3} \end{array} \)
+
+Es facil chequear que este programa computa \(h.\)
+El resto de los casos son dejados al lector. \(\Box\)

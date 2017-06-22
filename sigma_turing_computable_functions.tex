@@ -1,34 +1,8 @@
-\subsection{Funciones \(\Sigma \)-Turing computables}
+\section{Funciones $\Sigma$-Turing computables}
 
-Para poder computar funciones mixtas con una maquina de Turing necesitaremos un simbolo para representar numeros sobre la cinta. Llamaremos a este simbolo unit y lo denotaremos con \(\shortmid \). Mas formalmente una maquina de Turing con unit es una 8-upla \(M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) \) tal que \(\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F\right) \) es una maquina de Turing y \(\shortmid \) es un simbolo distingido perteneciente a \(\Gamma -(\{B\}\cup \Sigma )\).
+\textbf{\underline{Theorem 83:}} Supongamos \(f:S\subseteq \omega ^{n}\times \Sigma ^{\ast }{}^{m}\rightarrow O \) es \(\Sigma \)-Turing computable. Entonces \(f\) es \(\Sigma \)-recursiva.
 
-Una maquina de Turing \(M\) sera llamada deterministica cuando se de que \(\left\vert \delta (p,\sigma )\right\vert \leq 1\), cualesquiera sean \( p\in Q\) y \(\sigma \in \Gamma \).
-
-Diremos que una funcion \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \Sigma ^{\ast }\) es \(\Sigma \)-Turing computable si existe una maquina de Turing deterministica con unit, \(M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) \) tal que:
-
-(1) Si \((\vec{x},\vec{\alpha})\in D_{f}\), entonces hay un \(p\in Q\) tal que
-\(\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B\alpha _{1}B...B\alpha _{m}\right\rfloor \overset{\ast }{\vdash }\left\lfloor pBf( \vec{x},\vec{\alpha})\right\rfloor \)
-
-y \(\left\lfloor pBf(\vec{x},\vec{\alpha})\right\rfloor \nvdash d\), para cada \(d\in Des\)
-(2) Si \((\vec{x},\vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}-D_{f}\), entonces \(M\) no se detiene partiendo de
-\(\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B\alpha _{1}B...B\alpha _{m}\right\rfloor . \)
-
-En forma similar, una funcion \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast }{}^{m}\rightarrow \omega \), es llamada \(\Sigma \)- Turing computable si existe una maquina de Turing deterministica con unit, \( M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) \), tal que:
-
-(1) Si \((\vec{x},\vec{\alpha})\in D_{f}\), entonces hay un \(p\in Q\) tal que
-\(\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B\alpha _{1}B...B\alpha _{m}\right\rfloor \overset{\ast }{\vdash }\left\lfloor pB\shortmid ^{f(\vec{x},\vec{\alpha})}\right\rfloor \)
-
-y \(\left\lfloor pB\shortmid ^{f(\vec{x},\vec{\alpha})}\right\rfloor \nvdash d \), para cada \(d\in Des\)
-(2) Si \((\vec{x},\vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}-D_{f}\), entonces \(M\) no se detiene partiendo de
-\(\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B\alpha _{1}B...B\alpha _{m}\right\rfloor \)
-
-Cuando \(M\) y \(f\) cumplan los items (1) y (2) de la definicion anterior, diremos que la funcion \(f\) es computada por \(M\).
-
-
-
-
-\textbf{Teorema 83} Supongamos \(f:S\subseteq \omega ^{n}\times \Sigma ^{\ast }{}^{m}\rightarrow O \) es \(\Sigma \)-Turing computable. Entonces \(f\) es \(\Sigma \)-recursiva.
-Prueba: Supongamos \(O=\Sigma ^{\ast }\) y sea \(M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) \) una maquina de Turing deterministica con unit la cual compute a \(f\). Sea \(< \) un orden total estricto sobre \(\Gamma \cup Q\) . Sea \(P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) dado por \(P(x,\vec{x},\vec{\alpha})=1\) sii
+\textbf{\underline{Proof:}} Supongamos \(O=\Sigma ^{\ast }\) y sea \(M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) \) una maquina de Turing deterministica con unit la cual compute a \(f\). Sea \(< \) un orden total estricto sobre \(\Gamma \cup Q\) . Sea \(P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) dado por \(P(x,\vec{x},\vec{\alpha})=1\) sii
 
 \((\exists q\in Q)\;\left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor \overset{(x)_{1}}{\vdash } \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \wedge \)
 \(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \wedge (\forall d\in Des)_{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;\left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d\)
@@ -37,12 +11,9 @@ Es facil ver que \(P\) es \((\Gamma \cup Q)\)-p.r. por lo que \(P\) es \( \Sigma
 \(\displaystyle f=\lambda \vec{x}\vec{\alpha}\left[ \left( \min_{x}P(x,\vec{x},\vec{\alpha} )\right) _{2}\right] \text{,} \)
 
 lo cual nos dice que \(f\) es \(\Sigma \)-recursiva. \(\Box\)
-A continuacion nos proponemos probar que el paradigma de las maquinas de Turing es completo. El siguiente lema es clave ya que nos muestra como pueden simularse en forma muy natural, los programas de \(\mathcal{S}^{\Sigma }\) con maquinas de Turing deterministicas
 
 
-
-
-\textbf{Lema 84} Sea \(\mathcal{P}\in \mathrm{Pro}^{\Sigma }\) y sea \(k\) tal que las variables que ocurren en \(\mathcal{P}\) estan todas en la lista \(\mathrm{N}1,..., \mathrm{N}\bar{k},\mathrm{P}1,...,\mathrm{P}\bar{k}.\) Para cada \(a\in \Sigma \cup \{\shortmid \}\), sea \(\tilde{a}\) un nuevo simbolo. Sea \(\Gamma =\Sigma \cup \{B,\shortmid \}\cup \{\tilde{a}:a\in \Sigma \cup \{\shortmid \}\}\). Entonces hay una maquina de Turing deterministica con unit \(M=\left( Q,\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) \) la cual satisface
+\textbf{\underline{Lemma 84:}} Sea \(\mathcal{P}\in \mathrm{Pro}^{\Sigma }\) y sea \(k\) tal que las variables que ocurren en \(\mathcal{P}\) estan todas en la lista \(\mathrm{N}1,..., \mathrm{N}\bar{k},\mathrm{P}1,...,\mathrm{P}\bar{k}.\) Para cada \(a\in \Sigma \cup \{\shortmid \}\), sea \(\tilde{a}\) un nuevo simbolo. Sea \(\Gamma =\Sigma \cup \{B,\shortmid \}\cup \{\tilde{a}:a\in \Sigma \cup \{\shortmid \}\}\). Entonces hay una maquina de Turing deterministica con unit \(M=\left( Q,\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) \) la cual satisface
 (1) \(\delta (q_{f},\sigma )=\varnothing \), para cada \(\sigma \in \Gamma \).
 (2) Cualesquiera sean \(x_{1},...,x_{k}\in \omega \) y \(\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }\), el programa \(\mathcal{P}\) se detiene partiendo del estado
 \(\displaystyle \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right) \)
@@ -57,7 +28,9 @@ y llega al estado
 
 entonces
 \(\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor \overset{\ast }{\vdash }\left\lfloor q_{f}B\shortmid ^{y_{1}}B...B\shortmid ^{y_{k}}B\beta _{1}B...B\beta _{k}B\right\rfloor \)
-Prueba: Dado un estado \(((x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...))\) lo representaremos en la cinta de la siguiente manera
+
+\textbf{\underline{Proof:}} Dado un estado \(((x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...))\) lo representaremos en la cinta de la siguiente manera
+
 
 \(\displaystyle B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k}BBBB.... \)
 
@@ -148,14 +121,11 @@ Para armar la maquina que simulara a \(\mathcal{P}\) hacemos lo siguiente. Prime
 \(\displaystyle \underrightarrow{\;\;\;\;\;\;B,B,K\;\;\;\;\;\;} \)
 
 el estado final \(q_{si}\) de la \(M_{i}\) con el estado inicial de la \(M_{h}\), donde \(h\) es tal que \(I_{h}\) es la primer instruccion que tiene label \( \mathrm{L}\bar{m}\).
-Es intuitivamente claro que la maquina asi obtenida cumple con lo requerido aunque una prueba formal de esto puede resultar extremadamente tediosa. \(\Box\)
-Usando el lema anterior podemos probar que el paradigma computacional de Turing es completo.
+Es intuitivamente claro que la maquina asi obtenida cumple con lo requerido aunque una Proof formal de esto puede resultar extremadamente tediosa. \(\Box\)
 
+\textbf{\underline{Theorem 85:}} Si \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \( \Sigma \)-recursiva, entonces \(f\) es \(\Sigma \)-Turing computable.
 
-
-
-\par \textbf{Teorema 85} Si \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \( \Sigma \)-recursiva, entonces \(f\) es \(\Sigma \)-Turing computable.
-Prueba: Supongamos \(O=\Sigma ^{\ast }.\) Ya que \(f\) es \(\Sigma \)-computable, existe \( \mathcal{P}\in \mathrm{Pro}^{\Sigma }\) el cual computa \(f\). Note que podemos suponer que \(\mathcal{P}\) tiene la propiedad de que cuando \(\mathcal{P}\) termina, en el estado alcansado las variables numericas tienen todas el valor \(0\) y las alfabeticas distintas de \(\mathrm{P}1\) todas el valor \( \varepsilon \). Sea \(M\) la maquina de Turing con unit dada por el lema anterior, donde elejimos el numero \(k\) con la propiedad adicional de ser mayor que \(n\) y \(m\). Sea \(M_{1}\) una maquina tal que para cada \((\vec{x}, \vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}\),
+\textbf{\underline{Proof:}} Supongamos \(O=\Sigma ^{\ast }.\) Ya que \(f\) es \(\Sigma \)-computable, existe \( \mathcal{P}\in \mathrm{Pro}^{\Sigma }\) el cual computa \(f\). Note que podemos suponer que \(\mathcal{P}\) tiene la propiedad de que cuando \(\mathcal{P}\) termina, en el estado alcansado las variables numericas tienen todas el valor \(0\) y las alfabeticas distintas de \(\mathrm{P}1\) todas el valor \( \varepsilon \). Sea \(M\) la maquina de Turing con unit dada por el lema anterior, donde elejimos el numero \(k\) con la propiedad adicional de ser mayor que \(n\) y \(m\). Sea \(M_{1}\) una maquina tal que para cada \((\vec{x}, \vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}\),
 
 \(\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B\alpha _{1}B...B\alpha _{n}B\right\rfloor \overset{\ast }{\vdash }\left\lfloor qB\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B^{k-n}B\alpha _{1}B...B\alpha _{m}B\right\rfloor \)
 
@@ -166,10 +136,10 @@ donde \(q_{0}\) es el estado inicial de \(M_{2}\) y \(q\) es un estado tal que \
 
 
 
+\textbf{\underline{Theorem 86:}} Si \(L\subseteq \Sigma ^{\ast }\) es \(\Sigma \)-r.e., entonces \(L=L(M)=H(M)\) para alguna maquina de Turing deterministica \(M.\)
 
 
-\textbf{Teorema 86} Si \(L\subseteq \Sigma ^{\ast }\) es \(\Sigma \)-r.e., entonces \(L=L(M)=H(M)\) para alguna maquina de Turing deterministica \(M.\)
-Prueba: Por el Teorema 71 hay una funcion \(f:L\rightarrow \omega \), la cual es \(\Sigma \)-recursiva\(.\) Sea \(\mathcal{P}\) un programa el cual compute a \(f\). Sea \(M\) la maquina de Turing deterministica dada en el lema anterior. Sea \(M_{1}\) una maquina de Turing deterministica tal que para todo \(\alpha \in \Sigma ^{\ast }\),
+\textbf{\underline{Proof:}} Por el Teorema 71 hay una funcion \(f:L\rightarrow \omega \), la cual es \(\Sigma \)-recursiva\(.\) Sea \(\mathcal{P}\) un programa el cual compute a \(f\). Sea \(M\) la maquina de Turing deterministica dada en el lema anterior. Sea \(M_{1}\) una maquina de Turing deterministica tal que para todo \(\alpha \in \Sigma ^{\ast }\),
 
 \(\displaystyle \left\lfloor q_{0}B\alpha \right\rfloor \overset{\ast }{\vdash }\left\lfloor qB^{k+1}\alpha \right\rfloor \)
 

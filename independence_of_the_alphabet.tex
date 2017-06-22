@@ -1,39 +1,10 @@
-\subsection{Recursion primitiva sobre valores anteriores}
-
-
-Dada una funcion \(h:\omega \times U\rightarrow \omega \) con \(U\subseteq \omega ^{n}\times \Sigma ^{\ast m}\), definamos \(h^{\downarrow }:\omega \times U\rightarrow \omega \) de la siguiente manera
-
-\(\displaystyle \begin{array}{rcl} h^{\downarrow }(x,\vec{x},\vec{\alpha}) & =& \left\langle h(0,\vec{x},\vec{ \alpha}),h(1,\vec{x},\vec{\alpha}),...,h(x,\vec{x},\vec{\alpha})\right\rangle \\ & =& \Pi _{i=0}^{x}pr(i+1)^{h(i,\vec{x},\vec{\alpha})} \end{array} \)
-
-\textbf{Lema 48} Supongamos
-\(\displaystyle \begin{array}{rcl} f & :& U\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \\ g & :& \omega \times \omega \times U\rightarrow \omega \\ h & :& \omega \times U\rightarrow \omega \end{array} \)
-
-son funciones tales que
-\(\displaystyle \begin{array}{rcl} h(0,\vec{x},\vec{\alpha}) & =& f(\vec{x},\vec{\alpha})\text{, para cada }(\vec{ x},\vec{\alpha})\in U \\ h(x+1,\vec{x},\vec{\alpha}) & =& g(h^{\downarrow }(x,\vec{x},\vec{\alpha}),x, \vec{x},\vec{\alpha})\text{, para cada }x\in \omega \text{ y }(\vec{x},\vec{ \alpha})\in U\text{.} \end{array} \)
-Entonces \(h\) es \(\Sigma \)-p.r. si \(f\) y \(g\) lo son.
-Prueba: Supongamos \(f,g\) son \(\Sigma \)-p.r.. Primero veremos que \(h^{\downarrow }\) es \(\Sigma \)-p.r.. Notese que
-
-\(\displaystyle \begin{array}{rcl} h^{\downarrow }(0,\vec{x},\vec{\alpha}) & =& \left\langle h(0,\vec{x},\vec{ \alpha})\right\rangle \\ & =& \left\langle f(\vec{x},\vec{\alpha})\right\rangle \\ & =& 2^{f(\vec{x},\vec{\alpha})} \\ h^{\downarrow }(x+1,\vec{x},\vec{\alpha}) & =& h^{\downarrow }(x,\vec{x},\vec{ \alpha})pr(x+2)^{h(x+1,\vec{x},\vec{\alpha})} \\ & =& h^{\downarrow }(x,\vec{x},\vec{\alpha})pr(x+2)^{g(h^{\downarrow }(x,\vec{x },\vec{\alpha}),x,\vec{x},\vec{\alpha})} \end{array} \)
-
-lo cual nos dice que \(h^{\downarrow }=R(f_{1},g_{1})\) donde
-\(\displaystyle \begin{array}{rcl} f_{1} & =& \lambda \vec{x}\vec{\alpha}\left[ 2^{f(\vec{x},\vec{\alpha})}\right] \\ g_{1} & =& \lambda Ax\vec{x}\vec{\alpha}\left[ Apr(x+2)^{g(A,x,\vec{x},\vec{ \alpha})}\right] \end{array} \)
-
-O sea que \(h^{\downarrow }\) es \(\Sigma \)-p.r. ya que \(f_{1}\) y \(g_{1}\) lo son. Finalmente notese que
-\(\displaystyle h=\lambda ix[(x)_{i}]\circ (Suc\circ p_{1}^{1+n,m},h^{\downarrow }) \)
-
-lo cual nos dice que \(h\) es \(\Sigma \)-p.r.. \(\Box\)
-
 \subsection{Independencia del alfabeto}
 
-Probaremos que los conceptos de \(\Sigma \)-recursividad y \(\Sigma \) -recursividad primitiva son en realidad independientes del alfabeto \(\Sigma \) , es decir que si \(f\) es una funcion la cual es \(\Sigma \)-mixta y \(\Gamma \) -mixta, entonces \(f\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.) sii \(f\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.). Necesitaremos tres lemas.
-
-
-
-
-\textbf{Lema 49} Supongamos \(\varnothing \neq \Sigma \subseteq \Gamma \).
+\textbf{\underline{Lemma 49:}} Supongamos \(\varnothing \neq \Sigma \subseteq \Gamma \).
 (a) Si \(< \) es un orden total estricto sobre \(\Sigma \), entonces las funciones \(\ast ^{< }:\omega \rightarrow \Sigma ^{\ast }\) y \(\#^{< }:\Sigma ^{\ast }\rightarrow \omega \) son \(\Gamma \)-p.r..
 (b) Si \(\prec \) es un orden total estricto sobre \(\Gamma \), entonces las funciones \(\#^{\prec }\mid _{\Sigma ^{\ast }}:\Sigma ^{\ast }\rightarrow \omega \) y \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}:\#^{\prec }(\Sigma ^{\ast })\rightarrow \Sigma ^{\ast }\) son \(\Sigma \)-p.r..
-Prueba: (a) Supongamos \(\Sigma =\{a_{1},...,a_{k}\}\) y \(< \) es dado por \( a_{1}< ...< a_{k}\). Sea \(s_{e}^{< }:\Gamma ^{\ast }\rightarrow \Gamma ^{\ast }\) dada por
+
+\textbf{\underline{Proof:}} (a) Supongamos \(\Sigma =\{a_{1},...,a_{k}\}\) y \(< \) es dado por \( a_{1}< ...< a_{k}\). Sea \(s_{e}^{< }:\Gamma ^{\ast }\rightarrow \Gamma ^{\ast }\) dada por
 
 \(\displaystyle \begin{array}{rcl} s_{e}^{< }(\varepsilon ) & =& a_{1} \\ s_{e}^{< }(\alpha a_{i}) & =& \alpha a_{i+1}\text{, si }i< k \\ s_{e}^{< }(\alpha a_{k}) & =& s_{e}^{< }(\alpha )a_{1} \\ s_{e}^{< }(\alpha a) & =& \varepsilon \text{, si }a\in \Gamma -\Sigma . \end{array} \)
 
@@ -54,20 +25,13 @@ la funcion \(\#^{\prec }\mid _{\Sigma ^{\ast }}\) es \(\Sigma \)-p.r.. O sea que
 \(\displaystyle \left\vert \ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}(x)\right\vert \leq x \)
 
 nos dice que \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\) es \(\Sigma \)-p.r. (Lema 47). \(\Box\)
-Supongamos \(\Sigma \neq \varnothing \) y sea \(< \) un orden total estricto sobre \( \Sigma \). Para \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \), definamos
-
-\(\displaystyle f^{\#^{< }}=f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{< }\circ p_{n+1}^{n+m,0},...,\ast ^{< }\circ p_{n+m}^{n+m,0}\right) . \)
-
-Similarmente, para \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \Sigma ^{\ast }\), definamos
-\(\displaystyle f^{\#^{< }}=\#^{< }\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{< }\circ p_{n+1}^{n+m,0},...,\ast ^{< }\circ p_{n+m}^{n+m,0}\right) \)
 
 
-
-
-\textbf{Lema 50} Supongamos \(\Gamma \neq \varnothing \) y sea \(< \) un orden total estricto sobre \( \Gamma \). Dada \(h\) una funcion \(\Gamma \)-mixta, son equivalentes
+\textbf{\underline{Lemma 50:}} Supongamos \(\Gamma \neq \varnothing \) y sea \(< \) un orden total estricto sobre \( \Gamma \). Dada \(h\) una funcion \(\Gamma \)-mixta, son equivalentes
 (1) \(h\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.)
 (2) \(h^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.)
-Prueba: (2)\(\Rightarrow \)(1). Supongamos \(h:D_{h}\subseteq \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \Gamma ^{\ast }\). Ya que \(h^{\#^{< }}\) es \(\Gamma \) -recursiva (resp. \(\Gamma \)-p.r.) y
+
+\textbf{\underline{Proof:}} (2)\(\Rightarrow \)(1). Supongamos \(h:D_{h}\subseteq \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \Gamma ^{\ast }\). Ya que \(h^{\#^{< }}\) es \(\Gamma \) -recursiva (resp. \(\Gamma \)-p.r.) y
 
 \(\displaystyle h=\ast ^{< }\circ h^{\#^{< }}\circ \left( p_{1}^{n,m},...,p_{n}^{n,m},\#^{< }\circ p_{n+1}^{n,m},...,\#^{< }\circ p_{n+m}^{n,m}\right) \text{,} \)
 
@@ -119,16 +83,14 @@ y estas funciones son totales y \(\varnothing \)-recursivas (resp. \(\varnothing
 \(\displaystyle h^{\#^{< }}=\lambda \vec{x}\vec{y}t\left[ (H(t,\vec{x},\vec{y}))_{t+1}\right] \)
 
 Los otros casos en los cuales \(h\) es obtenida por recursion primitiva son similares. \(\Box\)
-Ahora podemos probar el anunciado resultado de independencia.
 
 
-
-
-
-\textbf{Teorema 51} Sean \(\Sigma \) y \(\Gamma \) alfabetos cualesquiera.
+\textbf{\underline{Theorem 51:}} Sean \(\Sigma \) y \(\Gamma \) alfabetos cualesquiera.
 (a) Supongamos una funcion \(f\) es \(\Sigma \)-mixta y \(\Gamma \)-mixta, entonces \(f\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.) sii \(f\) es \( \Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
 (b) Supongamos un conjunto \(S\) es \(\Sigma \)-mixto y \(\Gamma \)-mixto, entonces \(S\) es \(\Sigma \)-p.r. sii \(S\) es \(\Gamma \)-p.r..
-Prueba: (a) Ya que \(f\) es \((\Sigma \cap \Gamma )\)-mixta, podemos suponer sin perdida de generalidad que \(\Sigma \subseteq \Gamma \). Primero haremos el caso en que \(\Sigma =\varnothing \) y \(\Gamma \neq \varnothing \). Sea \(< \) un orden total estricto sobre \(\Gamma \). Ya que \(f\) es \(\varnothing \)-mixta, tenemos \( f=f^{\#^{< }}\) y por lo tanto podemos aplicar el lema anterior.
+
+
+\textbf{\underline{Proof:}} (a) Ya que \(f\) es \((\Sigma \cap \Gamma )\)-mixta, podemos suponer sin perdida de generalidad que \(\Sigma \subseteq \Gamma \). Primero haremos el caso en que \(\Sigma =\varnothing \) y \(\Gamma \neq \varnothing \). Sea \(< \) un orden total estricto sobre \(\Gamma \). Ya que \(f\) es \(\varnothing \)-mixta, tenemos \( f=f^{\#^{< }}\) y por lo tanto podemos aplicar el lema anterior.
 
 Supongamos ahora que \(\Sigma \neq \varnothing \). O sea que \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\), con \(O\in \{\omega ,\Sigma ^{\ast }\}.\) Haremos el caso \(O=\Sigma ^{\ast }.\) Supongamos \(f\) es \(\Sigma \) -recursiva (resp. \(\Sigma \)-p.r.). Sea \(\prec \) un orden total estricto sobre \(\Gamma .\) Ya que las funciones \(\#^{\prec }\mid _{\Sigma ^{\ast }}\) y \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\) son \(\Sigma \)-p.r. (Lema 49) y
 

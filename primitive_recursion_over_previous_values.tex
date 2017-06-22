@@ -1,0 +1,20 @@
+\subsection{Recursion primitiva sobre valores anteriores}
+
+\textbf{\underline{Lemma 48:}} Supongamos
+\(\displaystyle \begin{array}{rcl} f & :& U\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \\ g & :& \omega \times \omega \times U\rightarrow \omega \\ h & :& \omega \times U\rightarrow \omega \end{array} \)
+
+son funciones tales que
+\(\displaystyle \begin{array}{rcl} h(0,\vec{x},\vec{\alpha}) & =& f(\vec{x},\vec{\alpha})\text{, para cada }(\vec{ x},\vec{\alpha})\in U \\ h(x+1,\vec{x},\vec{\alpha}) & =& g(h^{\downarrow }(x,\vec{x},\vec{\alpha}),x, \vec{x},\vec{\alpha})\text{, para cada }x\in \omega \text{ y }(\vec{x},\vec{ \alpha})\in U\text{.} \end{array} \)
+Entonces \(h\) es \(\Sigma \)-p.r. si \(f\) y \(g\) lo son.
+
+\textbf{\underline{Proof:}} Supongamos \(f,g\) son \(\Sigma \)-p.r.. Primero veremos que \(h^{\downarrow }\) es \(\Sigma \)-p.r.. Notese que
+
+\(\displaystyle \begin{array}{rcl} h^{\downarrow }(0,\vec{x},\vec{\alpha}) & =& \left\langle h(0,\vec{x},\vec{ \alpha})\right\rangle \\ & =& \left\langle f(\vec{x},\vec{\alpha})\right\rangle \\ & =& 2^{f(\vec{x},\vec{\alpha})} \\ h^{\downarrow }(x+1,\vec{x},\vec{\alpha}) & =& h^{\downarrow }(x,\vec{x},\vec{ \alpha})pr(x+2)^{h(x+1,\vec{x},\vec{\alpha})} \\ & =& h^{\downarrow }(x,\vec{x},\vec{\alpha})pr(x+2)^{g(h^{\downarrow }(x,\vec{x },\vec{\alpha}),x,\vec{x},\vec{\alpha})} \end{array} \)
+
+lo cual nos dice que \(h^{\downarrow }=R(f_{1},g_{1})\) donde
+\(\displaystyle \begin{array}{rcl} f_{1} & =& \lambda \vec{x}\vec{\alpha}\left[ 2^{f(\vec{x},\vec{\alpha})}\right] \\ g_{1} & =& \lambda Ax\vec{x}\vec{\alpha}\left[ Apr(x+2)^{g(A,x,\vec{x},\vec{ \alpha})}\right] \end{array} \)
+
+O sea que \(h^{\downarrow }\) es \(\Sigma \)-p.r. ya que \(f_{1}\) y \(g_{1}\) lo son. Finalmente notese que
+\(\displaystyle h=\lambda ix[(x)_{i}]\circ (Suc\circ p_{1}^{1+n,m},h^{\downarrow }) \)
+
+lo cual nos dice que \(h\) es \(\Sigma \)-p.r.. \(\Box\)

@@ -1,0 +1,94 @@
+\section{Conjuntos $\Sigma$-recursivamente enumerables}
+
+\textbf{\underline{Theorem 70:}} Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\). Entonces \(S\) es \(\Sigma \)-efectivamente enumerable sii \(S\) es \(\Sigma \)-recursivamente enumerable
+
+
+\textbf{\underline{Proof:}} (\(\Rightarrow \)) Use la Tesis de Church.
+
+(\(\Leftarrow \)) Use el Theorem 42. \(\Box\)
+
+
+
+\textbf{\underline{Theorem 71:}} Dado \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m} \), son equivalentes
+(1) \(S\) es \(\Sigma \)-recursivamente enumerable
+(2) \(S=I_{F}\), para alguna \(F:D_{F}\subseteq \omega ^{k}\times \Sigma ^{\ast l}\rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \)-recursiva.
+(3) \(S=D_{f}\), para alguna funcion \(\Sigma \)-recursiva \(f\)
+(4) \(S=\varnothing \) o \(S=I_{F}\), para alguna \(F:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tal que cada \(F_{i}\) es \(\Sigma \)-p.r.
+
+
+\textbf{\underline{Proof:}} (2)\(\Rightarrow \)(3). Para \(i=1,...,n+m\), sea \(\mathcal{P}_{i}\) un programa el cual computa a \(F_{i}\) y sea \(< \) un orden total estricto sobre \(\Sigma \). Sea \(P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) dado por \(P(t,\vec{x},\vec{\alpha})=1\) sii se cumplen las siguientes condiciones
+
+\(\displaystyle \begin{array}{rcl} i^{k,l}(\left( (t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{1}\right) & =& n(\mathcal{P}_{1})+1 \\ & & \vdots \\ i\left( (t)_{k+l+1},(t)_{1}...(t)_{k},\ast ^{< }((t)_{k+1})...\ast ^{< }((t)_{k+l})),\mathcal{P}_{n+m}\right) & =& n(\mathcal{P}_{n+m})+1 \\ E_{\#1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{1}) & =& x_{1} \\ & & \vdots \\ E_{\#1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{n}) & =& x_{n} \\ E_{\ast 1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{n+1}) & =& \alpha _{1} \\ & & \vdots \\ E_{\ast 1}^{k,l}((t)_{k+l+1},(t)_{1},...,(t)_{k},\ast ^{< }((t)_{k+1}),...,\ast ^{< }((t)_{k+l})),\mathcal{P}_{n+m}) & =& \alpha _{m} \end{array} \)
+
+Note que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r. y por lo tanto \(P\) es \( \Sigma \)-p.r.. Pero entonces \(M(P)\) es \(\Sigma \)-r. lo cual nos dice que se cumple (3) ya que \(D_{M(P)}=I_{F}=S\).
+(3)\(\Rightarrow \)(4). Supongamos \(S\neq \varnothing \). Sea \( (z_{1},...,z_{n},\gamma _{1},...,\gamma _{m})\in S\) fijo. Sea \(\mathcal{P}\) un programa el cual compute a \(f\) y sea \(< \) un orden total estricto sobre \( \Sigma \). Sea \(P:\mathbf{N}\rightarrow \omega \) dado por \(P(x)=1\) sii
+
+\(\displaystyle i^{n,m}\left( (x)_{n+m+1},(x)_{1},...,(x)_{n},\ast ^{< }((x)_{n+1}),...,\ast ^{< }((x)_{n+m})),\mathcal{P}\right) =n(\mathcal{P})+1 \)
+
+Es facil ver que \(P\) es \((\Sigma \cup \Sigma _{p})\)-p.r. por lo cual es \( \Sigma \)-p.r.. Sea \(\bar{P}=P\cup C_{0}^{1,0}\mid _{\{0\}}\). Para \(i=1,...,n\) , definamos \(F_{i}:\omega \rightarrow \omega \) de la siguiente manera
+\(\displaystyle F_{i}(x)=\left\{ \begin{array}{ccc} (x)_{i} & \text{si} & \bar{P}(x)=1 \\ z_{i} & \text{si} & \bar{P}(x)\neq 1 \end{array} \right. \)
+
+Para \(i=n+1,...,n+m\), definamos \(F_{i}:\omega \rightarrow \Sigma ^{\ast }\) de la siguiente manera
+\(\displaystyle F_{i}(x)=\left\{ \begin{array}{lll} \ast ^{< }((x)_{i}) & \text{si} & \bar{P}(x)=1 \\ \gamma _{i-n} & \text{si} & \bar{P}(x)\neq 1 \end{array} \right. \)
+
+Por el lema de division por casos, cada \(F_{i}\) es \(\Sigma \)-p.r.. Es facil ver que \(F=(F_{1},...,F_{n+m})\) cumple (4). \(\Box\)
+
+
+\textbf{\underline{Corollary 72:}} Supongamos \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \(\Sigma \)-recursiva y \(S\subseteq D_{f}\) es \( \Sigma \)-r.e., entonces \(f\mid _{S}\) es \(\Sigma \)-recursiva.
+
+
+\textbf{\underline{Proof:}} Supongamos \(O=\Sigma ^{\ast }.\) Por el Theorem anterior \(S=D_{g}\), para alguna funcion \(\Sigma \)-recursiva \(g.\) Notese que componiendo adecuadamente podemos suponer que \(I_{g}=\{\varepsilon \}.\) O sea que tenemos \(f\mid _{S}=\lambda \alpha \beta \left[ \alpha \beta \right] \circ (f,g)\). \(\Box\)
+
+
+\textbf{\underline{Corollary 73:}} Supongamos \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) es \(\Sigma \)-recursiva y \(S\subseteq I_{f}\) es \(\Sigma \)-r.e., entonces \( f^{-1}(S)=\{(\vec{x},\vec{\alpha}):f(\vec{x},\vec{\alpha})\in S\}\) es \( \Sigma \)-r.e..
+
+\textbf{\underline{Proof:}} Por el Theorem anterior \(S=D_{g}\), para alguna funcion \(\Sigma \)-recursiva \( g \). O sea que \(f^{-1}(S)=D_{g\circ f}\) es \(\Sigma \)-r.e.. \(\Box\)
+
+
+\textbf{\underline{Corollary 74:}} Supongamos \(S_{1},S_{2}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) son conjuntos \(\Sigma \)-r.e.. Entonces \(S_{1}\cap S_{2}\) es \(\Sigma \)-r.e..
+
+\textbf{\underline{Proof:}} Por el Theorem anterior \(S_{i}=D_{g_{i}}\), con \(g_{1},g_{2}\) funciones \( \Sigma \)-recursivas\(.\) Notese que podemos suponer que \(I_{g_{1}},I_{g_{2}} \subseteq \omega \) por lo que \(S_{1}\cap S_{2}=D_{\lambda xy\left[ xy\right] \circ (g_{1},g_{2})}\) es \(\Sigma \)-r.e.\(.\) \(\Box\)
+
+
+\textbf{\underline{Corollary 75:}} Supongamos \(S_{1},S_{2}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\) son conjuntos \(\Sigma \)-r.e.. Entonces \(S_{1}\cup S_{2}\) es \(\Sigma \)-r.e.
+
+\textbf{\underline{Proof:}} Supongamos \(S_{1}\neq \varnothing \neq S_{2}.\) Sean \(F,G:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) tales que \(I_{F}=S_{1}\), \(I_{G}=S_{2}\) y las funciones \(F_{i} {\acute{}} s\) y \(G_{i} {\acute{}} s\) son \(\Sigma \)-recursivas. Sean \(f=\lambda x\left[ Q(x,2)\right] \) y \( g=\lambda x\left[ Q(x\dot{-}1,2)\right] .\) Sea \(H:\omega \rightarrow \omega ^{n}\times \Sigma ^{\ast m}\) dada por
+
+\(\displaystyle H_{i}=(F_{i}\circ f)\mathrm{\mid }_{\{x:x\mathrm{\ es\ par}\}}\cup (G_{i}\circ g)\mathrm{\mid }_{\{x:x\mathrm{\ es\ impar}\}} \)
+
+Por el Corollary 72 y el Lema 68, cada \(H_{i}\) es \( \Sigma \)-recursiva. Ya que \(I_{H}=S_{1}\cup S_{2}\).tenemos que \(S_{1}\cup S_{2}\) es \(\Sigma \)-r.e. \(\Box\)
+
+
+\textbf{\underline{Theorem 76:}} Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}\). Entonces \(S\) es \(\Sigma \)-efectivamente computable sii \(S\) es \(\Sigma \)-recursivo
+\textbf{\underline{Proof:}} (\(\Rightarrow \)) Use la Tesis de Church.
+
+(\(\Leftarrow \)) Use el Teorema 42. \(\Box\)
+
+
+
+
+\textbf{\underline{Theorem 77:}} Sea \(S\subseteq \omega ^{n}\times \Sigma ^{\ast m}.\) Son equivalentes
+(a) \(S\) es \(\Sigma \)-recursivo
+(b) \(S\) y \((\omega ^{n}\times \Sigma ^{\ast m})-S\) son \(\Sigma \) -recursivamente enumerables
+
+
+\textbf{\underline{Proof:}} (a)\(\Rightarrow \)(b)\(.\) Note que \(S=D_{Pred\circ \chi _{S}}.\)
+
+(b)\(\Rightarrow \)(a). Note que \(\chi _{S}=C_{1}^{n,m}\mathrm{\mid }_{S}\cup C_{0}^{n,m}\mathrm{\mid }_{\omega ^{n}\times \Sigma ^{\ast m}-S}\). \(\Box\)
+
+\textbf{\underline{Lemma 78:}} Supongamos que \(\Sigma \supseteq \Sigma _{p}.\) Entonces
+\(\displaystyle A=\left\{ \mathcal{P}\in \mathrm{Pro}^{\Sigma }:Halt^{\Sigma }(\mathcal{P} )\right\} \)
+
+es \(\Sigma \)-r.e. y no es \(\Sigma \)-recursivo. Mas aun el conjunto
+\(\displaystyle N=\left\{ \mathcal{P}\in \mathrm{Pro}^{\Sigma }:\lnot Halt^{\Sigma }( \mathcal{P})\right\} \)
+no es \(\Sigma \)-r.e.
+
+
+\textbf{\underline{Proof:}} Sea \(P=\lambda t\mathcal{P}\left[ i^{0,1}(t,\mathcal{P},\mathcal{P})=n( \mathcal{P})+1\right] \). Note que \(P\) es \(\Sigma \)-p.r. por lo que \(M(P)\) es \(\Sigma \)-r.. Ademas note que \(D_{M(P)}=A\), lo cual implica que \(A\) es \( \Sigma \)-r.e.. Ya que \(Halt^{\Sigma }\) es no \(\Sigma \)-recursivo (Lema 69) y
+
+\(\displaystyle Halt^{\Sigma }=C_{1}^{0,1}\mid _{A}\cup C_{0}^{0,1}\mid _{N} \)
+
+el Lema 68 nos dice que \(N\) no es \(\Sigma \)-r.e.. Finalmente supongamos \(A\) es \(\Sigma \)-recursivo. Entonces el conjunto
+\(\displaystyle N=\left( \Sigma ^{\ast }-A\right) \cap \mathrm{Pro}^{\Sigma } \)
+
+deberia serlo, lo cual es absurdo. \(\Box\)
