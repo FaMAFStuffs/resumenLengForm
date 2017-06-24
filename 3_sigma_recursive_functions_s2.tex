@@ -1,0 +1,375 @@
+\textbf{\underline{Lemma 35:}} Supongamos \(f_{i}:D_{f_{i}}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\), \(i=1,...,k\), son funciones \(\Sigma \)-p.r. tales que \(D_{f_{i}}\cap D_{f_{j}}=\varnothing \) para \(i\neq j.\) Entonces \(f_{1}\cup ...\cup f_{k}\) es \(\Sigma \)-p.r..
+
+\PROOF Supongamos \(O=\Sigma ^{\ast }\) y \(k=2.\) Sean
+
+\(\displaystyle \bar{f}_{i}:\omega ^{n}\times \Sigma ^{\ast m}\rightarrow \Sigma ^{\ast },i=1,2, \)
+
+funciones \(\Sigma \)-p.r. tales que \(\bar{f}_{i}\mid _{D_{f_{i}}}=f_{i}\), \( i=1,2\) (Lema 33)\(.\) Por Lema 34 los conjuntos \(D_{f_{1}}\) y \(D_{f_{2}}\) son \(\Sigma \)-p.r. y por lo tanto lo es \( D_{f_{1}}\cup D_{f_{2}}\). Ya que
+\(\displaystyle f_{1}\cup f_{2}=\left( \lambda \alpha \beta \left[ \alpha \beta \right] \circ (\lambda x\alpha \left[ \alpha ^{x}\right] \circ (\chi _{D_{f_{1}}}, \bar{f}_{1}),\lambda x\alpha \left[ \alpha ^{x}\right] \circ (\chi _{D_{f_{2}}},\bar{f}_{2}))\right) \mid _{D_{f_{1}}\cup D_{f_{2}}} \)
+
+tenemos que \(f_{1}\cup f_{2}\) es \(\Sigma \)-p.r..
+El caso \(k >2\) puede probarse por induccion ya que
+
+\(\displaystyle f_{1}\cup ...\cup f_{k}=(f_{1}\cup ...\cup f_{k-1})\cup f_{k}. \)
+
+\(\Box\)
+
+
+\textbf{\underline{Corollary 36:}} Supongamos \(f\) es una funcion \(\Sigma \)-mixta cuyo dominio es finito. Entonces \(f\) es \(\Sigma \)-p.r..
+
+\PROOF Supongamos \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\) , con \(D_{f}=\{e_{1},...,e_{k}\}\). Por el Corolario 30, cada \( \{e_{i}\}\) es \(\Sigma \)-p.r. por lo cual el Lema 32 nos dice que \(C_{f(e_{i})}^{n,m}\mid _{\{e_{1}\}}\) es \(\Sigma \)-p.r.. O sea que
+
+\(\displaystyle f=C_{f(e_{1})}^{n,m}\mid _{\{e_{1}\}}\cup ...\cup C_{f(e_{k})}^{n,m}\mid _{\{e_{k}\}} \)
+
+es \(\Sigma \)-p.r.. \(\Box\)
+
+
+\textbf{\underline{Lemma 37:}} \(\lambda i\alpha \left[ \lbrack \alpha ]_{i}\right] \) es \(\Sigma \)-p.r..
+
+\PROOF Note que
+
+\(\displaystyle \begin{array}{rcl} \lbrack \varepsilon ]_{i} & =& \varepsilon \\ \lbrack \alpha a]_{i} & =& \left\{ \begin{array}{lll} \lbrack \alpha ]_{i} & & \text{si }i\neq \left\vert \alpha \right\vert +1 \\ a & & \text{si }i=\left\vert \alpha \right\vert +1 \end{array} \right. \end{array} \)
+
+lo cual dice que \(\lambda i\alpha \left[ \lbrack \alpha ]_{i}\right] =R\left( C_{\varepsilon }^{1,0},\mathcal{G}\right) \), donde \(\mathcal{G} _{a}:\omega \times \Sigma ^{\ast }\times \Sigma ^{\ast }\rightarrow \Sigma ^{\ast }\) es dada por
+\(\displaystyle \mathcal{G}_{a}(i,\alpha ,\zeta )=\left\{ \begin{array}{lll} \zeta & & \text{si }i\neq \left\vert \alpha \right\vert +1 \\ a & & \text{si }i=\left\vert \alpha \right\vert +1 \end{array} \right. \)
+
+O sea que solo resta probar que cada \(\mathcal{G}_{a}\) es \(\Sigma \)-p.r.. Primero note que los conjuntos
+\(\displaystyle \begin{array}{rcl} S_{1} & =& \left\{ (i,\alpha ,\zeta )\in \omega \times \Sigma ^{\ast }\times \Sigma ^{\ast }:i\neq \left\vert \alpha \right\vert +1\right\} \\ S_{2} & =& \left\{ (i,\alpha ,\zeta )\in \omega \times \Sigma ^{\ast }\times \Sigma ^{\ast }:i=\left\vert \alpha \right\vert +1\right\} \end{array} \)
+
+son \(\Sigma \)-p.r. ya que
+\(\displaystyle \begin{array}{rcl} \chi _{S_{1}} & =& \lambda xy\left[ x\neq y\right] \circ \left( p_{1}^{1,2},Suc\circ \lambda \alpha \left[ \left\vert \alpha \right\vert \right] \circ p_{2}^{1,2}\right) \\ \chi _{S_{2}} & =& \lambda xy\left[ x=y\right] \circ \left( p_{1}^{1,2},Suc\circ \lambda \alpha \left[ \left\vert \alpha \right\vert \right] \circ p_{2}^{1,2}\right) . \end{array} \)
+
+Ya que
+\(\displaystyle \mathcal{G}_{a}=p_{3}^{1,2}\mid _{S_{1}}\cup C_{a}^{1,2}\mid _{S_{2}}, \)
+
+el Lema 35 nos dice que \(\mathcal{G}_{a}\) es \(\Sigma \)-p.r., para cada \(a\in \Sigma \). \(\Box\)
+
+
+\textbf{\underline{Lemma 38:}} Sean \(n,m\geq 0\).
+(a) Si \(f:\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \omega \) es \(\Sigma \)-p.r., con \( S_{1},...,S_{n}\subseteq \omega \) y \(L_{1},...,L_{m}\subseteq \Sigma ^{\ast } \) no vacios, entonces lo son las funciones \(\lambda xy\vec{x}\vec{\alpha} \left[ \sum_{t=x}^{t=y}f(t,\vec{x},\vec{\alpha})\right] \) y \(\lambda xy\vec{x }\vec{\alpha}\left[ \prod_{t=x}^{t=y}f(t,\vec{x},\vec{\alpha})\right] \).
+(b) Si \(f:\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \Sigma ^{\ast }\) es \(\Sigma \)-p.r., con \( S_{1},...,S_{n}\subseteq \omega \) y \(L_{1},...,L_{m}\subseteq \Sigma ^{\ast } \) no vacios, entonces lo es la funcion \(\lambda xy\vec{x}\vec{\alpha}\left[ \subset _{t=x}^{t=y}f(t,\vec{x},\vec{\alpha})\right] \)
+
+\PROOF (a) Sea \(G=\lambda tx\vec{x}\vec{\alpha}\left[ \sum_{i=x}^{i=t}f(i,\vec{x}, \vec{\alpha})\right] \). Ya que
+
+\(\displaystyle \lambda xy\vec{x}\vec{\alpha}\left[ \sum_{i=x}^{i=y}f(i,\vec{x},\vec{\alpha}) \right] =G\circ \left( p_{2}^{n+2,m},p_{1}^{n+2,m},p_{3}^{n+2,m},...,p_{n+m+2}^{n+2,m}\right) \)
+
+solo tenemos que probar que \(G\) es \(\Sigma \)-p.r.. Primero note que
+\(\displaystyle \begin{array}{rcl} G(0,x,\vec{x},\vec{\alpha}) & =& \left\{ \begin{array}{lll} 0 & & \text{si }x >0 \\ f(0,\vec{x},\vec{\alpha}) & & \text{si }x=0 \end{array} \right. \\ G(t+1,x,\vec{x},\vec{\alpha}) & =& \left\{ \begin{array}{lll} 0 & & \text{si }x >t+1 \\ G(t,x,\vec{x},\vec{\alpha})+f(t+1,\vec{x},\vec{\alpha}) & & \text{si }x\leq t+1 \end{array} \right. \end{array} \)
+
+Sean
+\(\displaystyle \begin{array}{rcl} D_{1} & =& \left\{ (x,\vec{x},\vec{\alpha})\in \omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}:x >0\right\} \\ D_{2} & =& \left\{ (x,\vec{x},\vec{\alpha})\in \omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}:x=0\right\} \\ H_{1} & =& \left\{ (z,t,x,\vec{x},\vec{\alpha})\in \omega ^{3}\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}:x >t+1\right\} \\ H_{2} & =& \left\{ (z,t,x,\vec{x},\vec{\alpha})\in \omega ^{3}\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}:x\leq t+1\right\} . \end{array} \)
+
+Es facil de chequear que estos conjuntos son \(\Sigma \)-p.r.. Veamos que por ejemplo \(H_{1}\) lo es. Es decir debemos ver que \(\chi _{H_{1}}\) es \(\Sigma \) -p.r.. Ya que \(f\) es \(\Sigma \)-p.r. tenemos que \(D_{f}=\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\) es \(\Sigma \) -p.r., lo cual por el Lema 31 nos dice que los conjuntos \( S_{1},...,S_{n}\), \(L_{1},...,L_{m}\) son \(\Sigma \)-p.r.. Ya que \(\omega \) es \( \Sigma \)-p.r., el Lema 31 nos dice que \(R=\omega ^{3}\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\) es \(\Sigma \)-p.r.. Notese que \(\chi _{H_{1}}=(\chi _{R}\wedge \lambda ztx\vec{x} \vec{\alpha}\left[ x >t+1\right] )\) por cual \(\chi _{H_{1}}\) es \(\Sigma \) -p.r. ya que es la conjuncion de dos predicados \(\Sigma \)-p.r.
+Ademas note que \(G=R(h,g)\), donde
+
+\(\displaystyle \begin{array}{rcl} h & =& C_{0}^{n+1,m}\mid _{D_{1}}\cup \lambda x\vec{x}\vec{\alpha}\left[ f(0, \vec{x},\vec{\alpha})\right] \mid _{D_{2}} \\ g & =& C_{0}^{n+3,m}\mid _{H_{1}}\cup \lambda ztx\vec{x}\vec{\alpha}\left[ z+f(t+1,\vec{x},\vec{\alpha})\right] )\mid _{H_{2}} \end{array} \)
+
+O sea que los Lemas 35 y 32 garantizan que \(G\) es \( \Sigma \)-p.r.. \(\Box\)
+
+
+\textbf{\underline{Lemma 39:}} Sean \(n,m\geq 0\).
+(a) Sea \(P:S\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\rightarrow \omega \) un predicado \(\Sigma \)-p.r. y supongamos \(\bar{S}\subseteq S\) es \(\Sigma \)-p.r.. Entonces \(\lambda x\vec{x}\vec{\alpha }\left[ (\forall t\in \bar{S})_{t\leq x}\;P(t,\vec{x},\vec{\alpha})\right] \) y \(\lambda x\vec{x}\vec{\alpha}\left[ (\exists t\in \bar{S})_{t\leq x}\;P(t, \vec{x},\vec{\alpha})\right] \) son predicados \(\Sigma \)-p.r.. (Note que el dominio de estos predicados es \(\omega \times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\))
+(b) Sea \(P:S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}\times L\rightarrow \omega \) un predicado \(\Sigma \)-p.r. y supongamos \( \bar{L}\subseteq L\) es \(\Sigma \)-p.r.. Entonces \(\lambda x\vec{x}\vec{\alpha} \left[ (\forall \alpha \in \bar{L})_{\left\vert \alpha \right\vert \leq x}\;P(\vec{x},\vec{\alpha},\alpha )\right] \) y \(\lambda x\vec{x}\vec{\alpha} \left[ (\exists \alpha \in \bar{L})_{\left\vert \alpha \right\vert \leq x}\;P(\vec{x},\vec{\alpha},\alpha )\right] \) son predicados \(\Sigma \)-p.r..
+
+\PROOF (a) Sea
+
+\(\displaystyle \bar{P}=P\mid _{\bar{S}\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}}\cup C_{1}^{1+n,m}\mid _{(\omega -\bar{S})\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m}} \)
+
+Notese que \(\bar{P}\) es \(\Sigma \)-p.r.. Ya que
+\(\displaystyle \begin{array}{rcl} \lambda x\vec{x}\vec{\alpha}\left[ (\forall t\in \bar{S})_{t\leq x}P(t,\vec{x },\vec{\alpha})\right] & =& \lambda x\vec{x}\vec{\alpha}\left[ \prod\limits_{t=0}^{t=x}\bar{P}(t,\vec{x},\vec{\alpha})\right] \\ & =& \lambda xy\vec{x}\vec{\alpha}\left[ \prod\limits_{t=x}^{t=y}\bar{P}(t, \vec{x},\vec{\alpha})\right] \circ \left( C_{0}^{1+n,m},p_{1}^{1+n,m},...,p_{1+n+m}^{1+n,m}\right) \end{array} \)
+
+el Lema 38 implica que \(\lambda x\vec{x}\vec{\alpha}\left[ (\forall t\in \bar{S})_{t\leq x}\;P(t,\vec{x},\vec{\alpha})\right] \) es \( \Sigma \)-p.r..
+Finalmente note que
+
+\(\displaystyle \lambda x\vec{x}\vec{\alpha}\left[ (\exists t\in \bar{S})_{t\leq x}\;P(t, \vec{x},\vec{\alpha})\right] =\lnot \lambda x\vec{x}\vec{\alpha}\left[ (\forall t\in \bar{S})_{t\leq x}\;\lnot P(t,\vec{x},\vec{\alpha})\right] \)
+
+es \(\Sigma \)-p.r..
+(b) Sea \(< \) un orden total estricto sobre \(\Sigma .\) Sea \(k\) el cardinal de \( \Sigma \). Ya que
+
+\(\displaystyle \left\vert \alpha \right\vert \leq x\text{ sii }\#^{< }(\alpha )\leq \sum_{\iota =1}^{i=x}k^{i}, \)
+
+(ejercicio) tenemos que
+\(\displaystyle \lambda x\vec{x}\vec{\alpha}\left[ (\forall \alpha \in \bar{L})_{\left\vert \alpha \right\vert \leq x}P(\vec{x},\vec{\alpha},\alpha )\right] =\lambda x \vec{x}\vec{\alpha}\left[ (\forall t\in \#^{< }(\bar{L}))_{t\leq \sum_{\iota =1}^{i=x}k^{i}}P(\vec{x},\vec{\alpha},\ast ^{< }(t))\right] \)
+
+Sea \(H=\lambda t\vec{x}\vec{\alpha}\left[ P(\vec{x},\vec{\alpha},\ast ^{< }(t))\right] .\) Notese que \(H\) es \(\Sigma \)-p.r. y
+\(\displaystyle D_{H}=\#^{< }(L)\times S_{1}\times ...\times S_{n}\times L_{1}\times ...\times L_{m} \)
+
+Ademas note que \(\#^{< }(\bar{L})\) es \(\Sigma \)-p.r. (ejercicio), lo cual por (a) implica que
+\(\displaystyle Q=\lambda x\vec{x}\vec{\alpha}\left[ (\forall t\in \#^{< }(\bar{L}))_{t\leq x}H(t,\vec{x},\vec{\alpha})\right] \)
+
+es \(\Sigma \)-p.r.. O sea que
+\(\displaystyle \lambda x\vec{x}\vec{\alpha}\left[ (\forall \alpha \in \bar{L})_{\left\vert \alpha \right\vert \leq x}\;P(\vec{x},\vec{\alpha},\alpha )\right] =Q\circ \left( \lambda x\vec{x}\vec{\alpha}\left[ \sum\limits_{\iota =1}^{i=x}k^{i} \right] ,p_{1}^{1+n,m},...,p_{1+n+m}^{1+n,m}\right) \)
+
+es \(\Sigma \)-p.r.. \(\Box\)
+
+
+\textbf{\underline{Lemma 40:}}
+(a) El predicado \(\lambda xy\left[ x\text{ divide }y\right] \) es \( \varnothing \)-p.r..
+(b) El predicado \(\lambda x\left[ x\text{ es primo}\right] \) es \( \varnothing \)-p.r..
+(c) El predicado \(\lambda \alpha \beta \left[ \alpha \text{\ }\mathrm{ inicial}\ \beta \right] \) es \(\Sigma \)-p.r..
+
+\PROOF (a) Si tomamos \(P=\lambda tx_{1}x_{2}\left[ x_{2}=t.x_{1}\right] \in \mathrm{PR}^{\varnothing }\), tenemos que
+
+\(\displaystyle \begin{array}{rcl} \lambda x_{1}x_{2}\left[ x_{1}\text{ divide }x_{2}\right] & =& \lambda x_{1}x_{2}\left[ (\exists t\in \omega )_{t\leq x_{2}}\;P(t,x_{1},x_{2}) \right] \\ & =& \lambda xx_{1}x_{2}\left[ (\exists t\in \omega )_{t\leq x}\;P(t,x_{1},x_{2})\right] \circ \left( p_{2}^{2,0},p_{1}^{2,0},p_{2}^{2,0}\right) \end{array} \)
+
+por lo que podemos aplicar el lema anterior.
+(b) Ya que
+
+\(\displaystyle x\text{ es primo sii }x >1\wedge \left( (\forall t\in \omega )_{t\leq x}\;t=1\vee t=x\vee \lnot (t\text{ divide }x)\right) \)
+
+podemos usar un argumento similar al de la prueba de (a).
+(c) es dejado al lector. \(\Box\)
+
+
+\textbf{\underline{Lemma 41:}} Si \(P:D_{P}\subseteq \omega \times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) es un predicado \(\Sigma \)-efectivamente computable y \( D_{P}\) es \(\Sigma \)-efectivamente computable, entonces la funcion \(M(P)\) es \( \Sigma \)-efectivamente computable.
+
+\PROOF Ejercicio \(\Box\)
+
+\textbf{\underline{Theorem 42:}} Si \(f\in \mathrm{R} ^{\Sigma }\), entonces \(f\) es \(\Sigma \)-efectivamente computable.
+
+\PROOF Dejamos al lector la prueba por induccion en \(k\) de que si \(f\in \mathrm{R} _{k}^{\Sigma }\), entonces \(f\) es \(\Sigma \)-efectivamente computable. \(\Box\)
+
+\textbf{\underline{Lemma 43:}} Sean \(n,m\geq 0\). Sea \(P:D_{P}\subseteq \omega \times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) un predicado \(\Sigma \) -p.r.. Entonces
+(a) \(M(P)\) es \(\Sigma \)-recursiva.
+(b) Si hay una funcion \(\Sigma \)-p.r. \(f:\omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) tal que
+\(\displaystyle M(P)(\vec{x},\vec{\alpha})=\min_{t}P(t,\vec{x},\vec{\alpha})\leq f(\vec{x}, \vec{\alpha})\text{, para cada }(\vec{x},\vec{\alpha})\in D_{M(P)}\text{,} \)
+entonces \(M(P)\) es \(\Sigma \)-p.r..
+
+\PROOF (a) Sea \(\bar{P}=P\mid _{D_{P}}\cup C_{0}^{n+1,m}\mid _{(\omega ^{n+1}\times \Sigma ^{\ast m})-D_{P}}\). Dejamos al lector verificar cuidadosamente que \( M(P)=M(\bar{P})\). Veremos entonces que \(M(\bar{P})\) es \(\Sigma \)-recursiva. Note que \(\bar{P}\) es \(\Sigma \)-p.r. (por que?). Sea \(k\) tal que \(\bar{P}\in \mathrm{PR}_{k}^{\Sigma }\). Ya que \(\bar{P}\) es \(\Sigma \)-total y \(\bar{P} \in \mathrm{PR}_{k}^{\Sigma }\subseteq \mathrm{R}_{k}^{\Sigma }\), tenemos que \(M(\bar{P})\in \mathrm{R}_{k+1}^{\Sigma }\) y por lo tanto \(M(\bar{P})\in \mathrm{R}^{\Sigma }\).
+
+(b) Primero veremos que \(D_{M(\bar{P})}\) es un conjunto \(\Sigma \)-p.r.. Notese que
+
+\(\displaystyle \chi _{D_{M(\bar{P})}}=\lambda \vec{x}\vec{\alpha}\left[ (\exists t\in \omega )_{t\leq f(\vec{x},\vec{\alpha})}\;\bar{P}(t,\vec{x},\vec{\alpha}) \right] \)
+
+lo cual nos dice que
+\(\displaystyle \chi _{D_{M(\bar{P})}}=\lambda x\vec{x}\vec{\alpha}\left[ (\exists t\in \omega )_{t\leq x}\;\bar{P}(t,\vec{x},\vec{\alpha})\right] \circ (f,p_{1}^{n,m},...,p_{n+m}^{n,m}) \)
+
+Pero el Lema 39 nos dice que \(\lambda x\vec{x}\vec{\alpha} \left[ (\exists t\in \omega )_{t\leq x}\;\bar{P}(t,\vec{x},\vec{\alpha}) \right] \) es \(\Sigma \)-p.r. por lo cual tenemos que \(\chi _{D_{M(\bar{P})}}\) lo es.
+Sea
+
+\(\displaystyle P_{1}=\lambda t\vec{x}\vec{\alpha}\left[ \bar{P}(t,\vec{x},\vec{\alpha} )\wedge (\forall j\in \omega )_{j\leq t}\;j=t\vee \lnot \bar{P}(j,\vec{x}, \vec{\alpha})\right] \)
+
+Note que \(P_{1}\) es \(\Sigma \)-total. Dejamos al lector usando lemas anteriores probar que \(P_{1}\) es \(\Sigma \)-p.r.. Ademas notese que para cada \((\vec{x},\vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}\) tenemos que
+\(\displaystyle P_{1}(t,\vec{x},\vec{\alpha})=1\text{ si y solo si }t=M(\bar{P})(\vec{x}, \vec{\alpha}) \)
+
+Esto nos dice que
+\(\displaystyle M(\bar{P})=\left( \lambda \vec{x}\vec{\alpha}\left[ \prod_{t=0}^{f(\vec{x}, \vec{\alpha})}t^{P_{1}(t,\vec{x},\vec{\alpha})}\right] \right) \mid _{D_{M( \bar{P})}} \)
+
+por lo cual para probar que \(M(\bar{P})\) es \(\Sigma \)-p.r. solo nos resta probar que
+\(\displaystyle F=\lambda \vec{x}\vec{\alpha}\left[ \prod_{t=0}^{f(\vec{x},\vec{\alpha} )}t^{P_{1}(t,\vec{x},\vec{\alpha})}\right] \)
+
+lo es. Pero
+\(\displaystyle F=\lambda xy\vec{x}\vec{\alpha}\left[ \prod_{t=x}^{y}t^{P_{1}(t,\vec{x},\vec{ \alpha})}\right] \circ (C_{0}^{n,m},f,p_{1}^{n,m},...,p_{n+m}^{n,m}) \)
+
+y por lo tanto el Lema 38 nos dice que \(F\) es \(\Sigma \)-p.r.. De esta manera hemos probado que \(M(\bar{P})\) es \(\Sigma \)-p.r. y por lo tanto \(M(P)\) lo es. \(\Box\)
+
+\textbf{\underline{Lemma 44:}} Las siguientes funciones son \(\varnothing \)-p.r.:
+(a) \( \begin{array}{rll} Q:\omega \times \mathbf{N} & \rightarrow & \omega \\ (x,y) & \rightarrow & \text{cociente de la division de }x\text{ por }y \end{array} \)
+(b) \( \begin{array}{rll} R:\omega \times \mathbf{N} & \rightarrow & \omega \\ (x,y) & \rightarrow & \text{resto de la division de }x\text{ por }y \end{array} \)
+(c) \( \begin{array}{rll} pr:\mathbf{N} & \rightarrow & \omega \\ n & \rightarrow & n\text{-esimo numero primo} \end{array} \)
+
+
+\PROOF (a) Veamos primero veamos que \(Q=M(P)\), donde \(P=\lambda txy\left[ (t+1).y >x \right] \). Notar que
+
+\(\displaystyle \begin{array}{rcl} D_{M(P)} & =& \{(x,y):(\exists t\in \omega )\;P(t,x,y)=1\} \\ & =& \{(x,y):(\exists t\in \omega )\;(t+1).y >x\} \\ & =& \omega \times \mathbf{N} \\ & =& D_{Q} \end{array} \)
+
+Dejamos al lector la facil verificacion de que para cada \((x,y)\in \omega \times \mathbf{N}\), se tiene que
+\(\displaystyle Q(x,y)=M(P)(x,y)=\min_{t}(t+1).y >x \)
+
+Esto prueba que \(Q=M(P)\). Ya que \(P\) es \(\varnothing \)-p.r. y
+\(\displaystyle Q(x,y)\leq p_{1}^{2,0}(x,y),\text{para cada }(x,y)\in \omega \times \mathbf{N } \)
+
+(b) del Lema 43 implica que \(Q\in \mathrm{PR}^{\varnothing }\).
+(b) Notese que
+
+\(\displaystyle R=\lambda xy\left[ x\dot{-}Q(x,y).y\right] \)
+
+y por lo tanto \(R\in \mathrm{PR}^{\varnothing }\).
+(c) Para ver que \(pr\) es \(\varnothing \)-p.r., veremos que la extension \( h:\omega \rightarrow \omega \), dada por \(h(0)=0\) y \(h(n)=pr(n)\), \(n\geq 1\), es \(\varnothing \)-p.r.. Primero note que
+
+\(\displaystyle \begin{array}{rcl} h(0) & =& 0 \\ h(x+1) & =& \min\nolimits_{t}\left( t\text{ es primo}\wedge t >h(x)\right) \end{array} \)
+
+O sea que \(h=R\left( C_{0}^{0,0},M(P)\right) \), donde
+\(\displaystyle P=\lambda tzx\left[ t\text{ es primo}\wedge t >z\right] \)
+
+Es decir que solo nos resta ver que \(M(P)\) es \(\varnothing \)-p.r.. Claramente \( P\) es \(\varnothing \)-p.r.. Veamos que para cada \((z,x)\in \omega ^{2}\), tenemos que
+\(\displaystyle M(P)(z,x)=\min\nolimits_{t}\left( t\text{ es primo}\wedge t >z\right) \leq z!+1 \)
+
+Sea \(p\) primo tal que \(p\) divide a \(z!+1\). Es facil ver que entonces \(p >z\). Pero esto claramente nos dice que
+\(\displaystyle \min\nolimits_{t}\left( t\text{ es primo}\wedge t >z\right) \leq p\leq z!+1 \)
+
+O sea que (b) del Lema 43 implica que \(M(P)\) es \(\varnothing \) -p.r. ya que podemos tomar \(f=\lambda zx\left[ z!+1\right] \). \(\Box\)
+
+
+\textbf{\underline{Lemma 45:}} Las funciones \(\lambda xi\left[ (x)_{i}\right] \) y \(\lambda x\left[ Lt(x) \right] \) son \(\varnothing \)-p.r.
+
+\PROOF Note que \(D_{\lambda xi\left[ (x)_{i}\right] }=\mathbf{N}\times \mathbf{N}\). Sea
+
+\(\displaystyle P=\lambda txi\left[ \lnot (pr(i)^{t+1}\ \text{divide }x)\right] \)
+
+Note que \(P\) es \(\varnothing \)-p.r. y que \(D_{P}=\omega \times \omega \times \mathbf{N}\). Dejamos al lector la prueba de que \(\lambda xi\left[ (x)_{i} \right] =M(P)\). Ya que \((x)_{i}\leq x\), para todo \(x\in \mathbf{N}\), (b) del Lema 43 implica que \(\lambda xi\left[ (x)_{i}\right] \) es \( \varnothing \)-p.r..
+Veamos que \(\lambda x\left[ Lt(x)\right] \) es \(\varnothing \)-p.r.. Sea
+
+\(\displaystyle Q=\lambda tx\left[ (\forall i\in \mathbf{N})_{i\leq x}\;(i\leq t\vee (x)_{i}=0)\right] \)
+
+Notese que \(D_{Q}=\omega \times \mathbf{N}\) y que ademas por el Lema 39 tenemos que \(Q\) es \(\varnothing \)-p.r. (dejamos al lector explicar como se aplica tal lema en este caso). Ademas notese que \(\lambda x \left[ Lt(x)\right] =M(Q)\) y que
+\(\displaystyle Lt(x)\leq x,\text{para todo }x\in \mathbf{N} \)
+
+lo cual por (b) del Lema 43 nos dice que \(\lambda x\left[ Lt(x)\right] \) es \(\varnothing \)-p.r.. \(\Box\)
+Para \(x_{1},...,x_{n}\in \omega \), escribiremos \(\left\langle x_{1},...,x_{n}\right\rangle \) en lugar de \(\left\langle x_{1},...,x_{n},0,...\right\rangle \).
+
+
+
+\textbf{\underline{Lemma 46:}} Sea \(n\geq 1\). La funcion \(\lambda x_{1}...x_{n}\left[ \left\langle x_{1},...,x_{n}\right\rangle \right] \) es \(\varnothing \)-p.r.
+
+\PROOF Sea \(f_{n}=\lambda x_{1}...x_{n}\left[ \left\langle x_{1},...,x_{n}\right\rangle \right] \). Claramente \(f_{1}\) es \(\varnothing \) -p.r.. Ademas note que para cada \(n\geq 1\), tenemos
+
+\(\displaystyle f_{n+1}=\lambda x_{1}...x_{n+1}\left[ \left( f_{n}(x_{1},...,x_{n})pr(n+1)^{x_{n+1}}\right) \right] \text{.} \)
+
+O sea que podemos aplicar un argumento inductivo. \(\Box\)
+
+
+\textbf{\underline{Lemma 47:}} Supongamos que \(\Sigma \neq \varnothing \). Sea \(< \) un orden total estricto sobre \(\Sigma \), sean \(n,m\geq 0\) y sea \( P:D_{P}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\times \Sigma ^{\ast }\rightarrow \omega \) un predicado \(\Sigma \)-p.r.. Entonces
+(a) \(M^{< }(P)\) es \(\Sigma \)-recursiva.
+(b) Si existe una funcion \(\Sigma \)-p.r. \(f:\omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \) tal que
+\(\displaystyle \left\vert M^{< }(P)(\vec{x},\vec{\alpha})\right\vert =\left\vert \min\nolimits_{\alpha }^{< }P(\vec{x},\vec{\alpha},\alpha )\right\vert \leq f( \vec{x},\vec{\alpha})\text{, para cada }(\vec{x},\vec{\alpha})\in D_{M^{< }(P)}\text{,} \)
+entonces \(M^{< }(P)\) es \(\Sigma \)-p.r..
+
+\PROOF Sea \(Q=P\circ \left( p_{2}^{1+n,m},...,p_{1+n+m}^{1+n,m},\ast ^{< }\circ p_{1}^{1+n,m}\right) \). Note que
+
+\(\displaystyle M^{< }(P)=\ast ^{< }\circ M(Q) \)
+
+lo cual por (a) del Lema 43 implica que \(M^{< }(P)\) es \( \Sigma \)-recursiva.
+Sea \(k\) el cardinal de \(\Sigma \). Ya que
+
+\(\displaystyle \left\vert \ast ^{< }(M(Q)(\vec{x},\vec{\alpha}))\right\vert =\left\vert M^{< }(P)(\vec{x},\vec{\alpha})\right\vert \leq f(\vec{x},\vec{\alpha})\text{, } \)
+
+para todo \((\vec{x},\vec{\alpha})\in D_{M^{< }(P)}=D_{M(Q)}\), tenemos que
+\(\displaystyle M(Q)(\vec{x},\vec{\alpha}))\leq \sum_{\iota =1}^{i=f(\vec{x},\vec{\alpha} )}k^{i}\text{, para cada }(\vec{x},\vec{\alpha})\in D_{M(Q)}\text{.} \)
+
+O sea que por (a) del Lema 43, \(M(Q)\) es \(\Sigma \)-p.r. y por lo tanto \(M^{< }(P)\) lo es. \(\Box\)
+
+
+\textbf{\underline{Lemma 48:}} Supongamos
+\(\displaystyle \begin{array}{rcl} f & :& U\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega \\ g & :& \omega \times \omega \times U\rightarrow \omega \\ h & :& \omega \times U\rightarrow \omega \end{array} \)
+
+son funciones tales que
+\(\displaystyle \begin{array}{rcl} h(0,\vec{x},\vec{\alpha}) & =& f(\vec{x},\vec{\alpha})\text{, para cada }(\vec{ x},\vec{\alpha})\in U \\ h(x+1,\vec{x},\vec{\alpha}) & =& g(h^{\downarrow }(x,\vec{x},\vec{\alpha}),x, \vec{x},\vec{\alpha})\text{, para cada }x\in \omega \text{ y }(\vec{x},\vec{ \alpha})\in U\text{.} \end{array} \)
+Entonces \(h\) es \(\Sigma \)-p.r. si \(f\) y \(g\) lo son.
+
+\PROOF Supongamos \(f,g\) son \(\Sigma \)-p.r.. Primero veremos que \(h^{\downarrow }\) es \(\Sigma \)-p.r.. Notese que
+
+\(\displaystyle \begin{array}{rcl} h^{\downarrow }(0,\vec{x},\vec{\alpha}) & =& \left\langle h(0,\vec{x},\vec{ \alpha})\right\rangle \\ & =& \left\langle f(\vec{x},\vec{\alpha})\right\rangle \\ & =& 2^{f(\vec{x},\vec{\alpha})} \\ h^{\downarrow }(x+1,\vec{x},\vec{\alpha}) & =& h^{\downarrow }(x,\vec{x},\vec{ \alpha})pr(x+2)^{h(x+1,\vec{x},\vec{\alpha})} \\ & =& h^{\downarrow }(x,\vec{x},\vec{\alpha})pr(x+2)^{g(h^{\downarrow }(x,\vec{x },\vec{\alpha}),x,\vec{x},\vec{\alpha})} \end{array} \)
+
+lo cual nos dice que \(h^{\downarrow }=R(f_{1},g_{1})\) donde
+\(\displaystyle \begin{array}{rcl} f_{1} & =& \lambda \vec{x}\vec{\alpha}\left[ 2^{f(\vec{x},\vec{\alpha})}\right] \\ g_{1} & =& \lambda Ax\vec{x}\vec{\alpha}\left[ Apr(x+2)^{g(A,x,\vec{x},\vec{ \alpha})}\right] \end{array} \)
+
+O sea que \(h^{\downarrow }\) es \(\Sigma \)-p.r. ya que \(f_{1}\) y \(g_{1}\) lo son. Finalmente notese que
+\(\displaystyle h=\lambda ix[(x)_{i}]\circ (Suc\circ p_{1}^{1+n,m},h^{\downarrow }) \)
+
+lo cual nos dice que \(h\) es \(\Sigma \)-p.r.. \(\Box\)
+
+
+\textbf{\underline{Lemma 49:}} Supongamos \(\varnothing \neq \Sigma \subseteq \Gamma \).
+(a) Si \(< \) es un orden total estricto sobre \(\Sigma \), entonces las funciones \(\ast ^{< }:\omega \rightarrow \Sigma ^{\ast }\) y \(\#^{< }:\Sigma ^{\ast }\rightarrow \omega \) son \(\Gamma \)-p.r..
+(b) Si \(\prec \) es un orden total estricto sobre \(\Gamma \), entonces las funciones \(\#^{\prec }\mid _{\Sigma ^{\ast }}:\Sigma ^{\ast }\rightarrow \omega \) y \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}:\#^{\prec }(\Sigma ^{\ast })\rightarrow \Sigma ^{\ast }\) son \(\Sigma \)-p.r..
+
+\PROOF (a) Supongamos \(\Sigma =\{a_{1},...,a_{k}\}\) y \(< \) es dado por \( a_{1}< ...< a_{k}\). Sea \(s_{e}^{< }:\Gamma ^{\ast }\rightarrow \Gamma ^{\ast }\) dada por
+
+\(\displaystyle \begin{array}{rcl} s_{e}^{< }(\varepsilon ) & =& a_{1} \\ s_{e}^{< }(\alpha a_{i}) & =& \alpha a_{i+1}\text{, si }i< k \\ s_{e}^{< }(\alpha a_{k}) & =& s_{e}^{< }(\alpha )a_{1} \\ s_{e}^{< }(\alpha a) & =& \varepsilon \text{, si }a\in \Gamma -\Sigma . \end{array} \)
+
+Note que \(s_{e}^{< }\) es \(\Gamma \)-p.r. y que \(s_{e}^{< }\mid _{\Sigma ^{\ast }}=s^{< }\). Ya que \(\Sigma ^{\ast }\) es un conjunto \(\Gamma \)-p.r. tenemos que \(s^{< }\) es \(\Gamma \)-p.r.. O sea que la recursion
+\(\displaystyle \begin{array}{rcl} \ast ^{< }(0) & =& \varepsilon \\ \ast ^{< }(x+1) & =& s^{< }(\ast ^{< }(x)) \end{array} \)
+
+implica que \(\ast ^{< }\) es \(\Gamma \)-p.r..
+Para ver que \(\#^{< }:\Sigma ^{\ast }\rightarrow \omega \) es \(\Gamma \)-p.r., sea \(\#_{e}^{< }:\Gamma ^{\ast }\rightarrow \omega \) dada por
+
+\(\displaystyle \begin{array}{rcl} \#_{e}^{< }(\varepsilon ) & =& 0 \\ \#_{e}^{< }(\alpha a_{i}) & =& \#_{e}^{< }(\alpha ).k+i \\ \#_{e}^{< }(\alpha a) & =& 0\text{, si }a\in \Gamma -\Sigma . \end{array} \)
+
+Ya que \(\#_{e}^{< }\) es \(\Gamma \)-p.r., eso es \(\#^{< }=\#_{e}^{< }\mid _{\Sigma ^{\ast }}\).
+(b) Sea \(n\) el cardinal de \(\Gamma .\) Ya que
+
+\(\displaystyle \begin{array}{rcl} \#^{\prec } & \mid & _{\Sigma ^{\ast }}(\varepsilon )=0 \\ \#^{\prec } & \mid & _{\Sigma ^{\ast }}(\alpha a)=\#^{\prec }\mid _{\Sigma ^{\ast }}(\alpha ).n+\#^{\prec }(a)\text{, para cada }a\in \Sigma \end{array} \)
+
+la funcion \(\#^{\prec }\mid _{\Sigma ^{\ast }}\) es \(\Sigma \)-p.r.. O sea que el predicado \(P=\lambda x\alpha \left[ \#^{\prec }\mid _{\Sigma ^{\ast }}(\alpha )=x\right] \) es \(\Sigma \)-p.r.. Sea \(< \) un orden total estricto sobre \(\Sigma \). Note que \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}=M^{< }(P)\), lo cual ya que
+\(\displaystyle \left\vert \ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}(x)\right\vert \leq x \)
+
+nos dice que \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\) es \(\Sigma \)-p.r. (Lema 47). \(\Box\)
+
+
+\textbf{\underline{Lemma 50:}} Supongamos \(\Gamma \neq \varnothing \) y sea \(< \) un orden total estricto sobre \( \Gamma \). Dada \(h\) una funcion \(\Gamma \)-mixta, son equivalentes
+(1) \(h\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.)
+(2) \(h^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.)
+
+\PROOF (2)\(\Rightarrow \)(1). Supongamos \(h:D_{h}\subseteq \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \Gamma ^{\ast }\). Ya que \(h^{\#^{< }}\) es \(\Gamma \) -recursiva (resp. \(\Gamma \)-p.r.) y
+
+\(\displaystyle h=\ast ^{< }\circ h^{\#^{< }}\circ \left( p_{1}^{n,m},...,p_{n}^{n,m},\#^{< }\circ p_{n+1}^{n,m},...,\#^{< }\circ p_{n+m}^{n,m}\right) \text{,} \)
+
+tenemos que \(h\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
+(1)\(\Rightarrow \)(2). Probaremos por induccion en \(k\) que
+
+(*) Si \(h\in \mathrm{R}_{k}^{\Gamma }\) (resp. \(h\in \mathrm{PR} _{k}^{\Gamma })\), entonces \(h^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \( \varnothing \)-p.r.).
+El caso \(k=0\) es facil y dejado al lector. Supongamos (*) vale para un \(k\) fijo. Veremos que vale para \(k+1\). Sea \(h\in \mathrm{R} _{k+1}^{\Gamma }\) (resp. \(h\in \mathrm{PR}_{k+1}^{\Gamma }\)). Hay varios casos
+
+Caso 1. Supongamos \(h=f\circ (f_{1},...,f_{n})\), con \(f,f_{1},...,f_{n}\in \mathrm{R}_{k}^{\Gamma }\) (resp. \(f,f_{1},...,f_{n}\in \mathrm{PR} _{k}^{\Gamma }\)). Por hipotesis inductiva tenemos que \(f^{\#^{< }},f_{1}^{ \#^{< }},...,f_{n}^{\#^{< }}\) son \(\varnothing \)-recursivas (resp. \(\varnothing \) -p.r.). Ya que \(h^{\#^{< }}=f^{\#^{< }}\circ \left( f_{1}^{\#^{< }},...,f_{n}^{\#^{< }}\right) \), tenemos que \(h^{\#^{< }}\) es \( \varnothing \)-recursiva (resp. \(\varnothing \)-p.r.).
+
+Caso 2. Supongamos \(h=M(P)\), con \(P:\omega \times \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \omega \), un predicado en \(\mathrm{R}_{k}^{\Gamma }\). Ya que \(h^{\#^{< }}=M(P^{\#^{< }})\), tenemos que \(h^{\#^{< }}\) es \(\varnothing \) -recursiva.
+
+Caso 3. Supongamos \(h=R(f,\mathcal{G})\), con
+
+\(\displaystyle \begin{array}{rcl} f & :& \omega ^{n}\times \Gamma ^{\ast m}\rightarrow \Gamma ^{\ast } \\ \mathcal{G}_{a} & :& \omega ^{n}\times \Gamma ^{\ast m}\times \Gamma ^{\ast }\times \Gamma ^{\ast }\rightarrow \Gamma ^{\ast }\text{, }a\in \Gamma \end{array} \)
+
+funciones en \(\mathrm{R}_{k}^{\Gamma }\) (resp. \(\mathrm{PR}_{k}^{\Gamma }\)). Sea \(\Gamma =\{a_{1},...,a_{r}\}\), con \(a_{1}< a_{2}< ...< a_{r}\). Por hipotesis inductiva tenemos que \(f^{\#^{< }}\) y cada \(\mathcal{G} _{a}^{\#^{< }} \) son \(\varnothing \)-recursivas (resp. \(\varnothing \)-p.r.). Sea
+\(\displaystyle \begin{array}{lll} i_{0}:\omega & \rightarrow & \omega \\ \;\;\;\;\;x & \rightarrow & \left\{ \begin{array}{lll} r & & \text{si }r\text{ divide }x \\ R(x,r) & & \text{caso contrario} \end{array} \right. \end{array} \)
+
+y sea
+\(\displaystyle B=\lambda x\left[ Q(x\dot{-}i_{0}(x),r)\right] \)
+
+(\(R\) y \(Q\) son definidas en el Lema 44). Note que \(i_{0}\) y \(B\) son \(\varnothing \)-p.r. y que
+\(\displaystyle \ast ^{< }(x)=\ast ^{< }(B(x))a_{i_{0}(x)}\text{, para }x\geq 1 \)
+
+(ver Lema 6). Tambien tenemos
+\(\displaystyle \begin{array}{rcl} h^{\#^{< }}(\vec{x},\vec{y},t+1) & =& \#^{< }(h(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(t+1))) \\ & =& \#^{< }(h(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1))a_{i_{0}(t+1)})) \\ & =& \#^{< }\left( \mathcal{G}_{a_{i_{0}(t+1)}}(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1)),h(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1)))\right) \\ & =& \#^{< }\left( \mathcal{G}_{a_{i_{0}(t+1)}}(\vec{x},\ast ^{< }(\vec{y}),\ast ^{< }(B(t+1)),\ast ^{< }(h^{\#^{< }}(\vec{x},\vec{y},B(t+1))))\right) \\ & =& \mathcal{G}_{a_{i_{0}(t+1)}}^{\#^{< }}(\vec{x},\vec{y},B(t+1),h^{\#^{< }}( \vec{x},\vec{y},B(t+1))) \end{array} \)
+
+y ya que \(B(t+1)< t+1\), tenemos que
+(**) \(h^{\#^{< }}(\vec{x},\vec{y},t+1)=\mathcal{G}_{a_{i_{0}(t+1)}}^{ \#^{< }}(\vec{x},\vec{y},B(t+1),\left\langle h^{\#^{< }}(\vec{x},\vec{y} ,0),...,h^{\#^{< }}(\vec{x},\vec{y},t)\right\rangle )\)
+A continuacion definamos
+
+\(\displaystyle H=\lambda t\vec{x}\vec{y}\left[ \left\langle h^{\#^{< }}(\vec{x},\vec{y} ,0),...,h^{\#^{< }}(\vec{x},\vec{y},t)\right\rangle \right] \)
+
+Por (**) tenemos que
+\(\displaystyle \begin{array}{rcl} H(0,\vec{x},\vec{y}) & =& \left\langle h^{\#^{< }}(\vec{x},\vec{y} ,0)\right\rangle =\left\langle f^{\#^{< }}(\vec{x},\vec{y})\right\rangle =2^{f^{\#^{< }}(\vec{x},\vec{y})} \\ H(t+1,\vec{x},\vec{y}) & =& \left( (H(t,\vec{x},\vec{y})+1).pr(t+2)^{\mathcal{G }_{a_{i_{0}(t+1)}}^{\#^{< }}(\vec{x},\vec{y},B(t+1),(H(t,\vec{x},\vec{y} ))_{B(t+1)})}\right) \end{array} \)
+
+O sea que si definimos \(g:\omega \times \omega \times \omega ^{n}\times \omega ^{m}\rightarrow \omega \) por
+\(\displaystyle g(z,t,\vec{x},\vec{y})=\left\{ \begin{array}{clc} \left( (z+1).pr(t+2)^{\mathcal{G}_{a_{1}}^{\#^{< }}(\vec{x},\vec{y} ,B(t+1),(z)_{B(t+1)})}\right) & \text{si} & i_{0}(t+1)=1 \\ \vdots & & \vdots \\ \left( (z+1).pr(t+2)^{\mathcal{G}_{a_{r}}^{\#^{< }}(\vec{x},\vec{y} ,B(t+1),(z)_{B(t+1)})}\right) & \text{si} & i_{0}(t+1)=r \end{array} \right. \)
+
+tenemos que \(H=R(\lambda x\left[ 2^{x}\right] \circ f^{\#^{< }},g)\). Note que \(g\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.), ya que
+\(\displaystyle g=f_{1}(z,t,\vec{x},\vec{y})P_{1}(z,t,\vec{x},\vec{y})+...+f_{r}(z,t,\vec{x}, \vec{y})P_{r}(z,t,\vec{x},\vec{y})\text{,} \)
+
+con
+\(\displaystyle \begin{array}{rcl} f_{i} & =& \lambda zt\vec{x}\vec{y}\left[ \left( (z+1).pr(t+2)^{\mathcal{G} _{a_{i}}^{\#^{< }}(\vec{x},\vec{y},B(t+1),(z)_{B(t+1)})}\right) \right] \\ P_{i} & =& \lambda zt\vec{x}\vec{y}\left[ i_{0}(t+1)=i\right] \end{array} \)
+
+y estas funciones son totales y \(\varnothing \)-recursivas (resp. \(\varnothing \) -p.r.). O sea que \(H\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.) y por lo tanto lo es
+\(\displaystyle h^{\#^{< }}=\lambda \vec{x}\vec{y}t\left[ (H(t,\vec{x},\vec{y}))_{t+1}\right] \)
+
+Los otros casos en los cuales \(h\) es obtenida por recursion primitiva son similares. \(\Box\)
+
+
+\textbf{\underline{Theorem 51:}} Sean \(\Sigma \) y \(\Gamma \) alfabetos cualesquiera.
+(a) Supongamos una funcion \(f\) es \(\Sigma \)-mixta y \(\Gamma \)-mixta, entonces \(f\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.) sii \(f\) es \( \Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
+(b) Supongamos un conjunto \(S\) es \(\Sigma \)-mixto y \(\Gamma \)-mixto, entonces \(S\) es \(\Sigma \)-p.r. sii \(S\) es \(\Gamma \)-p.r..
+
+
+\PROOF (a) Ya que \(f\) es \((\Sigma \cap \Gamma )\)-mixta, podemos suponer sin perdida de generalidad que \(\Sigma \subseteq \Gamma \). Primero haremos el caso en que \(\Sigma =\varnothing \) y \(\Gamma \neq \varnothing \). Sea \(< \) un orden total estricto sobre \(\Gamma \). Ya que \(f\) es \(\varnothing \)-mixta, tenemos \( f=f^{\#^{< }}\) y por lo tanto podemos aplicar el lema anterior.
+
+Supongamos ahora que \(\Sigma \neq \varnothing \). O sea que \(f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O\), con \(O\in \{\omega ,\Sigma ^{\ast }\}.\) Haremos el caso \(O=\Sigma ^{\ast }.\) Supongamos \(f\) es \(\Sigma \) -recursiva (resp. \(\Sigma \)-p.r.). Sea \(\prec \) un orden total estricto sobre \(\Gamma .\) Ya que las funciones \(\#^{\prec }\mid _{\Sigma ^{\ast }}\) y \(\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\) son \(\Sigma \)-p.r. (Lema 49) y
+
+\(\displaystyle \begin{array}{rcl} f^{\#^{\prec }} & =& \#^{\prec }\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{\prec }\circ p_{n+1}^{n+m,0},...,\ast ^{\prec }\circ p_{n+m}^{n+m,0}\right) \\ & =& \#^{\prec }\mid _{\Sigma ^{\ast }}\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\circ p_{n+1}^{n+m,0},...,\ast ^{\prec }\mid _{\#^{\prec }(\Sigma ^{\ast })}\circ p_{n+m}^{n+m,0}\right) \end{array} \)
+
+tenemos que \(f^{\#^{\prec }}\) es \(\Sigma \)-recursiva (resp. \(\Sigma \)-p.r.). O sea que por el caso ya probado de (a), \(f^{\#^{\prec }}\) es \(\varnothing \) -recursiva (resp. \(\varnothing \)-p.r.) lo cual por el lema anterior nos dice que \(f\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.).
+Supongamos ahora que \(f\) es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.). Sea \( < \) un orden total estricto sobre \(\Sigma .\) Ya que \(\#^{< }\) y \(\ast ^{< }\) son \(\Gamma \)-p.r. (Lema 49), la funcion
+
+\(\displaystyle f^{\#^{< }}=\#^{< }\circ f\circ \left( p_{1}^{n+m,0},...,p_{n}^{n+m,0},\ast ^{< }\circ p_{n+1}^{n+m,0},...,\ast ^{< }\circ p_{n+m}^{n+m,0}\right) \)
+
+es \(\Gamma \)-recursiva (resp. \(\Gamma \)-p.r.). Por el caso ya probado de (a), \(f^{\#^{< }}\) es \(\varnothing \)-recursiva (resp. \(\varnothing \)-p.r.), lo cual por el lema anterior nos dice que \(f\) es \(\Sigma \)-recursiva (resp. \( \Sigma \)-p.r.).
+(b) es dejado al lector (use (a)). \(\Box\)

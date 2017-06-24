@@ -7,6 +7,8 @@
 \usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{enumerate}
+\usepackage{algorithmic}
+\usepackage{algorithm}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{mathtools}
@@ -14,9 +16,13 @@
 \renewcommand{\theequation}{\arabic{equation}}
 \newcounter{neq}
 \providecommand{\abs}[1]{\lvert#1\rvert}
-\newcommand{\QED}{\hfill \textit{\textbf{Q.E.D.}}}
+\newcommand{\LINECOMMENT}[1]{\STATE \(\triangleright\) #1}
+\newcommand{\RESET}[1]{\STATE Reset: #1}
+\def\BState{\State\hskip-\ALG@thistlm}
+\newcommand{\QED}{\hfill \textit{\textbf{Q.E.D.}} \vspace{5mm}}
+\newcommand{\PROOF}{\vspace{3mm} \textbf{\underline{Proof:}} }
 \author{Agustín Curto, agucurto95@gmail.com \\
-			 Francisco Nievas, frannievas@gmail.com}
+			  Francisco Nievas, frannievas@gmail.com}
 \title{Resumen de teoremas para el final \\ de Lenguajes Formales y Computabilidad}
 \date{2017}
 
@@ -24,21 +30,12 @@
 \maketitle
 \tableofcontents
 
-\include{sigma_mixed_set}
-% \include{natural_order_in_sigma_star}
-% \include{coding_of_infinite_number_sequences}
-% \include{effectively_sigma_enumerable_sets}
-% \include{effectively_sigma_computable_sets}
-% \include{primitive_sigma_recursive_functions}
-% \include{minimization_and_functions_sigma_recursive}
-% \include{primitive_recursion_over_previous_values}
-% \include{independence_of_the_alphabet}
-% \include{s_sigma_syntax}
-% \include{sigma_computables_functions}
-% \include{s_sigma_recursion_analysis}
-% \include{sigma_recurrently_enumerable_sets}
-% \include{turing_machines}
-% \include{sigma_turing_computable_functions}
+\include{1_notation_and_basic_concepts}
+\include{2_effective_procedures}
+\include{3_sigma_recursive_functions_s1}
+\include{3_sigma_recursive_functions_s2}
+\include{4_s_sigma}
+\include{5_turing_machines}
 
 \begin{thebibliography}{X}
 \bibitem{Baz} \textsc{Diego Vaggione},
