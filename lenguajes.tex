@@ -1,11 +1,11 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{lmodern}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{enumerate}
 \usepackage{algorithmic}
 \usepackage{algorithm}
@@ -20,7 +20,15 @@
 \newcommand{\RESET}[1]{\STATE Reset: #1}
 \def\BState{\State\hskip-\ALG@thistlm}
 \newcommand{\QED}{\hfill \textit{\textbf{Q.E.D.}} \vspace{5mm}}
-\newcommand{\PROOF}{\vspace{3mm} \textbf{\underline{Proof:}} }
+\newcommand{\PROOF}{\vspace{3mm} \textbf{\underline{Proof:}}}
+\newcommand{\SIGMA}{\Sigma^{\ast}}
+
+
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{corollary}[equation]{Corollary}
+
 \author{Agustín Curto, agucurto95@gmail.com \\
 			  Francisco Nievas, frannievas@gmail.com}
 \title{Resumen de teoremas para el final \\ de Lenguajes Formales y Computabilidad}
