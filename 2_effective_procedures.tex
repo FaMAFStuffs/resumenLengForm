@@ -2,16 +2,81 @@
 
   % Lemma 14
   \begin{lemma}
-    \par Sean $S_{1}, S_{2} \subseteq \omega^{n} \times \SIGMA$ conjuntos $\Sigma$-efectivamente enumerables, entonces
-    $S_{1} \cup S_{2}$ y $S_{1} \cap S_{2}$ son $\Sigma$-efectivamente enumerables.
+    \par Sean $S_{1}, S_{2} \subseteq \omega^{n} \times \SIGMA$ conjuntos $\Sigma$-efectivamente enumerables, entonces:
+
+    \begin{enumerate}[a)]
+      \item $S_{1} \cup S_{2}$ es $\Sigma$-efectivamente enumerable.
+      \item $S_{1} \cap S_{2}$ es $\Sigma$-efectivamente enumerable.
+    \end{enumerate}
   \end{lemma}
+  \begin{proof}
+    \par El caso en el que alguno de los conjuntos es vacío es trivial. Supongamos que $S_{1}, S_{2} \neq \emptyset$ y
+    sean $\mathbb{P}_{1}$ y $\mathbb{P}_{2}$ procedimientos que enumeran a $S_{1}$ y $S_{2}$.
+
+    \begin{enumerate}[a)]
+      \item El siguiente procedimiento enumera al conjunto $S_{1} \cup S_{2}$:
+
+        \textbf{Si $x$ es par:} realizar $\mathbb{P}_{1}$ partiendo de $x/2$ y dar el elemento de $S_{1}$ obtenido como
+        salida.
+        \textbf{Si $x$ es impar:} realizar $\mathbb{P}_{2}$ partiendo de $(x-1)/2$ y dar el elemento de $S_{2}$ obtenido
+        como salida.
+
+      \item Veamos ahora que $S_{1} \cap S_{2}$ es $\Sigma$-efectivamente enumerable:
+
+        \textbf{Si $S_{1} \cap S_{2} = \emptyset$:} entonces no hay nada que probar.
+
+        \textbf{Si $S_{1} \cap S_{2} \neq \emptyset$:} sea $z_{0}$ un elemento fijo de $S_{1} \cap S_{2}$. Sea
+        $\mathbb{P}$ un procedimiento efectivo el cual enumere a $\omega \times \omega$.
+
+        \vspace{3mm}
+        \par El siguiente procedimiento enumera al conjunto $S_{1} \cap S_{2}$:
+
+        \textbf{Etapa 1:}
+        Realizar $\mathbb{P}$ con dato de entrada $x$, para obtener un par $(x_{1}, x_{2}) \in \omega \times \omega $.
+
+        \textbf{Etapa 2:}
+        Realizar $\mathbb{P}_{1}$ con dato de entrada $x_{1}$ para obtener un elemento $z_{1} \in S_{1}$.
+
+        \textbf{Etapa 3:}
+        Realizar $\mathbb{P}_{2}$ con dato de entrada $x_{2}$ para obtener un elemento $z_{2} \in S_{2}$.
+
+        \textbf{Etapa 4:}
+        Si $z_{1} = z_{2}$, entonces dar como dato de salida $z_{1}$. En caso contrario dar como dato de salida $z_{0}$.
+    \end{enumerate}
+  \end{proof}
 
   % Lemma 15
   \begin{lemma}
     \par Si $S \subseteq \omega^{n} \times \SIGMA$ es $\Sigma$-efectivamente computable entonces $S$ es
     $\Sigma$-efectivamente enumerable.
   \end{lemma}
+  \begin{proof}
+    \par El caso en el que S es vacío es trivial. Supongamos $S \neq \emptyset$. Sea $(\vec{z}, \gamma) \in S$, fijo.
+    Recordemos que $\omega^{n} \times \Sigma^{\ast m}$ es $\Sigma$-efectivamente enumerable. Sean:
 
+    \begin{itemize}
+      \item $\mathbb{P}_{1}$ un procedimiento efectivo que enumere a $\omega^{n} \times \Sigma^{\ast m}$
+      \item $\mathbb{P}_{2}$ un procedimiento efectivo que compute a $\chi_{S}$.
+    \end{itemize}
+
+    \par El siguiente procedimiento enumera a $S$:
+
+    \vspace{3mm}
+    \textbf{Etapa 1:}
+    Realizar $\mathbb{P}_{1}$ con $x$ de entrada para obtener $(\vec{x}, \vec{\alpha}) \in \omega^{n}\times
+    \Sigma^{\ast m}$.
+
+    \textbf{Etapa 2:}
+    Realizar $\mathbb{P}_{2}$ con $(\vec{x}, \vec{\alpha})$ de entrada para obtener el valor \textit{Booleano} $e$ de
+    salida.
+
+    \textbf{Etapa 3:}
+    \textbf{Si $e=1$:} dar como dato de salida $(\vec{x}, \vec{\alpha})$.
+
+    $\qquad\qquad\;\;$\textbf{Si $e=0$:} dar como dato de salida $(\vec{z}, \gamma)$.
+  \end{proof}
+
+  \pagebreak
   % Theorem 16
   \begin{theorem}
     \par Sea $S \subseteq \omega^{n}\times \SIGMA$. Son equivalentes:
@@ -21,6 +86,44 @@
       \item $S$ y $(\omega^{n}\times \SIGMA)-S$ son $\Sigma$-efectivamente enumerables.
     \end{enumerate}
   \end{theorem}
+  \begin{proof}
+    \begin{tabular}{|c|}\hline $(a) \Rightarrow (b)$\\\hline\end{tabular} Si $S$ es $\Sigma$-efectivamente computable,
+    por el \textbf{Lemma 15} tenemos que $S$ es $\Sigma$-efectivamente enumerable. Notese además que, dado que $S$ es
+    $\Sigma$-efectivamente computable, $(\omega^{n} \times \Sigma^{\ast m}) - S$ también lo es, es decir, que aplicando
+    nuevamente el \textbf{Lemma 15} tenemos que $(\omega^{n} \times \Sigma^{\ast m})-S$ es
+    $\Sigma$-efectivamente enumerable.
+
+    \vspace{3mm}
+    \begin{tabular}{|c|}\hline $(b) \Rightarrow (a)$\\\hline\end{tabular} Sean:
+
+    \begin{itemize}
+      \item $\mathbb{P}_{1}$ un procedimiento efectivo que enumere a $S$.
+      \item $\mathbb{P}_{2}$ un procedimiento efectivo que enumere a $(\omega^{n}\times \Sigma^{\ast m}) - S$.
+    \end{itemize}
+
+    \par El siguiente procedimiento computa el predicado $\chi_{S}$:
+
+    \vspace{3mm}
+    \textbf{Etapa 1:}
+    Darle a la variable $T$ el valor $0$.
+
+    \textbf{Etapa 2:}
+    Realizar $\mathbb{P}_{1}$ con el valor de $T$ como entrada para obtener de salida la upla $(\vec{y}, \vec{\beta})$.
+
+    \textbf{Etapa 3:}
+    Realizar $\mathbb{P}_{2}$ con el valor de $T$ como entrada para obtener de salida la upla $(\vec{z}, \vec{\gamma})$.
+
+    \textbf{Etapa 4:}
+    \textbf{Si $(\vec{y}, \vec{\beta}) = (\vec{x}, \vec{\alpha})$:} entonces detenerse y dar como dato de salida el
+    valor $1$.
+
+    $\qquad\qquad\;\;$\textbf{Si $(\vec{z}, \vec{\gamma}) = (\vec{x}, \vec{\alpha})$:} entonces detenerse y dar como
+    dato de salida el valor $0$.
+
+    $\qquad\qquad\;\;$\textbf{Si no sucede ninguna de las dos posibilidades:} aumentar en $1$ el valor de
+
+    $\qquad\qquad\;\;$la variable $T$ y dirijirse a la Etapa 2.
+  \end{proof}
 
   % Theorem 17
   \begin{theorem}
