@@ -6,7 +6,7 @@
     propiedad:
 
     \[
-      \text{Si } (x, \alpha), (y, \beta) \in S \Rightarrow (x, \beta) \in S
+      \text{Si } (x, \alpha), \; (y, \beta) \in S \Rightarrow (x, \beta) \in S
     \]
   \end{lemma}
 
@@ -21,7 +21,7 @@
 
     \begin{eqnarray}
   		\nonumber s^{<}(\varepsilon) &=& a_{1} \\
-  		\nonumber s^{<}(\alpha a_{i}) &=& \alpha a_{i+1}, \;\; i < n \\
+  		\nonumber s^{<}(\alpha a_{i}) &=& \alpha a_{i+1} \qquad \text{para } i < n \\
   		\nonumber s^{<}(\alpha a_{n}) &=& s^{<}(\alpha) a_{1}
     \end{eqnarray}
 
@@ -42,10 +42,10 @@
     \par Se tiene que:
 
     \begin{enumerate}
-      \item $\varepsilon \neq s^{<}(\alpha)$, para cada $\alpha \in \SIGMA$.
+      \item $s^{<}(\alpha) \neq \varepsilon$, para cada $\alpha \in \SIGMA$.
       \item Si $\alpha \neq \varepsilon$, entonces $\alpha = s^{<}(\beta)$ para algún $\beta$.
-      \item Si $S\subseteq \SIGMA \neq \emptyset \Rightarrow \exists \alpha \in S$ tal que $\alpha < \beta$, para cada
-      $\beta \in S-\{\alpha\}$.
+      \item Si $S\subseteq \SIGMA \neq \emptyset$, entonces $\exists \alpha \in S$ tal que $\alpha < \beta$, para cada
+      $\beta \in S - \{\alpha\}$.
     \end{enumerate}
   \end{lemma}
 
@@ -65,10 +65,10 @@
     \par Sea $n \geq 1$ fijo, entonces cada $x \geq 1$ se escribe en forma única de la siguiente manera:
 
     \[
-      x = i_{k} n^{k} + i_{k-1} n^{k-1} + \dotsc + i_{0} n^{0}
+      x = i_{0} n^{0} + \dotsc + i_{k-1} n^{k-1} + i_{k} n^{k}
     \]
 
-    \par con $k\geq 0$ y $1 \leq i_{k}, i_{k-1}, \dotsc, i_{0} \leq n$.
+    \par con $k\geq 0$ y $1 \leq i_{0}, \dotsc, i_{k-1}, i_{k} \leq n$.
   \end{lemma}
 
   % Lemma 8
@@ -89,15 +89,15 @@
 
   % Theorem 11
   \begin{theorem}
-    \par Para cada $x \in \mathbf{N}$, hay una única sucesión $(s_{1}, s_{2}, \dotsc) \in
-    \omega^{\left[\mathbf{N}\right]}$ tal que:
+    \par Para cada $x \in \mathbb{N}$, hay una única sucesión $(s_{1}, s_{2}, \dotsc) \in
+    \omega^{\left[\mathbb{N}\right]}$ tal que:
 
     \[
-      x = \underset{i=1}{\overset{\infty}{\Pi}} pr(i)^{s_{i}}
+      x = \underset{i=1}{\overset{\infty}{\Pi}} \; pr(i)^{s_{i}}
     \]
 
-    \par Notese que $\underset{i=1}{\overset{\infty}{\Pi}} pr(i)^{s_{i}}$ tiene sentido ya que es un producto que solo
-    tiene una cantidad finita de factores no iguales a $1$.
+    \par Notar que $\underset{i=1}{\overset{\infty}{\Pi}} \; pr(i)^{s_{i}}$ tiene sentido ya que es un producto que solo
+    tiene una cantidad finita de factores no iguales a 1.
   \end{theorem}
 
   % Lemma 12
@@ -105,10 +105,10 @@
     \par Las funciones:
 
     \begin{eqnarray}
-    	\nonumber \mathbf{N} &\rightarrow& \omega^{\left[\mathbf{N}\right]} \\
+    	\nonumber \mathbb{N} &\rightarrow& \omega^{\left[\mathbb{N}\right]} \\
     	\nonumber x &\rightarrow& ((x)_{1}, (x)_{2}, \dotsc) \\
       \nonumber \\
-      \nonumber \omega^{\left[\mathbf{N}\right]} &\rightarrow& \mathbf{N} \\
+      \nonumber \omega^{\left[\mathbb{N}\right]} &\rightarrow& \mathbb{N} \\
       \nonumber (s_{1}, s_{2}, \dotsc) &\rightarrow& \left\langle s_{1}, s_{2}, \dotsc \right\rangle
   	\end{eqnarray}
 
@@ -117,13 +117,13 @@
 
   % Lemma 13
   \begin{lemma}
-    \par Para cada $x \in \mathbf{N}$:
+    \par Para cada $x \in \mathbb{N}$:
 
     \begin{enumerate}
       \item $Lt(x) = 0 \Leftrightarrow x = 1$
-      \item $x = \prod\nolimits_{i=1}^{Lt(x)} pr(i)^{(x)_{i}}$
+      \item $x = \underset{i=1}{\overset{Lt(x)}{\Pi}} \; pr(i)^{(x)_{i}}$
     \end{enumerate}
 
-    \par Cabe destacar entonces que la función $\lambda ix[(x)_{i}]$ tiene dominio igual a $\mathbf{N}^{2}$ y la
-    función $\lambda ix[Lt(x)]$ tiene dominio igual a $\mathbf{N}$.
+    \par Cabe destacar entonces que la función $\lambda ix[(x)_{i}]$ tiene dominio igual a $\mathbb{N}^{2}$ y la
+    función $\lambda ix[Lt(x)]$ tiene dominio igual a $\mathbb{N}$.
   \end{lemma}
