@@ -1,237 +1,399 @@
 \section{Máquinas de Turing}
 
-  \textbf{\underline{Lemma 79:}} Sea $L \subseteq \Sigma^{\ast }$, entonces $L = L(M)$ para alguna máquina de Turing
-    $M \Leftrightarrow L = H(M)$ para alguna máquina de Turing $M = (Q, \Sigma, \Gamma, \delta, q_{0}, B, F)$.
+	%Lemma 80
+  \begin{lemma}
+  	El predicado $\lambda ndd^{\prime} \left[d\vdash d^{\prime}\right]$ es $(\Gamma \cup Q)$-PR.
+	\begin{proof}
+		Note que $D_{\lambda dd^{\prime}\left[d\vdash d^{\prime }\right] }=Des\times Des$.
+    También nótese que los predicados
 
-  \PROOF \begin{tabular}{|c|}\hline $\Rightarrow$\\\hline\end{tabular} Dada una máquina $M = (Q, \Sigma, \Gamma,
-    \delta, q_{0}, B, F)$ construiremos una máquina $M_{1} = (Q_{1}, \Sigma, \Gamma_{1}, \delta_{1}, \tilde{q}_{0}, B,
-    \emptyset)$ tal que $L(M) = H(M_{1}).$ Tomaremos $\Gamma_{1} = \Gamma \cup \{X\}$, con $X$ un símbolo nuevo no
-    perteneciente a $\Gamma$. Para cada $a \in \Sigma$, sea $q_{a}$ un estado nuevo, no perteneciente a $Q$. Sean
-    $\tilde {q}_{0}, q_{r}, q_{d}, q_{B}$ estados nuevos no pertenecientes a $Q$. Tomemos entonces:
-
-    \[
-      Q_{1} = Q \cup \{\tilde{q}_{0}, q_{r}, q_{d}, q_{B}\}\cup \{q_{a}: a \in \Sigma \}
-    \]
-
-    \par Finalmente definamos $\delta_{1}$ de la siguiente manera:
-
-    \begin{eqnarray}{rcl}
-      \nonumber \delta_{1}(\tilde{q}_{0}, B) &=& \{(q_{B}, X, R)\} \\
-      \nonumber \delta_{1}(q_{B}, a) &=& \{(q_{a}, B, R)\} \text{, para } a \in \Sigma \\
-      \nonumber \delta_{1}(q_{B}, B) &=& \{(q_{0}, B, K)\} \\
-      \nonumber \delta_{1}(q_{a}, b) &=& \{(q_{b}, a, R)\} \text{, para } a, b \in \Sigma \\
-      \nonumber \delta_{1}(q_{a}, B) &=& \{(q_{r}, a, L)\} \text{, para } a \in \Sigma \\
-      \nonumber \delta_{1}(q_{r}, a) &=& \{(q_{r}, a, L)\} \text{, para } a \in \Sigma \\
-      \nonumber \delta_{1}(q_{r}, B) &=& \{(q_{0}, B, K)\} \\
-      \nonumber \delta _{1}(q, X) &=& \{(q, X, K)\} \text{, para } q \in Q \\
-      \nonumber \delta_{1}(q, \sigma) &=& \delta (q, \sigma) \cup \{(q_{d}, \sigma, K)\} \text{ , para } q \in F
-      \text{ y } \sigma \in \Gamma \\
-      \nonumber \delta_{1}(q, \sigma) &=& \delta (q, \sigma) \text{, para } q \in Q-F \text{ y } \sigma \in \Gamma \\
-      \nonumber \delta_{1}(q_{d}, \sigma) &=& \emptyset \text{, para } \sigma \in \Gamma
+    \begin{eqnarray}
+      \nonumber \lambda p\sigma q\gamma \left[ (p,\sigma ,L)\in \delta (q,\gamma )\right] \\
+      \nonumber \lambda p\sigma q\gamma \left[ (p,\sigma ,R)\in \delta (q,\gamma )\right] \\
+      \nonumber \lambda p\sigma q\gamma \left[ (p,\sigma ,K)\in \delta (q,\gamma )\right]
     \end{eqnarray}
 
-    \par \underline{Nota:} $\delta _{1}$ se define igual a vacío para los casos no contemplados arriba.
+    son $(\Gamma \cup Q)$-p.r. ya que los tres tienen dominio igual a $Q\times \Gamma \times Q\times \Gamma $ el cual es
+    finito (Corolario 36 ). Sea $P_{R}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times
+    Q\times Q\rightarrow \omega $
+    definido por $P_{R}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
+    \begin{eqnarray}
+      \nonumber d=\alpha p\beta \wedge (q,\sigma ,R)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
+                d^{\prime }=\alpha \sigma q^{\curvearrowright }\beta
+    \end{eqnarray}
+
+    Sea $P_{L}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega
+    $ definido por $P_{L}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
+    \begin{eqnarray}
+      \nonumber d=\alpha p\beta \wedge (q,\sigma ,L)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge \alpha
+                \neq \varepsilon \wedge d^{\prime }=\left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right]
+                _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor
+    \end{eqnarray}
+
+    Sea $P_{K}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega
+    $ definido por $P_{K}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
+
+    \begin{eqnarray}
+      \nonumber d=\alpha p\beta \wedge (q,\sigma ,K)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
+                d^{\prime }=\left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor
+    \end{eqnarray}
+
+    Se deja al lector la verificación de que estos predicados son $(\Gamma \cup Q)$-p.r.
+    Nótese que $\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] $ es igual al predicado
+    \begin{eqnarray}
+      \nonumber \lambda dd^{\prime }\left[ (\exists \sigma \in \Gamma )(\exists \alpha ,\beta \in \Gamma ^{\ast })
+                (\exists p,q\in Q)(P_{R}\vee P_{L}\vee P_{K})(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)\right]
+    \end{eqnarray}
+
+    lo cual por el Lema 39 nos dice que $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right] $ es
+    $(\Gamma \cup Q)$-p.r.
+
+  \end{proof}
+
+  \end{lemma}
+
+	%Proposition 81
+	\begin{proposition}
+		$\lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] $ es $ (\Gamma \cup Q)$-p.r..
+	\end{proposition}
+
+
+  %Theorem 82:
+  \begin{theorem}
+  	Sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F\right) $ una máquina de Turing.
+    Entonces $L(M)$ es $\Sigma $-recursivamente enumerable.
+
+  \begin{proof}
+     Sea $P$ el siguiente predicado $(\Gamma \cup Q)$-mixto
+
+    \[
+      \lambda n\alpha \left[ (\exists d\in Des)\;\left\lfloor q_{0}B\alpha \right\rfloor \overset{n}{\vdash }d\wedge
+        St(d)\in F\right]
+    \]
+    Nótese que $D_{P}=\omega \times \Gamma ^{\ast }$. Dejamos al lector probar que $P$ es $(\Gamma \cup Q)$-p.r..
+    Sea $P^{\prime }=P\mid _{\omega \times \Sigma ^{\ast }}$. Nótese que $P^{\prime }(n,\alpha )=1$ sii
+    $\alpha \in L(M) $ atestiguado por una computación de longitud $n$. Ya que $P^{\prime }$ es $(\Gamma \cup Q)$-p.r.
+    (por que?) y ademas es $\Sigma $-mixto, el Teorema 51 nos dice que $P^{\prime }$ es $\Sigma $-p.r..
+    Ya que $ L(M)=D_{M(P^{\prime })}$, el Teorema 71 nos dice que $ L(M)$ es $\Sigma $-r.e.
+  \end{proof}
+  \end{theorem}
+
+	%Theorem 83
+	\begin{theorem}
+		Supongamos $f:S\subseteq \omega ^{n}\times \Sigma ^{\ast }{}^{m}\rightarrow O $ es
+    $\Sigma $-Turing computable. Entonces $f$ es $\Sigma $-recursiva.
+	\begin{proof}
+    Supongamos $O=\Sigma ^{\ast }$ y sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) $
+    una máquina de Turing determinística con unit la cual compute a $f$. Sea $< $ un orden total estricto sobre
+    $\Gamma \cup Q$ . Sea $P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega $ dado por
+    $P(x,\vec{x},\vec{\alpha})=1$ sii
+
+    \begin{eqnarray}
+      \nonumber (\exists q\in Q)\;\left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor \overset{(x)_{1}}{\vdash } \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \wedge \\
+      \nonumber (\forall d\in Des)_{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;\left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d
+    \end{eqnarray}
+
+    Es fácil ver que $P$ es $(\Gamma \cup Q)$-p.r. por lo que $P$ es $ \Sigma $-p.r. ya que es $\Sigma $-mixto. Nótese que
+    \[
+      f=\lambda \vec{x}\vec{\alpha}\left[ \left( \min_{x}P(x,\vec{x},\vec{\alpha} )\right) _{2}\right] \text{,}
+    \]
+    lo cual nos dice que $f$ es $\Sigma $-recursiva.
+	\end{proof}
+  \end{theorem}
+
+	%Lema 84
+	\begin{lemma}
+		Sea $\mathcal{P}\in \mathrm{Pro}^{\Sigma }$ y sea $k$ tal que las variables que ocurren
+    en $\mathcal{P}$ están todas en la lista $\mathrm{N}1,..., \mathrm{N}\bar{k},\mathrm{P}1,...,\mathrm{P}\bar{k}.$
+    Para cada $a\in \Sigma \cup \{\shortmid \}$, sea $\tilde{a}$ un nuevo símbolo. Sea $\Gamma =\Sigma \cup \{B,
+    \shortmid \}\cup \{\tilde{a}:a\in \Sigma \cup \{\shortmid \}\}$. Entonces hay una máquina de Turing determinística
+    con unit $M=\left( Q,\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) $ la cual satisface
+    \begin{enumerate}[\qquad(1)]
+      \item $\delta (q_{f},\sigma )=\emptyset $, para cada $\sigma \in \Gamma $.
+      \item Cualesquiera sean $x_{1},...,x_{k}\in \omega $ y $\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }$, el
+            programa $\mathcal{P}$ se detiene partiendo del estado
+            \[
+              \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right)
+            \]
+            sii $M$ se detiene partiendo de la descripción instantánea
+            \[
+              \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor
+            \]
+      \item Si $x_{1},...,x_{k}\in \omega $ y $\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }$ son tales que
+            $\mathcal{P}$ se detiene partiendo del estado
+            \[
+              \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right)
+            \]
+            y llega al estado
+            \[
+              \left( (y_{1},...,y_{k},0,...),(\beta _{1},...,\beta _{k},\varepsilon ,...)\right)
+            \]
+            entonces
+            \[
+              \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor \overset
+              {\ast }{\vdash }\left\lfloor q_{f}B\shortmid ^{y_{1}}B...B\shortmid ^{y_{k}}B\beta _{1}B...B\beta _{k}B\right
+              \rfloor
+            \]
+    \end{enumerate}
 
-    \vspace{3mm}
-    \begin{tabular}{|c|}\hline $\Leftarrow $\\\hline\end{tabular} Dada $M = (Q, \Sigma, \Gamma, \delta, q_{0}, B, F)$,
-    dejamos al lector la construcción de una máquina $M_{1} = (Q_{1}, \Sigma, \Gamma_{1}, \delta_{1}, \tilde{q}_{0}, B,
-    \emptyset)$ tal que $H(M) = L(M_{1})$.
 
-  \QED
+  \begin{proof}
+    Dado un estado $((x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...))$ lo representaremos en la
+    cinta de la siguiente manera
+    \[
+      B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k}BBBB....
+    \]
 
+    A continuación describiremos una serie de maquinas las cuales simularan, vía la representación anterior, las
+    distintas clases de instrucciones que pueden ocurrir en $\mathcal{P}$. Todas las maquinas definidas tendrán a
+    $\shortmid $ como unit y a $B$ como blanco, tendrán a $\Sigma $ como su alfabeto terminal y su alfabeto mayor sera
+    $\Gamma =\Sigma \cup \{B,\shortmid \}\cup \{\tilde{a }:a\in \Sigma \cup \{\shortmid \}\}$. Ademas tendrán uno o dos
+    estados finales con la propiedad de que si $q$ es un estado final, entonces $\delta (q,\sigma )=\emptyset $, para cada $\sigma \in \Gamma $. Esta propiedad es importante ya que nos permitirá concatenar pares de dichas maquinas identificando algún estado final de la primera con el inicial de la segunda. \\
 
-  \textbf{\underline{Lemma 80:}} El predicado $\lambda ndd^{\prime} \left[d\vdash d^{\prime}\right]$ es $(\Gamma \cup
-    Q)$-PR.
+		\noindent Para $1\leq i\leq k$, sea $M_{i}^{+}$ una máquina tal que
 
-  \PROOF Note que $D_{\lambda dd^{\prime}\left[d\vdash d^{\prime }\right] }=Des\times Des$. Tambien notese que los predicados
+		\bigskip
 
-  $\displaystyle \begin{array}{rcl} & & \lambda p\sigma q\gamma \left[ (p,\sigma ,L)\in \delta (q,\gamma )\right] \\ & & \lambda p\sigma q\gamma \left[ (p,\sigma ,R)\in \delta (q,\gamma )\right] \\ & & \lambda p\sigma q\gamma \left[ (p,\sigma ,K)\in \delta (q,\gamma )\right] \end{array} $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}B\shortmid ^{x_{i}+1}B\shortmid
+    ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  son $(\Gamma \cup Q)$-p.r. ya que los tres tienen dominio igual a $Q\times \Gamma \times Q\times \Gamma $ el cual es finito (Corolario 36 ). Sea $P_{R}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega $ definido por $P_{R}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
-  $\displaystyle d=\alpha p\beta \wedge (q,\sigma ,R)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge d^{\prime }=\alpha \sigma q^{\curvearrowright }\beta $
+    Es claro que la máquina $M_{i}^{+}$ simula la instrucción $\mathrm{N}\bar{ \imath}\leftarrow \mathrm{N}\bar{\imath}+1$.
 
-  Sea $P_{L}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega $ definido por $P_{L}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
-  $\displaystyle d=\alpha p\beta \wedge (q,\sigma ,L)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge \alpha \neq \varepsilon \wedge d^{\prime }=\left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right] _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor $
+    \noindent Para $1\leq i\leq k$, sea $M_{i}^{\dot{-}}$ una máquina tal que
 
-  Sea $P_{K}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega $ definido por $P_{K}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
-  $\displaystyle d=\alpha p\beta \wedge (q,\sigma ,K)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge d^{\prime }=\left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor $
+		\bigskip
 
-  Se deja al lector la verificacion de que estos predicados son $(\Gamma \cup Q)$-p.r.. Notese que $\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] $ es igual al predicado
-  $\displaystyle \lambda dd^{\prime }\left[ (\exists \sigma \in \Gamma )(\exists \alpha ,\beta \in \Gamma ^{\ast })(\exists p,q\in Q)(P_{R}\vee P_{L}\vee P_{K})(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)\right] $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}B\shortmid ^{x_{i}\dot{-}1}B\shortmid
+    ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  lo cual por el Lema 39 nos dice que $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right] $ es $(\Gamma \cup Q)$-p.r. $\Box$
+		\bigskip
 
 
-  \textbf{\underline{Proposition 81:}} $\lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] $ es $ (\Gamma \cup Q)$-p.r..
+    \noindent Para $1\leq i\leq k$ y $a\in \Sigma $, sea $M_{i}^{a}$ una máquina tal que
 
-  \PROOF Sea $Q=\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] \cup C_{0}^{0,2}\mid _{(\Gamma \cup Q)^{\ast 2}-Des^{2}}$ es decir $Q$ es el resultado de extender con el valor $0$ al predicado $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right] $ de manera que este definido en todo $ (\Gamma \cup Q)^{\ast 2}$. Sea $< $ un orden total estricto sobre $\Gamma \cup Q$ y sea $Q_{1}:\mathbf{N}\times Des\times Des\rightarrow \omega $ definido por $Q_{1}(x,d,d^{\prime })=1$ sii
+		\bigskip
 
-  $\left( (\forall i\in \mathbf{N})_{i\leq Lt(x)}\ast ^{< }((x)_{i})\in Des\right) \wedge \ast ^{< }((x)_{1})=d\wedge $
 
-  $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ast ^{< }((x)_{Lt(x)})=d^{\prime }\wedge \left( (\forall i\in \mathbf{N})_{i\leq Lt(x)\dot{-}1}\;Q(\ast ^{< }((x)_{i}),\ast ^{< }((x)_{i+1}))\right) $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}B\alpha
+    _{i}aB\alpha _{i+1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  Notese que dicho rapidamente $Q_{1}(x,d,d^{\prime })=1$ sii $x$ codifica una computacion que parte de $d$ y llega a $d^{\prime }$. Se deja al lector la verificacion de que este predicado es $(\Gamma \cup Q)$-p.r.. Notese que
+		\bigskip
 
-  $\displaystyle \lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] =\lambda ndd^{\prime }\left[ \left( \exists x\in \mathbf{N}\right) \;Lt(x)=n+1\wedge Q_{1}(x,d,d^{\prime })\right] $
+    \noindent Para $1\leq i\leq k$, sea $M_{i}^{\curvearrowright }$ una máquina tal que
 
-  Es decir que solo nos falta acotar el cuantificador existencial, para poder aplicar el lema de cuantificacion acotada. Ya que cuando $ d_{1},...,d_{n+1}\in Des$ son tales que $d_{1}\vdash d_{2}\vdash ...\vdash d_{n+1}$ tenemos que
-  $\displaystyle \left\vert d_{i}\right\vert \leq \left\vert d_{1}\right\vert +n\text{, para } i=1,...,n $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}B
+    ^{\curvearrowright }\alpha _{i}B\alpha _{i+1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  una posible cota para dicho cuantificador es
-  $\displaystyle \prod_{i=1}^{n+1}pr(i)^{\left\vert \Gamma \cup Q\right\vert ^{\left\vert d\right\vert +n}}\text{.} $
+		\bigskip
 
-  O sea que, por el lema de cuantificacion acotada, tenemos que el predicado $ \lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] $ es $ (\Gamma \cup Q)$-p.r. $\Box$
+    \noindent Para $j=1,...,k$, y $a\in \Sigma $, sea $IF_{j}^{a}$ una máquina con dos estados finales $q_{si}$ y
+    $q_{no}$ tal que si $\alpha _{j}$ comienza con $a$ , entonces
 
-  \textbf{\underline{Theorem 82:}} Sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F\right) $ una maquina de Turing. Entonces $L(M)$ es $\Sigma $-recursivamente enumerable.
+		\bigskip
 
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\
+    \uparrow & & \uparrow \\ q_{0} & & q_{si} \end{array} $
 
-  \PROOF Sea $P$ el siguiente predicado $(\Gamma \cup Q)$-mixto
+    \noindent y en caso contrario
 
-  $\displaystyle \lambda n\alpha \left[ (\exists d\in Des)\;\left\lfloor q_{0}B\alpha \right\rfloor \overset{n}{\vdash }d\wedge St(d)\in F\right] $
+		\bigskip
 
-  Notese que $D_{P}=\omega \times \Gamma ^{\ast }$. Dejamos al lector probar que $P$ es $(\Gamma \cup Q)$-p.r.. Sea $P^{\prime }=P\mid _{\omega \times \Sigma ^{\ast }}$. Notese que $P^{\prime }(n,\alpha )=1$ sii $\alpha \in L(M) $ atestiguado por una computacion de longitud $n$. Ya que $P^{\prime }$ es $(\Gamma \cup Q)$-p.r. (por que?) y ademas es $\Sigma $-mixto, el Teorema 51 nos dice que $P^{\prime }$ es $\Sigma $-p.r.. Ya que $ L(M)=D_{M(P^{\prime })}$, el Teorema 71 nos dice que $ L(M)$ es $\Sigma $-r.e.. $\Box$
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\
+    \uparrow & & \uparrow \\ q_{0} & & q_{no} \end{array} $
 
-  \textbf{\underline{Theorem 83:}} Supongamos $f:S\subseteq \omega ^{n}\times \Sigma ^{\ast }{}^{m}\rightarrow O $ es $\Sigma $-Turing computable. Entonces $f$ es $\Sigma $-recursiva.
+		\bigskip
 
-  \PROOF Supongamos $O=\Sigma ^{\ast }$ y sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) $ una maquina de Turing deterministica con unit la cual compute a $f$. Sea $< $ un orden total estricto sobre $\Gamma \cup Q$ . Sea $P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega $ dado por $P(x,\vec{x},\vec{\alpha})=1$ sii
+	 	\noindent Análogamente para $j=1,...,k$, sea $IF_{j}$ una máquina tal que si $ x_{j}\neq 0$, entonces
 
-  $(\exists q\in Q)\;\left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor \overset{(x)_{1}}{\vdash } \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \wedge $
-  $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \wedge (\forall d\in Des)_{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;\left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d$
-  Es facil ver que $P$ es $(\Gamma \cup Q)$-p.r. por lo que $P$ es $ \Sigma $-p.r. ya que es $\Sigma $-mixto. Notese que
+		\bigskip
 
-  $\displaystyle f=\lambda \vec{x}\vec{\alpha}\left[ \left( \min_{x}P(x,\vec{x},\vec{\alpha} )\right) _{2}\right] \text{,} $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\
+    \uparrow & & \uparrow \\ q_{0} & & q_{si} \end{array} $
 
-  lo cual nos dice que $f$ es $\Sigma $-recursiva. $\Box$
+		\bigskip
 
+	  \noindent y si $x_{j}=0$, entonces
 
-  \textbf{\underline{Lemma 84:}} Sea $\mathcal{P}\in \mathrm{Pro}^{\Sigma }$ y sea $k$ tal que las variables que ocurren en $\mathcal{P}$ estan todas en la lista $\mathrm{N}1,..., \mathrm{N}\bar{k},\mathrm{P}1,...,\mathrm{P}\bar{k}.$ Para cada $a\in \Sigma \cup \{\shortmid \}$, sea $\tilde{a}$ un nuevo simbolo. Sea $\Gamma =\Sigma \cup \{B,\shortmid \}\cup \{\tilde{a}:a\in \Sigma \cup \{\shortmid \}\}$. Entonces hay una maquina de Turing deterministica con unit $M=\left( Q,\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) $ la cual satisface
-  (1) $\delta (q_{f},\sigma )=\emptyset $, para cada $\sigma \in \Gamma $.
-  (2) Cualesquiera sean $x_{1},...,x_{k}\in \omega $ y $\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }$, el programa $\mathcal{P}$ se detiene partiendo del estado
-  $\displaystyle \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right) $
+		\bigskip
 
-  sii $M$ se detiene partiendo de la descripcion instantanea
-  $\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor $
-  (3) Si $x_{1},...,x_{k}\in \omega $ y $\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }$ son tales que $\mathcal{P}$ se detiene partiendo del estado
-  $\displaystyle \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right) $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\
+    \uparrow & & \uparrow \\ q_{0} & & q_{no} \end{array} $
 
-  y llega al estado
-  $\displaystyle \left( (y_{1},...,y_{k},0,...),(\beta _{1},...,\beta _{k},\varepsilon ,...)\right) $
+		\bigskip
 
-  entonces
-  $\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor \overset{\ast }{\vdash }\left\lfloor q_{f}B\shortmid ^{y_{1}}B...B\shortmid ^{y_{k}}B\beta _{1}B...B\beta _{k}B\right\rfloor $
+	  \noindent Para $1\leq i,j\leq k$, sea $M_{i\leftarrow j}^{\ast }$ una máquina tal que
 
-  \PROOF Dado un estado $((x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...))$ lo representaremos en la cinta de la siguiente manera
+		\bigskip
 
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid
+    ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}B\alpha _{j}B\alpha _{i+1}...B\alpha _{k} \\
+    \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  $\displaystyle B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k}BBBB.... $
+		\bigskip
 
-  A continuacion describiremos una serie de maquinas las cuales simularan, via la representacion anterior, las distintas clases de instrucciones que pueden ocurrir en $\mathcal{P}$. Todas las maquinas definidas tendran a $\shortmid $ como unit y a $B$ como blanco, tendran a $\Sigma $ como su alfabeto terminal y su alfabeto mayor sera $\Gamma =\Sigma \cup \{B,\shortmid \}\cup \{\tilde{a }:a\in \Sigma \cup \{\shortmid \}\}$. Ademas tendran uno o dos estados finales con la propiedad de que si $q$ es un estado final, entonces $\delta (q,\sigma )=\emptyset $, para cada $\sigma \in \Gamma $. Esta propiedad es importante ya que nos permitira concatenar pares de dichas maquinas identificando algun estado final de la primera con el inicial de la segunda.
-  Para $1\leq i\leq k$, sea $M_{i}^{+}$ una maquina tal que
+    \noindent Para $1\leq i,j\leq k$, sea $M_{i\leftarrow j}^{\#}$ una máquina tal que
 
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}B\shortmid ^{x_{i}+1}B\shortmid ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+		\bigskip
 
-  Es claro que la maquina $M_{i}^{+}$ simula la instruccion $\mathrm{N}\bar{ \imath}\leftarrow \mathrm{N}\bar{\imath}+1$.
-  Para $1\leq i\leq k$, sea $M_{i}^{\dot{-}}$ una maquina tal que
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}B\shortmid ^{x_{j}}B\shortmid
+    ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}B\shortmid ^{x_{i}\dot{-}1}B\shortmid ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+		\bigskip
 
-  Para $1\leq i\leq k$ y $a\in \Sigma $, sea $M_{i}^{a}$ una maquina tal que
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}B\alpha _{i}aB\alpha _{i+1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+    \noindent Para $1\leq i\leq k$, sea $M_{i\leftarrow 0}$ una máquina tal que
 
-  Para $1\leq i\leq k$, sea $M_{i}^{\curvearrowright }$ una maquina tal que
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}B^{\curvearrowright }\alpha _{i}B\alpha _{i+1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+		\bigskip
 
-  Para $j=1,...,k$, y $a\in \Sigma $, sea $IF_{j}^{a}$ una maquina con dos estados finales $q_{si}$ y $q_{no}$ tal que si $\alpha _{j}$ comienza con $a$ , entonces
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{si} \end{array} $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}BB\shortmid ^{x_{i+1}}...B\shortmid
+    ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  y en caso contrario
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{no} \end{array} $
+		\bigskip
 
-  Analogamente para $j=1,...,k$, sea $IF_{j}$ una maquina tal que si $ x_{j}\neq 0$, entonces
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{si} \end{array} $
+    \noindent Para $1\leq i\leq k$, sea $M_{i\leftarrow \varepsilon }$ una máquina tal que
 
-  y si $x_{j}=0$, entonces
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{no} \end{array} $
+		\bigskip
 
-  Para $1\leq i,j\leq k$, sea $M_{i\leftarrow j}^{\ast }$ una maquina tal que
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}B\alpha _{j}B\alpha _{i+1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+    $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} &
+    \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid
+    ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}BB\alpha _{i+1}...B\alpha _{k} \\
+    \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
 
-  Para $1\leq i,j\leq k$, sea $M_{i\leftarrow j}^{\#}$ una maquina tal que
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}B\shortmid ^{x_{j}}B\shortmid ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+		\bigskip
 
-  Para $1\leq i\leq k$, sea $M_{i\leftarrow 0}$ una maquina tal que
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{i-1}}BB\shortmid ^{x_{i+1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+    \noindent Sea
 
-  Para $1\leq i\leq k$, sea $M_{i\leftarrow \varepsilon }$ una maquina tal que
-  $\displaystyle \begin{array}{lcl} B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{k} & \overset{\ast }{\vdash } & B\shortmid ^{x_{1}}...B\shortmid ^{x_{k}}B\alpha _{1}...B\alpha _{i-1}BB\alpha _{i+1}...B\alpha _{k} \\ \uparrow & & \uparrow \\ q_{0} & & q_{f} \end{array} $
+    $\displaystyle M_{\mathrm{SKIP}}=\left( \{q_{0},q_{f}\},\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) ,$
 
-  Sea
-  $\displaystyle M_{\mathrm{SKIP}}=\left( \{q_{0},q_{f}\},\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) , $
+		\noindent con $\delta (q_{0},B)=\{(q_{f},B,K)\}$ y $\delta =\emptyset $ en cualquier otro caso.
 
-  con $\delta (q_{0},B)=\{(q_{f},B,K)\}$ y $\delta =\emptyset $ en cualquier otro caso.
-  Finalmente sea
+		\bigskip
 
-  $\displaystyle M_{\mathrm{GOTO}}=\left( \{q_{0},q_{si},q_{no}\},\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{si},q_{no}\}\right) , $
+    \noindent Finalmente sea
 
-  con $\delta (q_{0},B)=\{(q_{si},B,K)\}$ y $\delta =\emptyset $ en cualquier otro caso.
-  Para poder hacer concretamente las maquinas recien descriptas deberemos dise \~{n}ar antes algunas maquinas auxiliares. Para cada $j\geq 1$, sea $D_{j}$ la maquina descripta en la Figura 1. Notese que
+		\[
+    \displaystyle M_{\mathrm{GOTO}}=\left( \{q_{0},q_{si},q_{no}\},\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{si},q_{no}\}\right) ,
+    \]
 
-  $\displaystyle \begin{array}{lcr} \alpha B\beta _{1}B\beta _{2}B...B\beta _{j}B\gamma & \overset{\ast }{\vdash } & \alpha B\beta _{1}B\beta _{2}B...B\beta _{j}B\gamma \\ \ \ \uparrow & & \uparrow \ \ \\ \ \ q_{0} & & q_{f}\ \ \end{array} $
+    \noindent con $\delta (q_{0},B)=\{(q_{si},B,K)\}$ y $\delta =\emptyset $ en cualquier otro caso.
 
-  siempre que $\alpha ,\gamma \in \Gamma ^{\ast }$, $\beta _{1},...,\beta _{j}\in (\Gamma -\{B\})^{\ast }$. Analogamente tenemos definidas las maquinas $I_{j}.$
-  Para $j\geq 1$, sea $TD_{j}$ una maquina con un solo estado final $q_{f}$ y tal que
+		Para poder hacer concretamente las maquinas recién descriptas deberemos diseñar antes algunas máquinas auxiliares.
+		Para cada $j\geq 1$, sea $D_{j}$ la máquina descripta en la Figura 1. Notese que
 
-  $\displaystyle \begin{array}{ccc} \alpha B\gamma & \overset{\ast }{\vdash } & \alpha BB\gamma \\ \uparrow & & \uparrow \ \ \\ q_{0} & & q_{f}\ \ \end{array} $
+		\[
+		\displaystyle \begin{array}{lcr} \alpha B\beta _{1}B\beta _{2}B...B\beta _{j}B\gamma & \overset{\ast }{\vdash } & \alpha B\beta _{1}B\beta _{2}B...B\beta _{j}B\gamma \\
+    \ \ \uparrow & & \uparrow \ \ \\ \ \ q_{0} & & q_{f}\ \ \end{array}
+		\]
 
-  cada vez que $\alpha ,\gamma \in \Gamma ^{\ast }$ y $\gamma $ tiene exactamente $j$ ocurrencias de $B$. Es decir la maquina $TD_{j}$ corre un espacio a la derecha todo el bloque $\gamma $ y agrega un blanco en el espacio que se genera a la izquierda de dicho bloque. Por ejemplo, para el caso de $\Sigma =\{\& \}$ podemos tomar $TD_{3}$ igual a la maquina de la Figura 3.
-  Analogamente, para $j\geq 1$, sea $TI_{j}$ una maquina tal que
+		\bigskip
 
-  $\displaystyle \begin{array}{ccc} \alpha B\sigma \gamma & \overset{\ast }{\vdash } & \alpha B\gamma \\ \uparrow \ & & \uparrow \\ q_{0}\ \ & & q_{f} \end{array} $
+    \noindent siempre que $\alpha ,\gamma \in \Gamma ^{\ast }$, $\beta _{1},...,\beta _{j}\in (\Gamma -\{B\})^{\ast }$.
+    Analogamente tenemos definidas las maquinas $I_{j}.$
 
-  cada vez que $\alpha \in \Gamma ^{\ast }$, $\sigma \in \Gamma $ y $\gamma $ tiene exactamente $j$ ocurrencias de $B$. Es decir la maquina $TI_{j}$ corre un espacio a la izquierda todo el bloque $\gamma $ (por lo cual en el lugar de $\sigma $ queda el primer simbolo de $\gamma $).
-  Teniendo las maquinas auxiliares antes definidas podemos combinarlas para obtener las maquinas simuladoras de instrucciones. Por ejemplo $M_{i}^{a}$ puede ser la maquina descripta en la Figura 4. En la Figura 2 tenemos una posible forma de dise\~{n}ar la maquina $IF_{i}^{a}$. En la Figura 7 tenemos una posible forma de dise\~{n}ar la maquina $M_{i\leftarrow j}^{\ast }$ para el caso $\Sigma =\{a,b\}$ y $i< j$.
+    Para $j\geq 1$, sea $TD_{j}$ una máquina con un solo estado final $q_{f}$ y tal que
 
-  Supongamos ahora que $\mathcal{P}=I_{1}...I_{n}$. Para cada $i=1,...,n$, definiremos una maquina $M_{i}$ que simulara la instruccion $I_{i}$. Luego uniremos adecuadamente estas maquinas para formar la maquina que simulara a $ \mathcal{P}$
+		\[
+    \displaystyle \begin{array}{ccc} \alpha B\gamma & \overset{\ast }{\vdash } & \alpha BB\gamma \\
+    \uparrow & & \uparrow \ \ \\ q_{0} & & q_{f}\ \ \end{array}
+    \]
 
-  - Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow \mathrm{N}\bar{j}+1$ tomaremos $M_{i}=M_{j}^{+}$
-  - Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow \mathrm{N}\bar{j}\dot{-} 1 $ tomaremos $M_{i}=M_{j}^{\dot{-}}$
-  - Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow 0$ tomaremos $ M_{i}=M_{j\leftarrow 0}$.
-  - Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow \mathrm{N}\bar{m}$ tomaremos $M_{i}=M_{j\leftarrow m}^{\#}$.
-  - Si $Bas(I_{i})=\mathrm{IF}\;\mathrm{N}\bar{j}\not=0$ $\mathrm{GOTO} \;\mathrm{L}\bar{m}$ tomaremos $M_{i}=IF_{j}.$
-  - Si $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \mathrm{P}\bar{j}.a$ tomaremos $M_{i}=M_{j}^{a}$.
-  - Si $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \ ^{\curvearrowright } \mathrm{P}\bar{j}$ tomaremos $M_{i}=M_{j}^{\curvearrowright }$.
-  - Si $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \varepsilon $ tomaremos $ M_{i}=M_{j\leftarrow \varepsilon }$.
-  - Si $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \mathrm{P}\bar{m}$ tomaremos $M_{i}=M_{j\leftarrow m}^{\ast }$.
-  - Si $Bas(I_{i})=\mathrm{IF}\;\mathrm{P}\bar{j}\;\mathrm{BEGINS}\;a\; \mathrm{GOTO}\;\mathrm{L}\bar{m}$ tomaremos $M_{i}=IF_{j}^{a}$.
-  - Si $Bas(I_{i})=\mathrm{SKIP}$ tomaremos $M_{i}=M_{\mathrm{SKIP}}$.
-  - Si $Bas(I_{i})=\mathrm{GOTO}\;\mathrm{L}\bar{m}$ tomaremos $ M_{i}=M_{\mathrm{GOTO}}$.
-  Ya que la maquina $M_{i}$ puede tener uno o dos estados finales, la representaremos como se muestra en la Figura 5, entendiendo que en el caso en que $M_{i}$ tiene un solo estado final, este esta representado por el circulo de abajo a la izquierda y en el caso en que $M_{i}$ tiene dos estados finales, el estado final representado con lineas punteadas corresponde al estado $q_{si}$ y el otro al estado $q_{no}$.
+		\bigskip
 
-  Para armar la maquina que simulara a $\mathcal{P}$ hacemos lo siguiente. Primero unimos las maquinas $M_{1},...,M_{n}$ como lo muestra la Figura 6. Luego para cada $i$ tal que $Bas(I_{i})$ es de la forma $\alpha \mathrm{GOTO} \;\mathrm{L}\bar{m}$, ligamos con una flecha de la forma
+    cada vez que $\alpha ,\gamma \in \Gamma ^{\ast }$ y $\gamma $ tiene exactamente $j$ ocurrencias de $B$.
+    Es decir la máquina $TD_{j}$ corre un espacio a la derecha todo el bloque $\gamma $ y agrega un blanco en el espacio
+    que se genera a la izquierda de dicho bloque. Por ejemplo, para el caso de $\Sigma =\{\& \}$ podemos tomar $TD_{3}$
+    igual a la máquina de la Figura 3.
 
-  $\displaystyle \underrightarrow{\;\;\;\;\;\;B,B,K\;\;\;\;\;\;} $
+    Análogamente, para $j\geq 1$, sea $TI_{j}$ una máquina tal que
 
-  el estado final $q_{si}$ de la $M_{i}$ con el estado inicial de la $M_{h}$, donde $h$ es tal que $I_{h}$ es la primer instruccion que tiene label $ \mathrm{L}\bar{m}$.
-  Es intuitivamente claro que la maquina asi obtenida cumple con lo requerido aunque una Proof formal de esto puede resultar extremadamente tediosa. $\Box$
+		\[
+	  \displaystyle \begin{array}{ccc} \alpha B\sigma \gamma & \overset{\ast }{\vdash } & \alpha B\gamma \\
+    \uparrow \ & & \uparrow \\ q_{0}\ \ & & q_{f} \end{array}
+	  \]
 
-  \textbf{\underline{Theorem 85:}} Si $f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O$ es $ \Sigma $-recursiva, entonces $f$ es $\Sigma $-Turing computable.
+    cada vez que $\alpha \in \Gamma ^{\ast }$, $\sigma \in \Gamma $ y $\gamma $ tiene exactamente $j$ ocurrencias de
+    $B$. Es decir la máquina $TI_{j}$ corre un espacio a la izquierda todo el bloque $\gamma $ (por lo cual en el lugar
+    de $\sigma $ queda el primer símbolo de $\gamma $).
+    Teniendo las maquinas auxiliares antes definidas podemos combinarlas para obtener las maquinas simuladoras de
+    instrucciones. Por ejemplo $M_{i}^{a}$ puede ser la máquina descripta en la Figura 4. En la Figura 2 tenemos una
+    posible forma de diseñar la máquina $IF_{i}^{a}$. En la Figura 7 tenemos una posible forma de diseñar la máquina
+    $M_{i\leftarrow j}^{\ast }$ para el caso $\Sigma =\{a,b\}$ y $i< j$.
 
-  \PROOF Supongamos $O=\Sigma ^{\ast }.$ Ya que $f$ es $\Sigma $-computable, existe $ \mathcal{P}\in \mathrm{Pro}^{\Sigma }$ el cual computa $f$. Note que podemos suponer que $\mathcal{P}$ tiene la propiedad de que cuando $\mathcal{P}$ termina, en el estado alcansado las variables numericas tienen todas el valor $0$ y las alfabeticas distintas de $\mathrm{P}1$ todas el valor $ \varepsilon $. Sea $M$ la maquina de Turing con unit dada por el lema anterior, donde elejimos el numero $k$ con la propiedad adicional de ser mayor que $n$ y $m$. Sea $M_{1}$ una maquina tal que para cada $(\vec{x}, \vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}$,
+    Supongamos ahora que $\mathcal{P}=I_{1}...I_{n}$. Para cada $i=1,...,n$, definiremos una máquina $M_{i}$ que
+    simulara la instrucción $I_{i}$. Luego uniremos adecuadamente estas maquinas para formar la máquina que simulara a
+    $ \mathcal{P}$
 
-  $\displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B\alpha _{1}B...B\alpha _{n}B\right\rfloor \overset{\ast }{\vdash }\left\lfloor qB\shortmid ^{x_{1}}B...B\shortmid ^{x_{n}}B^{k-n}B\alpha _{1}B...B\alpha _{m}B\right\rfloor $
+		\begin{itemize}
+			\item Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow \mathrm{N}\bar{j}+1$ tomaremos $M_{i}=M_{j}^{+}$
+	    \item Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow \mathrm{N}\bar{j}\dot{-} 1 $ tomaremos $M_{i}=M_{j}^{\dot{-}}$
+	    \item Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow 0$ tomaremos $ M_{i}=M_{j\leftarrow 0}$.
+	    \item Si $Bas(I_{i})=\mathrm{N}\bar{j}\leftarrow \mathrm{N}\bar{m}$ tomaremos $M_{i}=M_{j\leftarrow m}^{\#}$.
+	    \item Si $Bas(I_{i})=\mathrm{IF}\;\mathrm{N}\bar{j}\not=0$ $\mathrm{GOTO} \;\mathrm{L}\bar{m}$ tomaremos $M_{i}=IF_{j}.$
+	    \item Si $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \mathrm{P}\bar{j}.a$ tomaremos $M_{i}=M_{j}^{a}$.
+	    \item Si $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \ ^{\curvearrowright } \mathrm{P}\bar{j}$ tomaremos $M_{i}=M_{j}^{\curvearrowright }$.
+	    \item $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \varepsilon $ tomaremos $ M_{i}=M_{j\leftarrow \varepsilon }$.
+	    \item $Bas(I_{i})=\mathrm{P}\bar{j}\leftarrow \mathrm{P}\bar{m}$ tomaremos $M_{i}=M_{j\leftarrow m}^{\ast }$.
+	    \item $Bas(I_{i})=\mathrm{IF}\;\mathrm{P}\bar{j}\;\mathrm{BEGINS}\;a\; \mathrm{GOTO}\;\mathrm{L}\bar{m}$ tomaremos $M_{i}=IF_{j}^{a}$.
+	    \item $Bas(I_{i})=\mathrm{SKIP}$ tomaremos $M_{i}=M_{\mathrm{SKIP}}$.
+	    \item $Bas(I_{i})=\mathrm{GOTO}\;\mathrm{L}\bar{m}$ tomaremos $ M_{i}=M_{\mathrm{GOTO}}$.
+		\end{itemize}
 
-  donde $q_{0}$ es el estado inicial de $M_{1}$ y $q$ es un estado tal que $ \delta (q,\sigma )=\emptyset $, para cada $\sigma .$ Sea $M_{2}$ una maquina tal que para cada $\alpha \in \Sigma ^{\ast }$,
-  $\displaystyle \left\lfloor q_{0}B^{k+1}\alpha \right\rfloor \overset{\ast }{\vdash } \left\lfloor qB\alpha \right\rfloor $
+    Ya que la máquina $M_{i}$ puede tener uno o dos estados finales, la representaremos como se muestra en la Figura 5,
+    entendiendo que en el caso en que $M_{i}$ tiene un solo estado final, este esta representado por el circulo de
+    abajo a la izquierda y en el caso en que $M_{i}$ tiene dos estados finales, el estado final representado con lineas
+     punteadas corresponde al estado $q_{si}$ y el otro al estado $q_{no}$.
 
-  donde $q_{0}$ es el estado inicial de $M_{2}$ y $q$ es un estado tal que $ \delta (q,\sigma )=\emptyset $, para cada $\sigma $. Note que la concatenacion de $M_{1}$, $M$ y $M_{2}$ (en ese orden) produce una maquina de Turing la cual computa $f$. $\Box$
+    Para armar la máquina que simulara a $\mathcal{P}$ hacemos lo siguiente. Primero unimos las maquinas
+    $M_{1},...,M_{n}$ como lo muestra la Figura 6. Luego para cada $i$ tal que $Bas(I_{i})$ es de la forma
+    $\alpha \mathrm{GOTO} \;\mathrm{L}\bar{m}$, ligamos con una flecha de la forma
 
+		\[
+    \displaystyle \underrightarrow{\;\;\;\;\;\;B,B,K\;\;\;\;\;\;}
+		\]
+    el estado final $q_{si}$ de la $M_{i}$ con el estado inicial de la $M_{h}$, donde $h$ es tal que $I_{h}$ es la
+    primer instrucción que tiene label $ \mathrm{L}\bar{m}$.
+    Es intuitivamente claro que la máquina así obtenida cumple con lo requerido aunque una Proof formal de esto puede
+    resultar extremadamente tediosa.
+	\end{proof}
+	\end{lemma}
 
+	%Theorem 85
+	\begin{theorem}
+		Si $f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O$ es $ \Sigma $-recursiva, entonces $f$ es
+    $\Sigma $-Turing computable.
 
-  \textbf{\underline{Theorem 86:}} Si $L\subseteq \Sigma ^{\ast }$ es $\Sigma $-r.e., entonces $L=L(M)=H(M)$ para alguna maquina de Turing deterministica $M.$
+  \begin{proof} Supongamos $O=\Sigma ^{\ast }.$ Ya que $f$ es $\Sigma $-computable, existe
+    $ \mathcal{P}\in \mathrm{Pro}^{\Sigma }$ el cual computa $f$. Note que podemos suponer que $\mathcal{P}$ tiene la
+    propiedad de que cuando $\mathcal{P}$ termina, en el estado alcanzado las variables numéricas tienen todas el valor
+    $0$ y las alfabéticas distintas de $\mathrm{P}1$ todas el valor $ \varepsilon $. Sea $M$ la máquina de Turing con
+    unit dada por el lema anterior, donde elegimos el numero $k$ con la propiedad adicional de ser mayor que $n$ y $m$.
+    Sea $M_{1}$ una máquina tal que para cada $(\vec{x}, \vec{\alpha})\in \omega ^{n}\times \Sigma ^{\ast m}$,
 
+  	\[
+    \displaystyle \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid
+    ^{x_{n}}B\alpha _{1}B...B\alpha _{n}B\right\rfloor \overset{\ast }{\vdash }\left\lfloor qB\shortmid
+    ^{x_{1}}B...B\shortmid ^{x_{n}}B^{k-n}B\alpha _{1}B...B\alpha _{m}B\right\rfloor
+  	\]
 
-  \PROOF Por el Teorema 71 hay una funcion $f:L\rightarrow \omega $, la cual es $\Sigma $-recursiva$.$ Sea $\mathcal{P}$ un programa el cual compute a $f$. Sea $M$ la maquina de Turing deterministica dada en el lema anterior. Sea $M_{1}$ una maquina de Turing deterministica tal que para todo $\alpha \in \Sigma ^{\ast }$,
+    donde $q_{0}$ es el estado inicial de $M_{1}$ y $q$ es un estado tal que $ \delta (q,\sigma )=\emptyset $, para cada
+    $\sigma .$ Sea $M_{2}$ una máquina tal que para cada $\alpha \in \Sigma ^{\ast }$,
 
-  $\displaystyle \left\lfloor q_{0}B\alpha \right\rfloor \overset{\ast }{\vdash }\left\lfloor qB^{k+1}\alpha \right\rfloor $
+  	\[
+    \displaystyle \left\lfloor q_{0}B^{k+1}\alpha \right\rfloor \overset{\ast }{\vdash } \left\lfloor qB\alpha \right\rfloor
+  	\]
 
-  donde $q_{0}$ es el estado inicial de $M$ y $q$ es un estado tal que $\delta (q,\sigma )=\emptyset $, para cada $\sigma $. Note que la concatenacion de $ M_{1}$ con $M$ (en ese orden) produce una maquina de Turing deterministica $ M_{2}$ tal que $H(M_{2})=L(M_{2})=L$. $\Box$
+    donde $q_{0}$ es el estado inicial de $M_{2}$ y $q$ es un estado tal que $ \delta (q,\sigma )=\emptyset $, para cada
+    $\sigma $. Note que la concatenación de $M_{1}$, $M$ y $M_{2}$ (en ese orden) produce una máquina de Turing la cual
+    computa $f$.
+	\end{proof}
+	\end{theorem}
