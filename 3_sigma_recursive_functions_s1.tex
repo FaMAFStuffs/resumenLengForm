@@ -1,17 +1,41 @@
 \section{Funciones $\Sigma$-recursivas}
+  % Resta terminar los teoremas: 19, 27, 30, 31, 34
 
-  % Lemma 18
+
+  % Lemma 18: Con prueba.
   \begin{lemma}
     \par Si $f, f_{1}, \dotsc, f_{n+m}$ son $\Sigma$-efectivamente computables, entonces $f \circ (f_{1}, \dotsc,
     f_{n+m})$ lo es.
   \end{lemma}
   \begin{proof}
-    Sean $\mathbb{P}, \mathbb{P}_{1}, \dotsc, \mathbb{P}_{n+m}$ procedimientos efectivos los cuales computen las
-    funciones $f, f_{1}, \dotsc, f_{n+m}$, respectivamente. Usando estos procedimientos es fácil definir un
-    procedimiento efectivo el cual compute a $f \circ (f_{1},\dotsc,f_{n+m})$.
+    Sean:
+
+    \begin{itemize}
+      \item $\mathbb{P}$ un procedimiento efectivo que compute a $f$.
+      \item $\mathbb{P}_{1}$ un procedimiento efectivo que compute a $f_{1}$.
+      \item $\mathbb{P}_{2}$ un procedimiento efectivo que compute a $f_{2}$.
+      \item $\vdotswithin{(n-1)m+1} \qquad \vdotswithin{(n-1)m+2} \qquad \vdotswithin{(n-1)m+r}$
+      \item $\mathbb{P}_{n+m}$ un procedimiento efectivo que compute a $f_{n+m}$.
+    \end{itemize}
+
+    \par El siguiente porsedimiento $\mathbb{P}$ computa $f \circ (f_{1}, \dotsc, f_{n+m})$:
+
+    \vspace{3mm}
+    \textbf{Etapa 1:}
+    Realizar $\mathbb{P}_{1}$ con $(\vec{x}, \vec{\alpha})$ de entrada para obtener como salida $o_{1}$
+
+    $\qquad\qquad\;\;$Realizar $\mathbb{P}_{2}$ con $(\vec{x}, \vec{\alpha})$ de entrada para obtener como salida $o_{2}$
+
+    $\qquad\qquad\;\;\vdotswithin{(n-1)m+1} \qquad \vdotswithin{(n-1)m+2}$
+
+    $\qquad\qquad\;\;$Realizar $\mathbb{P}_{n+m}$ con $(\vec{x}, \vec{\alpha})$ de entrada para obtener como salida $o_{n+m}$
+
+
+    \textbf{Etapa 2:}
+    Dar como dato de salida el resultado de $\mathbb{P}$ con $(o_{1}, o_{2}, \dotsc, o_{n+m})$ de entrada.
   \end{proof}
 
-  % Lemma 19
+  % Lemma 19: Con prueba. HACER!
   \begin{lemma}
     \par Si $f$ y $g$ son $\Sigma $-efectivamente computables, entonces $R(f,g)$ lo es.
   \end{lemma}
@@ -19,22 +43,39 @@
     HACER!!!!!!!
   \end{proof}
 
-  % Lemma 20
+  % Lemma 20: Sin prueba.
   \begin{lemma}
     \par Si $f$ y cada $\mathcal{G}_{a}$ son $\Sigma$-efectivamente computables, entonces $R(f, \mathcal{G})$ lo es.
   \end{lemma}
 
-  % Theorem 21
+  % Theorem 21: Con prueba.
   \begin{theorem}
     \par Si $f \in \mathrm{PR}^{\Sigma}$, entonces $f$ es $\Sigma$-efectivamente computable.
   \end{theorem}
   \begin{proof}
-    \par Dejamos al lector la prueba por inducción en $k$ de que si $f \in \mathrm{PR}_{k}^{\Sigma}$, entonces $f$ es
-    $\Sigma$-efectivamente computable, la cual sale en forma directa usando los lemas anteriores que garantizan que los
-    constructores de composición y recursión primitiva preservan la computabilidad efectiva.
+    \par Recordemos que $PR^{\Sigma} = \bigcup\limits_{k \geq 0} PR_{k}^{\Sigma}$. Supongamos que $f \in
+    PR_{k}^{\Sigma}$, probaremos este teorema por inducción en $k$.
+
+    \vspace{3mm}
+    \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 0$ \\\hline \end{tabular}
+
+    \par Luego $f \in PR_{0}^{\Sigma}$, es decir $f \in \{suc, pred, C_{0}^{0,0}, C_{\varepsilon}^{0,0}\} \cup \{d_{a}:
+    a \in \Sigma\} \cup \{p_{j}^{n,m} : 1 \leq j \geq n+m\}$. Por lo tanto, $f$ es $\Sigma$-efectivamente computable.
+
+    \vspace{3mm}
+		\underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 0$ \\\hline \end{tabular}
+
+    \par Supongamos ahora que si $f \in \mathrm{PR}_{k}^{\Sigma} \Rightarrow f$ es
+    $\Sigma$-efectivamente computable, veamos que $f \in \mathrm{PR}_{k+1}^{\Sigma} \Rightarrow f$ es
+    $\Sigma$-efectivamente computable.
+
+    \par Dado que las funciones de $PR_{k}^{\Sigma}$ son $\Sigma$-efectivamente computable por hipótesis inductiva, y
+    que $PR_{k+1}^{\Sigma}$ se contruye a partir de las mismas, a través de recursiones y/o composiciones, las cuales
+    probamos son $\Sigma$-efectivamente computables en el \textbf{Lemma 18} y \textbf{Lemma 19}, entonces concluimos que
+    $f$ es $\Sigma$-efectivamente computable.
   \end{proof}
 
-  % Lemma 22
+  % Lemma 22: Con prueba.
   \begin{lemma}
     \begin{enumerate}
       \item $\emptyset \in \mathrm{PR}^{\emptyset}$.
@@ -45,136 +86,172 @@
   \end{lemma}
   \begin{proof}
     \begin{enumerate}
-      \item Notese que $\emptyset = Pred \circ C_{0}^{0,0} \in \mathrm{PR}_{1}^{\emptyset}$
+      \item Notese que $\emptyset = Pred \circ C_{0}^{0,0} \in \mathrm{PR}_{1}^{\emptyset}$, entonces $\emptyset \in
+        \mathrm{PR}^{\emptyset}$.
       \item Notar que:
         \begin{eqnarray}
-          \nonumber \lambda xy\left[x+y\right](0, x_{1}) &=& x_{1} = p_{1}^{1,0}(x_{1}) \\
-          \nonumber \lambda xy\left[x+y\right](t+1, x_{1}) &=& \lambda xy\left[x+y\right](t, x_{1}) + 1 \\
-          \nonumber & =& (Suc \circ p_{1}^{3,0}) (\lambda xy\left[x+y\right](t,x_{1}), t, x_{1})
+          \nonumber \lambda xy \left[x+y\right](0, x_{1}) &=& x_{1} = p_{1}^{1,0}(x_{1}) \\
+          \nonumber \lambda xy \left[x+y\right](t+1, x_{1}) &=& \lambda xy \left[x+y\right](t, x_{1}) + 1 \\
+          \nonumber & =& (Suc \circ p_{1}^{3,0})(\lambda xy \left[x+y\right](t,x_{1}), t, x_{1})
         \end{eqnarray}
 
-        \par lo cual implica que $\lambda xy\left[x+y\right] = R (p_{1}^{1, 0}, Suc \circ p_{1}^{3,0}) \in
-        \mathrm{PR}_{2}^{\emptyset}.$
+        \par lo cual implica que $\lambda xy \left[x+y\right] = R(p_{1}^{1,0}, Suc \circ p_{1}^{3,0}) \in
+        \mathrm{PR}_{2}^{\emptyset}$, entonces $\lambda xy \left[x+y\right] \in \mathrm{PR}^{\emptyset}$.
       \item Primero note que:
         \begin{eqnarray}
           \nonumber C_{0}^{1,0}(0) &=& C_{0}^{0,0}(\Diamond) \\
           \nonumber C_{0}^{1,0}(t+1) &=& C_{0}^{1,0}(t)
         \end{eqnarray}
 
-        \par lo cual implica que $C_{0}^{1,0} = R (C_{0}^{0,0}, p_{1}^{2, 0}) \in \mathrm{PR}_{1}^{\emptyset}$.
-        También note que $\lambda tx \left[t.x\right] = R (C_{0}^{1,0}, \lambda xy\left[x+y\right] \circ (p_{1}^{3, 0},
-        p_{3}^{3,0}))$, lo cual por (1) implica que $\lambda tx\left[t.x\right] \in \mathrm{PR}_{3}^{\emptyset}$.
-      \item Note que:
+        \par lo cual implica que $C_{0}^{1,0} = R(C_{0}^{0,0}, p_{1}^{2,0}) \in \mathrm{PR}_{1}^{\emptyset}$.
+        \par También note que:
+
         \begin{eqnarray}
-          \nonumber \lambda x\left[x!\right](0) &=& 1 = C_{1}^{0,0}(\Diamond) \\
-          \nonumber \lambda x\left[x!\right](t+1) &=& \lambda x\left[x!\right](t).(t+1)
+          \nonumber \lambda xy \left[x.y\right](0, x_{1}) &=& x_{1} = p_{1}^{1,0}(x_{1}) \\
+          \nonumber \lambda xy \left[x.y\right](t+1, x_{1}) &=& \lambda xy \left[x.y\right](t, x_{1}) + x_{1} \\
+          \nonumber &=& \lambda xy \left[x+y\right] \circ (p_{1}^{3,0}, p_{3}^{3,0})
         \end{eqnarray}
 
-        \par lo cual implica que: $\lambda x \left[x!\right] = R (C_{1}^{0, 0}, \lambda xy\left[x.y\right] \circ
-        (p_{1}^{2, 0}, Suc \circ p_{2}^{2,0}))$.
+        \par lo cual implica que $\lambda xy \left[x.y\right] = R(C_{0}^{1,0}, \lambda xy \left[x+y\right] \circ
+        (p_{1}^{3,0}, p_{3}^{3,0}))$, lo cual por (1) implica que $\lambda xy \left[x.y\right] \in
+        \mathrm{PR}_{4}^{\emptyset}$, entonces $\lambda xy \left[x.y\right] \in \mathrm{PR}^{\emptyset}$.
+      \item Notar que:
+        \begin{eqnarray}
+          \nonumber \lambda x \left[x!\right](0) &=& 1 = C_{1}^{0,0}(\Diamond) \\
+          \nonumber \lambda x \left[x!\right](t+1) &=& \lambda x \left[x!\right](t).(t+1)
+        \end{eqnarray}
 
-        \par Ya que $C_{1}^{0, 0} = Suc \circ C_{0}^{0,0}$, tenemos que $C_{1}^{0, 0} \in \mathrm{PR}_{1}^{\emptyset}$.
-        Por (2), tenemos que $\lambda xy \left[x.y\right] \circ (p_{1}^{2, 0}, Suc \circ p_{2}^{2,0}) \in
-        \mathrm{PR}_{4}^{\emptyset}$, obteniendo que $\lambda x \left[x!\right] \in \mathrm{PR}_{5}^{\emptyset}$.
+        \par lo cual implica que: $\lambda x \left[x!\right] = R(C_{1}^{0, 0}, \lambda xy \left[x.y\right] \circ
+        (p_{1}^{2,0}, Suc \circ p_{2}^{2,0}))$. Ya que $C_{1}^{0,0} = Suc \circ C_{0}^{0,0}$, tenemos que $C_{1}^{0,0}
+        \in \mathrm{PR}_{1}^{\emptyset}$. Por (2), tenemos que $\lambda xy \left[x.y\right] \circ (p_{1}^{2,0}, Suc
+        \circ p_{2}^{2,0}) \in \mathrm{PR}_{4}^{\emptyset}$, obteniendo que $\lambda x \left[x!\right] \in
+        \mathrm{PR}_{5}^{\emptyset}$, entonces $\lambda x \left[x!\right] \in \mathrm{PR}^{\emptyset}$.
     \end{enumerate}
   \end{proof}
 
-  % Lemma 23
+  % Lemma 23: Con prueba.
   \begin{lemma}
     \par Supongamos $\Sigma \neq \emptyset$.
 
     \begin{enumerate}[a)]
       \item $\lambda \alpha \beta \left[\alpha\beta\right] \in \mathrm{PR}^{\Sigma}$.
-      \item $\lambda \alpha \left[\left\vert\alpha \right\vert\right] \in \mathrm{PR}^{\Sigma}$.
+      \item $\lambda \alpha \left[\lvert\alpha \rvert\right] \in \mathrm{PR}^{\Sigma}$.
     \end{enumerate}
   \end{lemma}
   \begin{proof}
     \begin{enumerate}[a)]
       \item Ya que:
         \begin{eqnarray}
-          \nonumber \lambda \alpha \beta \left[\alpha \beta\right](\alpha_{1}, \varepsilon) &=& \alpha_{1} =
+          \nonumber \lambda \alpha\beta \left[\alpha \beta\right](\alpha_{1}, \varepsilon) &=& \alpha_{1} =
           p_{1}^{0,1}(\alpha_{1}) \\
-          \nonumber \lambda \alpha \beta \left[\alpha \beta\right](\alpha_{1}, \alpha a) &=& d_{a}(\lambda \alpha \beta
-          \left[\alpha \beta\right](\alpha_{1}, \alpha), a \in \Sigma
+          \nonumber \lambda \alpha\beta \left[\alpha \beta\right](\alpha_{1}, \alpha a) &=& d_{a}(\lambda \alpha\beta
+          \left[\alpha\beta\right](\alpha_{1}, \alpha), \qquad \text{para a} \in \Sigma
         \end{eqnarray}
 
-        \par tenemos que $\lambda \alpha \beta \left[\alpha \beta\right] = R(p_{1}^{0, 1}, \mathcal{G})$, donde
-        $\mathcal{G}_{a} = d_{a} \circ p_{3}^{0,3}$, para cada $a \in \Sigma$.
+        \par tenemos que $\lambda \alpha\beta \left[\alpha \beta\right] = R(p_{1}^{0, 1}, \mathcal{G})$, donde
+        $\mathcal{G}_{a} = d_{a} \circ p_{3}^{0,3}$, para cada $a \in \Sigma$. Luego, $\lambda \alpha\beta
+        \left[\alpha\beta\right] \in \mathrm{PR}^{\Sigma}$.
       \item Ya que:
         \begin{eqnarray}
-          \nonumber \lambda \alpha \left[\left\vert \alpha \right\vert\right](\varepsilon) &=& 0 =
-          C_{0}^{0,0}(\Diamond) \\
-          \nonumber \lambda \alpha \left[\left\vert \alpha \right\vert\right](\alpha a) &=& \lambda \alpha
-          \left[\left\vert \alpha \right\vert\right](\alpha) + 1
+          \nonumber \lambda \alpha \left[\lvert\alpha \rvert\right](\varepsilon) &=& 0 = C_{0}^{0,0}(\Diamond) \\
+          \nonumber \lambda \alpha \left[\lvert\alpha \rvert\right](\alpha a) &=& \lambda \alpha \left[\lvert\alpha
+            \rvert\right](\alpha) + 1
         \end{eqnarray}
 
-        \par tenemos que $\lambda \alpha \left[\left\vert \alpha \vert \right] = R(C_{0}^{0, 0}, \mathcal{G}\right)$,
-        donde $\mathcal{G}_{a} = Suc \circ p_{1}^{1, 1}$, para cada $a \in \Sigma$.
+        \par tenemos que $\lambda \alpha \left[\lvert\alpha \rvert\right] = R(C_{0}^{0, 0}, \mathcal{G})$, donde
+        $\mathcal{G}_{a} = Suc \circ p_{1}^{1, 1}$, para cada $a \in \Sigma$. Luego, $\lambda \alpha
+        \left[\lvert\alpha \rvert\right] \in \mathrm{PR}^{\Sigma}$.
     \end{enumerate}
   \end{proof}
 
-  % Lemma 24
+  % Lemma 24: Sin prueba.
   \begin{lemma}
     \begin{enumerate}[a)]
-      \item $C_{k}^{n, m}, C_{\alpha}^{n, m} \in \mathrm{PR}^{\Sigma}$, para $n, m, k \geq 0, \alpha \in \SIGMA$.
-      \item $C_{k}^{n, 0} \in \mathrm{PR}^{\emptyset}$, para $n, k \geq 0$.
+      \item $C_{k}^{n,m}, C_{\alpha}^{n,m} \in \mathrm{PR}^{\Sigma}$, para $n, m, k \geq 0$, y $\alpha \in \SIGMA$.
+      \item $C_{k}^{n,0} \in \mathrm{PR}^{\emptyset}$, para $n, k \geq 0$.
     \end{enumerate}
   \end{lemma}
 
-  % Lemma 25
+  % Lemma 25: Con prueba.
   \begin{lemma}
     \begin{enumerate}
       \item $\lambda xy \left[x^{y}\right] \in \mathrm{PR}^{\emptyset}$.
-      \item $\lambda t \alpha \left[\alpha^{t}\right] \in \mathrm{PR}^{\Sigma}$.
+      \item $\lambda t\alpha \left[\alpha^{t}\right] \in \mathrm{PR}^{\Sigma}$.
     \end{enumerate}
   \end{lemma}
   \begin{proof}
     \begin{enumerate}[a)]
-      \item Note que: $\lambda tx \left[x^{t}\right] = R(C_{1}^{1, 0}, \lambda xy \left[x.y\right] \circ (p_{1}^{3, 0}, p_{3}^{3, 0})) \in \mathrm{PR}^{\emptyset}$.
+      \item Notar que:
 
-        \par Osea que $\lambda xy \left[x^{y}\right] = \lambda tx \left[x^{t}\right] \circ (p_{2}^{2, 0}, p_{1}^{2, 0}) \in \mathrm{PR}^{\emptyset}$.
-      \item Note que: $\lambda t \alpha \left[\alpha^{t}\right] = R(C_{\varepsilon}^{0, 1}, \lambda \alpha \beta \left[\alpha \beta\right] \circ (p_{3}^{1, 2}, p_{2}^{1, 2})) \in \mathrm{PR}^{\Sigma}$.
+        \begin{eqnarray}
+          \nonumber \lambda tx \left[x^{t}\right](0, x_{1}) &=& 0 = C_{0}^{1,0}(x_{1}) \\
+          \nonumber \lambda tx \left[x^{t}\right](t+1, x_{1}) &=& \lambda tx \left[x^{t}\right](t, x_{1}) . x_{1} \\
+          \nonumber &=& \lambda xy \left[x.y\right] \circ (p_{1}^{3,0}, p_{3}^{3,0})
+        \end{eqnarray}
+        \par Osea que $\lambda xy \left[x^{y}\right] = \lambda tx \left[x^{t}\right] \circ (p_{2}^{2, 0}, p_{1}^{2, 0})
+        \in \mathrm{PR}^{\emptyset}$.
+
+      \item Notar que:
+
+      \begin{eqnarray}
+        \nonumber \lambda t\alpha \left[\alpha^{t}\right](t, \varepsilon) &=& \varepsilon = C_{\varepsilon}^{0,1}(t) \\
+        \nonumber \lambda t\alpha \left[\alpha^{t}\right](t, \alpha a) &=& \lambda t\alpha \left[\alpha^{t}\right](t,
+          \alpha) \alpha \\
+        \nonumber &=& \lambda \alpha\beta \left[\alpha\beta \right] \circ \left(p_{3}^{1,2}, p_{2}^{1,2}\right)
+      \end{eqnarray}
+
+      \par Por lo tanto, $\lambda t\alpha \left[\alpha^{t}\right] \in \mathrm{PR}^{\Sigma}$.
     \end{enumerate}
   \end{proof}
 
-  % Lemma 26
+  % Lemma 26: Con prueba.
   \begin{lemma}
-    \par Si $<$ es un orden total estricto sobre un alfabeto no vacío $\Sigma$, entonces $s^{<}, \#^{<}$ y $\ast^{<}$
-    pertenecen a $\mathrm{PR}^{\Sigma}$.
+    \par Si $<$ es un orden total estricto sobre un alfabeto no vacío $\Sigma$, entonces:
+
+    \begin{enumerate}[a)]
+      \item $s^{<} \in \mathrm{PR}^{\Sigma}$.
+      \item $\#^{<} \in \mathrm{PR}^{\Sigma}$.
+      \item $\ast^{<} \in \mathrm{PR}^{\Sigma}$.
+    \end{enumerate}
   \end{lemma}
   \begin{proof}
-    \par Supongamos $\Sigma = \{a_{1}, \dotsc, a_{k}\}$ y $<$ dado por $a_{1} < \dotsc < a_{k}$. Ya que:
+    \par Supongamos $\Sigma = \{a_{1}, \dotsc, a_{k}\}$ y $<$ dado por $a_{1} < \dotsc < a_{k}$.
 
-    \begin{eqnarray}
-      \nonumber s^{<}(\varepsilon) &=& a_{1} \\
-      \nonumber s^{<}(\alpha a_{i}) &=& \alpha a_{i+1} \text{, para } i < k \\
-      \nonumber s^{<}(\alpha a_{k}) &=& s^{<}(\alpha) a_{1}
-    \end{eqnarray}
+    \begin{enumerate}[a)]
+      \item Ya que:
+        \begin{eqnarray}
+          \nonumber s^{<}(\varepsilon) &=& a_{1} \\
+          \nonumber s^{<}(\alpha a_{i}) &=& \alpha a_{i+1} \text{, para } i < k \\
+          \nonumber s^{<}(\alpha a_{k}) &=& s^{<}(\alpha) a_{1}
+        \end{eqnarray}
 
-    \par tenemos que $s^{<} = R(C_{a_{1}}^{0, 0}, \mathcal{G})$, donde $\mathcal{G}_{a_{i}} = d_{a_{i+1}} \circ
-    p_{1}^{0, 2}$, para $i = 1, \dotsc, k-1$ y $\mathcal{G}_{a_{k}} = d_{a_{1}} \circ p_{2}^{0,2}.$ Osea que $s^{<} \in
-    \mathrm{PR}^{\Sigma}$. Ya que:
+        \par tenemos que $s^{<} = R(C_{a_{1}}^{0, 0}, \mathcal{G})$, donde $\mathcal{G} = \{\left(a_{i}, d_{a_{i+1}}
+        \circ p_{1}^{0,2} \right), \left(a_{k}, d_{a_{1}} \circ p_{2}^{0,2} \right)\}$. Luego, $s^{<} \in
+        \mathrm{PR}^{\Sigma}$.
 
-    \begin{eqnarray}
-      \nonumber \ast^{<}(0) &=& \varepsilon \\
-      \nonumber \ast^{<}(t+1) &=& s^{<}(\ast^{<}(t))
-    \end{eqnarray}
+      \item Ya que:
+        \begin{eqnarray}
+          \nonumber \ast^{<}(0) &=& \varepsilon \\
+          \nonumber \ast^{<}(t+1) &=& s^{<}(\ast^{<}(t))
+        \end{eqnarray}
 
-    \par podemos ver que $\ast^{<} \in \mathrm{PR}^{\Sigma}$. Ya que:
+        \par tenemos que $\ast^{<} = R(C_{\varepsilon}^{0,0}, s^{<} \circ p_{1}^{2,0})$. Luego, $\ast^{<} \in
+        \mathrm{PR}^{\Sigma}$.
 
-    \begin{eqnarray}
-      \nonumber \#^{<}(\varepsilon) &=& 0 \\
-      \nonumber \#^{<}(\alpha a_{i}) &=& \#^{<}(\alpha). k + i \text{, para } i = 1, \dotsc, k
-    \end{eqnarray}
+      \item Ya que:
+        \begin{eqnarray}
+          \nonumber \#^{<}(\varepsilon) &=& 0 \\
+          \nonumber \#^{<}(\alpha a_{i}) &=& \#^{<}(\alpha). k + i \\
+          \nonumber \text{para } i &=& 1, \dotsc, k
+        \end{eqnarray}
 
-    \par tenemos que $\#^{<} = R(C_{0}^{0, 0}, \mathcal{G})$, donde $\mathcal{G}_{a_{i}} = \lambda xy \left[x+y\right]
-    \circ (\lambda xy \left[x.y\right] \circ (p_{1}^{1, 1}, C_{k}^{1, 1}), C_{i}^{1, 1})
-    \text{, para } i = 1, \dotsc, k$.
-
-    \par Osea que $\#^{<} \in \mathrm{PR}^{\Sigma}$.
+        \par tenemos que $\#^{<} = R(C_{0}^{0, 0}, \mathcal{G})$, donde $\mathcal{G}_{a_{i}} = \lambda xy
+        \left[x+y\right] \circ (\lambda xy \left[x.y\right] \circ (p_{1}^{1, 1}, C_{k}^{1, 1}), C_{i}^{1, 1})
+        \text{, para } i = 1, \dotsc, k$. Luego, $\#^{<} \in \mathrm{PR}^{\Sigma}$.
+    \end{enumerate}
   \end{proof}
 
-  % Lemma 27
+  % Lemma 27: Con prueba. HACER!
   \begin{lemma}
     \begin{enumerate}[a)]
       \item $\lambda xy \left[x \dot{-}y\right] \in \mathrm{PR}^{\emptyset}$.
@@ -187,13 +264,31 @@
   \end{lemma}
   \begin{proof}
     \begin{enumerate}[a)]
-      \item Primero notar que $\lambda x \left[x \dot{-}1\right] = R(C_{0}^{0, 0}, p_{2}^{2, 0}) \in
-        \mathrm{PR}^{\emptyset}$. También note que $\lambda tx \left[x \dot{-}t\right] = R(p_{1}^{1, 0}, \lambda x
-        \left[x \dot{-}1\right] \circ p_{1}^{3, 0}) \in \mathrm{PR}^{\emptyset}$.
+      \item Primero notar que:
 
-        \par Osea que $\lambda xy \left[x \dot{-}y\right] = \lambda tx \left[x \dot{-}t\right] \circ (p_{2}^{2, 0},
-        p_{1}^{2, 0}) \in \mathrm{PR}^{\emptyset}$.
-      \item Note que $\lambda xy \left[\max (x,y)\right] = \lambda xy \left[(x + (y \dot{-}x)\right]$.
+        \begin{eqnarray}
+          \nonumber \lambda x \left[x \dot{-}1\right](0) &=& 0 = C_{0}^{0,0} \\
+          \nonumber \lambda x \left[x \dot{-}1\right](t+1) &=& t \\
+          \nonumber &=& p_{2}^{2,0}
+        \end{eqnarray}
+
+        \par es decir $\lambda x \left[x \dot{-}1\right] = R(C_{0}^{0,0}, p_{2}^{2,0}) \in \mathrm{PR}^{\emptyset}$.
+        \par También notar que:
+
+        \begin{eqnarray}
+          \nonumber \lambda tx \left[x \dot{-}t\right](0, x_{1}) &=& x_{1} = p_{1}^{1,0}(x_{1}) \\
+          \nonumber \lambda tx \left[x \dot{-}t\right](t+1, x_{1}) &=& \lambda tx \left[x \dot{-}t\right](t, x_{1})
+            \dot{-} 1\\
+          \nonumber &=& \lambda x \left[x \dot{-}1\right] \circ p_{1}^{3,0}
+        \end{eqnarray}
+
+        \par es decir, $\lambda tx \left[x \dot{-}t\right] = R(p_{1}^{1, 0}, \lambda x \left[x \dot{-}1\right] \circ
+        p_{1}^{3, 0}) \in \mathrm{PR}^{\emptyset}$. Por lo tanto, $\lambda xy \left[x \dot{-}y\right] = \lambda tx
+        \left[x \dot{-}t\right] \circ (p_{2}^{2, 0}, p_{1}^{2, 0}) \in \mathrm{PR}^{\emptyset}$.
+      \item Notar que:
+
+
+       $\lambda xy \left[\max (x,y)\right] = \lambda xy \left[(x + (y \dot{-}x)\right]$.
       \item Note que $\lambda xy \left[x = y\right] = \lambda xy \left[1 \dot{-}((x \dot{-} y) + (y \dot{-} x))\right]$.
       \item Note que $\lambda xy \left[x \leq y\right] = \lambda xy\left[1 \dot{-}(x \dot{-}y)\right]$.
       \item Sea $<$ un orden total estricto sobre $\Sigma$. Ya que $\alpha = \beta \text{ sii } \#^{<}(\alpha) =
@@ -204,14 +299,14 @@
     \end{enumerate}
   \end{proof}
 
-  % Lemma 28
+  % Lemma 28: Con prueba.
   \begin{lemma}
     \par Si $P: S \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow \omega$ y $Q: S \subseteq \omega^{n} \times
-    \Sigma^{\ast m} \rightarrow \omega$ son predicados $\Sigma$-PR, entonces $(P \vee Q), (P \wedge Q)$ y $not P$ lo son
-    también.
+    \Sigma^{\ast m} \rightarrow \omega$ son predicados $\Sigma$-PR, entonces $(P \vee Q), (P \wedge Q)$ y $\neg P$ lo
+    son también.
   \end{lemma}
   \begin{proof}
-    \par Note que:
+    \par Notar que:
 
     \begin{eqnarray}
       \nonumber \neg P &=& \lambda xy \left[x \dot{-} y\right] \circ (C_{1}^{n, m}, P) \\
@@ -220,13 +315,13 @@
     \end{eqnarray}
   \end{proof}
 
-  % Lemma 29
+  % Lemma 29: Con prueba.
   \begin{lemma}
     \par Si $S_{1}, S_{2} \subseteq \omega^{n} \times \Sigma^{\ast m}$ son $\Sigma$-PR, entonces $S_{1} \cup S_{2}$,
     $S_{1} \cap S_{2}$ y $S_{1} - S_{2}$ lo son.
   \end{lemma}
   \begin{proof}
-    \par Note que:
+    \par Notar que:
 
     \begin{eqnarray}
       \nonumber \chi_{S_{1} \cup S_{2}} &=& (\chi_{S_{1}} \vee \chi_{S_{2}}) \\
@@ -235,36 +330,36 @@
     \end{eqnarray}
   \end{proof}
 
-  % Corollary 30
+  % Corollary 30: Con prueba. Solo el caso n = m = 1. HACER!
   \begin{corollary}
     \par Si $S \subseteq \omega^{n} \times \Sigma^{\ast m}$ es finito, entonces $S$ es $\Sigma$-PR.
   \end{corollary}
   \begin{proof}
-    \par Por el lema anterior, podemos suponer que:
+    \par Se probará el caso $n = m = 1$, es decir, $S \subset \omega \times \SIGMA$. Supongamos que:
 
     \[
-      S = \{ (z_{1}, \dotsc, z_{n}, \gamma_{1}, \dotsc, \gamma_{m}) \}
+      S = \{(z_{1}, \gamma_{1})\}
     \]
 
-    \par Noque $\chi_{S}$ es el siguiente predicado:
+    \par Notar que $\chi_{S}$ es el siguiente predicado:
 
     \[
-      \left( \chi_{z_{1}} \circ p_{1}^{n, m} \wedge \dotsc \wedge \chi_{z_{n}} \circ p_{n}^{n, m} \wedge
-      \chi_{z_{1}} \circ p_{n+1}^{n, m} \wedge \dotsc \wedge \chi_{\gamma_{m}} \circ p_{n+m}^{n, m} \right)
+      \left(\chi_{z_{1}} \circ p_{1}^{n,m} \wedge \dotsc \wedge \chi_{z_{n}} \circ p_{n}^{n, m} \wedge \chi_{z_{1}}
+      \circ p_{n+1}^{n,m} \wedge \dotsc \wedge \chi_{\gamma_{m}} \circ p_{n+m}^{n,m}\right)
     \]
 
     \par Ya que los predicados:
 
     \begin{eqnarray}
-      \nonumber \chi_{z_{i}} = \lambda xy \left[x = y\right] \circ \left(p_{1}^{1, 0}, C_{z_{i}}^{1, 0} \right)
-      \nonumber \chi_{\gamma_{i}} = \lambda \alpha \beta \left[\alpha = \beta\right] \circ \left(p_{1}^{0, 1},
-      C_{\gamma_{i}}^{0, 1} \right)
+      \nonumber \chi_{z_{i}} = \lambda xy \left[x = y\right] \circ \left(p_{1}^{1,0}, C_{z_{i}}^{1, 0}\right) \\
+      \nonumber \chi_{\gamma_{i}} = \lambda \alpha\beta \left[\alpha = \beta\right] \circ \left(p_{1}^{0, },
+      C_{\gamma_{i}}^{0,1}\right)
     \end{eqnarray}
 
     \par son $\Sigma$-PR, el \textbf{Lema 28} implica que $\chi_{S}$ es $\Sigma$-PR.
   \end{proof}
 
-  % Lemma 31
+  % Lemma 31: Con prueba. Solo el caso n = m = 1. HACER!
   \begin{lemma}
     \par Supongamos $S_{1}, \dotsc, S_{n} \subseteq \omega, L_{1}, \dotsc, L_{m} \subseteq \SIGMA$ son conjuntos no
     vacíos, entonces $S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}$ es $\Sigma$-PR sii
@@ -285,34 +380,47 @@
       p_{n+m}^{n, m})$.
   \end{proof}
 
-  % Lemma 32
+  % Lemma 32: Con prueba.
   \begin{lemma}
     \par Supongamos $f: D_{f} \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O$ es $\Sigma$-PR, donde $O \in
     \{\omega, \SIGMA\}$. Si $S \subseteq D_{f}$ es $\Sigma$-PR, entonces $f \mid_{S}$ es $\Sigma$-PR.
   \end{lemma}
   \begin{proof}
-    \par Supongamos $O = \SIGMA$, entonces $f \mid_{S} = \lambda x \alpha \left[\alpha^{x}\right] \circ (Suc \circ Pred
-    \circ \chi_{S}, f)$ es $\Sigma$-PR. El caso $O = \omega$ es similar usando $\lambda xy \left[x^{y}\right]$ en lugar
-    de $\lambda x \alpha \left[\alpha^{x}\right]$.
+    \begin{tabular}{|c|} \hline $O = \SIGMA$ \\\hline \end{tabular} Notar que:
+
+    \[
+      f \mid_{S} = \lambda x\alpha \left[\alpha^{x}\right] \circ (Suc \circ Pred \circ \chi_{S}, f)
+    \]
+
+    \par luego $f$ es $\Sigma$-PR.
+
+    \begin{tabular}{|c|} \hline $O = \omega$ \\\hline \end{tabular} Notar que:
+
+    \[
+      f \mid_{S} = \lambda xy \left[x^{y}\right] \circ (f, Suc \circ Pred \circ \chi_{S})
+    \]
+
+    \par luego $f$ es $\Sigma$-PR.
+
+    \vspace{3mm}
+    \par Notar que \begin{tabular}{|c|} \hline $Suc \circ Pred \circ \chi_{S}$ \\\hline \end{tabular} funciona como un
+    interruptor que evalua $f$, si el elemento pertenece a $S$, y que no evalua en caso contrario.
   \end{proof}
 
-  % Lemma 33
+  % Lemma 33: Sin prueba.
   \begin{lemma}
     \par Si $f: D_{f} \subseteq \omega^{n} \times \SIGMA \rightarrow O$ es $\Sigma$-PR, entonces existe una función
-    $\Sigma$PR. $\bar{f}: \omega^{n} \times \Sigma^{\ast m} \rightarrow O$, tal que $f = \bar{f} \mid_{D_{f}}$.
+    $\Sigma$-PR $\bar{f}: \omega^{n} \times \Sigma^{\ast m} \rightarrow O$, tal que $f = \bar{f} \mid_{D_{f}}$.
   \end{lemma}
-  \begin{proof}
-    \par Es fácil ver por inducción en $k$ que el enunciado se cumple para cada $f \in \mathrm{PR}_{k}^{\Sigma}$.
-  \end{proof}
 
-  % Proposition 34
+  % Proposition 34: Con prueba. HACER!
   \begin{proposition}
     \par Un conjunto $S$ es $\Sigma$-PR sii $S$ es el dominio de una función $\Sigma$-PR.
   \end{proposition}
   \begin{proof}
-    \begin{tabular}{|c|} \hline $\Rightarrow$\\\hline \end{tabular} Note que $S = D_{Pred \circ \chi_{S}}$.
+    \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Note que $S = D_{Pred \circ \chi_{S}}$.
 
-    \begin{tabular}{|c|} \hline $\Leftarrow$\\\hline \end{tabular} Probaremos por inducción en $k$ que $D_{F}$ es
+    \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Probaremos por inducción en $k$ que $D_{F}$ es
       $\Sigma$-PR, para cada $F \in \mathrm{PR}_{k}^{\Sigma}$. El caso $k=0$ es fácil. Supongamos el resultado vale para
       un $k$ fijo y supongamos $F \in \mathrm{PR}_{k+1}^{\Sigma}$. Veremos entonces que $D_{F}$ es $\Sigma$-PR. Hay
       varios casos.
