@@ -1,5 +1,5 @@
 \section{Funciones $\Sigma$-recursivas}
-  % Resta terminar los teoremas: 19, 27, 30, 31, 34
+  % Resta terminar los teoremas: 19, 27
 
 
   % Lemma 18: Con prueba.
@@ -59,7 +59,7 @@
     \vspace{3mm}
     \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 0$ \\\hline \end{tabular}
 
-    \par Luego $f \in PR_{0}^{\Sigma}$, es decir $f \in \{suc, pred, C_{0}^{0,0}, C_{\varepsilon}^{0,0}\} \cup \{d_{a}:
+    \par Luego $f \in PR_{0}^{\Sigma}$, es decir $f \in \{Suc, Pred, C_{0}^{0,0}, C_{\varepsilon}^{0,0}\} \cup \{d_{a}:
     a \in \Sigma\} \cup \{p_{j}^{n,m} : 1 \leq j \geq n+m\}$. Por lo tanto, $f$ es $\Sigma$-efectivamente computable.
 
     \vspace{3mm}
@@ -330,54 +330,70 @@
     \end{eqnarray}
   \end{proof}
 
-  % Corollary 30: Con prueba. Solo el caso n = m = 1. HACER!
+  % Corollary 30: Con prueba. Solo el caso n = m = 1.
   \begin{corollary}
     \par Si $S \subseteq \omega^{n} \times \Sigma^{\ast m}$ es finito, entonces $S$ es $\Sigma$-PR.
   \end{corollary}
   \begin{proof}
-    \par Se probará el caso $n = m = 1$, es decir, $S \subset \omega \times \SIGMA$. Supongamos que:
+    \par Se probará el caso $n = m = 1$, es decir, $S \subseteq \omega \times \SIGMA$. Supongamos, sin pérdida de
+    generalidad, utilizando el \textbf{Lemma 29} que:
 
     \[
-      S = \{(z_{1}, \gamma_{1})\}
+      S = \{(z, \gamma)\}
     \]
 
     \par Notar que $\chi_{S}$ es el siguiente predicado:
 
     \[
-      \left(\chi_{z_{1}} \circ p_{1}^{n,m} \wedge \dotsc \wedge \chi_{z_{n}} \circ p_{n}^{n, m} \wedge \chi_{z_{1}}
-      \circ p_{n+1}^{n,m} \wedge \dotsc \wedge \chi_{\gamma_{m}} \circ p_{n+m}^{n,m}\right)
+      \left(\chi_{z} \circ p_{1}^{1,1} \wedge \chi_{\gamma} \circ p_{2}^{1,1}\right)
     \]
 
     \par Ya que los predicados:
 
     \begin{eqnarray}
-      \nonumber \chi_{z_{i}} = \lambda xy \left[x = y\right] \circ \left(p_{1}^{1,0}, C_{z_{i}}^{1, 0}\right) \\
-      \nonumber \chi_{\gamma_{i}} = \lambda \alpha\beta \left[\alpha = \beta\right] \circ \left(p_{1}^{0, },
-      C_{\gamma_{i}}^{0,1}\right)
+      \nonumber \chi_{z} = \lambda xy \left[x = y\right] \circ \left(p_{1}^{1,0}, C_{z}^{1,0}\right) \\
+      \nonumber \chi_{\gamma} = \lambda \alpha\beta \left[\alpha = \beta\right] \circ \left(p_{1}^{0,1},
+      C_{\gamma}^{0,1}\right)
     \end{eqnarray}
 
-    \par son $\Sigma$-PR, el \textbf{Lema 28} implica que $\chi_{S}$ es $\Sigma$-PR.
+    \par son $\Sigma$-PR, el \textbf{Lema 28} implica que $\chi_{S}$ es $\Sigma$-PR, por lo tanto $S$ es $\Sigma$-PR.
   \end{proof}
 
-  % Lemma 31: Con prueba. Solo el caso n = m = 1. HACER!
+  % Lemma 31: Con prueba. Solo el caso n = m = 1.
   \begin{lemma}
     \par Supongamos $S_{1}, \dotsc, S_{n} \subseteq \omega, L_{1}, \dotsc, L_{m} \subseteq \SIGMA$ son conjuntos no
     vacíos, entonces $S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}$ es $\Sigma$-PR sii
     $S_{1}, \dotsc, S_{n}, L_{1}, \dotsc, L_{m}$ son $\Sigma$-PR.
   \end{lemma}
   \begin{proof}
-    \begin{tabular}{|c|} \hline $\Rightarrow$\\\hline \end{tabular} Veremos por ejemplo que $L_{1}$ es $\Sigma$-PR. Sea
-      $(z_{1}, \dotsc, z_{n}, z_{1}, \dotsc, z_{m})$ un elemento fijo de $S_{1} \times \dotsc \times S_{n}
-      \times L_{1} \times \dotsc \times L_{m}$. Note que: $\alpha \in L_{1} \text{ sii } (z_{1}, \dotsc, z_{n}, \alpha,
-      z_{2}, \dotsc, z_{m}) \in S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}$,
-      lo cual implica que $\chi_{L_{1}} = \chi_{S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times
-      L_{m}} \circ (C_{z_{1}}^{0, 1}, \dotsc, C_{z_{n}}^{0, 1}, p_{1}^{0, 1}, C_{z_{2}}^{0, 1}, \dotsc,
-      C_{z_{m}}^{0, 1})$.
+    \par Se probará el caso $n = m = 1$, es decir, $S \subseteq \omega$, $L \subseteq \SIGMA$.
 
-    \begin{tabular}{|c|} \hline $\Leftarrow$\\\hline \end{tabular} Note que $\chi_{S_{1} \times \dotsc \times S_{n}
-      \times L_{1} \times \dotsc \times L_{m}}$ es el predicado $(\chi_{S_{1}} \circ p_{1}^{n, m} \wedge \dotsc \wedge
-      \chi_{S_{n}} \circ p_{n}^{n, m} \wedge \chi_{L_{1}} \circ p_{n+1}^{n, m} \wedge \dotsc \wedge \chi_{L_{m}} \circ
-      p_{n+m}^{n, m})$.
+    \vspace{3mm}
+    \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Veremos que $L_{1}, S_{1}$ es $\Sigma$-PR. Sea
+    $(z_{1}, \gamma_{1})$ un elemento fijo de $S_{1} \times L_{1}$. Notar que:
+
+    \begin{eqnarray}
+      \nonumber x \in S_{1} \text{ sii } (x, \gamma_{1}) \in S_{1} \times L_{1} \\
+      \nonumber \alpha \in L_{1} \text{ sii } (z_{1}, \alpha) \in S_{1} \times L_{1}
+    \end{eqnarray}
+
+    \par lo cual implica que:
+
+    \begin{eqnarray}
+      \nonumber \chi_{S_{1}} = \chi_{S_{1} \times L_{1}} \circ \left(p_{1}^{1,0}, C_{\gamma_{1}}^{0,1}\right) \\
+      \nonumber \chi_{L_{1}} = \chi_{S_{1} \times L_{1}} \circ \left(C_{z_{1}}^{0,1}, p_{1}^{0,1}\right)
+    \end{eqnarray}
+
+    \par por lo tanto, $L_{1}, S_{1}$ es $\Sigma$-PR.
+
+    \vspace{3mm}
+    \begin{tabular}{|c|} \hline $\Leftarrow$\\\hline \end{tabular} Notar que:
+
+    \[
+      \chi_{S_{1} \times L_{1}} = \left(\chi_{S_{1}} \circ p_{1}^{1,1} \wedge \chi_{L_{1}} \circ p_{2}^{1,1} \right)
+    \]
+
+    \par luego, por el \textbf{Lemma 28}, $S_{1} \times L_{1}$ son $\Sigma$-PR.
   \end{proof}
 
   % Lemma 32: Con prueba.
@@ -413,51 +429,120 @@
     $\Sigma$-PR $\bar{f}: \omega^{n} \times \Sigma^{\ast m} \rightarrow O$, tal que $f = \bar{f} \mid_{D_{f}}$.
   \end{lemma}
 
-  % Proposition 34: Con prueba. HACER!
+  % Proposition 34: Con prueba.
   \begin{proposition}
     \par Un conjunto $S$ es $\Sigma$-PR sii $S$ es el dominio de una función $\Sigma$-PR.
   \end{proposition}
   \begin{proof}
-    \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Note que $S = D_{Pred \circ \chi_{S}}$.
+    \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular} Notar que $S = D_{Pred \circ \chi_{S}}$.
 
     \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular} Probaremos por inducción en $k$ que $D_{F}$ es
-      $\Sigma$-PR, para cada $F \in \mathrm{PR}_{k}^{\Sigma}$. El caso $k=0$ es fácil. Supongamos el resultado vale para
-      un $k$ fijo y supongamos $F \in \mathrm{PR}_{k+1}^{\Sigma}$. Veremos entonces que $D_{F}$ es $\Sigma$-PR. Hay
-      varios casos.
+    $\Sigma$-PR para cada $F \in PR_{k}^{\Sigma}$.
+
+    \vspace{3mm}
+    \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 0$ \\\hline \end{tabular} es decir, $F \in PR_{0}^{\Sigma}$.
+    Luego:
+
+    \begin{eqnarray}
+      \nonumber F &\in& \{Suc, Pred, C_{0}^{0,0}, C_{\varepsilon}^{0,0}\} \cup \{d_{a}: a \in \Sigma\} \cup \\
+      \nonumber && \{p_{j}^{n,m}: 1 \leq j \geq n+m\} \\
+      \nonumber D_{F} &\in& \{\omega, \mathbb{N}\}
+    \end{eqnarray}
+
+    \par luego, $S$ es $\Sigma$-PR.
+
+    \vspace{3mm}
+    \underline{Caso Inductivo:} Supongamos el resultado vale para un $k$ fijo y supongamos $F \in
+    \mathrm{PR}_{k+1}^{\Sigma}$, veremos entonces que $D_{F}$ es $\Sigma$-PR. Existen varios casos, analizaremos cada
+    uno por separado.
 
     \begin{enumerate}
-      \item \begin{tabular}{|c|} \hline $F = R(f, g)$\\\hline \end{tabular}
-        \begin{eqnarray}
-          \nonumber f &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow \SIGMA \\
-          \nonumber g &:& \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \times
-          \SIGMA \rightarrow \SIGMA
-        \end{eqnarray}
+      \item \begin{tabular}{|c|} \hline $F = R(f, g)$ \\\hline \end{tabular}
+        \begin{itemize}
+          \item Recursión primitiva sobre variable numérica.
+          \begin{enumerate}
+            \item Caso 1:
+            \begin{eqnarray}
+              \nonumber f &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
+                \omega \\
+              \nonumber g &:& \omega \times \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc
+                \times L_{m} \rightarrow \omega \\
+              \nonumber F &=& \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}
+                \rightarrow \omega
+            \end{eqnarray}
+            \item Caso 2:
+            \begin{eqnarray}
+              \nonumber f &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
+                \SIGMA \\
+              \nonumber g &:& \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}
+                \times \SIGMA \rightarrow \SIGMA \\
+              \nonumber F &=& \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}
+                \rightarrow \SIGMA
+            \end{eqnarray}
+          \end{enumerate}
+
+          \item Recursión primitiva sobre variable alfabética.
+          \begin{enumerate}
+            \item Caso 1:
+            \begin{eqnarray}
+              \nonumber f &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
+                \omega \\
+              \nonumber \mathcal{G}_{a} &:& \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc
+              \times L_{m} \times \SIGMA \rightarrow \omega \\
+              \nonumber F &=& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \times \SIGMA
+                \rightarrow \omega
+            \end{eqnarray}
+            \item Caso 2:
+            \begin{eqnarray}
+              \nonumber f &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
+                \SIGMA \\
+              \nonumber \mathcal{G}_{a} &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}
+                \times \SIGMA \times \SIGMA \rightarrow \SIGMA \\
+              \nonumber F &=& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \times \SIGMA
+                \rightarrow \SIGMA
+            \end{eqnarray}
+          \end{enumerate}
+        \end{itemize}
 
         \par con $S_{1}, \dotsc, S_{n} \subseteq \omega$ y $L_{1}, \dotsc, L_{m} \subseteq \SIGMA$ conjuntos no vacíos
-        y $f, g \in \mathrm{PR}_{k}^{\Sigma}$. Notese que por definición de $R(f, g)$, tenemos que $D_{F} = \omega
-        \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}$.
+        y $f, g \in \mathrm{PR}_{k}^{\Sigma}$, para todos los casos anteriores.
 
-        \par Por HI tenemos que $D_{f} = S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}$ es
-        $\Sigma$-PR, lo cual por el \textbf{Lema 31} nos dice que los conjuntos $S_{1}, \dotsc, S_{n}, L_{1}, \dotsc,
-        L_{m}$ son $\Sigma$-PR. Ya que $\omega$ es $\Sigma$-PR, el \textbf{Lema 31} nos dice que $D_{F}$ es $\Sigma$-PR.
+        \par Por hipótesis inductiva tenemos que $D_{f} = S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc
+        \times L_{m}$ es $\Sigma$-PR, lo cual por el \textbf{Lemma 31} nos dice que los conjuntos $S_{1}, \dotsc, S_{n},
+        L_{1}, \dotsc, L_{m}$ son $\Sigma$-PR. Ya que $\omega$ es $\Sigma$-PR, el \textbf{Lemma 31} nos dice que $D_{F}$
+        es $\Sigma$-PR.
 
-        \par Los otros casos de recursión primitiva son dejados al lector.
+      \item \begin{tabular}{|c|} \hline $F = g \circ (g_{1}, \dotsc, g_{n+m})$ \\\hline \end{tabular} donde:
 
-      \item \begin{tabular}{|c|} \hline $F = g \circ (g_{1}, \dotsc, g_{n+m})$\\\hline \end{tabular}
         \begin{eqnarray}
           \nonumber g &:& D_{g} \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O \\
-          \nonumber g_{i} &:& D_{g_{i}} \subseteq \omega^{k} \times \Sigma^{\ast l} \rightarrow \omega \text{, } i = 1,
+          \nonumber g_{i} &:& D_{g_{i}} \subseteq \omega^{k} \times \Sigma^{\ast l} \rightarrow \omega \qquad \;\; i = 1,
           \dotsc, n \\
-          \nonumber g_{i} &:& D_{g_{i}} \subseteq \omega^{k} \times \Sigma^{\ast l} \rightarrow \SIGMA, i = n + 1,
+          \nonumber g_{i} &:& D_{g_{i}} \subseteq \omega^{k} \times \Sigma^{\ast l} \rightarrow \SIGMA \qquad i = n + 1,
           \dotsc, n + m
         \end{eqnarray}
 
-        \par están en $\mathrm{PR}_{k}^{\Sigma}$. Por \textbf{Lema 33}, hay funciones $\Sigma$-PR $\bar{g}_{1}, \dotsc,
-        \bar{g}_{n+m}$ las cuales son $\Sigma$-totales y cumplen $g_{i} = \bar{g}_{i} \mid_{D_{g_{i}}} \text{, para }
-        i = 1, \dotsc, n + m$.
+        \par están en $\mathrm{PR}_{k}^{\Sigma}$. Por \textbf{Lemma 33}, hay funciones $\Sigma$-PR $\bar{g}_{1}, \dotsc,
+        \bar{g}_{n+m}$ las cuales son $\Sigma$-totales y cumplen:
 
-        \par Por HI los conjuntos $D_{g}$, $D_{g_{i}}$, $i = 1, \dotsc, n + m$, son $\Sigma$-PR y por lo tanto
-        $S = \bigcap_{i=1}^{n+m} D_{g_{i}}$ lo es. Notese que $\chi_{D_{F}} = (\chi_{D_{g}} \circ (\bar{g}_{1}, \dotsc,
-        \bar{g}_{n+m}) \wedge \chi_{S})$ lo cual nos dice que $D_{F}$ es $\Sigma$-PR.
+        \begin{eqnarray}
+          \nonumber g_{i} &=& \bar{g}_{i} \mid_{D_{g_{i}}} \\
+          \nonumber \text{para } i &=& 1, \dotsc, n + m
+        \end{eqnarray}
+
+        \par Por hipótesis inductiva, los conjuntos $D_{g}$, $D_{g_{i}}$, para $i = 1, \dotsc, n + m$, son $\Sigma$-PR y
+        por lo tanto:
+
+        \[
+          S = \bigcap_{i=1}^{n+m} D_{g_{i}}
+        \]
+
+        \par lo es. Notese además, que:
+
+        \[
+          \chi_{D_{F}} = \left((\chi_{D_{g}} \circ (\bar{g}_{1}, \dotsc, \bar{g}_{n+m})) \wedge \chi_{S}\right)
+        \]
+
+        \par lo cual nos dice que $D_{F}$ es $\Sigma$-PR.
     \end{enumerate}
   \end{proof}
