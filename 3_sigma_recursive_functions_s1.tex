@@ -1,6 +1,4 @@
 \section{Funciones $\Sigma$-recursivas}
-  % Resta terminar los teoremas: 19, 27
-
 
   % Lemma 18: Con prueba.
   \begin{lemma}
@@ -35,12 +33,42 @@
     Dar como dato de salida el resultado de $\mathbb{P}$ con $(o_{1}, o_{2}, \dotsc, o_{n+m})$ de entrada.
   \end{proof}
 
-  % Lemma 19: Con prueba. HACER!
+  % Lemma 19: Con prueba.
   \begin{lemma}
     \par Si $f$ y $g$ son $\Sigma $-efectivamente computables, entonces $R(f,g)$ lo es.
   \end{lemma}
   \begin{proof}
-    HACER!!!!!!!
+    \par Sean:
+
+    \begin{itemize}
+      \item $\mathbb{P}_{1}$ un procedimiento efectivo que compute a $f$.
+      \item $\mathbb{P}_{2}$ un procedimiento efectivo que compute a $g$.
+    \end{itemize}
+
+    \par El siguiente procedimiento computa la función $R(f,g)$:
+
+    \vspace{3mm}
+    \textbf{Etapa 1:}
+    Darle a la variable $T$ el valor $0$.
+
+    \textbf{Etapa 2:}
+    Realizar $\mathbb{P}_{1}$ con los valores $(\vec{x}, \vec{\alpha})$ como entrada para obtener de salida $A$.
+
+    \textbf{Etapa 3:}
+    \textbf{Si $T = t$:} entonces detenerse y dar como dato de salida el valor de $A$.
+
+    $\qquad\qquad\;\;\;$\textbf{Si $T \neq t$:} aumentar en $1$ el valor de la variable $T$.
+
+    \textbf{Etapa 4:}
+    \textbf{Si $Im(f), Im(g) \subseteq \omega$:} Realizar $\mathbb{P}_{2}$ con los valores $(A, T, \vec{x},
+    \vec{\alpha})$ y dirijirse
+
+    $\qquad\qquad\;\;\;$a la Etapa 3.
+
+    $\qquad\qquad\;\;$\textbf{Si $Im(f), Im(g) \subseteq \SIGMA$:} Realizar $\mathbb{P}_{2}$ con los valores $(T,
+    \vec{x}, \vec{\alpha}, A)$ y dirijirse
+
+    $\qquad\qquad\;\;\;$a la Etapa 3.
   \end{proof}
 
   % Lemma 20: Sin prueba.
@@ -251,7 +279,7 @@
     \end{enumerate}
   \end{proof}
 
-  % Lemma 27: Con prueba. HACER!
+  % Lemma 27: Con prueba.
   \begin{lemma}
     \begin{enumerate}[a)]
       \item $\lambda xy \left[x \dot{-}y\right] \in \mathrm{PR}^{\emptyset}$.
@@ -285,17 +313,53 @@
         \par es decir, $\lambda tx \left[x \dot{-}t\right] = R(p_{1}^{1, 0}, \lambda x \left[x \dot{-}1\right] \circ
         p_{1}^{3, 0}) \in \mathrm{PR}^{\emptyset}$. Por lo tanto, $\lambda xy \left[x \dot{-}y\right] = \lambda tx
         \left[x \dot{-}t\right] \circ (p_{2}^{2, 0}, p_{1}^{2, 0}) \in \mathrm{PR}^{\emptyset}$.
+
       \item Notar que:
 
+        \begin{eqnarray}
+          \nonumber \lambda xy \left[\max (x,y)\right] &=& \lambda xy \left[(x + (y \dot{-}x)\right] \\
+          \nonumber &=& \lambda xy \left[x+y\right] \circ \left(p_{1}^{2,0}, \lambda xy \left[x \dot{-}y\right] \circ
+            (p_{2}^{2,0}, p_{1}^{2,0})\right)
+        \end{eqnarray}
 
-       $\lambda xy \left[\max (x,y)\right] = \lambda xy \left[(x + (y \dot{-}x)\right]$.
-      \item Note que $\lambda xy \left[x = y\right] = \lambda xy \left[1 \dot{-}((x \dot{-} y) + (y \dot{-} x))\right]$.
-      \item Note que $\lambda xy \left[x \leq y\right] = \lambda xy\left[1 \dot{-}(x \dot{-}y)\right]$.
-      \item Sea $<$ un orden total estricto sobre $\Sigma$. Ya que $\alpha = \beta \text{ sii } \#^{<}(\alpha) =
-        \#^{<}(\beta)$, tenemos que $\lambda \alpha \beta \left[\alpha = \beta\right] = \lambda xy \left[x = y\right]
-        \circ (\#^{<} \circ p_{1}^{0, 2}, \#^{<} \circ p_{2}^{0, 2})$.
+        \par Por lo tanto, $\lambda xy \left[\max (x,y)\right] \in \mathrm{PR}^{\emptyset}$.
 
-        \par Osea que podemos aplicar (c) y \textbf{Lema 28} implica que $\chi_{S}$ es $\Sigma$-PR.
+      \item Note que:
+
+        \begin{eqnarray}
+          \nonumber \lambda xy \left[x=y\right] &=& \lambda xy \left[1 \dot{-}((x \dot{-} y) + (y \dot{-} x))\right] \\
+          \nonumber &=& \lambda xy \left[x \dot{-}y\right] \circ (C_{1}^{2,0}, \lambda xy \left[x+y\right] \circ
+            (\lambda xy \left[x \dot{-}y\right] \circ p_{1}^{2,0}, p_{2}^{2,0}, \lambda xy \left[x \dot{-}y\right] \circ
+            p_{2}^{2,0}, p_{1}^{2,0}))
+        \end{eqnarray}
+
+        \par Por lo tanto, $\lambda xy \left[x=y\right] \in \mathrm{PR}^{\emptyset}$.
+
+      \item Note que:
+
+        \begin{eqnarray}
+          \nonumber \lambda xy \left[x \leq y\right] &=& \lambda xy\left[1 \dot{-}(x \dot{-}y)\right] \\
+          \nonumber &=& \lambda xy \left[x \dot{-}y\right] \circ (C_{1}^{2,0}, \lambda xy \left[x \dot{-}y\right] \circ
+            p_{1}^{2,0}, p_{2}^{2,0}))
+        \end{eqnarray}
+
+        \par Por lo tanto, $\lambda xy \left[x \leq y\right] \in \mathrm{PR}^{\emptyset}$.
+
+      \item Sea $<$ un orden total estricto sobre $\Sigma$. Ya que:
+
+        \[
+          \alpha = \beta \text{ sii } \#^{<}(\alpha) = \#^{<}(\beta)
+        \]
+
+        \par tenemos que:
+
+        \[
+          \lambda \alpha\beta \left[\alpha=\beta\right] = \lambda xy \left[x=y\right] \circ (\#^{<} \circ p_{1}^{0,2},
+          \#^{<} \circ p_{2}^{0,2})
+        \]
+
+        \par Luego, utilizando el inciso (c) y el \textbf{Lemma 28} obtenemos que $\lambda \alpha\beta
+        \left[\alpha=\beta\right] \in \mathrm{PR}^{\Sigma}$.
     \end{enumerate}
   \end{proof}
 
