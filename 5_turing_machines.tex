@@ -1,60 +1,244 @@
 \section{Máquinas de Turing}
 
+  %Lemma 79
+  \begin{lemma}
+    \par Este lemma no se evalua.
+  \end{lemma}
+
 	%Lemma 80
   \begin{lemma}
   	El predicado $\lambda ndd^{\prime} \left[d\vdash d^{\prime}\right]$ es $(\Gamma \cup Q)$-PR.
 	\begin{proof}
-	  Note que $D_{\lambda dd^{\prime}\left[d\vdash d^{\prime }\right] }=Des\times Des$.
+	  Note que $D_{\lambda dd^{\prime}\left[d\ \vdash d^{\prime }\right] }=Des\times Des$.
     También nótese que los predicados
 
-    \begin{eqnarray}
-      \nonumber \lambda p\sigma q\gamma \left[ (p,\sigma ,L)\in \delta (q,\gamma )\right] \\
-      \nonumber \lambda p\sigma q\gamma \left[ (p,\sigma ,R)\in \delta (q,\gamma )\right] \\
-      \nonumber \lambda p\sigma q\gamma \left[ (p,\sigma ,K)\in \delta (q,\gamma )\right]
-    \end{eqnarray}
-
-    son $(\Gamma \cup Q)$-p.r. ya que los tres tienen dominio igual a $Q\times \Gamma \times Q\times \Gamma $ el cual es
-    finito (Corolario 36 ). Sea $P_{R}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times
-    Q\times Q\rightarrow \omega $
+    \begin{eqnarray*}
+      \lambda q\sigma p\gamma \left[ (q,\sigma ,L)\in \delta (p,\gamma )\right] \\
+      \lambda q\sigma p\gamma \left[ (q,\sigma ,R)\in \delta (p,\gamma )\right] \\
+      \lambda q\sigma p\gamma \left[ (q,\sigma ,K)\in \delta (p,\gamma )\right]
+    \end{eqnarray*}
+    son $(\Gamma \cup Q)$-PR. ya que los tres tienen dominio igual a $Q\times \Gamma \times Q\times \Gamma $ el cual es
+    finito por \textbf{Corolario 36}.
+    Sea $P_{R}:Des\times Des\times\Gamma\times\Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega $
     definido por $P_{R}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
-    \begin{eqnarray}
-      \nonumber d=\alpha p\beta \wedge (q,\sigma ,R)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
-                d^{\prime }=\alpha \sigma q^{\curvearrowright }\beta
-    \end{eqnarray}
+    \begin{eqnarray*}
+      d=\alpha p\beta \wedge (q,\sigma ,R)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
+      d^{\prime }=\alpha \sigma q^{\curvearrowright }\beta
+    \end{eqnarray*}
+    Sea $P_{L}:Des\times Des\times\Gamma\times\Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega$
+    definido por $P_{L}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
+    \begin{eqnarray*}
+      d=\alpha p\beta \wedge
+      (q,\sigma ,L)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
+      \alpha \neq \varepsilon \wedge
+      d^{\prime }=\left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right]
+      _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor
+    \end{eqnarray*}
+    Sea $P_{K}:Des\times Des\times\Gamma\times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega$
+    definido por $P_{K}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
+    \begin{eqnarray*}
+      d=\alpha p\beta \wedge
+      (q,\sigma ,K)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
+      d^{\prime }=\left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor
+    \end{eqnarray*}
+    \par \noindent Veamos que $P_L$ es $(\Gamma \cup Q)$-PR. Notar que
+    \[
+      P_L = P_1 \land P_2 \land P_3 \land P_4
+    \]
+    donde $P_1, P_2,  P_3, P_4$ son los siguientes predicados
+    \begin{align*}
+      P_1 &=  \lambda d d^{\prime}\sigma\alpha\beta p q \left[ d=\alpha p\beta \right] \\
+          &=  \lambda \alpha\beta\left[ \alpha=\beta \right]
+                \circ (
+                  p_{1}^{0,7},
+                  \lambda \alpha_1 \alpha_2 \alpha_3 \left[ \alpha_1\alpha_2\alpha_3 \right]
+                    \circ (
+                      p_{4}^{0,7},
+                      p_{6}^{0,7},
+                      p_{5}^{0,7}
+                    )
+                  ) \\[10pt]
+      P_2 &=  \lambda d d^{\prime}\sigma\alpha\beta p q
+                \left[ (q,\sigma ,L)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \right] \\
+          &=  \lambda q\sigma p\gamma \left[ (q,\sigma ,L)\in \delta (p,\gamma )\right]
+                \circ (
+                  p_{7}^{0,7},
+                  p_{3}^{0,7},
+                  p_{6}^{0,7},
+                  % \lambda \alpha \left[ \left[ \alpha B\right]_{1}\right]
+                  \lambda i\alpha \left[ \left[\alpha\right]_i \right]
+                  \circ (
+                    C_{1}^{0,7},
+                    \lambda \alpha \beta \left[ \alpha\beta \right] \circ (p_{5}^{0,7}, C_{B}^{0,7})
+                  )
+                ) \\[10pt]
+      P_3 &=  \lambda d d^{\prime}\sigma\alpha\beta p q \left[ \alpha \neq \varepsilon \right] \\
+          &=  \neg \lambda \alpha\beta \left[ \alpha = \beta \right]
+              \circ (
+                p_{4}^{0,7},
+                C_{\varepsilon}^{0,7}
+              ) \\[10pt]
+      P_4 &=  \lambda d d^{\prime}\sigma\alpha\beta p q
+                \left[
+                  d^{\prime } = \left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right]
+                  _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor
+                \right] \\
+          &=  \lambda \alpha\beta\left[ \alpha=\beta \right]
+                \circ (
+                  p_{2}^{0,7},
+                  \lambda \alpha \left[ \lfloor \alpha \rfloor \right] \circ f
+                ) \\
+    \end{align*}
+    donde
+    \begin{align*}
+      f =  \lambda\alpha_1\alpha_2\alpha_3\alpha_4\alpha_5 \left[ \alpha_1\alpha_2\alpha_3\alpha_4\alpha_5 \right]
+            \circ (
+              \lambda \alpha \left[ \alpha ^{\curvearrowleft } \right] \circ p_{4}^{0,7},
+              p_{7}^{0,7},
+              \lambda i\alpha \left[ \left[\alpha\right]_i \right]
+                \circ (
+                  \lambda \alpha \left[ |\alpha| \right] \circ p_{4}^{0,7},
+                  p_{4}^{0,7}
+              ),
+              p_{3}^{0,7},
+              \lambda \alpha \left[ ^{\curvearrowright}\alpha \right] \circ p_{5}^{0,7}
+            )
+    \end{align*}
+    Luego, es facil ver que $P_1, P_2 , P_3, P_4 $ son $(\Gamma \cup Q)$-PR, por lo tanto $P_L$ es $(\Gamma \cup Q)$-PR.
+    De manera similar, podemos ver que $P_K$ y $P_R$ son $(\Gamma \cup Q)$-PR.
 
-    Sea $P_{L}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega
-    $ definido por $P_{L}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
-    \begin{eqnarray}
-      \nonumber d=\alpha p\beta \wedge (q,\sigma ,L)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge \alpha
-                \neq \varepsilon \wedge d^{\prime }=\left\lfloor \alpha ^{\curvearrowleft }q\left[ \alpha \right]
-                _{\left\vert \alpha \right\vert }\sigma ^{\curvearrowright }\beta \right\rfloor
-    \end{eqnarray}
-
-    Sea $P_{K}:Des\times Des\times \Gamma \times \Gamma ^{\ast }\times \Gamma ^{\ast }\times Q\times Q\rightarrow \omega
-    $ definido por $P_{K}(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)=1$ sii
-
-    \begin{eqnarray}
-      \nonumber d=\alpha p\beta \wedge (q,\sigma ,K)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
-                d^{\prime }=\left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor
-    \end{eqnarray}
-
-    Se deja al lector la verificación de que estos predicados son $(\Gamma \cup Q)$-p.r.
-    Nótese que $\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] $ es igual al predicado
+    \noindent Tomemos el siguiente predicado
+    \[
+      P = (P_{R}\vee P_{L}\vee P_{K})
+    \]
+    Tenemos que $P$ es $(\Gamma \cup Q)$-PR.
+    \noindent Nótese que $\lambda dd^{\prime }\left[ d\vdash d^{\prime }\right] $ es igual al predicado
     \begin{eqnarray}
       \nonumber \lambda dd^{\prime }\left[ (\exists \sigma \in \Gamma )(\exists \alpha ,\beta \in \Gamma ^{\ast })
                 (\exists p,q\in Q)(P_{R}\vee P_{L}\vee P_{K})(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)\right]
     \end{eqnarray}
-
-    lo cual por el Lema 39 nos dice que $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right] $ es
-    $(\Gamma \cup Q)$-p.r.
-
+    lo cual aplicando 5 veces el \textbf{Lema 39} nos dice que $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right]$
+    es $(\Gamma \cup Q)$-PR. Veamos como
+    El \textbf{Lema 39} nos dice que
+    \[
+      L_1 = \lambda x d d^{\prime }\sigma\alpha\beta p
+              \left[
+                (\exists q\in Q)_{|q| \leq x}\; P(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)
+              \right]
+    \]
+    es $(\Gamma \cup Q)$-PR. Como $\beta, \alpha, \sigma, p, q$ son subpalabras de $d$ y $d^{\prime}$ respectivamente
+    tenemos que $ |\beta|, |\alpha|, |\sigma|, |p|, |q| \leq |d| + |d^{\prime}|$. Lo cual nos dice que el predicado
+    $Q_1$ es $(\Gamma \cup Q)$-PR.
+    \begin{align*}
+      Q_1 &=  \lambda d d^{\prime }\sigma\alpha\beta p
+                \left[
+                  (\exists q\in Q)_{|q| \leq |d| + |d^{\prime}|}\; P(d,d^{\prime },\sigma ,\alpha ,\beta ,p,q)
+                \right] \\[10pt]
+          &= L_1  \circ (
+                    \lambda x y \left[ x + y \right]
+                      \circ(
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{1}^{0,6}),
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{2}^{0,6})
+                    ),
+                    p_{1}^{0,6},
+                    p_{2}^{0,6},
+                    p_{3}^{0,6},
+                    p_{4}^{0,6},
+                    p_{5}^{0,6},
+                    p_{6}^{0,6}
+                  )
+    \end{align*}
+    De misma manera podemos que el predicado $Q_2$ es $(\Gamma \cup Q)$-PR.
+    \begin{align*}
+      L_2 &=  \lambda x d d^{\prime }\sigma\alpha\beta
+                \left[
+                  (\exists p\in Q)_{|p| \leq x}\; Q_1(d,d^{\prime },\sigma ,\alpha ,\beta , p)
+                \right] \\[10pt]
+      Q_2 &=  \lambda d d^{\prime }\sigma\alpha\beta
+                \left[
+                  (\exists p\in Q)_{|p| \leq |d| + |d^{\prime}|}\; Q_1(d,d^{\prime },\sigma ,\alpha ,\beta , p)
+                \right] \\
+          &= L_2  \circ (
+                    \lambda x y \left[ x + y \right]
+                      \circ(
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{1}^{0,5}),
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{2}^{0,5})
+                    ),
+                    p_{1}^{0,5},
+                    p_{2}^{0,5},
+                    p_{3}^{0,5},
+                    p_{4}^{0,5},
+                    p_{5}^{0,5}
+                  )
+    \end{align*}
+    finalmente, tenemos que $Q_3, Q_4, Q_5$ es $(\Gamma \cup Q)$-PR
+    \begin{align*}
+      L_3 &=  \lambda x d d^{\prime }\sigma\alpha
+                \left[
+                  (\exists \beta \in \Gamma ^{\ast })_{|\beta| \leq x}\; Q_2(d,d^{\prime },\sigma ,\alpha ,\beta)
+                \right] \\[10pt]
+      Q_3 &=  \lambda d d^{\prime }\sigma\alpha
+                \left[
+                  (\exists \beta \in \Gamma ^{\ast })_{|\beta| \leq |d| + |d^{\prime}|}\;
+                  Q_2(d,d^{\prime },\sigma ,\alpha ,\beta)
+                \right] \\
+          &= L_3  \circ (
+                    \lambda x y \left[ x + y \right]
+                      \circ(
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{1}^{0,4}),
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{2}^{0,4})
+                    ),
+                    p_{1}^{0,4},
+                    p_{2}^{0,4},
+                    p_{3}^{0,4},
+                    p_{4}^{0,4}
+                  ) \\[20pt]
+      L_4 &=  \lambda x d d^{\prime }\sigma
+                \left[
+                  (\exists \alpha \in \Gamma ^{\ast })_{|\alpha| \leq x}\; Q_3(d,d^{\prime },\sigma ,\alpha)
+                \right] \\[10pt]
+      Q_4 &=  \lambda d d^{\prime }\sigma
+                \left[
+                  (\exists \alpha \in \Gamma ^{\ast })_{|\alpha| \leq |d| + |d^{\prime}|}\;
+                  Q_3(d,d^{\prime },\sigma ,\alpha)
+                \right] \\
+          &= L_4  \circ (
+                    \lambda x y \left[ x + y \right]
+                      \circ(
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{1}^{0,3}),
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{2}^{0,3})
+                    ),
+                    p_{1}^{0,3},
+                    p_{2}^{0,3},
+                    p_{3}^{0,3}
+                  )\\[20pt]
+      L_5 &=  \lambda x d d^{\prime }
+                \left[
+                  (\exists \sigma \in \Gamma)_{|\sigma| \leq x}\; Q_4(d,d^{\prime },\sigma)
+                \right] \\[10pt]
+      Q_5 &=  \lambda d d^{\prime }
+                \left[
+                  (\exists \sigma \in \Gamma)_{|\sigma| \leq |d| + |d^{\prime}|}\; Q_4(d,d^{\prime },\sigma)
+                \right] \\
+          &= L_5  \circ (
+                    \lambda x y \left[ x + y \right]
+                      \circ(
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{1}^{0,2}),
+                        \lambda \alpha \left[ |\alpha|\right] \circ (p_{2}^{0,2})
+                    ),
+                    p_{1}^{0,2},
+                    p_{2}^{0,2},
+                  )
+    \end{align*}
+    Notar que $Q_5 = \lambda dd^{\prime } \left[ d\vdash d^{\prime }\right]$. Por lo tanto,
+    $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right]$ es $(\Gamma \cup Q)$-PR.
   \end{proof}
 
   \end{lemma}
 
 	%Proposition 81
 	\begin{proposition}
-		$\lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] $ es $ (\Gamma \cup Q)$-p.r..
+		$\lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] $ es $ (\Gamma \cup Q)$-PR.
 	\end{proposition}
 
 
@@ -67,14 +251,67 @@
      Sea $P$ el siguiente predicado $(\Gamma \cup Q)$-mixto
 
     \[
-      \lambda n\alpha \left[ (\exists d\in Des)\;\left\lfloor q_{0}B\alpha \right\rfloor \overset{n}{\vdash }d\wedge
+      P = \lambda n\alpha \left[ (\exists d\in Des)\;\left\lfloor q_{0}B\alpha \right\rfloor \overset{n}{\vdash }d\wedge
         St(d)\in F\right]
     \]
-    Nótese que $D_{P}=\omega \times \Gamma ^{\ast }$. Dejamos al lector probar que $P$ es $(\Gamma \cup Q)$-p.r..
-    Sea $P^{\prime }=P\mid _{\omega \times \Sigma ^{\ast }}$. Nótese que $P^{\prime }(n,\alpha )=1$ sii
-    $\alpha \in L(M) $ atestiguado por una computación de longitud $n$. Ya que $P^{\prime }$ es $(\Gamma \cup Q)$-p.r.
-    (por que?) y ademas es $\Sigma $-mixto, el Teorema 51 nos dice que $P^{\prime }$ es $\Sigma $-p.r..
-    Ya que $ L(M)=D_{M(P^{\prime })}$, el Teorema 71 nos dice que $ L(M)$ es $\Sigma $-r.e.
+    Nótese que $D_{P}=\omega \times \Gamma ^{\ast }$. Veamos que $P$ es $(\Gamma \cup Q)$-PR. Para ello definamos
+    \[
+      P = P_1 \land P_2 \\[20pt]
+    \]
+    donde $P_1$ y $P_2$
+    \begin{align*}
+      P_1 &=  \lambda n\alpha \left[ (\exists d\in Des)\; Q(n, \alpha, d)\right] \\[10pt]
+        Q &=  \lambda n \alpha d \left[ \left\lfloor q_{0}B\alpha \right\rfloor \overset{n}{\vdash }d \right] \\
+          &=  \lambda n d d^{\prime} \left[ d \overset{n}{\vdash}d \right]
+                \circ (
+                  \lambda \alpha \left[ \left\lfloor \alpha \right\lfloor \right]
+                    \circ(
+                      \lambda \alpha \beta \left[ \alpha \beta \right]
+                        \circ (
+                          C_{q_0 B}^{1,2},
+                          p_{2}^{1,2}
+                        )
+                  ),
+                  p_{1}^{1,2}
+                ) \\[30pt]
+      P_2 &=  \lambda n\alpha \left[ St(d)\in F \right]
+    \end{align*}
+    Sabemos que el conjunto $F$ es finito, por \textbf{Corollary 30} (finito es PR) , $F$ es $(\Gamma \cup Q)$-PR.
+
+    \noindent Tambien sabemos que $\chi_F$ es $(\Gamma \cup Q)$-PR, por lo tanto el predicado $P_2$ es
+    $(\Gamma \cup Q)$-PR.
+
+    \noindent Por \textbf{Lema 39} sabemos que
+    \[
+      L = \lambda x n\alpha \left[ (\exists d\in Des)_{|d| \leq x}\; Q(n, \alpha, d)\right] \\[10pt]
+    \]
+    es $(\Gamma \cup Q)$-PR.
+    Es decir que solo nos falta acotar el cuantificador existencial, para poder aplicar el \textbf{Lema 39} de
+    cuantificacion acotada. Ya que cuando \( d_{1},...,d_{n+1}\in Des\) son tales que
+
+    \noindent \(d_{1}\vdash d_{2}\vdash ...\vdash d_{n+1}\) tenemos que
+    \[
+      \displaystyle \left\vert d_{i}\right\vert \leq \left\vert d_{1}\right\vert +n\text{, para } i=1,...,n
+    \]
+    una posible cota para dicho cuantificador es
+    \[
+      |d| \leq |\lfloor q_{0}B\alpha \rfloor| + n
+    \]
+    O sea que, por el \textbf{Lema 39} de cuantificacion acotada, tenemos que el predicado $P_1$ es
+    $(\Gamma \cup Q)$-PR. En definitiva $P$ es $(\Gamma \cup Q)$-PR.
+    Sea
+    \[
+      P^{\prime }=P\mid _{\omega \times \Sigma ^{\ast }}.
+    \]
+    Nótese que $P^{\prime }(n,\alpha )=1$ sii
+    $\alpha \in L(M) $ atestiguado por una computación de longitud $n$.
+
+    \noindent Por \textbf{Corollary 72} (restriccion de una funcion) $P^{\prime }$ es $(\Gamma \cup Q)$-PR,
+    y ademas es $\Sigma $-mixto.
+
+    \noindent El \textbf{Teorema 51} (independencia del alfabeto) nos dice que $P^{\prime }$ es $\Sigma $-PR.
+
+    \noindent Ya que $ L(M)=D_{M(P^{\prime })}$, el \textbf{Teorema 71} nos dice que $ L(M)$ es $\Sigma $-r.e.
   \end{proof}
   \end{theorem}
 
@@ -88,17 +325,75 @@
     $\Gamma \cup Q$ . Sea $P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega $ dado por
     $P(x,\vec{x},\vec{\alpha})=1$ sii
 
-    \begin{eqnarray}
-      \nonumber (\exists q\in Q)\;\left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor \overset{(x)_{1}}{\vdash } \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \wedge \\
-      \nonumber (\forall d\in Des)_{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;\left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d
-    \end{eqnarray}
+    \begin{eqnarray*}
+      (\exists q\in Q)\;
+        \left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor
+        \overset{(x)_{1}}{\vdash }
+        \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \wedge \\
+       (\forall d\in Des)
+         _{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;
+         \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d
+    \end{eqnarray*}
 
-    Es fácil ver que $P$ es $(\Gamma \cup Q)$-p.r. por lo que $P$ es $ \Sigma $-p.r. ya que es $\Sigma $-mixto. Nótese que
+    Es fácil ver que $P$ es $(\Gamma \cup Q)$-PR.
+    Tomemos predicados $P_1$ y $P_2$ tales que
+    \begin{align*}
+      P   &=  P_1 \land P_2 \\[20pt]
+      P_1 &=  \lambda x \vec{x} \vec{\alpha}
+              \left[
+                (\exists q\in Q)\;
+                \left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor
+                \overset{(x)_{1}}{\vdash }
+                \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor
+              \right] \\
+      P_2 &=  \lambda x \vec{x} \vec{\alpha}
+              \left[
+                (\forall d\in Des)
+                _{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;
+                \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d
+              \right]
+    \end{align*}
+    Si tomamos $Q_1$ y $Q_2$ como
+    \begin{align*}
+      Q_1 &=  \lambda x \vec{x} \vec{\alpha} q
+              \left[
+                \left\lfloor q_{0}B\shortmid ^{x_{1}}...B\shortmid ^{x_{n}}B\alpha _{1}...B\alpha _{m}\right\rfloor
+                \overset{(x)_{1}}{\vdash }
+                \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor
+              \right] \\
+      Q_2 &=  \lambda x \vec{x} \vec{\alpha} d
+              \left[
+                \left\lfloor qB\ast ^{< }((x)_{2})\right\rfloor \nvdash d
+              \right]
+    \end{align*}
+    Tenemos que
+    \begin{align*}
+      P_1 &=  \lambda x \vec{x} \vec{\alpha}
+              \left[
+                (\exists q\in Q)\;
+                Q_1(x, \vec{x}, \vec{\alpha}, q)
+              \right] \\
+      P_2 &=  \lambda x \vec{x} \vec{\alpha}
+              \left[
+                (\forall d\in Des)
+                _{\left\vert d\right\vert \leq \left\vert \ast ^{< }((x)_{2})\right\vert +2}\;
+                Q_2(x, \vec{x}, \vec{\alpha}, d)
+              \right]
+    \end{align*}
+    Es facil ver que $Q_1$ y $Q_2$ son $(\Gamma \cup Q)$-PR.
+
+    \noindent Aplicando el \textbf{Lema 39} de cuantificacion acotada tenemos que $P_1$ y $P_2$ son
+    $(\Gamma \cup Q)$-PR.
+
+    \noindent Finalmente, $P$ es $(\Gamma \cup Q)$-PR.
+
+    \noindent Ya que es $\Sigma $-mixto, el \textbf{Teorema 51} (independencia del alfabeto) nos dice que es
+    $\Sigma $-PR. Nótese que
     \[
       f=\lambda \vec{x}\vec{\alpha}\left[ \left( \min_{x}P(x,\vec{x},\vec{\alpha} )\right) _{2}\right] \text{,}
     \]
     lo cual nos dice que $f$ es $\Sigma $-recursiva.
-	\end{proof}
+  \end{proof}
   \end{theorem}
 
 	%Lema 84
@@ -397,7 +692,7 @@
     computa $f$.
 	\end{proof}
 	\end{theorem}
-  
+
   % Theorem  86
   \begin{theorem}
     \par Este teorema no se evalua.
