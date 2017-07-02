@@ -1,63 +1,70 @@
 
-  % Lemma 35
+  % Lemma 35: Con prueba. Solo el caso k = 2 y O = w.
   \begin{lemma}
     \par Supongamos $f_{i}: D_{f_{i}} \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O, i = 1, \dotsc, k$, son
     funciones $\Sigma$-PR tales que $D_{f_{i}} \cap D_{f_{j}} = \emptyset$ para $i \neq j$, entonces $f_{1} \cup \dotsc
     \cup f_{k}$ es $\Sigma$-PR.
   \end{lemma}
   \begin{proof}
-    \par Supongamos $O = \SIGMA$ y $k = 2$. Sean:
+    \par Vamos a probar solo el caso en que $k = 2$ y $O = \omega$. Sean:
 
-    \[
-      \bar{f}_{i}: \omega^{n} \times \Sigma^{\ast m} \rightarrow \SIGMA \; i = 1, 2
-    \]
+    \begin{eqnarray}
+      \nonumber \bar{f}_{1}: \omega^{n} \times \Sigma^{\ast m} \rightarrow \SIGMA \qquad \text{ tal que } \bar{f}_{1}
+        \mid_{D_{f_{1}}} = f_{1} \\
+      \nonumber \bar{f}_{2}: \omega^{n} \times \Sigma^{\ast m} \rightarrow \SIGMA \qquad \text{ tal que } \bar{f}_{2}
+        \mid_{D_{f_{2}}} = f_{2}
+    \end{eqnarray}
 
-    \par funciones $\Sigma$-PR tales que $\bar{f}_{i} \mid_{D_{f_{i}}} = f_{i}$, $i = 1, 2$ (por \textbf{Lemma 33}).
-    \par Por \textbf{Lemma 34} los conjuntos $D_{f_{1}}$ y $D_{f_{2}}$ son $\Sigma$-PR y por lo tanto lo es $ D_{f_{1}}
-    \cup D_{f_{2}}$. Ya que:
+    \par funciones $\Sigma$-PR por \textbf{Lemma 33}). Luego, por el \textbf{Lemma 34} los conjuntos $D_{f_{1}}$ y
+    $D_{f_{2}}$ son $\Sigma$-PR y por lo tanto lo es $ D_{f_{1}} \cup D_{f_{2}}$. Ya que:
 
-    \[
-      f_{1} \cup f_{2} = \left(\lambda \alpha \beta \left[\alpha \beta\right] \circ (\lambda x\alpha
-      \left[\alpha^{x}\right] \circ (\chi_{D_{f_{1}}}, \bar{f}_{1}), \lambda x\alpha \left[\alpha^{x}\right] \circ
-      (\chi_{D_{f_{2}}}, \bar{f}_{2}))\right) \mid_{D_{f_{1}} \cup D_{f_{2}}}
-    \]
+    \begin{eqnarray}
+      \nonumber f_{1} \cup f_{2} &=& \left(\bar{f_{1}}^{\chi_{D_{f_{1}}}} . \bar{f_{2}}^{\chi_{D_{f_{2}}}}\right)
+        \mid_{D_{f_{1}} \cup D_{f_{2}}} \\
+      \nonumber &=& \lambda xy \left[x.y\right] \circ \left(\lambda xy \left[x^{y}\right] \circ (\bar{f_{1}},
+        \chi_{D_{f_{1}}}), \lambda xy \left[x^{y}\right] \circ (\bar{f_{2}}, \chi_{D_{f_{2}}}) \right) \mid_{D_{f_{1}}
+        \cup D_{f_{2}}}
+    \end{eqnarray}
 
-    \par tenemos que $f_{1} \cup f_{2}$ es $\Sigma$-PR.
-    \par El caso $k > 2$ puede probarse por inducción ya que:
-
-    \[
-      f_{1} \cup \dotsc \cup f_{k} = (f_{1} \cup \dotsc \cup f_{k-1}) \cup f_{k}
-    \]
+    \par Por lo tanto, $f_{1} \cup f_{2}$ es $\Sigma$-PR.
   \end{proof}
 
-  % Corollary 36
+  % Corollary 36: Sin prueba.
   \begin{corollary}
     \par Supongamos $f$ es una función $\Sigma$-mixta cuyo dominio es finito, entonces $f$ es $\Sigma$-PR.
   \end{corollary}
 
-  % Lemma 37
+  % Lemma 37: Sin prueba
   \begin{lemma}
     \par $\lambda i\alpha \left[\lbrack \alpha]_{i}\right]$ es $\Sigma$-PR.
   \end{lemma}
 
-  % Lemma 38
+  % Lemma 38: Con prueba. Solo el inciso (a).
   \begin{lemma}
     \par Sean $n, m \geq 0$.
 
     \begin{enumerate}[a)]
       \item Si $f: \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
         \omega$ es $\Sigma$-PR, con $ S_{1}, \dotsc, S_{n} \subseteq \omega$ y $L_{1}, \dotsc, L_{m} \subseteq \SIGMA$
-        no vacíos, entonces lo son las funciones $\lambda xy\vec{x}\vec{\alpha} \left[\sum_{t=x}^{t=y} f(t, \vec{x},
-        \vec{\alpha})\right]$ y $\lambda xy\vec{x}\vec{\alpha} \left[\prod_{t=x}^{t=y}f(t, \vec{x}, \vec{\alpha})
-        \right]$.
+        no vacíos, entonces lo son las funciones:
+
+        \begin{eqnarray}
+          \nonumber \lambda xy\vec{x}\vec{\alpha} \left[\sum_{t=x}^{t=y} f(t,\vec{x},\vec{\alpha})\right] \\
+          \nonumber \lambda xy\vec{x}\vec{\alpha} \left[\prod_{t=x}^{t=y}f(t,\vec{x},\vec{\alpha})\right]
+        \end{eqnarray}
+
       \item Si $f: \omega \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
         \SIGMA$ es $\Sigma$-PR, con $ S_{1}, \dotsc, S_{n} \subseteq \omega$ y $L_{1}, \dotsc, L_{m} \subseteq \SIGMA$
-        no vacíos, entonces lo es la función $\lambda xy\vec{x}\vec{\alpha}\left[\subset_{t=x}^{t=y} f(t, \vec{x},
-        \vec{\alpha})\right]$.
+        no vacíos, entonces lo es la función:
+
+        \[
+          \lambda xy\vec{x}\vec{\alpha}\left[\subset_{t=x}^{t=y} f(t,\vec{x},\vec{\alpha})\right]
+        \]
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    \par (a): Sea $G = \lambda tx\vec{x}\vec{\alpha}\left[\sum_{i=x}^{i=t} f(i, \vec{x}, \vec{\alpha})\right]$. Ya que:
+    \par Se probará solamente el inciso (a). Sea $G = \lambda tx\vec{x}\vec{\alpha} \left[\sum_{i=x}^{i=t} f(i,\vec{x},
+    \vec{\alpha})\right]$. Ya que:
 
     \[
       \lambda xy\vec{x}\vec{\alpha}\left[\sum_{i=x}^{i=y} f(i, \vec{x}, \vec{\alpha})\right] = G \circ \left(
@@ -82,61 +89,84 @@
     \par Sean:
 
     \begin{eqnarray}
-      \nonumber D_{1} &=& \left\{(x,\vec{x},\vec{\alpha}) \in \omega \times S_{1} \times \dotsc \times S_{n} \times
+      \nonumber P_{1} &=& \left\{(x,\vec{x},\vec{\alpha}) \in \omega \times S_{1} \times \dotsc \times S_{n} \times
         L_{1} \times \dotsc \times L_{m}: x > 0 \right\} \\
-      \nonumber D_{2} &=& \left\{(x,\vec{x},\vec{\alpha}) \in \omega \times S_{1} \times \dotsc \times S_{n} \times
+      \nonumber P_{2} &=& \left\{(x,\vec{x},\vec{\alpha}) \in \omega \times S_{1} \times \dotsc \times S_{n} \times
         L_{1} \times \dotsc \times L_{m}: x = 0 \right\} \\
-      \nonumber H_{1} &=& \left\{(z,t,x,\vec{x},\vec{\alpha}) \in \omega^{3} \times S_{1} \times \dotsc \times S_{n}
+      \nonumber Q_{1} &=& \left\{(z,t,x,\vec{x},\vec{\alpha}) \in \omega^{3} \times S_{1} \times \dotsc \times S_{n}
         \times L_{1} \times \dotsc \times L_{m}: x > t+1\right\} \\
-      \nonumber H_{2} &=& \left\{(z,t,x,\vec{x},\vec{\alpha}) \in \omega^{3} \times S_{1} \times \dotsc \times S_{n}
+      \nonumber Q_{2} &=& \left\{(z,t,x,\vec{x},\vec{\alpha}) \in \omega^{3} \times S_{1} \times \dotsc \times S_{n}
         \times L_{1} \times \dotsc \times L_{m}: x \leq t+1\right\}
     \end{eqnarray}
 
-    \par Es fácil de chequear que estos conjuntos son $\Sigma$-PR. Veamos que por ejemplo $H_{1}$ lo es. Es decir
-    debemos ver que $\chi_{H_{1}}$ es $\Sigma$-PR. Ya que $f$ es $\Sigma$-PR tenemos que $D_{f} = \omega \times S_{1}
-    \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}$ es $\Sigma$-PR, lo cual por el \textbf{Lemma 31}
-    nos dice que los conjuntos $S_{1}, \dotsc, S_{n}, L_{1}, \dotsc, L_{m}$ son $\Sigma$-PR. Ya que $\omega$ es
-    $\Sigma$-PR, el \textbf{Lemma 31} nos dice que $R = \omega^{3} \times S_{1} \times \dotsc \times S_{n} \times L_{1}
-    \times \dotsc \times L_{m}$ es $\Sigma$-PR. Notese que $\chi_{H_{1}} = (\chi_{R} \wedge \lambda ztx\vec{x}
-    \vec{\alpha}\left[x > t+1\right])$ por cual $\chi_{H_{1}}$ es $\Sigma$-PR ya que es la conjunción de dos predicados
-    $\Sigma$-PR.
-
-    \par Además note que $G = R(h,g)$, donde:
+    \par Notar que $P_{1}, P_{2}, Q_{1}, Q_{2}$ son conjuntos $\Sigma$-PR, probaremos solo $P_{1}$. Debemos ver que
+    $\chi_{P_{1}}$ es $\Sigma$-PR.
 
     \begin{eqnarray}
-      \nonumber h &=& C_{0}^{n+1,m} \mid_{D_{1}} \cup \lambda x\vec{x}\vec{\alpha}\left[f(0,\vec{x},\vec{\alpha})\right]
-      \mid_{D_{2}} \\
-      \nonumber g &=& C_{0}^{n+3,m} \mid_{H_{1}} \cup \lambda ztx\vec{x}\vec{\alpha}\left[z+f(t+1,\vec{x},\vec{\alpha})
-      \right]) \mid_{H_{2}}
+      \nonumber f \text{ es } \Sigma-PR &\Rightarrow& D_{f} = \omega \times S_{1} \times \dotsc \times S_{n} \times
+        L_{1} \times \dotsc \times L_{m} \text{ es } \Sigma-PR \qquad\; \text{\textbf{Proposition 34}} \\
+      \nonumber &\Rightarrow& S_{1}, \dotsc, S_{n}, L_{1}, \dotsc, L_{m} \text{ son  } \Sigma-PR \qquad\qquad\qquad
+        \qquad\qquad \text{\textbf{Lemma 31}} \\
+      \nonumber \\
+      \nonumber \omega \text{ es } \Sigma-PR &\Rightarrow& R = \omega^{3} \times S_{1} \times \dotsc \times S_{n}
+        \times L_{1} \times \dotsc \times L_{m} \text{ es } \Sigma-PR
     \end{eqnarray}
 
-    \par O sea que el \textbf{Lemma 35} y el \textbf{Lemma 32} garantizan que $G$ es $\Sigma$-PR.
+    \par Notar que:
+
+    \[
+      \chi_{P_{1}} = (\chi_{R} \wedge \lambda ztx\vec{x} \vec{\alpha}\left[x > t+1\right])
+    \]
+
+    \par por cual $\chi_{P_{1}}$ es $\Sigma$-PR ya que es la conjunción de dos predicados $\Sigma$-PR.
+
+    \par Además notar que $G = R(g, h)$, donde:
+
+    \begin{eqnarray}
+      \nonumber g &=& C_{0}^{n+1,m} \mid_{P_{1}} \cup \; \lambda x\vec{x}\vec{\alpha}\left[f(0,\vec{x}, \vec{\alpha})
+        \right] \mid_{P_{2}} \\
+      \nonumber h &=& C_{0}^{n+3,m} \mid_{Q_{1}} \cup \; \lambda ztx\vec{x}\vec{\alpha}\left[z+f(t+1,\vec{x},
+        \vec{\alpha}) \right] \mid_{Q_{2}}
+    \end{eqnarray}
+
+    \par Por lo tanto, el \textbf{Lemma 35} y el \textbf{Lemma 32} garantizan que $G$ es $\Sigma$-PR.
   \end{proof}
 
-  % Lemma 39
+  % Lemma 39: Con prueba. Solo el inciso (a).
   \begin{lemma}
     \par Sean $n, m \geq 0$.
 
     \begin{enumerate}[a)]
       \item Sea $P: S \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow
-        \omega$ un predicado $\Sigma$-PR y supongamos $\bar{S} \subseteq S$ es $\Sigma$-PR, entonces $\lambda
-        x\vec{x}\vec{\alpha} \left[(\forall t\in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})\right]$ y $\lambda
-        x\vec{x}\vec{\alpha} \left[(\exists t\in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})\right]$ son predicados
-        $\Sigma$-PR. (Notar que el dominio de estos predicados es $\omega \times S_{1} \times \dotsc \times S_{n} \times
-        L_{1} \times \dotsc \times L_{m}$).
+        \omega$ un predicado $\Sigma$-PR y supongamos $\bar{S} \subseteq S$ es $\Sigma$-PR, entonces:
+
+        \begin{eqnarray}
+          \nonumber \lambda x\vec{x}\vec{\alpha} \left[(\forall t \in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})
+            \right] \\
+          \nonumber \lambda x\vec{x}\vec{\alpha} \left[(\exists t \in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})
+            \right]
+        \end{eqnarray}
+
+        \par son predicados $\Sigma$-PR.
+
       \item Sea $P: S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \times L \rightarrow
-        \omega$ un predicado $\Sigma$-PR y supongamos $\bar{L} \subseteq L$ es $\Sigma$-PR, entonces $\lambda
-        x\vec{x}\vec{\alpha} \left[(\forall \alpha \in \bar{L})_{\left\vert \alpha \right\vert \leq x} \;
-        P(\vec{x},\vec{\alpha},\alpha)\right]$ y $\lambda x\vec{x}\vec{\alpha} \left[(\exists \alpha \in
-        \bar{L})_{\left\vert \alpha \right\vert \leq x} \; P(\vec{x},\vec{\alpha},\alpha )\right]$ son predicados
-        $\Sigma$-PR.
+        \omega$ un predicado $\Sigma$-PR y supongamos $\bar{L} \subseteq L$ es $\Sigma$-PR, entonces:
+
+        \begin{eqnarray}
+          \nonumber \lambda x\vec{x}\vec{\alpha} \left[(\forall \alpha \in \bar{L})_{\left\vert \alpha \right\vert
+            \leq x} \; P(\vec{x},\vec{\alpha},\alpha)\right] \\
+          \nonumber \lambda x\vec{x}\vec{\alpha} \left[(\exists \alpha \in \bar{L})_{\left\vert \alpha \right\vert
+            \leq x} \; P(\vec{x},\vec{\alpha},\alpha)\right]
+        \end{eqnarray}
+
+        \par son predicados $\Sigma$-PR.
     \end{enumerate}
   \end{lemma}
   \begin{proof}
     \par Se probará solamente el inciso (a). Sea:
 
     \[
-      \bar{P} = P \mid_{\bar{S} \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}} \cup
+      \bar{P} = P \mid_{\bar{S} \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m}} \cup \;
       C_{1}^{1+n,m} \mid_{(\omega -\bar{S}) \times S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times
       L_{m}}
     \]
@@ -144,9 +174,9 @@
     \par Notese que $\bar{P}$ es $\Sigma$-PR. Ya que:
 
     \begin{eqnarray}
-      \nonumber \lambda x\vec{x}\vec{\alpha}\left[(\forall t\in \bar{S})_{t\leq x} P(t,\vec{x},\vec{\alpha})\right] &=&
-        \lambda x\vec{x}\vec{\alpha}\left[\prod\limits_{t=0}^{t=x}\bar{P}(t,\vec{x},\vec{\alpha})\right] \\
-      \nonumber &=& \lambda xy\vec{x}\vec{\alpha}\left[\prod\limits_{t=x}^{t=y}\bar{P}(t,\vec{x},\vec{\alpha})\right]
+      \nonumber \lambda x\vec{x}\vec{\alpha}\left[(\forall t \in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})\right]
+        &=& \lambda x\vec{x}\vec{\alpha}\left[\prod\limits_{t=0}^{t=x}\bar{P}(t,\vec{x},\vec{\alpha})\right] \\
+      \nonumber &=& \lambda xy\vec{x}\vec{\alpha}\left[\prod\limits_{t=x}^{t=y} \bar{P}(t,\vec{x},\vec{\alpha})\right]
         \circ \left(C_{0}^{1+n,m}, p_{1}^{1+n,m}, \dotsc, p_{1+n+m}^{1+n,m}\right)
     \end{eqnarray}
 
@@ -156,14 +186,14 @@
     \par Finalmente note que:
 
     \[
-      \lambda x\vec{x}\vec{\alpha}\left[(\exists t\in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})\right] = \lnot
-      \lambda x\vec{x}\vec{\alpha}\left[(\forall t\in \bar{S})_{t\leq x} \; \lnot P(t,\vec{x},\vec{\alpha})\right]
+      \lambda x\vec{x}\vec{\alpha}\left[(\exists t \in \bar{S})_{t\leq x} \; P(t,\vec{x},\vec{\alpha})\right] = \lnot
+      \lambda x\vec{x}\vec{\alpha}\left[(\forall t \in \bar{S})_{t\leq x} \; \lnot P(t,\vec{x},\vec{\alpha})\right]
     \]
 
     \par es $\Sigma$-PR.
   \end{proof}
 
-  % Lemma 40
+  % Lemma 40: Con prueba.
   \begin{lemma}
     \begin{enumerate}[a)]
       \item El predicado $\lambda xy\left[x \text{ divide } y\right]$ es $\emptyset$-PR.
@@ -182,7 +212,7 @@
             \left(p_{2}^{2,0}, p_{1}^{2,0}, p_{2}^{2,0}\right)
         \end{eqnarray}
 
-        \par por lo que podemos aplicar el \textbf{Lemma 39} anterior.
+        \par por el \textbf{Lemma 39}, $\lambda xy\left[x \text{ divide } y\right]$ es $\emptyset$-PR.
 
       \item Ya que:
 
@@ -191,33 +221,87 @@
           (t\text{ divide } x)\right)
         \]
 
-        \par podemos usar un argumento similar al de la prueba de (a).
-      \item es dejado al lector.
+        \par tomamos $P = \lambda tx \left[ t=1 \vee t=x \vee (t \text{ divide } x)\right]$. Luego, tenemos que:
+
+        \begin{eqnarray}
+          \nonumber \lambda x \left[x \text{ es primo}\right] &=& \lambda x \left[x > 1\right] \wedge \lambda x
+            \left[(\forall t \in \omega)_{t \leq x} \; P(t,x) \right] \\
+          \nonumber &=& \lambda x \left[x > 1\right] \wedge \lambda x_{1} x_{2} \left[(\forall t \in \omega)_{t \leq
+            x_{1}} \; P(t,x_{2}) \right] \circ (p_{1}^{1,0}, p_{1}^{1,0})
+        \end{eqnarray}
+
+        \par por lo tanto, $\lambda x\left[x \text{ es primo}\right]$ es $\emptyset$-PR.
+
+      \item Sea $P = \lambda \alpha\beta\gamma \left[\beta = \alpha\gamma\right]$, entonces:
+
+        \begin{eqnarray}
+          \nonumber \lambda \alpha\beta \left[\alpha \text{\ }\mathrm{ inicial}\ \beta \right] &=& \lambda \alpha\beta
+            \left[(\exists \gamma \in \SIGMA)_{\lvert \gamma \rvert \leq \lvert \beta \rvert} \; P(\alpha, \beta,
+            \gamma)\right]
+        \end{eqnarray}
+
+        \par luego, $\lambda \alpha\beta \left[\alpha \text{\ }\mathrm{ inicial}\ \beta \right]$ es $\Sigma$-PR.
     \end{enumerate}
   \end{proof}
 
-  % Lemma 41
+  % Lemma 41: Con prueba.
   \begin{lemma}
     \par Si $P: D_{P} \subseteq \omega \times \omega^{n} \times \Sigma^{\ast m} \rightarrow \omega$ es un predicado
     $\Sigma$-EC y $ D_{P}$ es $\Sigma$-EC, entonces la función $M(P)$ es $\Sigma$-EC.
   \end{lemma}
   \begin{proof}
-    \par Ejercicio.
+    \par Sea $\mathbb{P}$ un procedimiento efectivo que compute al predicado $P$. El siguiente procedimiento computa
+    $M(P)$:
+
+    \vspace{3mm}
+    \textbf{Etapa 1:}
+    Darle a la variable $T$ el valor $0$.
+
+    \textbf{Etapa 2:}
+    \textbf{Si $T \in D_{P}$:} entonces realizar $\mathbb{P}$ con el valor de $T$ como entrada para obtener el
+
+    $\qquad\qquad\;\;\;$valor \textit{Booleano} $e$ de salida.
+
+    \textbf{Etapa 3:}
+    \textbf{Si $T \notin D_{P}$:} entonces aumentar en $1$ el valor de $T$, y dirigirse a la Etapa 2.
+
+    \textbf{Etapa 4:}
+    \textbf{Si $e=1$:} dar como dato de salida $T$.
+
+    $\qquad\qquad\;\;\;$\textbf{Si $e=0$:} aumentar en $1$ el valor de $T$, y dirigirse a la Etapa 2.
   \end{proof}
 
-  % Theorem 42:
+  % Theorem 42: Con prueba.
   \begin{theorem}
-    \par Si $f \in \mathrm{R}^{\Sigma}$, entonces $f$ es $\Sigma$-EC.
+    \par Si $f \in \mathrm{R}^{\Sigma}$, entonces $f$ es $\Sigma$-efectivamente computable.
   \end{theorem}
   \begin{proof}
-    \par Dejamos al lector la prueba por inducción en $k$ de que si $f\in \mathrm{R}_{k}^{\Sigma}$, entonces $f$ es
-    $\Sigma$-EC.
+    \par Recordemos que $R^{\Sigma} = \bigcup\limits_{k \geq 0} R_{k}^{\Sigma}$. Supongamos que $f \in
+    R_{k}^{\Sigma}$, probaremos este teorema por inducción en $k$.
+
+    \vspace{3mm}
+    \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 0$ \\\hline \end{tabular}
+
+    \par Luego $f \in R_{0}^{\Sigma} = PR_{0}^{\Sigma}$, es decir $f \in \{Suc, Pred, C_{0}^{0,0},
+    C_{\varepsilon}^{0,0}\} \cup \{d_{a}: a \in \Sigma\} \cup \{p_{j}^{n,m} : 1 \leq j \geq n+m\}$. Por lo tanto, $f$ es
+    $\Sigma$-efectivamente computable.
+
+    \vspace{3mm}
+		\underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 0$ \\\hline \end{tabular}
+
+    \par Supongamos ahora que si $f \in \mathrm{R}_{k}^{\Sigma} \Rightarrow f$ es $\Sigma$-efectivamente computable,
+    veamos que $f \in \mathrm{R}_{k+1}^{\Sigma} \Rightarrow f$ es $\Sigma$-efectivamente computable.
+
+    \par Dado que las funciones de $R_{k}^{\Sigma}$ son $\Sigma$-efectivamente computable por hipótesis inductiva, y que
+    $R_{k+1}^{\Sigma}$ se contruye a partir de las mismas, a través de recursiones, composiciones y/o minimizaciones,
+    las cuales probamos son $\Sigma$-efectivamente computables en el \textbf{Lemma 18}, \textbf{Lemma 19}, y
+    \textbf{Lemma 41} respectivamente, entonces concluimos que $f$ es $\Sigma$-efectivamente computable.
   \end{proof}
 
-  % Lemma 43
+  % Lemma 43: Con prueba.
   \begin{lemma}
     \par Sean $n, m \geq 0$. Sea $P: D_{P} \subseteq \omega \times \omega^{n} \times \Sigma^{\ast m} \rightarrow \omega$
-    un predicado $\Sigma$-PR, ntonces:
+    un predicado $\Sigma$-PR, entonces:
 
     \begin{enumerate}[a)]
       \item $M(P)$ es $\Sigma$-R.
@@ -233,63 +317,91 @@
   \end{lemma}
   \begin{proof}
     \begin{enumerate}[a)]
-      \item Sea $\bar{P} = P \mid_{D_{P}} \cup C_{0}^{n+1,m} \mid_{(\omega^{n+1} \times \Sigma^{\ast m})-D_{P}}$.
-        Dejamos al lector verificar cuidadosamente que $M(P) = M(\bar{P})$. Veremos entonces que $M(\bar{P})$ es
-        $\Sigma$-R. Note que $\bar{P}$ es $\Sigma$-PR. Sea $k$ tal que $\bar{P} \in \mathrm{PR}_{k}^{\Sigma}$. Ya que
-        $\bar{P}$ es $\Sigma$-total y $\bar{P} \in \mathrm{PR}_{k}^{\Sigma} \subseteq \mathrm{R}_{k}^{\Sigma}$, tenemos
-        que $M(\bar{P}) \in \mathrm{R}_{k+1}^{\Sigma}$ y por lo tanto $M(\bar{P}) \in \mathrm{R}^{\Sigma}$.
+      \item Sea $\bar{P} = P \mid_{D_{P}} \cup \; C_{0}^{n+1,m} \mid_{(\omega^{n+1} \times \Sigma^{\ast m})-D_{P}}$.
+
+        \par Veamos primero que $M(P) = M(\bar{P})$, es decir, que los dominios y las reglas de asignación son las
+        mismas.
+
+        \begin{eqnarray}
+          \nonumber D_{M_{P}} &=& \{(\vec{x},\vec{\alpha}) \in \omega^{n} \times \Sigma^{\ast m}: (\exists t \in \omega)
+            \; P(t,\vec{x},\vec{\alpha})\} \\
+          \nonumber D_{M_{\bar{P}}} &=& \{(\vec{x},\vec{\alpha}) \in \omega^{n} \times \Sigma^{\ast m}: (\exists t \in
+            \omega) \; \bar{P}(t,\vec{x},\vec{\alpha})\}
+        \end{eqnarray}
+
+        \par notar que:
+
+        \begin{center} \begin{tabular}{|c|} \hline $\bar{P}(t,\vec{x},\vec{\alpha}) = 1 \Leftrightarrow P \mid_{D_{P}} =
+        1$ \\\hline \end{tabular} $(\star)$ \end{center}
+
+        \par Luego, $D_{M(P)} = D_{M(\bar{P})}$ y $M(P) = M(\bar{P})$. Veamos ahora que $M(\bar{P})$ es $\Sigma$-R.
+
+        \par Sea $k$ tal que $\bar{P} \in \mathrm{PR}_{k}^{\Sigma}$, ya que $\bar{P}$ es $\Sigma$-total y $\bar{P} \in
+        \mathrm{PR}_{k}^{\Sigma} \subseteq \mathrm{R}_{k}^{\Sigma}$, tenemos que $M(\bar{P}) \in
+        \mathrm{R}_{k+1}^{\Sigma}$ y por lo tanto $M(\bar{P}) \in \mathrm{R}^{\Sigma}$.
 
       \item Primero veremos que $D_{M(\bar{P})}$ es un conjunto $\Sigma$-PR. Notese que:
 
         \[
-          \chi_{D_{M(\bar{P})}} = \lambda \vec{x}\vec{\alpha}\left[(\exists t\in \omega)_{t\leq f(\vec{x},\vec{\alpha})}
-          \; \bar{P}(t,\vec{x},\vec{\alpha})\right]
+          \chi_{D_{M(\bar{P})}} = \lambda \vec{x}\vec{\alpha} \left[(\exists t \in \omega)_{t \leq
+          f(\vec{x},\vec{\alpha})} \; \bar{P}(t,\vec{x},\vec{\alpha})\right]
         \]
 
         \par lo cual nos dice que:
 
         \[
-          \chi_{D_{M(\bar{P})}} = \lambda x\vec{x}\vec{\alpha}\left[(\exists t\in \omega)_{t\leq x} \;
+          \chi_{D_{M(\bar{P})}} = \lambda x\vec{x}\vec{\alpha} \left[(\exists t \in \omega)_{t\leq x} \;
           \bar{P}(t,\vec{x},\vec{\alpha})\right] \circ (f,p_{1}^{n,m},\dotsc,p_{n+m}^{n,m})
         \]
 
-        \par Pero el \textbf{Lemma 39} nos dice que $\lambda x\vec{x}\vec{\alpha} \left[(\exists t\in \omega)_{t\leq x}
-        \; \bar{P}(t,\vec{x},\vec{\alpha})\right]$ es $\Sigma$-PR por lo cual tenemos que $\chi _{D_{M(\bar{P})}}$ lo es.
+        \par pero el \textbf{Lemma 39} nos dice que $\lambda x\vec{x}\vec{\alpha} \left[(\exists t \in \omega)_{t\leq x}
+        \; \bar{P}(t,\vec{x},\vec{\alpha})\right]$ es $\Sigma$-PR por lo cual tenemos que $\chi_{D_{M(\bar{P})}}$ lo es.
 
         \par Sea:
 
         \[
-          P_{1} = \lambda t\vec{x}\vec{\alpha}\left[\bar{P}(t,\vec{x},\vec{\alpha}) \wedge (\forall j\in \omega)_{j\leq
-          t} \; j=t \vee \lnot \bar{P}(j,\vec{x},\vec{\alpha})\right]
+          Q = \lambda t\vec{x}\vec{\alpha}\left[\bar{P}(t,\vec{x},\vec{\alpha}) \wedge (\forall j \in \omega)_{j \leq t}
+          \; j=t \vee \lnot \bar{P}(j,\vec{x},\vec{\alpha})\right]
         \]
 
-        \par Note que $P_{1}$ es $\Sigma$-total. Dejamos al lector usando Lemmas anteriores probar que $P_{1}$ es
-        $\Sigma$-PR. Además notese que para cada $(\vec{x},\vec{\alpha}) \in \omega^{n} \times \Sigma^{\ast m}$ tenemos
-        que:
+        \par notar que $Q$ es $\Sigma$-total, veamos que es $\Sigma$-PR. Sea:
 
         \[
-          P_{1}(t,\vec{x},\vec{\alpha}) = 1 \text{ si y solo si } t = M(\bar{P})(\vec{x},\vec{\alpha})
+          R = \lambda jt\vec{x}\vec{\alpha} \left[j=t \; \vee \neg \bar{P}(j,\vec{x},\vec{\alpha})\right]
         \]
 
-        \par Esto nos dice que:
+        \par luego, por el \textbf{Lemma 39}:
+
+        \[
+          \lambda t\vec{x}\vec{\alpha} \left[(\forall j \in \omega)_{j \leq t} \; R(j,t,\vec{x},\vec{\alpha})\right]
+        \]
+
+        \par es $\Sigma$-PR y por lo tanto $Q$ es $\Sigma$-PR. Además notese que para cada $(\vec{x},\vec{\alpha}) \in
+        \omega^{n} \times \Sigma^{\ast m}$ tenemos:
+
+        \[
+          Q(t,\vec{x},\vec{\alpha}) = 1 \Leftrightarrow t = M(\bar{P})(\vec{x},\vec{\alpha})
+        \]
+
+        \par Esto nos dice que
 
         \[
           M(\bar{P}) = \left(\lambda \vec{x}\vec{\alpha}\left[\prod_{t=0}^{f(\vec{x},\vec{\alpha})}t^{P_{1}(t,\vec{x},
           \vec{\alpha})}\right]\right) \mid_{D_{M(\bar{P})}}
         \]
 
-        \par por lo cual para probar que $M(\bar{P})$ es $\Sigma$-PR solo nos resta probar que:
+        \par por lo cual para probar que $M(\bar{P})$ es $\Sigma$-PR solo nos resta probar que
 
         \[
           F = \lambda \vec{x}\vec{\alpha}\left[\prod_{t=0}^{f(\vec{x},\vec{\alpha})}t^{P_{1}(t,\vec{x},\vec{\alpha})}
           \right]
         \]
 
-        \par lo es. Pero:
+        \par es $\Sigma$-PR. Pero
 
         \[
           F = \lambda xy\vec{x}\vec{\alpha}\left[\prod_{t=x}^{y}t^{P_{1}(t,\vec{x},\vec{\alpha})}\right] \circ
-          (C_{0}^{n,m}, f, p_{1}^{n,m}, \dotsc, p_{n+m}^{n,m})
+          (C_{0}^{n,m},f,p_{1}^{n,m},\dotsc,p_{n+m}^{n,m})
         \]
 
         \par y por lo tanto el \textbf{Lemma 38} nos dice que $F$ es $\Sigma$-PR. De esta manera hemos probado que
@@ -297,24 +409,24 @@
     \end{enumerate}
   \end{proof}
 
-  % Lemma 44
+  % Lemma 44: Con prueba.
   \begin{lemma}
     \par Las siguientes funciones son $\emptyset$-PR:
 
     \begin{enumerate}[a)]
       \item
         $\begin{array}{rll}
-          Q: \omega \times \mathbf{N} &\rightarrow& \omega \\
+          Q: \omega \times \mathbb{N} &\rightarrow& \omega \\
           (x,y) & \rightarrow & \text{cociente de la division de } x \text{ por } y
         \end{array}$
       \item
         $\begin{array}{rll}
-          R: \omega \times \mathbf{N} &\rightarrow& \omega \\
+          R: \omega \times \mathbb{N} &\rightarrow& \omega \\
           (x,y) &\rightarrow& \text{resto de la division de } x \text{ por } y
         \end{array}$
       \item
         $\begin{array}{rll}
-          pr: \mathbf{N} &\rightarrow& \omega \\
+          pr: \mathbb{N} &\rightarrow& \omega \\
           n & \rightarrow & n\text{-esimo numero primo}
         \end{array}$
     \end{enumerate}
@@ -326,32 +438,34 @@
         \begin{eqnarray}
           \nonumber D_{M(P)} &=& \{(x,y): (\exists t \in \omega) \; P(t,x,y) = 1\} \\
           \nonumber &=& \{(x,y): (\exists t \in \omega) \; (t+1).y > x \} \\
-          \nonumber &=& \omega \times \mathbf{N} \\
+          \nonumber &=& \omega \times \mathbb{N} \\
           \nonumber &=& D_{Q}
         \end{eqnarray}
 
-        \par Dejamos al lector la fácil verificación de que para cada $(x,y) \in \omega \times \mathbf{N}$, se tiene que:
+        \par Luego, para cada $(x,y) \in \omega \times \mathbb{N}$, se tiene que:
 
         \[
-          Q(x,y) = M(P)(x,y) = \min_{t}(t+1).y > x
+          Q(x,y) = M(P)(x,y) = \min_{t} \; (t+1).y > x
         \]
 
-        \par Esto prueba que $Q=M(P)$. Ya que $P$ es $\emptyset$-PR y además:
+        \par esto prueba que $Q=M(P)$. Ya que $P$ es $\emptyset$-PR y además:
 
         \[
-          Q(x,y) \leq p_{1}^{2,0}(x,y), \text{para cada }(x,y) \in \omega \times \mathbf{N}
+          Q(x,y) \leq p_{1}^{2,0}(x,y), \text{para cada }(x,y) \in \omega \times \mathbb{N}
         \]
 
         \par el inciso (b) del \textbf{Lemma 43} implica que $Q \in \mathrm{PR}^{\emptyset}$.
       \item Notese que:
 
-        \[
-          R = \lambda xy\left[x \dot{-} Q(x,y).y\right]
-        \]
+        \begin{eqnarray}
+          \nonumber R &=& \lambda xy\left[x \dot{-}Q(x,y).y\right] \\
+          \nonumber &=& \lambda xy \left[x \dot{-}y\right] \circ (p_{1}^{2,0}, \lambda xy \left[x.y\right] \circ (Q
+            \circ (p_{1}^{2,0}, p_{2}^{2,0}), p_{2}^{2,0}))
+        \end{eqnarray}
 
         \par y por lo tanto $R \in \mathrm{PR}^{\emptyset}$.
-      \item Para ver que $pr$ es $\emptyset$-PR, veremos que la extensión $ h: \omega \rightarrow \omega$, dada por
-        $h(0)=0$ y $h(n)=pr(n)$, $n \geq 1$, es $\emptyset$-PR. Primero note que:
+      \item Para ver que $pr$ es $\emptyset$-PR, veremos que la extensión $h: \omega \rightarrow \omega$, dada por
+        $h(0)=0$ y $h(n)=pr(n)$, $n \geq 1$, es $\emptyset$-PR. Primero notar que:
 
         \begin{eqnarray}
           \nonumber h(0) &=& 0 \\
@@ -364,38 +478,45 @@
           P = \lambda tzx\left[t \text{ es primo} \wedge t > z\right]
         \]
 
-        \par Es decir que solo nos resta ver que $M(P)$ es $\emptyset$-PR.
-        \par Claramente $P$ es $\emptyset$-PR. Veamos que para cada $(z,x) \in \omega^{2}$, tenemos que:
+        \par Es decir que solo nos resta ver que $M(P)$ es $\emptyset$-PR, veamos esto:
+
+        \[
+          M(P) = \lambda x_{1} x_{2} \left[(\exists t \in \omega)_{t \leq x_{1}} P(t, X_{2})\right] \circ (p_{1}^{1,0},
+          p_{1}^{1,0})
+        \]
+
+        \par por lo tanto, por el \textbf{Lemma 39} $M(P)$ es $\emptyset$-PR.
+
+        \par Veamos que para cada $(z,x) \in \omega^{2}$, tenemos que:
 
         \[
           M(P)(z,x) = \min\nolimits_{t}\left(t \text{ es primo} \wedge t > z\right) \leq z! + 1
         \]
 
-        \par Sea $p$ primo tal que $p$ divide a $z!+1$. Es fácil ver que entonces $p > z$. Pero esto claramente nos dice
-        que:
+        \par Sea $p$ primo tal que $p$ divide a $z!+1$, luego $p > z$. Esto nos dice que:
 
         \[
           \min\nolimits_{t}\left(t \text{ es primo} \wedge t > z\right) \leq p \leq z! + 1
         \]
 
-        \par Osea que el inciso (b) del \textbf{Lemma 43} implica que $M(P)$ es $\emptyset$-PR ya que podemos tomar
-        $f = \lambda zx\left[z! + 1\right]$.
+        \par Luego, $f = \lambda zx\left[z! + 1\right]$ y utilizando el \textbf{Lemma 43} tenemos que $M(P)$ es
+        $\emptyset$-PR.
     \end{enumerate}
   \end{proof}
 
-  % Lemma 45
+  % Lemma 45: Sin prueba.
   \begin{lemma}
     \par Las funciones $\lambda xi\left[(x)_{i}\right]$ y $\lambda x\left[Lt(x)\right]$ son $\emptyset$-PR.
   \end{lemma}
 
-  % Lemma 46
+  % Lemma 46: Nada.
   \begin{lemma}
-    \par Este lemma no se evalua.
+    \par Este lema no se evalua.
   \end{lemma}
 
-  % Lemma 47
+  % Lemma 47: Sin prueba.
   \begin{lemma}
-    \par Supongamos que $\Sigma \neq \emptyset$. Sea $<$ un orden total estricto sobre $\Sigma$, sean $n, m \geq 0$ y
+    \par Supongamos que $\Sigma \neq \emptyset$. Sea $<$ un orden total estricto sobre $\Sigma$. Sean $n, m \geq 0$ y
     sea $P: D_{P} \subseteq \omega^{n} \times \Sigma^{\ast m} \times \SIGMA \rightarrow \omega$ un predicado
     $\Sigma$-PR, entonces:
 
@@ -405,30 +526,29 @@
 
         \[
           \left\vert M^{<}(P)(\vec{x},\vec{\alpha})\right\vert = \left\vert \min\nolimits_{\alpha}^{<} P(\vec{x},
-          \vec{\alpha},\alpha)\right\vert \leq f(\vec{x},\vec{\alpha}) \text{, para cada } (\vec{x},\vec{\alpha}) \in
-          D_{M^{< }(P)}
+          \vec{\alpha},\alpha)\right\vert \leq f(\vec{x},\vec{\alpha})
         \]
 
-        \par entonces $M^{<}(P)$ es $\Sigma$-PR.
+        \par para cada $(\vec{x},\vec{\alpha}) \in D_{M^{< }(P)}$ entonces $M^{<}(P)$ es $\Sigma$-PR.
     \end{enumerate}
   \end{lemma}
 
-  % Lemma 48
+  % Lemma 48: Nada.
   \begin{lemma}
-    \par Este lemma no se evalua.
+    \par Este lema no se evalua.
   \end{lemma}
 
-  % Lemma 49
+  % Lemma 49: Nada.
   \begin{lemma}
-    \par Este lemma no se evalua.
+    \par Este lema no se evalua.
   \end{lemma}
 
-  % Lemma 50
+  % Lemma 50: Nada.
   \begin{lemma}
-    \par Este lemma no se evalua.
+    \par Este lema no se evalua.
   \end{lemma}
 
-  % Theorem 51
+  % Theorem 51: Sin prueba.
   \begin{theorem}
     \par Sean $\Sigma$ y $\Gamma$ alfabetos cualesquiera.
 
