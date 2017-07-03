@@ -19,11 +19,11 @@
   \begin{lemma}
     \PN La función $s^{<}: \SIGMA \rightarrow \SIGMA$, definida recursivamente de la siguiente manera:
 
-    \begin{eqnarray}
-  		\nonumber s^{<}(\varepsilon) &=& a_{1} \\
-  		\nonumber s^{<}(\alpha a_{i}) &=& \alpha a_{i+1} \qquad \text{para } i < n \\
-  		\nonumber s^{<}(\alpha a_{n}) &=& s^{<}(\alpha) a_{1}
-    \end{eqnarray}
+    \begin{eqnarray*}
+  		s^{<}(\varepsilon) &=& a_{1} \\
+  		s^{<}(\alpha a_{i}) &=& \alpha a_{i+1} \qquad \text{para } i < n \\
+  		s^{<}(\alpha a_{n}) &=& s^{<}(\alpha) a_{1}
+    \end{eqnarray*}
 
     \PN tiene la siguiente propiedad:
 
@@ -104,13 +104,17 @@
   \begin{lemma}
     \PN Las funciones:
 
-    \begin{eqnarray}
-    	\nonumber \mathbb{N} &\rightarrow& \omega^{\left[\mathbb{N}\right]} \\
-    	\nonumber x &\rightarrow& ((x)_{1}, (x)_{2}, \dotsc) \\
-      \nonumber \\
-      \nonumber \omega^{\left[\mathbb{N}\right]} &\rightarrow& \mathbb{N} \\
-      \nonumber (s_{1}, s_{2}, \dotsc) &\rightarrow& \left\langle s_{1}, s_{2}, \dotsc \right\rangle
-  	\end{eqnarray}
+    \begin{equation*}
+      \begin{aligned}
+        \mathbb{N} &\rightarrow \omega^{\left[\mathbb{N}\right]} \\
+      	x &\rightarrow ((x)_{1}, (x)_{2}, \dotsc) \\
+      \end{aligned}
+      \qquad\qquad\qquad
+      \begin{aligned}
+        \omega^{\left[\mathbb{N}\right]} &\rightarrow \mathbb{N} \\
+        (s_{1}, s_{2}, \dotsc) &\rightarrow \left\langle s_{1}, s_{2}, \dotsc \right\rangle \\
+      \end{aligned}
+    \end{equation*}
 
     \PN son biyecciones una inversa de la otra.
   \end{lemma}
