@@ -2,7 +2,8 @@
 
   % Lemma 14: Con prueba.
   \begin{lemma}
-    \par Sean $S_{1}, S_{2} \subseteq \omega^{n} \times \SIGMA$ conjuntos $\Sigma$-efectivamente enumerables, entonces:
+    \PN Sean $S_{1}, S_{2} \subseteq \omega^{n} \times \Sigma^{\ast m}$ conjuntos $\Sigma$-efectivamente enumerables,
+    entonces:
 
     \begin{enumerate}[a)]
       \item $S_{1} \cup S_{2}$ es $\Sigma$-efectivamente enumerable.
@@ -10,7 +11,7 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    \par El caso en el que alguno de los conjuntos es vacío es trivial. Supongamos que $S_{1}, S_{2} \neq \emptyset$ y
+    \PN El caso en el que alguno de los conjuntos es vacío es trivial. Supongamos que $S_{1}, S_{2} \neq \emptyset$ y
     sean $\mathbb{P}_{1}$ y $\mathbb{P}_{2}$ procedimientos que enumeran a $S_{1}$ y $S_{2}$.
 
     \begin{enumerate}[a)]
@@ -29,7 +30,7 @@
         $\mathbb{P}$ un procedimiento efectivo el cual enumere a $\omega \times \omega$.
 
         \vspace{3mm}
-        \par El siguiente procedimiento enumera al conjunto $S_{1} \cap S_{2}$:
+        \PN El siguiente procedimiento enumera al conjunto $S_{1} \cap S_{2}$:
 
         \textbf{Etapa 1:}
         Realizar $\mathbb{P}$ con dato de entrada $x$, para obtener un par $(x_{1}, x_{2}) \in \omega \times \omega $.
@@ -47,19 +48,19 @@
 
   % Lemma 15: Con prueba.
   \begin{lemma}
-    \par Si $S \subseteq \omega^{n} \times \SIGMA$ es $\Sigma$-efectivamente computable entonces $S$ es
+    \PN Si $S \subseteq \omega^{n} \times \Sigma^{\ast m}$ es $\Sigma$-efectivamente computable entonces $S$ es
     $\Sigma$-efectivamente enumerable.
   \end{lemma}
   \begin{proof}
-    \par El caso en el que S es vacío es trivial. Supongamos $S \neq \emptyset$. Sea $(\vec{z}, \gamma) \in S$, fijo.
-    Recordemos que $\omega^{n} \times \Sigma^{\ast m}$ es $\Sigma$-efectivamente enumerable. Sean:
+    \PN El caso en el que S es vacío es trivial. Supongamos $S \neq \emptyset$. Sea $(\vec{z}, \vec{\gamma}) \in S$,
+    fijo. Recordemos que $\omega^{n} \times \Sigma^{\ast m}$ es $\Sigma$-efectivamente enumerable. Sean:
 
     \begin{itemize}
       \item $\mathbb{P}_{1}$ un procedimiento efectivo que enumere a $\omega^{n} \times \Sigma^{\ast m}$
       \item $\mathbb{P}_{2}$ un procedimiento efectivo que compute a $\chi_{S}$.
     \end{itemize}
 
-    \par El siguiente procedimiento enumera a $S$:
+    \PN El siguiente procedimiento enumera a $S$:
 
     \vspace{3mm}
     \textbf{Etapa 1:}
@@ -73,17 +74,16 @@
     \textbf{Etapa 3:}
     \textbf{Si $e=1$:} dar como dato de salida $(\vec{x}, \vec{\alpha})$.
 
-    $\qquad\qquad\;\;$\textbf{Si $e=0$:} dar como dato de salida $(\vec{z}, \gamma)$.
+    $\qquad\qquad\;\;$\textbf{Si $e=0$:} dar como dato de salida $(\vec{z}, \vec{\gamma})$.
   \end{proof}
 
-  \pagebreak
   % Theorem 16: Con prueba.
   \begin{theorem}
-    \par Sea $S \subseteq \omega^{n}\times \SIGMA$. Son equivalentes:
+    \PN Sea $S \subseteq \omega^{n}\times \Sigma^{\ast m}$. Son equivalentes:
 
     \begin{enumerate}[a)]
       \item $S$ es $\Sigma$-efectivamente computable.
-      \item $S$ y $(\omega^{n}\times \SIGMA)-S$ son $\Sigma$-efectivamente enumerables.
+      \item $S$ y $(\omega^{n}\times \Sigma^{\ast m})-S$ son $\Sigma$-efectivamente enumerables.
     \end{enumerate}
   \end{theorem}
   \begin{proof}
@@ -101,7 +101,7 @@
       \item $\mathbb{P}_{2}$ un procedimiento efectivo que enumere a $(\omega^{n}\times \Sigma^{\ast m}) - S$.
     \end{itemize}
 
-    \par El siguiente procedimiento computa el predicado $\chi_{S}$:
+    \PN El siguiente procedimiento computa el predicado $\chi_{S}$:
 
     \vspace{3mm}
     \textbf{Etapa 1:}
@@ -127,14 +127,14 @@
 
   % Theorem 17: Sin prueba.
   \begin{theorem}
-    \par Dado $S \subseteq \omega^{n} \times \SIGMA$, son equivalentes:
+    \PN Dado $S \subseteq \omega^{n} \times \Sigma^{\ast m}$, son equivalentes:
 
     \begin{enumerate}
       \item $S$ es $\Sigma$-efectivamente enumerable.
-      \item $S = \emptyset$ ó $S = I_{F}$, para alguna $F: \omega \rightarrow \omega^{n} \times \SIGMA$ tal que cada
-        $F_{i}$ es $\Sigma$-efectivamente computable.
+      \item $S = \emptyset$ ó $S = I_{F}$, para alguna $F: \omega \rightarrow \omega^{n} \times \Sigma^{\ast m}$ tal que
+        cada $F_{i}$ es $\Sigma$-efectivamente computable.
       \item $S = I_{F}$, para alguna $F:D_{F} \subseteq \omega^{k} \times \Sigma^{\ast l} \rightarrow \omega^{n} \times
-        \SIGMA$ tal que cada $F_{i}$ es $\Sigma$-efectivamente computable.
+        \Sigma^{\ast m} $ tal que cada $F_{i}$ es $\Sigma$-efectivamente computable.
       \item $S = D_{f}$, para alguna función $f$ la cual es $\Sigma$-efectivamente computable.
     \end{enumerate}
   \end{theorem}
