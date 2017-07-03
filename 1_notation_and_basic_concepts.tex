@@ -2,7 +2,7 @@
 
   % Lemma 1: Sin prueba.
   \begin{lemma}
-    \par Sea $S \subseteq \omega \times \SIGMA$, entonces $S$ es rectangular si y solo si se cumple la siguiente
+    \PN Sea $S \subseteq \omega \times \SIGMA$, entonces $S$ es rectangular si y solo si se cumple la siguiente
     propiedad:
 
     \[
@@ -12,12 +12,12 @@
 
   % Lemma 2: Sin prueba.
   \begin{lemma}
-    \par La relación $<$ es un orden total estricto sobre $\SIGMA$.
+    \PN La relación $<$ es un orden total estricto sobre $\SIGMA$.
   \end{lemma}
 
   % Lemma 3: Sin prueba.
   \begin{lemma}
-    \par La función $s^{<}: \SIGMA \rightarrow \SIGMA$, definida recursivamente de la siguiente manera:
+    \PN La función $s^{<}: \SIGMA \rightarrow \SIGMA$, definida recursivamente de la siguiente manera:
 
     \begin{eqnarray}
   		\nonumber s^{<}(\varepsilon) &=& a_{1} \\
@@ -25,7 +25,7 @@
   		\nonumber s^{<}(\alpha a_{n}) &=& s^{<}(\alpha) a_{1}
     \end{eqnarray}
 
-    \par tiene la siguiente propiedad:
+    \PN tiene la siguiente propiedad:
 
     \[
       s^{<}(\alpha) = \min \{\beta \in \SIGMA: \alpha < \beta\}
@@ -34,12 +34,12 @@
 
   % Corollary 4: Sin prueba.
   \begin{corollary}
-    \par $s^{<}$ es inyectiva.
+    \PN $s^{<}$ es inyectiva.
   \end{corollary}
 
   % Lemma 5: Sin prueba.
   \begin{lemma}
-    \par Se tiene que:
+    \PN Se tiene que:
 
     \begin{enumerate}
       \item $s^{<}(\alpha) \neq \varepsilon$, para cada $\alpha \in \SIGMA$.
@@ -51,58 +51,58 @@
 
   % Lemma 6: Sin prueba.
   \begin{lemma}
-    \par Tenemos que:
+    \PN Tenemos que:
 
     \[
       \SIGMA = \{\ast^{<}(0), \ast^{<}(1), \dotsc\}
     \]
 
-    \par Mas aún la función $\ast^{<}$ es biyectiva.
+    \PN Mas aún la función $\ast^{<}$ es biyectiva.
   \end{lemma}
 
   % Lemma 7: Sin prueba.
   \begin{lemma}
-    \par Sea $n \geq 1$ fijo, entonces cada $x \geq 1$ se escribe en forma única de la siguiente manera:
+    \PN Sea $n \geq 1$ fijo, entonces cada $x \geq 1$ se escribe en forma única de la siguiente manera:
 
     \[
       x = i_{0} n^{0} + \dotsc + i_{k-1} n^{k-1} + i_{k} n^{k}
     \]
 
-    \par con $k\geq 0$ y $1 \leq i_{0}, \dotsc, i_{k-1}, i_{k} \leq n$.
+    \PN con $k\geq 0$ y $1 \leq i_{0}, \dotsc, i_{k-1}, i_{k} \leq n$.
   \end{lemma}
 
   % Lemma 8: Sin prueba.
   \begin{lemma}
-    \par La función $\#^{<}$ es biyectiva.
+    \PN La función $\#^{<}$ es biyectiva.
   \end{lemma}
 
   % Lemma 9: Sin prueba.
   \begin{lemma}
-    \par Las funciones $\#^{<}$ y $\ast^{<}$ son una inversa de la otra.
+    \PN Las funciones $\#^{<}$ y $\ast^{<}$ son una inversa de la otra.
   \end{lemma}
 
   % Lemma 10: Sin prueba.
   \begin{lemma}
-    \par Si $p, p_{1}, \dotsc, p_{n}$ son números primos y $p$ divide a $p_{1} \dotsc p_{n}$, entonces $p = p_{i}$,
-    para algún $i$.
+    \PN Si $p, p_{1}, \dotsc, p_{n}$ son números primos y $p$ divide a $\underset{i=1}{\overset{n}{\Pi}} \; p_{i}$,
+    entonces $p = p_{i}$, para algún $i$.
   \end{lemma}
 
   % Theorem 11: Sin prueba.
   \begin{theorem}
-    \par Para cada $x \in \mathbb{N}$, hay una única sucesión $(s_{1}, s_{2}, \dotsc) \in
+    \PN Para cada $x \in \mathbb{N}$, hay una única sucesión $(s_{1}, s_{2}, \dotsc) \in
     \omega^{\left[\mathbb{N}\right]}$ tal que:
 
     \[
       x = \underset{i=1}{\overset{\infty}{\Pi}} \; pr(i)^{s_{i}}
     \]
 
-    \par Notar que $\underset{i=1}{\overset{\infty}{\Pi}} \; pr(i)^{s_{i}}$ tiene sentido ya que es un producto que solo
+    \PN Notar que $\underset{i=1}{\overset{\infty}{\Pi}} \; pr(i)^{s_{i}}$ tiene sentido ya que es un producto que solo
     tiene una cantidad finita de factores no iguales a 1.
   \end{theorem}
 
   % Lemma 12: Sin prueba.
   \begin{lemma}
-    \par Las funciones:
+    \PN Las funciones:
 
     \begin{eqnarray}
     	\nonumber \mathbb{N} &\rightarrow& \omega^{\left[\mathbb{N}\right]} \\
@@ -112,18 +112,27 @@
       \nonumber (s_{1}, s_{2}, \dotsc) &\rightarrow& \left\langle s_{1}, s_{2}, \dotsc \right\rangle
   	\end{eqnarray}
 
-    \par son biyecciones una inversa de la otra.
+    \PN son biyecciones una inversa de la otra.
   \end{lemma}
 
   % Lemma 13: Sin prueba.
   \begin{lemma}
-    \par Para cada $x \in \mathbb{N}$:
+    \PN Recordemos, para cada $x \in \mathbb{N}$ se define:
+
+    \[
+      Lt(x) = \left\{\begin{array}{lll}
+                      \max_{i} \; (x)_{i} \neq 0 && \text{si } x \neq 1 \\
+                      0 & & \text{si } x = 1
+                      \end{array} \right.
+    \]
+
+    \PN Luego, para cada $x \in \mathbb{N}$:
 
     \begin{enumerate}
       \item $Lt(x) = 0 \Leftrightarrow x = 1$
       \item $x = \underset{i=1}{\overset{Lt(x)}{\Pi}} \; pr(i)^{(x)_{i}}$
     \end{enumerate}
 
-    \par Cabe destacar entonces que la función $\lambda ix[(x)_{i}]$ tiene dominio igual a $\mathbb{N}^{2}$ y la
+    \PN Cabe destacar entonces que la función $\lambda ix[(x)_{i}]$ tiene dominio igual a $\mathbb{N}^{2}$ y la
     función $\lambda ix[Lt(x)]$ tiene dominio igual a $\mathbb{N}$.
   \end{lemma}
