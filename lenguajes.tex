@@ -7,22 +7,14 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{enumerate}
-\usepackage{algorithmic}
-\usepackage{algorithm}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{stackrel}
-\renewcommand{\theequation}{\arabic{equation}}
 \newcounter{neq}
 \providecommand{\abs}[1]{\lvert#1\rvert}
-\newcommand{\LINECOMMENT}[1]{\STATE \(\triangleright\) #1}
-\newcommand{\RESET}[1]{\STATE Reset: #1}
-\def\BState{\State\hskip-\ALG@thistlm}
-\newcommand{\QED}{\hfill \textit{\textbf{Q.E.D.}} \vspace{5mm}}
-\newcommand{\PROOF}{\vspace{3mm} \textbf{\underline{Proof:}}}
 \newcommand{\SIGMA}{\Sigma^{\ast}}
-
+\newcommand{\PN}{\par\noindent}
 
 \newtheorem{theorem}[equation]{Theorem}
 \newtheorem{lemma}[equation]{Lemma}
@@ -35,15 +27,17 @@
 \date{2017}
 
 \begin{document}
-\maketitle
+\clearpage\maketitle
+\thispagestyle{empty}
 \tableofcontents
+\pagebreak
 
-\include{1_notation_and_basic_concepts}
-\include{2_effective_procedures}
-\include{3_sigma_recursive_functions_s1}
-\include{3_sigma_recursive_functions_s2}
-\include{4_s_sigma}
-\include{5_turing_machines}
+\input{1_notation_and_basic_concepts}
+\input{2_effective_procedures}
+\input{3_sigma_recursive_functions_s1}
+\input{3_sigma_recursive_functions_s2}
+\input{4_s_sigma}
+\input{5_turing_machines}
 
 \begin{thebibliography}{X}
 \bibitem{Baz} \textsc{Diego Vaggione},
