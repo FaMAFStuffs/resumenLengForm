@@ -63,23 +63,23 @@
     \PN El siguiente procedimiento enumera a $S$:
 
     \vspace{3mm}
-    \textbf{Etapa 1:}
+    \PN \textbf{Etapa 1:}
     Realizar $\mathbb{P}_{1}$ con $x$ de entrada para obtener $(\vec{x}, \vec{\alpha}) \in \omega^{n}\times
     \Sigma^{\ast m}$.
 
-    \textbf{Etapa 2:}
+    \PN \textbf{Etapa 2:}
     Realizar $\mathbb{P}_{2}$ con $(\vec{x}, \vec{\alpha})$ de entrada para obtener el valor \textit{Booleano} $e$ de
     salida.
 
-    \textbf{Etapa 3:}
+    \PN \textbf{Etapa 3:}
     \textbf{Si $e=1$:} dar como dato de salida $(\vec{x}, \vec{\alpha})$.
 
-    $\qquad\qquad\;\;$\textbf{Si $e=0$:} dar como dato de salida $(\vec{z}, \vec{\gamma})$.
+    $\qquad\;\;\;\;$\textbf{Si $e=0$:} dar como dato de salida $(\vec{z}, \vec{\gamma})$.
   \end{proof}
 
   % Theorem 16: Con prueba.
   \begin{theorem}
-    \PN Sea $S \subseteq \omega^{n}\times \Sigma^{\ast m}$. Son equivalentes:
+    \PN Sea $S \subseteq \omega^{n}\times \Sigma^{\ast m}$, son equivalentes:
 
     \begin{enumerate}[a)]
       \item $S$ es $\Sigma$-efectivamente computable.
@@ -94,7 +94,7 @@
     $\Sigma$-efectivamente enumerable.
 
     \vspace{3mm}
-    \begin{tabular}{|c|}\hline $(b) \Rightarrow (a)$\\\hline\end{tabular} Sean:
+    \PN \begin{tabular}{|c|}\hline $(b) \Rightarrow (a)$\\\hline\end{tabular} Sean:
 
     \begin{itemize}
       \item $\mathbb{P}_{1}$ un procedimiento efectivo que enumere a $S$.
@@ -104,25 +104,25 @@
     \PN El siguiente procedimiento computa el predicado $\chi_{S}$:
 
     \vspace{3mm}
-    \textbf{Etapa 1:}
+    \PN \textbf{Etapa 1:}
     Darle a la variable $T$ el valor $0$.
 
-    \textbf{Etapa 2:}
+    \PN \textbf{Etapa 2:}
     Realizar $\mathbb{P}_{1}$ con el valor de $T$ como entrada para obtener de salida la upla $(\vec{y}, \vec{\beta})$.
 
-    \textbf{Etapa 3:}
+    \PN \textbf{Etapa 3:}
     Realizar $\mathbb{P}_{2}$ con el valor de $T$ como entrada para obtener de salida la upla $(\vec{z}, \vec{\gamma})$.
 
-    \textbf{Etapa 4:}
+    \PN \textbf{Etapa 4:}
     \textbf{Si $(\vec{y}, \vec{\beta}) = (\vec{x}, \vec{\alpha})$:} entonces detenerse y dar como dato de salida el
     valor $1$.
 
-    $\qquad\qquad\;\;$\textbf{Si $(\vec{z}, \vec{\gamma}) = (\vec{x}, \vec{\alpha})$:} entonces detenerse y dar como
+    $\qquad\;\;\;\;$\textbf{Si $(\vec{z}, \vec{\gamma}) = (\vec{x}, \vec{\alpha})$:} entonces detenerse y dar como
     dato de salida el valor $0$.
 
-    $\qquad\qquad\;\;$\textbf{Si no sucede ninguna de las dos posibilidades:} aumentar en $1$ el valor de
+    $\qquad\;\;\;\;$\textbf{Si no sucede ninguna de las dos posibilidades:} aumentar en $1$ el valor de
 
-    $\qquad\qquad\;\;$la variable $T$ y dirijirse a la Etapa 2.
+    $\qquad\;\;\;\;$la variable $T$ y dirijirse a la Etapa 2.
   \end{proof}
 
   % Theorem 17: Sin prueba.
