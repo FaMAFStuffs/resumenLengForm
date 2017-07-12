@@ -1,13 +1,14 @@
 \section{Máquinas de Turing}
 
-  %Lemma 79
+  % Lemma 79: Nada.
   \begin{lemma}
-    \par Este lemma no se evalua.
+    \PN Este lemma no se evalua.
   \end{lemma}
 
-	%Lemma 80
+	% Lemma 80: Con prueba.
   \begin{lemma}
-  	El predicado $\lambda ndd^{\prime} \left[d\vdash d^{\prime}\right]$ es $(\Gamma \cup Q)$-PR.
+  	\PN El predicado $\lambda ndd^{\prime} \left[d \vdash d^{\prime}\right]$ es $(\Gamma \cup Q)$-PR.
+  \end{lemma}
 	\begin{proof}
 	  Note que $D_{\lambda dd^{\prime}\left[d\ \vdash d^{\prime }\right] }=Des\times Des$.
     También nótese que los predicados
@@ -41,7 +42,7 @@
       (q,\sigma ,K)\in \delta \left( p,\left[ \beta B\right] _{1}\right) \wedge
       d^{\prime }=\left\lfloor \alpha q\sigma ^{\curvearrowright }\beta \right\rfloor
     \end{eqnarray*}
-    \par \noindent Veamos que $P_L$ es $(\Gamma \cup Q)$-PR. Notar que
+    \PN \noindent Veamos que $P_L$ es $(\Gamma \cup Q)$-PR. Notar que
     \[
       P_L = P_1 \land P_2 \land P_3 \land P_4
     \]
@@ -234,19 +235,16 @@
     $\lambda dd^{\prime } \left[ d\vdash d^{\prime }\right]$ es $(\Gamma \cup Q)$-PR.
   \end{proof}
 
-  \end{lemma}
-
-	%Proposition 81
+	% Proposition 81: Sin prueba.
 	\begin{proposition}
-		$\lambda ndd^{\prime }\left[ d\overset{n}{\vdash }d^{\prime }\right] $ es $ (\Gamma \cup Q)$-PR.
+		\PN $\lambda ndd^{\prime} \left[d \overset{n}{\vdash} d^{\prime}\right]$ es $(\Gamma \cup Q)$-PR.
 	\end{proposition}
 
-
-  %Theorem 82:
+  % Theorem 82: Con prueba.
   \begin{theorem}
-  	Sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,F\right) $ una máquina de Turing.
-    Entonces $L(M)$ es $\Sigma $-recursivamente enumerable.
-
+  	\PN Sea $M = \left(Q, \Sigma, \Gamma, \delta, q_{0}, B, F\right)$ una máquina de Turing, entonces $L(M)$ es
+    $\Sigma$-recursivamente enumerable.
+  \end{theorem}
   \begin{proof}
      Sea $P$ el siguiente predicado $(\Gamma \cup Q)$-mixto
 
@@ -301,7 +299,7 @@
     $(\Gamma \cup Q)$-PR. En definitiva $P$ es $(\Gamma \cup Q)$-PR.
     Sea
     \[
-      P^{\prime }=P\mid _{\omega \times \Sigma ^{\ast }}.
+      P^{\prime }=P\mid _{\omega \times \SIGMA}.
     \]
     Nótese que $P^{\prime }(n,\alpha )=1$ sii
     $\alpha \in L(M) $ atestiguado por una computación de longitud $n$.
@@ -313,14 +311,14 @@
 
     \noindent Ya que $ L(M)=D_{M(P^{\prime })}$, el \textbf{Teorema 71} nos dice que $ L(M)$ es $\Sigma $-r.e.
   \end{proof}
-  \end{theorem}
 
-	%Theorem 83
+	% Theorem 83: Con prueba.
 	\begin{theorem}
-		Supongamos $f:S\subseteq \omega ^{n}\times \Sigma ^{\ast }{}^{m}\rightarrow O $ es
-    $\Sigma $-Turing computable. Entonces $f$ es $\Sigma $-recursiva.
+		\PN Supongamos $f: S \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O$ es $\Sigma$-Turing computable,
+    entonces $f$ es $\Sigma$-recursiva.
+  \end{theorem}
 	\begin{proof}
-    Supongamos $O=\Sigma ^{\ast }$ y sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) $
+    Supongamos $O=\SIGMA$ y sea $M=\left( Q,\Sigma ,\Gamma ,\delta ,q_{0},B,\shortmid ,F\right) $
     una máquina de Turing determinística con unit la cual compute a $f$. Sea $< $ un orden total estricto sobre
     $\Gamma \cup Q$ . Sea $P:\mathbf{N}\times \omega ^{n}\times \Sigma ^{\ast m}\rightarrow \omega $ dado por
     $P(x,\vec{x},\vec{\alpha})=1$ sii
@@ -394,44 +392,58 @@
     \]
     lo cual nos dice que $f$ es $\Sigma $-recursiva.
   \end{proof}
-  \end{theorem}
 
-	%Lema 84
+	% Lema 84: Con prueba.
 	\begin{lemma}
-		Sea $\mathcal{P}\in \mathrm{Pro}^{\Sigma }$ y sea $k$ tal que las variables que ocurren
-    en $\mathcal{P}$ están todas en la lista $\mathrm{N}1,..., \mathrm{N}\bar{k},\mathrm{P}1,...,\mathrm{P}\bar{k}.$
-    Para cada $a\in \Sigma \cup \{\shortmid \}$, sea $\tilde{a}$ un nuevo símbolo. Sea $\Gamma =\Sigma \cup \{B,
-    \shortmid \}\cup \{\tilde{a}:a\in \Sigma \cup \{\shortmid \}\}$. Entonces hay una máquina de Turing determinística
-    con unit $M=\left( Q,\Gamma ,\Sigma ,\delta ,q_{0},B,\shortmid ,\{q_{f}\}\right) $ la cual satisface
-    \begin{enumerate}[\qquad(1)]
-      \item $\delta (q_{f},\sigma )=\emptyset $, para cada $\sigma \in \Gamma $.
-      \item Cualesquiera sean $x_{1},...,x_{k}\in \omega $ y $\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }$, el
-            programa $\mathcal{P}$ se detiene partiendo del estado
-            \[
-              \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right)
-            \]
-            sii $M$ se detiene partiendo de la descripción instantánea
-            \[
-              \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor
-            \]
-      \item Si $x_{1},...,x_{k}\in \omega $ y $\alpha _{1},...,\alpha _{k}\in \Sigma ^{\ast }$ son tales que
-            $\mathcal{P}$ se detiene partiendo del estado
-            \[
-              \left( (x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...)\right)
-            \]
-            y llega al estado
-            \[
-              \left( (y_{1},...,y_{k},0,...),(\beta _{1},...,\beta _{k},\varepsilon ,...)\right)
-            \]
-            entonces
-            \[
-              \left\lfloor q_{0}B\shortmid ^{x_{1}}B...B\shortmid ^{x_{k}}B\alpha _{1}B...B\alpha _{k}B\right\rfloor \overset
-              {\ast }{\vdash }\left\lfloor q_{f}B\shortmid ^{y_{1}}B...B\shortmid ^{y_{k}}B\beta _{1}B...B\beta _{k}B\right
-              \rfloor
-            \]
+		Sea $\mathcal{P}\in \mathrm{Pro}^{\Sigma }$ y sea $k$ tal que las variables que ocurren en $\mathcal{P}$ están todas
+    en la lista $\mathrm{N}1, \dotsc, \mathrm{N}\bar{k}, \mathrm{P}1, \dotsc, \mathrm{P}\bar{k}$. Para cada $a \in
+    \Sigma \cup \{\shortmid\}$, sean:
+
+    \begin{itemize}
+      \item $\tilde{a}$ un nuevo símbolo
+      \item $\Gamma = \Sigma \cup \{B, \shortmid\} \cup \{\tilde{a}: a \in \Sigma \cup \{\shortmid\}\}$
+    \end{itemize}
+
+    \PN entonces hay una máquina de Turing determinística con unit $M = \left(Q, \Gamma, \Sigma, \delta, q_{0}, B,
+    \shortmid, \{q_{f}\}\right)$ la cual satisface:
+
+    \begin{enumerate}
+      \item $\delta(q_{f}, \sigma) = \emptyset$, para cada $\sigma \in \Gamma$.
+      \item Cualesquiera sean $x_{1}, \dotsc, x_{k} \in \omega$ y $\alpha_{1}, \dotsc, \alpha_{k} \in \SIGMA$, el
+        programa $\mathcal{P}$ se detiene partiendo del estado:
+
+        \[
+          \left((x_{1}, \dotsc, x_{k}, 0, \dotsc), (\alpha_{1}, \dotsc, \alpha_{k}, \varepsilon,\dotsc)\right)
+        \]
+
+        \PN sii $M$ se detiene partiendo de la descripción instantánea:
+
+        \[
+          \lfloor q_{0} B \shortmid^{x_{1}} B \dotsc B \shortmid^{x_{k}} B \alpha_{1} B \dotsc B \alpha_{k} B \rfloor
+        \]
+
+      \item Si $x_{1}, \dotsc, x_{k} \in \omega$ y $\alpha_{1}, \dotsc, \alpha_{k} \in \SIGMA$ son tales que
+        $\mathcal{P}$ se detiene partiendo del estado:
+
+        \[
+          \left((x_{1}, \dotsc, x_{k}, 0, \dotsc), (\alpha_{1}, \dotsc, \alpha_{k}, \varepsilon, \dotsc)\right)
+        \]
+
+        \PN y llega al estado
+
+        \[
+          \left((y_{1}, \dotsc, y_{k}, 0, \dotsc), (\beta_{1}, \dotsc, \beta_{k}, \varepsilon,\dotsc)\right)
+        \]
+
+        \PN entonces
+
+        \[
+          \lfloor q_{0} B \shortmid^{x_{1}} B \dotsc B \shortmid^{x_{k}} B \alpha_{1} B \dotsc B \alpha_{k} B \rfloor
+          \overset {\ast}{\vdash} \lfloor q_{f} B \shortmid^{y_{1}} B \dotsc B \shortmid^{y_{k}} B \beta_{1} B \dotsc B
+          \beta_{k} B \rfloor
+        \]
     \end{enumerate}
-
-
+  \end{lemma}
   \begin{proof}
     Dado un estado $((x_{1},...,x_{k},0,...),(\alpha _{1},...,\alpha _{k},\varepsilon ,...))$ lo representaremos en la
     cinta de la siguiente manera
@@ -660,14 +672,14 @@
     Es intuitivamente claro que la máquina así obtenida cumple con lo requerido aunque una Proof formal de esto puede
     resultar extremadamente tediosa.
 	\end{proof}
-	\end{lemma}
 
-	%Theorem 85
+	% Theorem 85: Con prueba.
 	\begin{theorem}
-		Si $f:D_{f}\subseteq \omega ^{n}\times \Sigma ^{\ast m}\rightarrow O$ es $ \Sigma $-recursiva, entonces $f$ es
-    $\Sigma $-Turing computable.
-
-  \begin{proof} Supongamos $O=\Sigma ^{\ast }.$ Ya que $f$ es $\Sigma $-computable, existe
+		\PN Si $f: D_{f} \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O$ es $\Sigma$-recursiva, entonces $f$ es
+    $\Sigma$-Turing computable.
+  \end{theorem}
+  \begin{proof}
+    \PN Supongamos $O=\SIGMA.$ Ya que $f$ es $\Sigma $-computable, existe
     $ \mathcal{P}\in \mathrm{Pro}^{\Sigma }$ el cual computa $f$. Note que podemos suponer que $\mathcal{P}$ tiene la
     propiedad de que cuando $\mathcal{P}$ termina, en el estado alcanzado las variables numéricas tienen todas el valor
     $0$ y las alfabéticas distintas de $\mathrm{P}1$ todas el valor $ \varepsilon $. Sea $M$ la máquina de Turing con
@@ -681,7 +693,7 @@
   	\]
 
     donde $q_{0}$ es el estado inicial de $M_{1}$ y $q$ es un estado tal que $ \delta (q,\sigma )=\emptyset $, para cada
-    $\sigma .$ Sea $M_{2}$ una máquina tal que para cada $\alpha \in \Sigma ^{\ast }$,
+    $\sigma .$ Sea $M_{2}$ una máquina tal que para cada $\alpha \in \SIGMA$,
 
   	\[
     \displaystyle \left\lfloor q_{0}B^{k+1}\alpha \right\rfloor \overset{\ast }{\vdash } \left\lfloor qB\alpha \right\rfloor
@@ -691,9 +703,8 @@
     $\sigma $. Note que la concatenación de $M_{1}$, $M$ y $M_{2}$ (en ese orden) produce una máquina de Turing la cual
     computa $f$.
 	\end{proof}
-	\end{theorem}
 
-  % Theorem  86
+  % Theorem 86: Nada.
   \begin{theorem}
-    \par Este teorema no se evalua.
+    \PN Este teorema no se evalua.
   \end{theorem}
