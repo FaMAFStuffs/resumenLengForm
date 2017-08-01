@@ -4,7 +4,6 @@
   \begin{lemma}
     \PN Sea $S \subseteq \omega \times \SIGMA$, entonces $S$ es rectangular si y solo si se cumple la siguiente
     propiedad:
-
     \[
       \text{Si } (x, \alpha), \; (y, \beta) \in S \Rightarrow (x, \beta) \in S
     \]
@@ -18,7 +17,6 @@
   % Lemma 3: Sin prueba.
   \begin{lemma}
     \PN La función $s^{<}: \SIGMA \rightarrow \SIGMA$, definida recursivamente de la siguiente manera:
-
     \begin{eqnarray*}
   		s^{<}(\varepsilon) &=& a_{1} \\
   		s^{<}(\alpha a_{i}) &=& \alpha a_{i+1} \qquad \text{para } i < n \\
@@ -52,7 +50,6 @@
   % Lemma 6: Sin prueba.
   \begin{lemma}
     \PN Tenemos que:
-
     \[
       \SIGMA = \{\ast^{<}(0), \ast^{<}(1), \dotsc\}
     \]
@@ -63,7 +60,6 @@
   % Lemma 7: Sin prueba.
   \begin{lemma}
     \PN Sea $n \geq 1$ fijo, entonces cada $x \geq 1$ se escribe en forma única de la siguiente manera:
-
     \[
       x = i_{0} n^{0} + \dotsc + i_{k-1} n^{k-1} + i_{k} n^{k}
     \]
@@ -91,7 +87,6 @@
   \begin{theorem}
     \PN Para cada $x \in \mathbb{N}$, hay una única sucesión $(s_{1}, s_{2}, \dotsc) \in
     \omega^{\left[\mathbb{N}\right]}$ tal que:
-
     \[
       x = \underset{i=1}{\overset{\infty}{\Pi}} \; pr(i)^{s_{i}}
     \]
@@ -103,7 +98,6 @@
   % Lemma 12: Sin prueba.
   \begin{lemma}
     \PN Las funciones:
-
     \begin{equation*}
       \begin{aligned}
         \mathbb{N} &\rightarrow \omega^{\left[\mathbb{N}\right]} \\
@@ -122,7 +116,6 @@
   % Lemma 13: Sin prueba.
   \begin{lemma}
     \PN Recordemos, para cada $x \in \mathbb{N}$ se define:
-
     \[
       Lt(x) = \left\{\begin{array}{lll}
                       \max_{i} \; (x)_{i} \neq 0 && \text{si } x \neq 1 \\
@@ -138,5 +131,5 @@
     \end{enumerate}
 
     \PN Cabe destacar entonces que la función $\lambda ix[(x)_{i}]$ tiene dominio igual a $\mathbb{N}^{2}$ y la
-    función $\lambda ix[Lt(x)]$ tiene dominio igual a $\mathbb{N}$.
+    función $\lambda x[Lt(x)]$ tiene dominio igual a $\mathbb{N}$.
   \end{lemma}

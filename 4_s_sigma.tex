@@ -19,9 +19,9 @@
   \begin{proof}
     \PN Sea $f: S \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O$ una función computada por $\mathcal{P} \in
     \mathrm{Pro}^{\Sigma}$. El procedimiento que consiste en realizar las sucesivas instrucciones de $\mathcal{P}$,
-    partiendo de $((x_{1},\dotsc,x_{n},0,0,\dotsc), (\alpha_{1},\dotsc,\alpha_{m},\varepsilon,\varepsilon,\dotsc))$,
-    terminando eventualmente en caso de que nos toque realizar la instrucción $n(\mathcal{P})+1$, y dar como salida el
-    contenido de la variable $\mathrm{N}1$, es un procedimiento efectivo que computa a $f$.
+    partiendo de $((x_{1},\dotsc,x_{n},0,0,\dotsc), \linebreak (\alpha_{1},\dotsc,\alpha_{m},\varepsilon,\varepsilon,
+    \dotsc))$, terminando eventualmente en caso de que nos toque realizar la instrucción $n(\mathcal{P})+1$, y dar como
+    salida el contenido de la variable $\mathrm{N}1$, es un procedimiento efectivo que computa a $f$.
   \end{proof}
 
   % Proposition 54: Sin prueba.
@@ -29,7 +29,6 @@
     \begin{enumerate}[a)]
       \item Sea $f: S \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow \omega$ una función $\Sigma$-computable,
         entonces existe un macro:
-
         \[
           \left[\mathrm{V}\overline{n+1}\leftarrow f(\mathrm{V}1,\dotsc,\mathrm{V}\bar{n},\mathrm{W}1,\dotsc,\mathrm{W}
           \bar{m})\right]
@@ -37,7 +36,6 @@
 
       \item Sea $f: S \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow \SIGMA$ una función $\Sigma$-computable,
         entonces existe un macro:
-
         \[
           \left[\mathrm{W}\overline{m+1}\leftarrow f(\mathrm{V}1,\dotsc,\mathrm{V}\bar{n},\mathrm{W}1,\dotsc,\mathrm{W}
           \bar{m})\right]
@@ -49,7 +47,6 @@
   \begin{proposition}
     \PN Sea $P: S \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow \omega$ un predicado $\Sigma$-computable,
     entonces existe un macro:
-
     \[
       \left[\mathrm{IF} \; P(\mathrm{V}1,\dotsc,\mathrm{V}\bar{n},\mathrm{W}1,\dotsc,\mathrm{W}\bar{m}) \; \mathrm{GOTO}
       \; \mathrm{A}1\right]
@@ -67,13 +64,14 @@
     \vspace{3mm}
     \PN \underline{Caso Base:} \begin{tabular}{|c|} \hline $k = 0$ \\\hline \end{tabular}
 
+    \vspace{1mm}
     \PN Luego $h \in R_{0}^{\Sigma} = PR_{0}^{\Sigma}$, es decir:
     \[
       h \in \{Suc, Pred, C_{0}^{0,0}, C_{\varepsilon}^{0,0}\} \cup \{d_{a}: a \in \Sigma\} \cup \{p_{j}^{n,m} : 1 \leq j
       \leq n+m\}
     \]
 
-    \PN Por lo tanto, $h$ es $\Sigma$-computable, dado que exiten programas que computan dichas funciones.
+    \PN Por lo tanto, $h$ es $\Sigma$-computable, dado que existen programas que computan dichas funciones.
 
     \vspace{3mm}
 		\PN \underline{Caso Inductivo:} \begin{tabular}{|c|} \hline $k > 0$ \\\hline \end{tabular}
@@ -83,7 +81,6 @@
 
     \PN Sea $h \in \mathrm{R}_{k+1}^{\Sigma} - \mathrm{R}_{k}^{\Sigma}$. Supongamos $\Sigma = \{@, \$\}$. Existen varios
     casos, probaremos el caso $h=R(f,\mathcal{G})$, con:
-
     \begin{eqnarray*}
       f &:& S_{1 }\times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \rightarrow \SIGMA \\
       \mathcal{G}_{@} &:& S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc \times L_{m} \times \SIGMA \times
@@ -138,7 +135,6 @@
   \begin{proof}
     \PN Para simplificar la prueba asumiremos que $\Sigma =\{@,\&\}$. Dado que $\mathrm{Ins}^{\Sigma}$ es unión de los
     siguientes conjuntos:
-
     \begin{eqnarray*}
       L_{1} &=& \left\{\mathrm{N}\bar{k}\leftarrow \mathrm{N}\bar{k}+1:k\in \mathbb{N}\right\} \\
       L_{2} &=& \left\{\mathrm{N}\bar{k}\leftarrow \mathrm{N}\bar{k}\dot{-}1:k\in \mathbb{N}\right\} \\
@@ -171,13 +167,11 @@
 
     \PN es $(\Sigma \cup \Sigma_{p})$-PR. Primero nótese que $\alpha \in L_{11} \Leftrightarrow \exists k, m \in
     \mathbb{N}$ tales que:
-
     \[
       \alpha = \mathrm{IFP}\bar{k}\mathrm{BEGINS}@\mathrm{GOTOL}\bar{m}
     \]
 
     \PN Más formalmente tenemos que $\alpha \in L_{11}$ si y solo si:
-
     \[
       (\exists k \in \mathbb{N}), (\exists m \in \mathbb{N}): \alpha = \mathrm{IFP}\bar{k}\mathrm{BEGINS}@
       \mathrm{GOTOL}\bar{m}
@@ -185,7 +179,6 @@
 
     \PN Ya que cuando existen tales $k, m$ tenemos que $\bar{k}$ y $\bar{m}$ son subpalabras de $\alpha$, el
     \textbf{Lemma 58} nos dice que $\alpha \in L_{11}$ si y solo si:
-
     \[
       (\exists k \in \mathbb{N})_{k\leq 10^{\lvert \alpha \rvert}}(\exists m \in \mathbb{N})_{m \leq
       10^{\lvert \alpha \rvert}} \; \alpha = \mathrm{IFP}\bar{k}\mathrm{BEGINS}@\mathrm{GOTOL}\bar{m}
@@ -217,7 +210,6 @@
     \]
 
     \PN Utilizando dos veces el \textbf{Lemma 39} veremos que $\chi_{L_{11}}$ es $(\Sigma \cup \Sigma_{p})$-PR. Sea:
-
     \[
       Q = \lambda k\alpha \left[(\exists m \in \mathbb{N})_{m\leq 10^{\lvert \alpha \rvert}}\; P(m,k,\alpha)
       \right]
@@ -245,7 +237,7 @@
     \PN En forma similar podemos probar que $L_{1}, \dotsc, L_{14}$ son $(\Sigma \cup \Sigma_{p})$-PR. Por lo tanto,
     $L_{1} \cup \dotsc \cup L_{14}$ es $(\Sigma \cup \Sigma_{p})$-PR. Nótese que $L_{1} \cup \dotsc \cup L_{14}$ es el
     conjunto de las instrucciones básicas de $\mathcal{S}^{\Sigma}$. Llamemos $\mathrm{InsBas}^{\Sigma}$ a dicho
-    conjunto, resta ver que $L_{15}$ es $(\Sigma \cup \Sigma_{p})$-PR, notemos que:
+    conjunto, resta ver que $L_{15}$ es $(\Sigma \cup \Sigma_{p})$-PR. Notemos que:
     \[
       \chi_{L_{15}}=\lambda \alpha \left[ (\exists k\in \mathbb{N})_{k\leq 10^{\lvert \alpha \rvert}}(\exists \beta \in
       \mathrm{InsBas}^{\Sigma})_{\lvert \beta \rvert \leq \lvert \alpha \rvert} \ \alpha = \mathrm{L}\bar{k}\beta\right]
@@ -297,7 +289,7 @@
       \chi_{L} = \lambda \alpha \left[\alpha = \varepsilon\right] \vee R
     \]
 
-    \PN es $\Sigma$-PR y por lo tanto L lo es. Sea:
+    \PN es $(\Sigma \cup \Sigma_{p})$-PR y por lo tanto L lo es. Sea:
     \[
       P = \lambda I\alpha \left[\alpha \in \mathrm{Ins}^{\Sigma} \wedge I \in \mathrm{Ins}^{\Sigma} \wedge \lbrack
       \alpha]_{1} \neq \mathrm{L} \wedge (\exists \beta \in L)\ I = \beta\alpha\right]
@@ -334,12 +326,12 @@
 
     \PN Utilizando el \textbf{Lemma 39} tenemos que:
     \[
-      \lambda xI\alpha \left[(\exists \beta \in L)_{\lvert \beta \rvert \leq x} \; R(m,\alpha)\right]
+      \lambda xI\alpha \left[(\exists \beta \in L)_{\lvert \beta \rvert \leq x} \; R(I,\alpha,\beta)\right]
     \]
 
     \PN es $(\Sigma \cup \Sigma_{p})$-PR. Lo cual nos dice que:
     \[
-      P_4 = \lambda xI\alpha \left[(\exists \beta \in L)_{\lvert \beta \rvert \leq x} \; R(m,\alpha)\right] \circ
+      P_4 = \lambda xI\alpha \left[(\exists \beta \in L)_{\lvert \beta \rvert \leq x} \; R(I,\alpha,\beta)\right] \circ
       (\lambda \alpha \left[\lvert \alpha \rvert\right] \circ p_{1}^{0,2},p_{1}^{0,2},p_{2}^{0,2})
     \]
 
@@ -380,7 +372,7 @@
     \PN Este lemma no se evalua.
   \end{lemma}
 
-  Proposition 64: Sin prueba.
+  % Proposition 64: Sin prueba.
   \begin{proposition}
     \PN Sean $n, m \geq 0$, las funciones $i^{n,m}, E_{\#j}^{n,m}, E_{\star j}^{n,m}$ con $j = 1,2,\dotsc$, son $\Sigma
     \cup \Sigma_{p}$-PR.
@@ -391,9 +383,6 @@
     \PN Las funciones $\Phi_{\#}^{n,m}$ y $\Phi_{\ast}^{n,m}$ son $(\Sigma \cup \Sigma_{p})$-recursivas.
   \end{theorem}
   \begin{proof}
-    \begin{tabular}{|c|} \hline $\Phi_{\#}^{n,m}$ es $(\Sigma \cup \Sigma_{p})$-recursiva \\\hline \end{tabular}
-
-    \vspace{2mm}
     \PN Sea $P$ el siguiente predicado $(\Sigma \cup \Sigma_{p})$-mixto:
     \[
       \lambda t\vec{x}\vec{\alpha}\mathcal{P}\left[i^{n,m}(t,x_{1},\dotsc,x_{n},\alpha_{1},\dotsc,\alpha_{m},
@@ -403,49 +392,30 @@
     \PN Note que $D_{P} = \omega^{n+1} \times \Sigma^{\ast m} \times \mathrm{Pro}^{\Sigma}$. Ya que las funciones
     $i^{n,m}$ y $\lambda \mathcal{P} \left[n(\mathcal{P})\right]$ son $(\Sigma \cup \Sigma_{p})$-PR, $P$ lo es.
 
-    \PN Notar que $D_{M(P)} = D_{\Phi_{\#}^{n,m}}$. Además para $(\vec{x},\vec{\alpha},\mathcal{P}) \in D_{M(P)}$,
-    tenemos que $M(P)(\vec{x},\vec{\alpha},\mathcal{P})$ es la menor cantidad de pasos necesarios para que $\mathcal{P}$
-    termine partiendo del estado $((x_{1},\dotsc,x_{n},0,0,\dotsc)$, \linebreak $(\alpha_{1},\dotsc,\alpha_{m},
-    \varepsilon,\varepsilon,\dotsc))$. Ya que $P$ es $(\Sigma \cup \Sigma_{p})$-PR, tenemos que $M(P)$ es
-    $(\Sigma \cup \Sigma_{p})$-recursiva. Nótese que para $(\vec{x},\vec{\alpha},\mathcal{P}) \in D_{M(P)} =
-    D_{\Phi_{\#}^{n,m}}$ tenemos que:
-    \[
-      \Phi_{\#}^{n,m}(\vec{x},\vec{\alpha},\mathcal{P}) = E_{\#1}^{n,m}\left(M(P)(\vec{x},\vec{\alpha},\mathcal{P}),
-      \vec{x},\vec{\alpha},\mathcal{P}\right)
-    \]
-    \PN es decir,
-    \[
-      \Phi_{\#}^{n,m} = E_{\#1}^{n,m} \circ \left(M(P),p_{1}^{n,m+1},\dotsc,p_{n+m+1}^{n,m+1}\right)
-    \]
-    \PN Ya que la función $E_{\#1}^{n,m}$ es $(\Sigma \cup \Sigma_{p})$-recursiva, lo es $ \Phi _{\#}^{n,m}$.
+    \PN Notar que $D_{M(P)} = D_{\Phi_{\#}^{n,m}} = D_{\Phi_{\ast}^{n,m}}$. Además para $(\vec{x},\vec{\alpha},
+    \mathcal{P}) \in D_{M(P)}$, tenemos que $M(P)(\vec{x},\vec{\alpha},\mathcal{P})$ es la menor cantidad de pasos
+    necesarios para que $\mathcal{P}$ termine partiendo del estado $((x_{1},\dotsc,x_{n},0, \linebreak 0,\dotsc)$,
+    $(\alpha_{1},\dotsc,\alpha_{m},\varepsilon,\varepsilon,\dotsc))$. Ya que $P$ es $(\Sigma \cup \Sigma_{p})$-PR,
+    tenemos que $M(P)$ es $(\Sigma \cup \Sigma_{p})$-recursiva. Nótese que para $(\vec{x},\vec{\alpha},\mathcal{P})
+    \in D_{M(P)} = D_{\Phi_{\#}^{n,m}} = D_{\Phi_{\ast}^{n,m}}$ tenemos que:
+    \begin{eqnarray*}
+      \Phi_{\#}^{n,m}(\vec{x},\vec{\alpha},\mathcal{P}) &=& E_{\#1}^{n,m}\left(M(P)(\vec{x},\vec{\alpha},\mathcal{P}),
+        \vec{x},\vec{\alpha},\mathcal{P}\right) \\
+      \Phi_{\ast}^{n,m}(\vec{x},\vec{\alpha},\mathcal{P}) &=& E_{\ast1}^{n,m}\left(M(P)(\vec{x},\vec{\alpha},
+        \mathcal{P}),\vec{x},\vec{\alpha},\mathcal{P}\right)
+    \end{eqnarray*}
 
-    % TODO
-    % \vspace{3mm}
-    % \PN \begin{tabular}{|c|} \hline $\Phi_{\ast}^{n,m}$ es $(\Sigma \cup \Sigma_{p})$-recursiva \\\hline \end{tabular}
-    %
-    % \vspace{2mm}
-    % \PN Sea $Q$ el siguiente predicado $(\Sigma \cup \Sigma_{p})$-mixto:
-    %
-    % \PN Note que $D_{P} = \omega^{n+1} \times \Sigma^{\ast m} \times \mathrm{Pro}^{\Sigma}$. Ya que las funciones
-    % $i^{n,m}$ y $\lambda \mathcal{P} \left[n(\mathcal{P})\right]$ son $(\Sigma \cup \Sigma_{p})$-PR, $P$ lo es.
-    %
-    % \PN Notar que $D_{M(Q)} = D_{\Phi_{\#}^{n,m}}$. Además para $(\vec{x},\vec{\alpha}, \mathcal{P})\in D_{M(H)}$,
-    % tenemos que $M(H)(\vec{x},\vec{\alpha},
-    % \mathcal{P} )$ es la menor cantidad de pasos necesarios para que $\mathcal{P}$ termine partiendo del estado
-    % $((x_{1},\dotsc,x_{n},0,0,\dotsc)$, \linebreak $(\alpha _{1},\dotsc,\alpha _{m},\varepsilon ,\varepsilon ,\dotsc))$.
-    % Ya que $P$ es $(\Sigma \cup \Sigma_{p})$-PR., tenemos que $M(H)$ es $(\Sigma \cup \Sigma_{p})$-r..
-    % Nótese que para $(\vec{x},\vec{\alpha},\mathcal{P})\in D_{M(H)}=D_{\Phi _{\#}^{n,m}} $ tenemos que
-    % \[
-    %   \displaystyle \Phi _{\#}^{n,m}(\vec{x},\vec{\alpha},\mathcal{P})=E_{\#1}^{n,m}\left( M(H)( \vec{x},\vec{\alpha},
-    %   \mathcal{P}),\vec{x},\vec{\alpha},\mathcal{P}\right)
-    % \]
-    % lo cual con un poco mas de trabajo nos permite probar que % TODO: Hacer el poco mas de trabajo
-    % \[
-    %   \Phi_{\#}^{n,m} = E_{\#1}^{n,m} \circ \left(M(H),p_{1}^{n,m+1},\dotsc,p_{n+m+1}^{n,m+1}\right)
-    % \]
-    % Ya que la función $E_{\#1}^{n,m}$ es $(\Sigma \cup \Sigma_{p})$-r., lo es $ \Phi _{\#}^{n,m}$.
+    \PN es decir,
+    \begin{eqnarray*}
+      \Phi_{\#}^{n,m} &=& E_{\#1}^{n,m} \circ \left(M(P),p_{1}^{n,m+1},\dotsc,p_{n+m+1}^{n,m+1}\right) \\
+      \Phi_{\ast}^{n,m} &=& E_{\ast1}^{n,m} \circ \left(M(P),p_{1}^{n,m+1},\dotsc,p_{n+m+1}^{n,m+1}\right)
+    \end{eqnarray*}
+
+    \PN Ya que las funciones $E_{\#1}^{n,m}, E_{\ast1}^{n,m}$ son $(\Sigma \cup \Sigma_{p})$-recursiva, lo son
+    $\Phi_{\#}^{n,m}$ y $\Phi_{\ast}^{n,m}$.
   \end{proof}
 
+  \pagebreak
   % Corollary 66: Con prueba.
   \begin{corollary}
     \PN Si $f: D_{f} \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O$ es $\Sigma$-computable, entonces $f$ es
@@ -454,7 +424,6 @@
   \begin{proof}
     \PN Sea $\mathcal{P}_{0}$ un programa que compute a $f$. Primero veremos que $f$ es $(\Sigma \cup
     \Sigma_{p})$-recursiva. Note que:
-
     \begin{eqnarray*}
       O = \omega &\Rightarrow& f = \Phi_{\#}^{n,m} \circ \left(p_{1}^{n,m},\dotsc,p_{n+m}^{n,m},
         C_{\mathcal{P}_{0}}^{n,m}\right) \\
@@ -466,7 +435,6 @@
     \cup \Sigma_{p}$, es decir que tienen dominio $\omega^{n} \times (\Sigma \cup \Sigma_{p})^{\ast m}$. Dado que,
     $\Phi_{\#}^{n,m}, \Phi_{\ast}^{n,m}$ son $(\Sigma \cup \Sigma_{p})$-recursivas tenemos que $f$ es $(\Sigma \cup
     \Sigma_{p})$-recursiva. Luego, utilizando el \textbf{Theorem 51} tenemos:
-
     \begin{equation*}
 		  	\left.
 		  	\begin{array}{l}
@@ -505,7 +473,7 @@
 
     \PN Notese que $D_{P_{1}} = D_{P_{2}} = \omega \times \omega^{n} \times \Sigma^{\ast m}$ y que $P_{1}$ y $P_{2}$ son
     $(\Sigma \cup \Sigma_{p})$-PR. Además, utilizando el \textbf{Theorem 51} tenemos que son $\Sigma$-PR. También notar
-    que $D_{M((P_{1} \vee P_{2}))} = D_{f_{1}} \cup D_{f_{2}}$. Definimos:
+    que $D_{M(P_{1} \vee P_{2})} = D_{f_{1}} \cup D_{f_{2}}$. Definimos:
 
     \PN \begin{tabular}{|c|} \hline $O = \omega$ \\\hline \end{tabular}
     \begin{eqnarray*}
@@ -529,18 +497,17 @@
 
     \PN Nótese que $g_{1}, g_{2}, h_{1}$ y $h_{2}$ son $\Sigma$-recursivas y que $D_{g_{1}} = D_{g_{2}} = D_{h_{1}} =
     D_{h_{2}} = D_{f_{1}} \cup D_{f_{2}}$. Además nótese que:
-
     \[
       g_{1}(\vec{x},\vec{\alpha}) = \left\{
         \begin{array}{lll}
           f_{1}(\vec{x},\vec{\alpha}) & & \text{si } (\vec{x},\vec{\alpha})\in D_{f_{1}} \\
-          0 & & \text{caso contrario}
+          1 & & \text{caso contrario}
         \end{array} \right.
       \\ \qquad
       g_{2}(\vec{x},\vec{\alpha}) = \left\{
         \begin{array}{lll}
           f_{2}(\vec{x},\vec{\alpha}) & & \text{si }(\vec{x},\vec{\alpha})\in D_{f_{2}} \\
-          0 & & \text{caso contrario}
+          1 & & \text{caso contrario}
         \end{array} \right.
     \]
 
@@ -609,20 +576,55 @@
   \end{theorem}
   \begin{proof}
     \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular}
+    \PN Sea $\mathbb{P}$ un procedimiento efectivo que enumera a $S$, llamemos $\vec{e}$  a la salida de dicho
+    procedimiento.
+
+    \PN Definimos:
     \begin{eqnarray*}
-      \text{S es $\Sigma$-efectivamente enumerable} &\Rightarrow& \text{S es $\Sigma$-efectivamente computable} \qquad
-        \text{ Por \textbf{Theorem 16}} \\
-      &\Rightarrow& \text{S es $\Sigma$-recursivo} \qquad\qquad\qquad\qquad\qquad \text{Por \textbf{Tésis de Church}} \\
-      &\Rightarrow& \text{S es $\Sigma$-recursivamente enumerable} \qquad \text{Por \textbf{Theorem 77}}
+      F_{1} &:& \text{primera coordenada del vector } \vec{e}. \\
+      F_{2} &:& \text{segunda coordenada del vector } \vec{e}. \\
+      && \vdotswithin{(n-1)m+1} \qquad \vdotswithin{(n-1)m+2} \\
+      F_{n+m} &:& (n+m)\text{-ésima coordenada del vector } \vec{e}. \\
+      F &:& \omega \rightarrow \omega^{n} \times \Sigma^{\ast m} \\
+        && x \rightarrow \left(F_{1}(x), F_{2}(x), \dotsc, F_{n+m}(x)\right)
     \end{eqnarray*}
 
+    \PN Luego, dado que $S$ es $\Sigma$-efectivamente enumerable, por el \textbf{Theorem 16}, sabemos que $S$ es
+    $\Sigma$-efectivamente computable y por ende $\chi_{S}$ es $\Sigma$-efectivamente computable. Por lo tanto, existen
+    procedimientos efectivos que computan cada $F_{i}$, utilizando la \textbf{Tésis de Church}, cada $F_{i}$ es
+    $\Sigma$-R. Finalmente $S$ es $\Sigma$-recursivamente enumerable, dado que es la imagen de la función $F$.
+
+    \vspace{3mm}
     \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular}
-    \begin{eqnarray*}
-      \text{S es $\Sigma$-recursivamente enumerable} &\Rightarrow& \text{S es $\Sigma$-recursivo} \qquad\qquad\qquad
-        \qquad\ \ \ \text{ Por \textbf{Theorem 77}} \\
-      &\Rightarrow& \text{S es $\Sigma$-efectivamente computable} \qquad \text{Por \textbf{Theorem 42}} \\
-      &\Rightarrow& \text{S es $\Sigma$-efectivamente enumerable} \qquad \text{Por \textbf{Theorem 16}}
-    \end{eqnarray*}
+    \vspace{2mm}
+    \PN S es $\Sigma$-recursivamente enumerable, por definición, $S = \emptyset$ ó $\exists \ F: \omega \rightarrow S$,
+    tal que cada $F_{i}$ es $\Sigma$-R. El caso $S = \emptyset$ es trivial, supongamos que existe $F: \omega \rightarrow
+    S$. Utilizando el \textbf{Theorem 42}, tenemos que cada $F_{i}$ es $\Sigma$-efectivamente computable, es decir,
+    existen:
+    \begin{itemize}
+      \item $\mathbb{P}_{1}$ un procedimiento efectivo que compute a $F_{1}$.
+      \item $\mathbb{P}_{2}$ un procedimiento efectivo que compute a $F_{2}$.
+      \item $\vdotswithin{(n-1)m+1} \qquad \vdotswithin{(n-1)m+2} \qquad \vdotswithin{(n-1)m+r}$
+      \item $\mathbb{P}_{n+m}$ un procedimiento efectivo que compute a $F_{n+m}$.
+    \end{itemize}
+
+    \PN El siguiente procedimiento efectivo enumera a $S$:
+
+    \vspace{3mm}
+    \PN \textbf{Etapa 1:}
+    Realizar $\mathbb{P}_{1}$ con dato de entrada $x$ para obtener de salida $o_{1}$.
+
+    $\qquad\;\;\;\;$Realizar $\mathbb{P}_{2}$ con dato de entrada $x$ para obtener de salida $o_{2}$.
+
+    $\qquad\;\;\;\;\vdotswithin{(n-1)m+1} \qquad \vdotswithin{(n-1)m+2} \qquad \vdotswithin{(n-1)m+r}$
+
+    $\qquad\;\;\;\;$Realizar $\mathbb{P}_{n+m}$ con dato de entrada $x$ para obtener de salida $o_{n+m}$.
+
+    \PN \textbf{Etapa 2:}
+    Dar como dato de salida $(o_{1}, o_{2}, \dotsc, o_{n+m})$.
+
+    \vspace{3mm}
+    \PN Por lo tanto $S$ es $\Sigma$-efectivamente enumerable.
   \end{proof}
 
   % Theorem 71: Sin prueba.
@@ -673,8 +675,14 @@
   \end{corollary}
   \begin{proof}
     \PN Por el \textbf{Theorem 71} $S_{1} = D_{g_{1}}, S_{2} = D_{g_{2}}$, con $g_{1}, g_{2}$ funciones
-    $\Sigma$-recursivas. Notar que podemos suponer que $I_{g_{1}}, I_{g_{2}} \subseteq \Sigma^{\ast}$ por lo que $S_{1}
-    \cap S_{2} = D_{\lambda \alpha\beta \left[\alpha\beta\right] \circ (g_{1},g_{2})}$ es $\Sigma$-RE.
+    $\Sigma$-recursivas. Notar que:
+
+    \begin{itemize}
+      \item Si $I_{g_{1}}, I_{g_{2}} \subseteq \omega \;\; \Rightarrow S_{1} \cap S_{2} = D_{\lambda xy \left[x.y\right]
+      \circ (g_{1},g_{2})}$ es $\Sigma$-RE.
+      \item Si $I_{g_{1}}, I_{g_{2}} \subseteq \Sigma^{\ast} \Rightarrow S_{1} \cap S_{2} = D_{\lambda \alpha\beta
+        \left[\alpha\beta\right] \circ (g_{1},g_{2})}$ es $\Sigma$-RE.
+    \end{itemize}
   \end{proof}
 
   % Corollary 75: Con prueba.
@@ -708,14 +716,18 @@
   \end{theorem}
   \begin{proof}
     \begin{tabular}{|c|} \hline $\Rightarrow$ \\\hline \end{tabular}
-    \PN Utilizando la \textbf{Tésis de Church} tenemos que si $S$ es $\Sigma$-efectivamente computable entonces es
-    $\Sigma$-recursivo.
+    \begin{eqnarray*}
+      \text{S es $\Sigma$-efectivamente computable} &\Rightarrow& \chi_{S}\text{ es $\Sigma$-efectivamente computable} \\
+      \text{Por \textbf{Tésis de Church}} &\Rightarrow& \chi_{S} \text{ es $\Sigma$-recursivo} \\
+      &\Rightarrow& \text{S es $\Sigma$-recursivo}
+    \end{eqnarray*}
 
-    \vspace{5mm}
     \PN \begin{tabular}{|c|} \hline $\Leftarrow$ \\\hline \end{tabular}
-    \vspace{3mm}
-    \PN Utilizando el \textbf{Theorem 42} tenemos que si $S$ es $\Sigma$-recursivo entonces es $\Sigma$-efectivamente
-    computable como queriamos probar.
+    \begin{eqnarray*}
+      \text{S es $\Sigma$-recursivo} &\Rightarrow& \chi_{S}\text{ es $\Sigma$-recursivo} \\
+      \text{Por \textbf{Theorem 42}} &\Rightarrow& \chi_{S} \text{ es $\Sigma$-efectivamente computable} \\
+      &\Rightarrow& \text{S es $\Sigma$-efectivamente computable}
+    \end{eqnarray*}
   \end{proof}
 
   % Theorem 77: Con prueba.
@@ -729,6 +741,7 @@
   \begin{proof}
     \begin{tabular}{|c|} \hline $(a) \Rightarrow (b)$ \\\hline \end{tabular}
 
+    \vspace{3mm}
     \PN Notar que:
     \begin{itemize}
       \item $S = D_{Pred\ \circ\ \chi_{S}}$
@@ -758,7 +771,7 @@
       A = \left\{\mathcal{P} \in \mathrm{Pro}^{\Sigma}: Halt^{\Sigma}(\mathcal{P})\right\}
     \]
 
-    \PN es $\Sigma$-RE y no es $\Sigma$-recursivo. Más aán el conjunto:
+    \PN es $\Sigma$-RE y no es $\Sigma$-recursivo. Más aún el conjunto:
     \[
       N = \left\{\mathcal{P} \in \mathrm{Pro}^{\Sigma}: \lnot Halt^{\Sigma}(\mathcal{P})\right\}
     \]
@@ -777,9 +790,9 @@
     \[
       Halt^{\Sigma} = C_{1}^{0,1}\mid_{A} \cup \ C_{0}^{0,1}\mid_{N}
     \]
-    \PN tomando la contrarecíproca del \textbf{Lemma 68} y el \textbf{Theorem 71} nos dice que $N$ no es $\Sigma$-RE.
 
-    \PN Finalmente, supongamos $A$ es $\Sigma$-recursivo, entonces el conjunto:
+    \PN el \textbf{Lemma 68} y el \textbf{Theorem 71} nos dice que $N$ no es $\Sigma$-RE. Finalmente, supongamos $A$ es
+    $\Sigma$-recursivo, entonces el conjunto:
     \[
       N = \left(\SIGMA-A\right) \cap \mathrm{Pro}^{\Sigma}
     \]

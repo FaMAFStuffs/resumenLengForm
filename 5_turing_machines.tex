@@ -12,7 +12,6 @@
 	\begin{proof}
 	  \PN Note que $D_{\lambda dd^{\prime}\left[d\ \vdash d^{\prime }\right] }=Des\times Des$. También nótese que los
     predicados
-
     \begin{eqnarray*}
       \lambda q\sigma p\gamma \left[ (q,\sigma ,L)\in \delta (p,\gamma )\right] \\
       \lambda q\sigma p\gamma \left[ (q,\sigma ,R)\in \delta (p,\gamma )\right] \\
@@ -20,7 +19,7 @@
     \end{eqnarray*}
 
     \PN son $(\Gamma \cup Q)$-PR, ya que los tres tienen dominio igual a $Q \times \Gamma \times Q \times \Gamma$ el
-    cual es finito por \textbf{Corolario 36}.
+    cual es finito por \textbf{Corollary 36}.
 
     \vspace{3mm}
     \PN Sean:
@@ -28,8 +27,8 @@
       && P_{R}: Des \times Des \times \Gamma \times \Gamma^{\ast} \times \Gamma^{\ast} \times Q \times Q \rightarrow
         \omega \\
       && P_{R}(d,d^{\prime},\sigma,\alpha,\beta,p,q) = 1 \Leftrightarrow \left(d = \alpha p \beta\right) \wedge
-        \left((q,\sigma,R) \in \delta \left(p,\left[\beta B\right]_{1}\right)\right) \wedge \left(d^{\prime} = \alpha
-        \sigma q^{\curvearrowright}\beta\right) \\
+        \left((q,\sigma,R) \in \delta \left(p,\left[\beta B\right]_{1}\right)\right) \wedge \left(d^{\prime} =
+        \left\lfloor \alpha \sigma q^{\curvearrowright}\beta \right\rfloor\right) \\
       \\
       && P_{L}: Des \times Des \times \Gamma \times \Gamma^{\ast} \times \Gamma^{\ast} \times Q \times Q \rightarrow
         \omega \\
@@ -45,12 +44,11 @@
         \left\lfloor \alpha q \sigma^{\curvearrowright} \beta \right\rfloor\right)
       \end{eqnarray*}
     \PN Veamos, por ejemplo, que $P_L$ es $(\Gamma \cup Q)$-PR. Notar que:
-
     \[
       P_L = P_1 \land P_2 \land P_3 \land P_4
     \]
-    \PN donde $P_1, P_2,  P_3, P_4$ son los siguientes predicados:
 
+    \PN donde $P_1, P_2,  P_3, P_4$ son los siguientes predicados:
     \begin{eqnarray*}
       P_1 &=& \lambda dd^{\prime}\sigma\alpha\beta pq \left[d = \alpha p \beta\right] \\
           &=& \lambda \alpha\beta\left[\alpha = \beta\right]
@@ -118,10 +116,10 @@
       \; P(d,d^{\prime},\sigma,\alpha,\beta,p,q)\right]
     \end{eqnarray*}
 
-    \PN Luego, aplicando cinco veces el \textbf{Lemma 39} obetenemos que $\lambda dd^{\prime} \left[d\vdash d^{\prime}
+    \PN Luego, aplicando cinco veces el \textbf{Lemma 39} obtenemos que $\lambda dd^{\prime} \left[d\vdash d^{\prime}
     \right]$ es $(\Gamma \cup Q)$-PR. Veamos esto. Notar primero que como $\beta, \alpha, \sigma, p, q$ son subpalabras
-    de $d$ y $d^{\prime}$ respectivamente tenemos que $\lvert\beta\rvert, \lvert\alpha\rvert, \lvert\sigma\rvert, \lvert
-    p \rvert, \lvert q \rvert \leq \lvert d \rvert + \lvert d^{\prime} \rvert$.
+    de $d$ y $d^{\prime}$ respectivamente, tenemos que $\lvert\beta\rvert, \lvert\alpha\rvert, \lvert\sigma\rvert,
+    \lvert p \rvert, \lvert q \rvert \leq \lvert d \rvert + \lvert d^{\prime} \rvert$.
     \begin{align*}
       L_1 &= \lambda xdd^{\prime}\sigma\alpha\beta p \left[(\exists q \in Q)_{\lvert q \rvert \leq x} \; P(d,d^{\prime},
              \sigma,\alpha,\beta,p,q)\right] \\
@@ -132,8 +130,8 @@
              p_{3}^{0,6}, p_{4}^{0,6}, p_{5}^{0,6}, p_{6}^{0,6})
     \end{align*}
 
-    \PN Luego, utilizando el \textbf{Lemma 39} obtenemos que $L_{1}$ es $(\Gamma \cup Q)$-PR y por ende $Q_{1}$ es
-    $(\Gamma \cup Q)$-PR. De la misma manera podemos que el predicado $Q_{2}$ es $(\Gamma \cup Q)$-PR.
+    \PN Por \textbf{Lemma 39} tenemos que $L_{1}$ es $(\Gamma \cup Q)$-PR y por ende $Q_{1}$ es $(\Gamma \cup Q)$-PR. De
+    la misma manera podemos que el predicado $Q_{2}$ es $(\Gamma \cup Q)$-PR.
     \begin{align*}
       L_2 &= \lambda xdd^{\prime}\sigma\alpha\beta \left[(\exists p \in Q)_{\lvert p \rvert \leq x} \;
              Q_{1}(d,d^{\prime},\sigma,\alpha,\beta,p)\right] \\
@@ -182,38 +180,41 @@
   \end{theorem}
   \begin{proof}
     \PN Sea $P$ el siguiente predicado $(\Gamma \cup Q)$-mixto:
-
     \[
       P = \lambda n\alpha \left[(\exists d \in Des) \; \left\lfloor q_{0} B \alpha \right\rfloor \overset{n}{\vdash} d
       \wedge St(d) \in F\right]
     \]
 
-    \PN Nótese que $D_{P} = \omega \times \Gamma^{\ast}$. Veamos que $P$ es $(\Gamma \cup Q)$-PR. Para ello definamos:
-
+    \PN Nótese que $D_{P} = \omega \times \Gamma^{\ast}$. Veamos que $P$ es $(\Gamma \cup Q)$-PR. Para ello tomemos:
     \[
       P = P_1 \land P_2
     \]
 
     \PN donde $P_1$ y $P_2$:
-    \begin{align*}
-      P_1 &= \lambda n\alpha \left[(\exists d \in Des)\; Q(n,\alpha,d)\right] \\
-        Q &= \lambda n\alpha d \left[ \left\lfloor q_{0} B \alpha \right\rfloor \overset{n}{\vdash} d\right] \\
-          &= \lambda ndd^{\prime} \left[d \overset{n}{\vdash} d\right] \circ (\lambda \alpha \left[\left\lfloor \alpha
-             \right\lfloor\right] \circ(\lambda \alpha\beta \left[\alpha\beta\right] \circ (C_{q_0 B}^{1,2}, p_{2}^{1,2}
-             )), p_{3}^{1,2}) \\[10pt]
-      P_2 &= \lambda n\alpha \left[St(d) \in F\right]
-    \end{align*}
+    \begin{eqnarray*}
+      P_1 &=& \lambda n\alpha \left[(\exists d \in Des) \left\lfloor q_{0} B \alpha \right\rfloor \overset{n}{\vdash}
+        d\right] \\
+      P_2 &=& \lambda n\alpha \left[St(d) \in F\right]
+    \end{eqnarray*}
 
-    \PN Sabemos que el conjunto $F$ es finito, por \textbf{Corollary 30}, $F$ es $(\Gamma \cup Q)$-PR. También sabemos
-    que $\chi_F$ es $(\Gamma \cup Q)$-PR, por lo tanto el predicado $P_2$ es $(\Gamma \cup Q)$-PR.
-    \PN Por \textbf{Lema 39} tenemos que:
+    \PN Sabemos que el conjunto $F$ es finito, por \textbf{Corollary 30}, $F$ es $(\Gamma \cup Q)$-PR. Además $\chi_F$
+    es $(\Gamma \cup Q)$-PR, por lo tanto el predicado $P_2$ es $(\Gamma \cup Q)$-PR.
 
+    \PN Definimos:
+    \begin{eqnarray*}
+      Q &=& \lambda n\alpha d \left[ \left\lfloor q_{0} B \alpha \right\rfloor \overset{n}{\vdash} d\right] \\
+        &=& \lambda ndd^{\prime} \left[d \overset{n}{\vdash} d\right] \circ (\lambda \alpha \left[\left\lfloor \alpha
+        \right\rfloor\right] \circ(\lambda \alpha\beta \left[\alpha\beta\right] \circ (C_{q_0 B}^{1,2}, p_{2}^{1,2})),
+        p_{3}^{1,2})
+    \end{eqnarray*}
+
+    \PN Por \textbf{Lemma 39} tenemos que:
     \[
       L = \lambda x n\alpha \left[ (\exists d\in Des)_{\lvert d \rvert \leq x}\; Q(n, \alpha, d)\right] \\[10pt]
     \]
 
     \PN es $(\Gamma \cup Q)$-PR, es decir, solo nos falta acotar el cuantificador existencial, para poder aplicar el
-    \textbf{Lema 39}. Dado que cuando $d_{1},\dotsc,d_{n+1} \in Des$ son tales que $d_{1} \vdash d_{2} \vdash \dotsc
+    \textbf{Lemma 39}. Dado que cuando $d_{1},\dotsc,d_{n+1} \in Des$ son tales que $d_{1} \vdash d_{2} \vdash \dotsc
     \vdash d_{n+1}$ tenemos que:
     \[
       \left\vert d_{i} \right\vert \leq \left\vert d_{1} \right\vert + n \text{, para } i=1, \dotsc, n
@@ -231,10 +232,10 @@
 
     \PN nótese que $P^{\prime}(n,\alpha) = 1 \Leftrightarrow \alpha \in L(M)$ atestiguado por una computación de
     longitud $n$.
-    \PN Por \textbf{Corollary 72} $P^{\prime}$ es $(\Gamma \cup Q)$-PR, y además es $\Sigma$-mixto. Utilizando el
-    \textbf{Teorema 51} tenemos que $P^{\prime}$ es $\Sigma $-PR.
+    \PN Por \textbf{Corollary 72}, $P^{\prime}$ es $(\Gamma \cup Q)$-PR, y además es $\Sigma$-mixto. Utilizando el
+    \textbf{Theorem 51} tenemos que $P^{\prime}$ es $\Sigma $-PR.
 
-    \PN Dado que $L(M) = D_{M(P^{\prime})}$, el \textbf{Teorema 71} nos dice que $L(M)$ es $\Sigma$-recuersivamente
+    \PN Dado que $L(M) = D_{M(P^{\prime})}$, el \textbf{Theorem 71} nos dice que $L(M)$ es $\Sigma$-recursivamente
     enumerable.
   \end{proof}
 
@@ -245,7 +246,6 @@
   \end{theorem}
 	\begin{proof}
     Supongamos $O=\SIGMA$. Sean:
-
     \begin{itemize}
       \item $M = \left(Q,\Sigma,\Gamma,\delta,q_{0},B,\shortmid,F\right)$ una máquina de Turing determinística con unit
         la cual compute a $f$.
@@ -278,9 +278,9 @@
              ((x)_{2}) \right\vert + 2} \; Q_2(x,\vec{x},\vec{\alpha},d)\right]
     \end{align*}
 
-    \PN Es fácil ver que $Q_1$ y $Q_2$ son $(\Gamma \cup Q)$-PR. Luego, aplicando el \textbf{Lema 39} tenemos que $P_1$
-    y $P_2$ son $(\Gamma \cup Q)$-PR y por ende $P$ es $(\Gamma \cup Q)$-PR, dado que es $\Sigma $-mixto, el
-    \textbf{Teorema 51} nos dice que es $\Sigma $-PR. Nótese que:
+    \PN Es fácil ver que $Q_1$ y $Q_2$ son $(\Gamma \cup Q)$-PR. Luego, aplicando el \textbf{Lemma 39} tenemos que $P_1$
+    y $P_2$ son $(\Gamma \cup Q)$-PR y por ende $P$ es $(\Gamma \cup Q)$-PR. Dado que $P$ es $\Sigma $-mixto, el
+    \textbf{Theorem 51} nos dice que es $\Sigma $-PR. Nótese que:
     \[
       f = \lambda \vec{x}\vec{\alpha} \left[\left(\min_{x} \ P(x,\vec{x},\vec{\alpha})\right)_{2}\right]
     \]
@@ -333,7 +333,6 @@
   \begin{proof}
     \PN Dado un estado $((x_{1}, \dotsc, x_{k}, 0, \dotsc),(\alpha_{1}, \dotsc, \alpha_{k}, \varepsilon, \dotsc))$,
     dicho estado se representará en la cinta de la siguiente manera:
-
     \[
       B \shortmid^{x_{1}} B \dotsc B \shortmid^{x_{k}} B \alpha_{1} B \dotsc B \alpha_{k} BBBB \dotsc
     \]
@@ -509,7 +508,6 @@
         \end{figure}
 
         \PN Notar que:
-
     		\[
     		  \begin{array}{lcr}
             \alpha B \beta_{1} B \beta_{2} B \dotsc B \beta_{j} B \gamma &\overset{\ast}{\vdash}& \alpha B \beta_{1} B
@@ -521,8 +519,7 @@
 
         \PN siempre que $\alpha, \gamma \in \Gamma ^{\ast}, \beta_{1}, \dotsc, \beta_{j} \in (\Gamma -\{B\})^{\ast}$.
 
-      \item $I_{j}$ la siguiente máquina. Notar que:
-
+      \item $I_{j}$ una máquina tal que:
     		\[
     		  \begin{array}{lcr}
             \alpha B \beta_{1} B
@@ -536,7 +533,6 @@
         \PN siempre que $\alpha, \gamma \in \Gamma ^{\ast}, \beta_{1}, \dotsc, \beta_{j} \in (\Gamma -\{B\})^{\ast}$.
 
       \item $TD_{j}$ una máquina con un solo estado final $q_{f}$ y tal que:
-
     		\[
           \begin{array}{ccc}
             \alpha B \gamma &\overset{\ast}{\vdash} &\alpha B B \gamma \\
@@ -557,7 +553,6 @@
 
       \pagebreak
       \item $TI_{j}$ una máquina tal que:
-
     		\[
           \begin{array}{ccc}
             \alpha B \sigma \gamma &\overset{\ast}{\vdash}& \alpha B \gamma \\
@@ -643,7 +638,6 @@
     \pagebreak
     \PN Luego para cada $i$ tal que $Bas(I_{i})$ es de la forma $\alpha \ \mathrm{GOTO} \ \mathrm{L}\bar{m}$, ligamos
     con una flecha de la forma:
-
 		\[
       \underrightarrow{\qquad B,B,K \qquad}
 		\]
@@ -671,8 +665,7 @@
       \item $M$ la máquina de Turing con unit dada por el \textbf{Lemma 84}, donde elegimos el número $k$ con la
         propiedad adicional de ser mayor que $n$ y $m$.
 
-      \item $M_{1}$ una máquina tal que para cada $(\vec{x},\vec{\alpha}) \in \omega^{n} \times \Sigma^{\ast m}$:
-
+      \item $M_{1}$ una máquina tal que para cada $(\vec{x},\vec{\alpha}) \in \omega^{n} \times \Sigma^{\ast m}$
       	\[
           \left\lfloor q_{0} B \shortmid^{x_{1}} B \dotsc B \shortmid^{x_{n}} B \alpha_{1} B \dotsc B \alpha_{m} B
           \right\rfloor \overset{\ast}{\vdash}\left\lfloor q B \shortmid^{x_{1}} B \dotsc B \shortmid^{x_{n}}
@@ -682,8 +675,7 @@
         \PN donde $q_{0}$ es el estado inicial de $M_{1}$ y $q$ es un estado tal que $\delta(q,\sigma) =
         \emptyset$, para cada $\sigma$.
 
-      \item $M_{2}$ una máquina tal que para cada $\alpha \in \SIGMA$:
-
+      \item $M_{2}$ una máquina tal que para cada $\alpha \in \SIGMA$
       	\[
           \left\lfloor q_{0} B^{k+1} \alpha \right\rfloor \overset{\ast}{\vdash} \left\lfloor q B \alpha
           \right\rfloor

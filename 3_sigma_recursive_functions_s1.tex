@@ -16,7 +16,7 @@
       \item $\mathbb{P}_{n+m}$ un procedimiento efectivo que compute a $f_{n+m}$.
     \end{itemize}
 
-    \PN El siguiente procedimiento $\mathbb{P}$ computa $f \circ (f_{1}, \dotsc, f_{n+m})$:
+    \PN El siguiente procedimiento computa $f \circ (f_{1}, \dotsc, f_{n+m})$:
 
     \vspace{3mm}
     \PN \textbf{Etapa 1:}
@@ -99,7 +99,7 @@
     $\Sigma$-efectivamente computable.
 
     \PN Dado que las funciones de $PR_{k}^{\Sigma}$ son $\Sigma$-efectivamente computable por hipótesis inductiva, y
-    que el conjunto $PR_{k+1}^{\Sigma}$ se contruye a partir de dichas funciones, a través de recursiones o
+    que el conjunto $PR_{k+1}^{\Sigma}$ se construye a partir de dichas funciones, a través de recursiones o
     composiciones, las cuales probamos son $\Sigma$-efectivamente computables en el \textbf{Lemma 18} y
     \textbf{Lemma 19}, concluimos entonces que $f$ es $\Sigma$-efectivamente computable.
   \end{proof}
@@ -217,12 +217,12 @@
     \begin{enumerate}[a)]
       \item Notar que:
         \begin{eqnarray*}
-          \lambda tx \left[x^{t}\right](0, x_{1}) &=& 0 = C_{0}^{1,0}(x_{1}) \\
+          \lambda tx \left[x^{t}\right](0, x_{1}) &=& 0 = C_{1}^{1,0}(x_{1}) \\
           \lambda tx \left[x^{t}\right](t+1, x_{1}) &=& \lambda tx \left[x^{t}\right](t, x_{1}) . x_{1} \\
           &=& \lambda xy \left[x.y\right] \circ (p_{1}^{3,0}, p_{3}^{3,0})
         \end{eqnarray*}
-        \PN Osea que $\lambda tx \left[x^{t}\right] = R\left(C_{1}^{1,0}, \lambda tx \left[x^{t}\right] \circ
-        (p_{2}^{2,0}, p_{1}^{2,0}\right) \in \mathrm{PR}^{\emptyset}$.
+        \PN Osea que $\lambda tx \left[x^{t}\right] = R\left(C_{1}^{1,0}, \lambda xy \left[x.y\right] \circ
+        (p_{1}^{3,0}, p_{3}^{3,0}\right) \in \mathrm{PR}^{\emptyset}$.
         \PN Por lo tanto, $\lambda xy \left[x^{y}\right] = \lambda tx \left[x^{t}\right] \circ (p_{2}^{2,0},
         p_{1}^{2,0})$.
 
@@ -238,6 +238,7 @@
     \end{enumerate}
   \end{proof}
 
+  \pagebreak
   % Lemma 26: Con prueba.
   \begin{lemma}
     \PN Si $<$ es un orden total estricto sobre un alfabeto no vacío $\Sigma$, entonces:
@@ -348,19 +349,17 @@
         \PN Por lo tanto, $\lambda xy \left[x \leq y\right] \in \mathrm{PR}^{\emptyset}$.
 
       \item Sea $<$ un orden total estricto sobre $\Sigma$. Ya que:
-
         \[
           \alpha = \beta \Leftrightarrow \#^{<}(\alpha) = \#^{<}(\beta)
         \]
 
         \PN tenemos que:
-
         \[
           \lambda \alpha\beta \left[\alpha=\beta\right] = \lambda xy \left[x=y\right] \circ (\#^{<} \circ p_{1}^{0,2},
           \#^{<} \circ p_{2}^{0,2})
         \]
 
-        \PN Luego, utilizando el inciso (c) y el \textbf{Lemma 28} obtenemos que $\lambda \alpha\beta
+        \PN Luego, utilizando el inciso (c) y el \textbf{Lemma 26} obtenemos que $\lambda \alpha\beta
         \left[\alpha=\beta\right] \in \mathrm{PR}^{\Sigma}$.
     \end{enumerate}
   \end{proof}
@@ -380,6 +379,7 @@
     \end{eqnarray*}
   \end{proof}
 
+  \pagebreak
   % Lemma 29: Con prueba.
   \begin{lemma}
     \PN Si $S_{1}, S_{2} \subseteq \omega^{n} \times \Sigma^{\ast m}$ son $\Sigma$-PR, entonces $S_{1} \cup S_{2}$,
@@ -401,13 +401,11 @@
   \begin{proof}
     \PN Se probará el caso $n = m = 1$, es decir, $S \subseteq \omega \times \SIGMA$. Supongamos, sin pérdida de
     generalidad, utilizando el \textbf{Lemma 29} que:
-
     \[
       S = \{(z, \gamma)\}
     \]
 
     \PN Notar que $\chi_{S}$ es el siguiente predicado:
-
     \[
       \left(\chi_{z} \circ p_{1}^{1,1} \wedge \chi_{\gamma} \circ p_{2}^{1,1}\right)
     \]
@@ -449,7 +447,6 @@
 
     \vspace{3mm}
     \PN \begin{tabular}{|c|} \hline $\Leftarrow$\\\hline \end{tabular} Notar que:
-
     \[
       \chi_{S_{1} \times L_{1}} = \left(\chi_{S_{1}} \circ p_{1}^{1,1} \wedge \chi_{L_{1}} \circ p_{2}^{1,1} \right)
     \]
@@ -457,24 +454,23 @@
     \PN luego, por el \textbf{Lemma 28}, $S_{1} \times L_{1}$ es $\Sigma$-PR.
   \end{proof}
 
+  \pagebreak
   % Lemma 32: Con prueba.
   \begin{lemma}
     \PN Supongamos $f: D_{f} \subseteq \omega^{n} \times \Sigma^{\ast m} \rightarrow O$ es $\Sigma$-PR, donde $O \in
     \{\omega, \SIGMA\}$. Si $S \subseteq D_{f}$ es $\Sigma$-PR, entonces $f \mid_{S}$ es $\Sigma$-PR.
   \end{lemma}
   \begin{proof}
-    \begin{tabular}{|c|} \hline $O = \SIGMA$ \\\hline \end{tabular} Notar que:
-
+    \begin{tabular}{|c|} \hline $O = \omega$ \\\hline \end{tabular} Notar que:
     \[
-      f \mid_{S} \; = \lambda x\alpha \left[\alpha^{x}\right] \circ (Suc \circ Pred \circ \chi_{S}, f)
+    f \mid_{S} \; = \lambda xy \left[x^{y}\right] \circ (f, Suc \circ Pred \circ \chi_{S})
     \]
 
     \PN luego $f$ es $\Sigma$-PR.
 
-    \PN \begin{tabular}{|c|} \hline $O = \omega$ \\\hline \end{tabular} Notar que:
-
+    \PN \begin{tabular}{|c|} \hline $O = \SIGMA$ \\\hline \end{tabular} Notar que:
     \[
-      f \mid_{S} \; = \lambda xy \left[x^{y}\right] \circ (f, Suc \circ Pred \circ \chi_{S})
+      f \mid_{S} \; = \lambda x\alpha \left[\alpha^{x}\right] \circ (Suc \circ Pred \circ \chi_{S}, f)
     \]
 
     \PN luego $f$ es $\Sigma$-PR.
@@ -563,7 +559,7 @@
         \end{itemize}
 
         \PN con $S_{1}, \dotsc, S_{n} \subseteq \omega$ y $L_{1}, \dotsc, L_{m} \subseteq \SIGMA$ conjuntos no vacíos
-        y $f, g \in \mathrm{PR}_{k}^{\Sigma}$, para todos los casos anteriores.
+        y $f, g$ y $\mathcal{G}_{a} \in \mathrm{PR}_{k}^{\Sigma}$, para todos los casos anteriores.
 
         \PN Por hipótesis inductiva tenemos que $D_{f} = S_{1} \times \dotsc \times S_{n} \times L_{1} \times \dotsc
         \times L_{m}$ es $\Sigma$-PR, lo cual por el \textbf{Lemma 31} nos dice que los conjuntos $S_{1}, \dotsc, S_{n},
@@ -588,13 +584,11 @@
 
         \PN Por hipótesis inductiva, los conjuntos $D_{g}$, $D_{g_{i}}$, para $i = 1, \dotsc, n + m$, son $\Sigma$-PR y
         por lo tanto:
-
         \[
           S = \bigcap_{i=1}^{n+m} D_{g_{i}}
         \]
 
         \PN lo es. Notese además, que:
-
         \[
           \chi_{D_{F}} = \left((\chi_{D_{g}} \circ (\bar{g}_{1}, \dotsc, \bar{g}_{n+m})) \wedge \chi_{S}\right)
         \]
